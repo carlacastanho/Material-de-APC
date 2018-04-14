@@ -60,28 +60,91 @@
                             <section id="intro" class="doc-section">
                                 <h2 class="section-title">Introdução</h2>
                                 <div class="section-block">
-                                    <p>Em algumas aplicações podemos ter uma quantidade muito grande de dados do mesmo tipo para processar, e criar uma variável para cada dado seria muito complicado.</p>
-                                    <p>Em algumas aplicações temos sequências de algum tipo e o programa precisa funcionar para qualquer sequência, independente dos valores nela ou do tamanho da sequência.</p>
-                                    <p>Para essas situações usamos vetores (também chamados arrays).</p>
+                                    <ul class="list">
+                                        <li><p>Em algumas aplicações podemos ter uma quantidade muito grande de dados do mesmo tipo para processar, e criar uma variável para cada dado seria muito complicado.</p></li>
+                                        <li><p>Em algumas aplicações temos sequências de algum tipo e o programa precisa funcionar para qualquer sequência, independente dos valores nela ou do tamanho da sequência.</p></li>
+                                        <li><p>Para essas situações usamos vetores (também chamados arrays).</p></li>
+                                    </ul>
 
                                 </div>
-                            </section><!--//doc-section-->
-                            <section id="oquee" class="doc-section">
-                                <h2 class="section-title">O que é um Vetor ?</h2>
-                                
                             </section><!--//doc-section-->
                             <section id="estrutura" class="doc-section">
                                 <h2 class="section-title">Estrutura de um Vetor</h2>
                                 <div class="section-block">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec imperdiet turpis. Curabitur aliquet pulvinar ultrices. Etiam at posuere leo. Proin ultrices ex et dapibus feugiat <a href="#">link example</a> aenean purus leo, faucibus at elit vel, aliquet scelerisque dui. Etiam quis elit euismod, imperdiet augue sit amet, imperdiet odio. Aenean sem erat, hendrerit  eu gravida id, dignissim ut ante. Nam consequat porttitor libero euismod congue. 
-                                    </p>
+                                    <ul class="list">
+                                        <li><p>Vetores são sequências ordenadas e indexáveis de um mesmo tipo (int, float, double, char, … )</p>
+                                        <li><p>Vetores possuem:</p>
+                                            <ul class="list">
+                                                <li>Tipo</li>      <li>Nome.</li>       <li>Tamanho.</li>
+                                            </ul>
+                                            <div id="python" class="section-block">
+                                                <div class="code-block">
+                                                    <pre><code class="language-python">  
+int array[100]; // vetor “array” de tipo int com tamanho 100
+
+float nums[] = {3.14, 2.71, 1.44, 9.98}; // vetor “nums” de tipo float inicializado
+                                                    </code></pre>
+                                                </div>
+                                            </div><!--//code-block-->
+                                        </li>
+                                        <li><p>Vetores podem ser inicializados na declaração, e somente nesse caso não é necessário indicar o tamanho</p></li>
+                                    </ul>
                                 </div>
                             </section><!--//doc-section-->
                             <section id="segfault" class="doc-section">
                                 <h2 class="section-title">Índices &amp; Seg Fault</h2>
                                 <div class="section-block">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec imperdiet turpis. Curabitur aliquet pulvinar ultrices. Etiam at posuere leo. Proin ultrices ex et dapibus feugiat <a href="#">link example</a> aenean purus leo, faucibus at elit vel, aliquet scelerisque dui. Etiam quis elit euismod, imperdiet augue sit amet, imperdiet odio. Aenean sem erat, hendrerit  eu gravida id, dignissim ut ante. Nam consequat porttitor libero euismod congue. 
-                                    </p>
+                                    <ul class="list">
+                                        <div id="python" class="section-block">
+                                            <div class="code-block">
+                                                <pre><code class="language-python">  
+int array[3] = {1, 4 ,-8}
+                                                </code></pre>
+                                            </div>
+                                        </div><!--//code-block-->
+                                        <li><p>Vetores são indexados de 0 até n-1, ou seja, a primeira posição  do vetor se encontra no índice 0.</p></li>
+                                        <div id="python" class="section-block">
+                                            <div class="code-block">
+                                                <pre><code class="language-python">  
+índice:    0   1   2
+valor:    [1] [4] [-8]
+                                                </code></pre>
+                                            </div>
+                                        </div><!--//code-block-->
+                                        <li><p>Os valores de um vetor podem ser acessados em tempo  constante,  para isso, basta indicar qual posição  deseja acessar.</p></li>
+                                        <div id="python" class="section-block">
+                                            <div class="code-block">
+                                                <pre><code class="language-python">  
+int a,b,c,x = 2;
+a = array[0]; // a = 1
+b = array[1]; // b = 4
+c = array[x]; // c = -8
+                                                </code></pre>
+                                            </div>
+                                        </div><!--//code-block-->
+                                        <li><p>Deve-se atentar bastante para não acessar um índice que não existe. O acesso de um vetor por um índice inválido causa um erro chamado SEGMENTATION FAULT.</p>
+                                            <ul class="list">
+                                                <li><p>Índices negatios (-1, -2 … ) ou maiores ou iguais ao tamanho do vetor (n , n+1 …) causam falha de segmentação.</p></li>
+                                            </ul>
+                                        </li>
+
+                                        <div id="python" class="section-block">
+                                            <div class="code-block">
+                                                <pre><code class="language-python">  
+int main(){
+    int a[3] = {1, 4, -8};
+    int b[3], 1;
+
+    for(i = 0; i < 3; i++){
+        b[i] = a[i] * 2;
+    }
+    return 0;
+}
+                                                </code></pre>
+                                            </div>
+                                        </div><!--//code-block-->
+                                        CODE RUNING.GIF HERE
+                                    </ul>
                                 </div>
                             </section><!--//doc-section-->
                             <section id="parametros" class="doc-section">
@@ -105,7 +168,7 @@
                                     </p>
                                 </div>
                             </section><!--//doc-section-->
-                            <section id="Materiais" class="doc-section">
+                            <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
                                 <div class="section-block">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec imperdiet turpis. Curabitur aliquet pulvinar ultrices. Etiam at posuere leo. Proin ultrices ex et dapibus feugiat <a href="#">link example</a> aenean purus leo, faucibus at elit vel, aliquet scelerisque dui. Etiam quis elit euismod, imperdiet augue sit amet, imperdiet odio. Aenean sem erat, hendrerit  eu gravida id, dignissim ut ante. Nam consequat porttitor libero euismod congue. 
@@ -120,13 +183,12 @@
                         <nav id="doc-nav">
                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
                                 <li><a class="scrollto" href="#intro">Introdução</a></li>
-                                <li><a class="scrollto" href="#oquee">O que é um vetor ?</a></li>
                                 <li><a class="scrollto" href="#estrutura">Estrutura de um Vetor</a></li>
                                 <li><a class="scrollto" href="#segfault">Índices &amp; Seg Fault</a></li>
                                 <li><a class="scrollto" href="#parametros">Parâmetros de função</a></li>
                                 <li><a class="scrollto" href="#malloc">Malloc &amp; Memset</a></li>
                                 <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
-                                <li><a class="scrollto" href="#Materiais">Materiais Extras</a></li>
+                                <li><a class="scrollto" href="#materiais">Materiais Extras</a></li>
 
                             </ul><!--//doc-menu-->
                         </nav>
