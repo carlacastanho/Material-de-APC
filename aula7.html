@@ -57,7 +57,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> Vetores</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: April 24th, 2018</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: April 16th, 2018</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -115,10 +115,11 @@ c = array[x]; // c = -8             </pre>
 int n = 31230;
 int array[3] = {1, 4 ,-8};  
 printf("%d\n",array[n]); // Irá ocorrer falha de segmentação         </pre>
+                                    <a href="assets/codes/segfault.c" class="btn btn-green" download="">Download Code</a>
                                     <p>Executando o programa no terminal</p>
                                     <pre class = "prettyprint  lang-bsh" style=" font-size:100%;">
-    $ gcc -Wall -ansi -o seg seg.c
-    $ ./seg
+    $ gcc -Wall -ansi -o segfault segfault.c
+    $ ./segfault
     Segmentation fault (core dumped)
     $         </pre>
                                     </li>
@@ -129,13 +130,14 @@ printf("%d\n",array[n]); // Irá ocorrer falha de segmentação         </pre>
                                             <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%; ">
 int main(){
     int a[3] = {1, 4, -8};
-    int b[3], 1;
+    int b[3], i;
 
     for(i = 0; i < 3; i++){
         b[i] = a[i] * 2;
     }
     return 0;
 }                                           </pre>
+                                            <a href="assets/codes/array1.c" class="btn btn-green" download="">Download Code</a>
                                         </div>
                                         <div class="col-sm-6">
                                             <img src="assets/images/Array1.gif" alt="Runing codce" style = "width:75%; height: 100%;">
