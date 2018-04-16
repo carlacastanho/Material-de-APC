@@ -21,7 +21,6 @@ int main(){
 	
 	printf("A turma A possui %d pontos\n",resp);	
 	printf("A turma B possui %d pontos\n",n-resp);	
-
     
     return 0;
 }                                           
