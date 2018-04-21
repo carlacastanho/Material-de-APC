@@ -9,8 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">    
-    <link rel="shortcut icon" href="favicon.ico">  
+    <meta name="author" content="Thiago Veras & Giovanni Guidini">    
+    <link rel="shortcut icon" href="assets/images/UnB-logo.png">  
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <!-- Global CSS -->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
@@ -126,7 +126,7 @@ printf("%d\n",array[n]); // Irá ocorrer falha de segmentação         </pre>
                                     <li><p>Exemplos:</p>
                                          <ul><li>Funcionamento de um vetor</li></ul>
                                         <div class="row">
-                                            <div class="col-sm-6">
+                                            <div>
                                                 <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%; ">
 int main(){
     int a[3] = {1, 4, -8};
@@ -138,9 +138,7 @@ int main(){
     return 0;
 }                                           </pre>
                                                 <a href="assets/codes/array1.c" class="btn btn-green" download="">Download Code</a>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <img src="assets/images/Array1.gif" alt="Runing codce" style = "width:75%; height: 100%;">
+                                                <a href="http://pythontutor.com/c.html#code=int%20main%28%29%7B%0A%20%20%20%20int%20a%5B3%5D%20%3D%20%7B1,%204,%20-8%7D%3B%0A%20%20%20%20int%20b%5B3%5D,%20i%3B%0A%20%0A%20%20%20%20for%28i%20%3D%200%3B%20i%20%3C%203%3B%20i%2B%2B%29%7B%0A%20%20%20%20%20%20%20%20b%5Bi%5D%20%3D%20a%5Bi%5D%20*%202%3B%0A%20%20%20%20%7D%0A%20%20%20%20return%200%3B%0A%7D%20%20&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" class="btn btn-green" target="blank">Code Execution</a>
                                             </div>
                                         </div>
                                     <ul><li>Disputa de alunos:</li>
@@ -164,6 +162,7 @@ for(i = 0; i < n; i++){
     }
 }
 
+
 printf("A turma A possui %d pontos\n",resp);    
 printf("A turma B possui %d pontos\n",n-resp);                                           </pre>
                                     <a href="assets/codes/disputa.c" class="btn btn-green" download="">Download Code</a>
@@ -181,8 +180,25 @@ printf("A turma B possui %d pontos\n",n-resp);                                  
                             <section id="malloc" class="doc-section">
                                 <h2 class="section-title">Malloc &amp; Memset</h2>
                                 <div class="section-block">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec imperdiet turpis. Curabitur aliquet pulvinar ultrices. Etiam at posuere leo. Proin ultrices ex et dapibus feugiat <a href="#">link example</a> aenean purus leo, faucibus at elit vel, aliquet scelerisque dui. Etiam quis elit euismod, imperdiet augue sit amet, imperdiet odio. Aenean sem erat, hendrerit  eu gravida id, dignissim ut ante. Nam consequat porttitor libero euismod congue. 
-                                    </p>
+                                    <ul>
+                                    <li>A função Malloc é utilizada para alocar uma porção de memória.</li>
+                                    <li>A função Memset é utilizada para inicializar uma região de memória com um determinado valor.</li>
+                                    
+                                    <li>Explicaremos como usar essas duas funções para criar vetores dinâmicos. Tudo bem se os conceitos não ficarem tão claros agora,
+                                    mas tenha em mente que essas funções são muito utilizadas em Estruturas de Dados, e oferecem grande flexibilidade. </li>
+                                    <li>Os vetores que vimos até agora são estáticos, pois seu tamanho é definido em tempo de compilação.
+                                    Os vetores dinâmicos, por outro lado, são definidos em tempo de execução. </li>
+                                    <li>A utilização dos vetores dinâmicos é exatamente igual a dos vetores estáticos, só um cuidado à mais é necessário: liberar o espaço de memória alocado.</li>
+                                    
+                                    <li>Lembre-se também  que ao alocar um espaço de memória sem inicializá-lo, aquele espaço terá lixo de memória. 
+                                    A função memset então pode ser utilizada para inicializar aquele espaço com um valor determinado. Ela pode ser usada em qualquer vetor. </li>
+                                    
+                                    <li>A utilização envolve ponteiros, que é o retorno da função malloc.</li>
+                                    </ul>
+                                    <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%; ">
+int k = 100; /* future size of array */
+int* array = (int*) malloc(k * sizeof(int)); /* sizeof(int) returns size of int in bytes*/
+memset(array, 0, sizeof(array)); </pre>
                                 </div>
                             </section><!--//doc-section-->
                             <section id="recomendados" class="doc-section">
@@ -262,8 +278,10 @@ printf("A turma B possui %d pontos\n",n-resp);                                  
     <footer id="footer" class="footer text-center">
         <div class="container">
             <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
-             <small class="copyright">Created by:<a class="link" href="https://github.com/VerasThiago" target="_blank"><span> Thiago Veras</span></a> &amp; Giovanni Guidini</small>
-            
+            <small class="copyright">Created by:<a class="link" href="https://github.com/VerasThiago" target="_blank"><span> Thiago Veras</span></a> &amp; <a class="link" href="https://github.com/Gguidini" target="_blank"><span> Giovanni M Guidini</span></a></small>
+             <br> <!-- break line-->
+             <small class="copyright">Theme PRETTYDOCS by <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a></small>
+ 
         </div><!--//container-->
     </footer><!--//footer-->
     
