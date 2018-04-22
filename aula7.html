@@ -68,7 +68,84 @@
                                     <ul class="list">
                                         <li><p>Em algumas aplicações podemos ter uma quantidade muito grande de dados do mesmo tipo para processar, e criar uma variável para cada dado seria muito complicado.</p></li>
                                         <li><p>Em algumas aplicações temos sequências de algum tipo e o programa precisa funcionar para qualquer sequência, independente dos valores nela ou do tamanho da sequência.</p></li>
+                                        <li><p>Imagine que você precisa fazer um programa para calcular as médias finais dos alunos de APC.
+                                        <li><p>Para cada aluno, você deve ler as notas de 3 provas. Deve então e calcular e mostrar a média de cada um.</p></li>
+                                        <li><p>Com o que aprendemos até agora, é possível resolver esse problema. No entanto, você precisaria de: 40 x 3 provas = <b>120 variáveis!!</b></p></li>
+                                        <div id = "exemplo1">
+                                        <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%;">
+
+
+ANIMANÇÃO 1111111                                            
+int main(){
+   double p1_a1, p1_a2, ..., p1_a40;
+   double p2_a1, p2_a2, ..., p2_a40;
+   double p3_a1, p3_a2, ..., p3_a40;
+
+   printf("Informe a nota da Prova 1 do Aluno 1:\n");
+   printf("Informe a nota da Prova 1 do Aluno 2:\n");
+   printf("Informe a nota da Prova 1 do Aluno 3:\n");
+                           .
+                           .
+                           .
+   return 0;
+}</pre>
+                                        </div>
+                                        <div id = "exemplo2" style="display: none;">
+                                        <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%;">
+ANIMANÇÃO 222222     
+bool ok(string x){
+    if(x == "") return false;
+    int num,sq;
+    num = stoi(x);
+    if(num == 0) return false;
+    sq = sqrt(num);
+    if(sq * sq == num) return true;
+    return false;
+}
+
+}</pre>
+                                        </div>
+                                        <div id = "exemplo3" style="display: none;">
+                                        <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%;">
+ANIMANÇÃO 3333333       
+
+for(int i = 0; i < n; i++){
+        if(!v[0] and !v[1]) break;
+        if(!sum[i]) continue;
+        if(v[0] < v[1]) swap(v[0],v[1]);
+        if(sum[i]&1){
+            if(v[0] >= sum[i]/2 + 1)
+                v[0] -= sum[i]/2 + 1;
+            else                
+                v[0] = 0;
+            if(v[1] >= sum[i]/2)
+                v[1] -= sum[i]/2;
+            else
+                v[1] = 0;
+        }
+        else{
+            if(v[0] >= sum[i]/2)
+                v[0] -= sum[i]/2;
+            else                
+                v[0] = 0;
+            if(v[1] >= sum[i]/2)
+                v[1] -= sum[i]/2;
+            else
+                v[1] = 0;
+        }
+        i += sum[i] - 1;
+    }
+}</pre>
+                                         </div>
+                                        <a  class="btn btn-green" onclick="animation_prev('exemplo',3)">Prev</a>
+                                        <a  class="btn btn-green" onclick="animation_next('exemplo',3)">Next</a>
+
+                                        <li><p>E se fosse um programa para calcular as médias da UnB inteira?</p></li>
+                                        <li><p>E se você precisar adicionar uma nota? Ou fazer qualquer alteração no cálculo?</p></li>
                                         <li><p>Para essas situações usamos vetores (também chamados arrays).</p></li>
+
+
+
                                     </ul>
 
                                 </div>
@@ -212,30 +289,7 @@ int Max(int array[], int n); /* cabeçalho 2 */
                             </pre>
                             </div>
                             </section><!--//doc-section-->
-                            <section id="malloc" class="doc-section">
-                                <h2 class="section-title">Malloc &amp; Memset</h2>
-                                <div class="section-block">
-                                    <ul>
-                                    <li>A função Malloc é utilizada para alocar uma porção de memória.</li>
-                                    <li>A função Memset é utilizada para inicializar uma região de memória com um determinado valor.</li>
-                                    
-                                    <li>Explicaremos como usar essas duas funções para criar vetores dinâmicos. Tudo bem se os conceitos não ficarem tão claros agora,
-                                    mas tenha em mente que essas funções são muito utilizadas em Estruturas de Dados, e oferecem grande flexibilidade. </li>
-                                    <li>Os vetores que vimos até agora são estáticos, pois seu tamanho é definido em tempo de compilação.
-                                    Os vetores dinâmicos, por outro lado, são definidos em tempo de execução. </li>
-                                    <li>A utilização dos vetores dinâmicos é exatamente igual a dos vetores estáticos, só um cuidado à mais é necessário: liberar o espaço de memória alocado.</li>
-                                    
-                                    <li>Lembre-se também  que ao alocar um espaço de memória sem inicializá-lo, aquele espaço terá lixo de memória. 
-                                    A função memset então pode ser utilizada para inicializar aquele espaço com um valor determinado. Ela pode ser usada em qualquer vetor. </li>
-                                    
-                                    <li>A utilização envolve ponteiros, que é o retorno da função malloc.</li>
-                                    </ul>
-                                    <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%; ">
-int k = 100; /* future size of array */
-int* array = (int*) malloc(k * sizeof(int)); /* sizeof(int) returns size of int in bytes*/
-memset(array, 0, sizeof(array)); </pre>
-                                </div>
-                            </section><!--//doc-section-->
+                            
                             <section id="recomendados" class="doc-section">
                                 <h2 class="section-title">Exercícios Recomendados</h2>
                                 <div class="section-block">
@@ -282,9 +336,26 @@ memset(array, 0, sizeof(array)); </pre>
                             </section><!--//doc-section-->
                             <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
+                                <h4 class="">Malloc &amp; Memset</h4>
                                 <div class="section-block">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec imperdiet turpis. Curabitur aliquet pulvinar ultrices. Etiam at posuere leo. Proin ultrices ex et dapibus feugiat <a href="#">link example</a> aenean purus leo, faucibus at elit vel, aliquet scelerisque dui. Etiam quis elit euismod, imperdiet augue sit amet, imperdiet odio. Aenean sem erat, hendrerit  eu gravida id, dignissim ut ante. Nam consequat porttitor libero euismod congue. 
-                                    </p>
+                                    <ul>
+                                        <li>A função Malloc é utilizada para alocar uma porção de memória.</li>
+                                        <li>A função Memset é utilizada para inicializar uma região de memória com um determinado valor.</li>
+                                        
+                                        <li>Explicaremos como usar essas duas funções para criar vetores dinâmicos. Tudo bem se os conceitos não ficarem tão claros agora, mas tenha em mente que essas funções são muito utilizadas em Estruturas de Dados, e oferecem grande flexibilidade. </li>
+                                        <li>Os vetores que vimos até agora são estáticos, pois seu tamanho é definido em tempo de compilação.
+                                        Os vetores dinâmicos, por outro lado, são definidos em tempo de execução. </li>
+                                        <li>A utilização dos vetores dinâmicos é exatamente igual a dos vetores estáticos, só um cuidado à mais é necessário: liberar o espaço de memória alocado.</li>
+                                        
+                                        <li>Lembre-se também  que ao alocar um espaço de memória sem inicializá-lo, aquele espaço terá lixo de memória. 
+                                        A função memset então pode ser utilizada para inicializar aquele espaço com um valor determinado. Ela pode ser usada em qualquer vetor. </li>
+                                        
+                                        <li>A utilização envolve ponteiros, que é o retorno da função malloc.</li>
+                                    </ul>
+                                    <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%; ">
+int k = 100; /* future size of array */
+int* array = (int*) malloc(k * sizeof(int)); /* sizeof(int) returns size of int in bytes*/
+memset(array, 0, sizeof(array)); </pre>
                                 </div>
                             </section><!--//doc-section-->
                             
@@ -328,6 +399,8 @@ memset(array, 0, sizeof(array)); </pre>
     <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
     <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/teste.js"></script>
+    
     <script>
       prettyPrint();
     </script>
