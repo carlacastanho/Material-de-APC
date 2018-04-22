@@ -71,72 +71,9 @@
                                         <li><p>Imagine que você precisa fazer um programa para calcular as médias finais dos alunos de APC.
                                         <li><p>Para cada aluno, você deve ler as notas de 3 provas. Deve então e calcular e mostrar a média de cada um.</p></li>
                                         <li><p>Com o que aprendemos até agora, é possível resolver esse problema. No entanto, você precisaria de: 40 x 3 provas = <b>120 variáveis!!</b></p></li>
-                                        <div id = "exemplo1">
-                                        <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%;">
-
-
-ANIMANÇÃO 1111111                                            
-int main(){
-   double p1_a1, p1_a2, ..., p1_a40;
-   double p2_a1, p2_a2, ..., p2_a40;
-   double p3_a1, p3_a2, ..., p3_a40;
-
-   printf("Informe a nota da Prova 1 do Aluno 1:\n");
-   printf("Informe a nota da Prova 1 do Aluno 2:\n");
-   printf("Informe a nota da Prova 1 do Aluno 3:\n");
-                           .
-                           .
-                           .
-   return 0;
-}</pre>
-                                        </div>
-                                        <div id = "exemplo2" style="display: none;">
-                                        <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%;">
-ANIMANÇÃO 222222     
-bool ok(string x){
-    if(x == "") return false;
-    int num,sq;
-    num = stoi(x);
-    if(num == 0) return false;
-    sq = sqrt(num);
-    if(sq * sq == num) return true;
-    return false;
-}
-
-}</pre>
-                                        </div>
-                                        <div id = "exemplo3" style="display: none;">
-                                        <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%;">
-ANIMANÇÃO 3333333       
-
-for(int i = 0; i < n; i++){
-        if(!v[0] and !v[1]) break;
-        if(!sum[i]) continue;
-        if(v[0] < v[1]) swap(v[0],v[1]);
-        if(sum[i]&1){
-            if(v[0] >= sum[i]/2 + 1)
-                v[0] -= sum[i]/2 + 1;
-            else                
-                v[0] = 0;
-            if(v[1] >= sum[i]/2)
-                v[1] -= sum[i]/2;
-            else
-                v[1] = 0;
-        }
-        else{
-            if(v[0] >= sum[i]/2)
-                v[0] -= sum[i]/2;
-            else                
-                v[0] = 0;
-            if(v[1] >= sum[i]/2)
-                v[1] -= sum[i]/2;
-            else
-                v[1] = 0;
-        }
-        i += sum[i] - 1;
-    }
-}</pre>
-                                         </div>
+                                        <div id = "exemplo1"><img src="assets\images\Vetores\exemplo1.1.png"></div>
+                                        <div id = "exemplo2" style="display: none;"><img src="assets\images\Vetores\exemplo1.2.png"></div>
+                                        <div id = "exemplo3" style="display: none;"><img src="assets\images\Vetores\exemplo1.3.png"></div>
                                         <a  class="btn btn-green" onclick="animation_prev('exemplo',3)">Prev</a>
                                         <a  class="btn btn-green" onclick="animation_next('exemplo',3)">Next</a>
 
