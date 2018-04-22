@@ -75,7 +75,7 @@
                                         <div id = "exemplo2" style="display: none;"><img src="assets\images\Vetores\exemplo1.2.png"></div>
                                         <div id = "exemplo3" style="display: none;"><img src="assets\images\Vetores\exemplo1.3.png"></div>
                                         <a  class="btn btn-green" onclick="animation_prev('exemplo',3)">Prev</a>
-                                        <a  class="btn btn-green" onclick="animation_next('exemplo',3)">Next</a>
+                                        <a  class="btn btn-green" style = "float: right;" onclick="animation_next('exemplo',3)">Next</a>
 
                                         <li><p>E se fosse um programa para calcular as médias da UnB inteira?</p></li>
                                         <li><p>E se você precisar adicionar uma nota? Ou fazer qualquer alteração no cálculo?</p></li>
@@ -130,6 +130,7 @@ int n = 31230;
 int array[3] = {1, 4 ,-8};  
 printf("%d\n",array[n]); // Irá ocorrer falha de segmentação         </pre>
                                     <a href="assets/codes/segfault.c" class="btn btn-green" download="">Download Code</a>
+                                    <a href="https://goo.gl/jR8cty" class="btn btn-green" target="blank">Code Execution</a>
                                     <p>Executando o programa no terminal</p>
                                     <pre class = "prettyprint  lang-bsh" style=" font-size:100%;">
     $ gcc -Wall -ansi -o segfault segfault.c
@@ -152,7 +153,7 @@ int main(){
     return 0;
 }                                           </pre>
                                                 <a href="assets/codes/array1.c" class="btn btn-green" download="">Download Code</a>
-                                                <a href="http://pythontutor.com/c.html#code=int%20main%28%29%7B%0A%20%20%20%20int%20a%5B3%5D%20%3D%20%7B1,%204,%20-8%7D%3B%0A%20%20%20%20int%20b%5B3%5D,%20i%3B%0A%20%0A%20%20%20%20for%28i%20%3D%200%3B%20i%20%3C%203%3B%20i%2B%2B%29%7B%0A%20%20%20%20%20%20%20%20b%5Bi%5D%20%3D%20a%5Bi%5D%20*%202%3B%0A%20%20%20%20%7D%0A%20%20%20%20return%200%3B%0A%7D%20%20&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" class="btn btn-green" target="blank">Code Execution</a>
+                                                <a href="https://goo.gl/33nxi1" class="btn btn-green" target="blank">Code Execution</a>
                                             </div>
                                         </div>
                                     <ul><li>Disputa de alunos:</li>
@@ -306,7 +307,6 @@ memset(array, 0, sizeof(array)); </pre>
                                 <li><a class="scrollto" href="#estrutura">Estrutura de um Vetor</a></li>
                                 <li><a class="scrollto" href="#segfault">Índices &amp; Seg Fault</a></li>
                                 <li><a class="scrollto" href="#parametros">Parâmetros de função</a></li>
-                                <li><a class="scrollto" href="#malloc">Malloc &amp; Memset</a></li>
                                 <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
                                 <li><a class="scrollto" href="#materiais">Materiais Extras</a></li>
 
