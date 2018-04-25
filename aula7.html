@@ -101,7 +101,7 @@
                                             <ul class="list">
                                                 <li>Tipo</li>      <li>Nome.</li>       <li>Tamanho.</li>
                                             </ul>
-                                            <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%;">
+                                            <pre class = "prettyprint linenums:1 lang-cpp">
 int array[100]; // vetor “array” de tipo int com tamanho 100
 float nums[] = {3.14, 2.71, 1.44, 9.98}; // vetor “nums” de tipo float inicializado</pre>
                                         </li>
@@ -113,14 +113,14 @@ float nums[] = {3.14, 2.71, 1.44, 9.98}; // vetor “nums” de tipo float inici
                                 <h2 class="section-title">Índices &amp; Seg Fault</h2>
                                 <div class="section-block">
                                     <ul class="list">
-                                    <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%;">
+                                    <pre class = "prettyprint linenums:1 lang-cpp">
 int array[3] = {1, 4 ,-8}           </pre>
                                     <li><p>Vetores são indexados de 0 até n-1, ou seja, a primeira posição  do vetor se encontra no índice 0.</p></li>
-                                    <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%;">
+                                    <pre class = "prettyprint linenums:1 lang-cpp">
 índice:    0   1   2
 valor:    [1] [4] [-8]              </pre>
                                     <li><p>Os valores de um vetor podem ser acessados em tempo  constante,  para isso, basta indicar qual posição  deseja acessar.</p></li>
-                                    <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%;">
+                                    <pre class = "prettyprint linenums:1 lang-cpp">
 int array[3] = {1, 4 ,-8}  
 int a,b,c,x = 2;
 a = array[0]; // a = 1
@@ -130,14 +130,14 @@ c = array[x]; // c = -8             </pre>
                                     </li>
                                     <li><p>Índices negatios (-1, -2 … ) ou maiores ou iguais ao tamanho do vetor (n , n+1 …) causam falha de segmentação.</p>
                                     </li>
-                                    <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%;">
+                                    <pre class = "prettyprint linenums:1 lang-cpp">
 int n = 31230;
 int array[3] = {1, 4 ,-8};  
 printf("%d\n",array[n]); // Irá ocorrer falha de segmentação         </pre>
                                     <a href="assets/codes/segfault.c" class="btn btn-green" download="">Download Code</a>
                                     <a href="https://goo.gl/jR8cty" class="btn btn-green" target="blank">Code Execution</a>
                                     <p>Executando o programa no terminal</p>
-                                    <pre class = "prettyprint  lang-bsh" style=" font-size:100%;">
+                                    <pre class = "prettyprint  lang-bsh">
     $ gcc -Wall -ansi -o segfault segfault.c
     $ ./segfault
     Segmentation fault (core dumped)
@@ -147,7 +147,7 @@ printf("%d\n",array[n]); // Irá ocorrer falha de segmentação         </pre>
                                          <ul><li>Funcionamento de um vetor</li></ul>
                                         <div class="row">
                                             <div>
-                                                <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%; ">
+                                                <pre class = "prettyprint linenums:1 lang-cpp">
 int main(){
     int a[3] = {1, 4, -8};
     int b[3], i;
@@ -162,19 +162,19 @@ int main(){
                                             </div>
                                         </div>
                                     <ul><li>Disputa de alunos:</li>
-                                            <p>Apos vários jantares a Luz de Veras, permitiu que Veras tivesse uma idéia que possibilitasse esquentar o clima entre duas turmas de programação, visando o aumento do rendimento das notas dos alunos. Ambas as turmas possuem <b>N</b> alunos, e cada aluno tirou uma nota <b>Xi</b> na prova (Xi representa a nota do iésimo aluno). A disputa seria feita da seguinte forma: se o aluno i da turma A, tirou uma nota maior que o aluno i da turma B, então a turma A ganha um ponto, caso contrário a turma B ganha 1 ponto. Sua tarfera é ajudar veras a descobrir quantos pontos cada turma fez, sabendo que ambas as turmas possuem a mesma quantidade de alunos.</p>
+                                            <p>Apos vários jantares a Luz de Veras, permitiu que Veras tivesse uma idéia que possibilitasse esquentar o clima entre duas turmas de programação, visando o aumento do rendimento das notas dos alunos. Ambas as turmas possuem <b>N</b> alunos, e cada aluno tirou uma nota <b>Xi</b> na prova (Xi representa a nota do iésimo aluno). A disputa seria feita da seguinte forma: se o aluno i da turma A, tirou uma nota maior que o aluno i da turma B, então a turma A ganha um ponto, caso contrário a turma B ganha 1 ponto. Sua tarefa é ajudar Veras a descobrir quantos pontos cada turma fez, sabendo que ambas as turmas possuem a mesma quantidade de alunos.</p>
                                     </ul>
-                                    <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%; ">
+                                    <pre class = "prettyprint linenums:1 lang-cpp">
 int n,i, resp = 0;
 scanf("%d", &n);
 
-int turmaA[n], turmaB[n];
+double turmaA[n], turmaB[n];
 
 for(i = 0; i < n; i++)
-    scanf("%d", &turmaA[i]);
+    scanf("%lf", &turmaA[i]);
 
 for(i = 0; i < n; i++)
-    scanf("%d", &turmaB[i]);
+    scanf("%lf", &turmaB[i]);
 
 for(i = 0; i < n; i++){
     if(turmaA[i] > turmaB[i]){
@@ -198,7 +198,7 @@ printf("A turma B possui %d pontos\n",n-resp);                                  
                                         </li>
                                         <li>Em geral, ao passar o vetor para uma função também precisamos passar o tamanho dele.</li>
                                     </ul>
-                                    <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%; " >
+                                    <pre class = "prettyprint linenums:1 lang-cpp">
 /* returns the max between two numbers */
 int Max(int a, int b){
     return a > b ? a : b;
@@ -225,7 +225,7 @@ int main(){
                                 <li>Existem duas maneiras diferentes de passar vetores como parâmetros de função. Não faz diferença qual você usa, pode ser a da sua preferência.</li>
                                 <li>Não é necessário especificar o tamanho do array na segunda maneira</li>
                             </ul>    
-                            <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%; " >
+                            <pre class = "prettyprint linenums:1 lang-cpp">
 int Max(int* array, int n); /* cabeçalho 1 */
 int Max(int array[], int n); /* cabeçalho 2 */</pre>
                             </div>
@@ -238,20 +238,20 @@ int Max(int array[], int n); /* cabeçalho 2 */</pre>
                                         <table class="table table-striped">
                                             <tbody>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1172" target="_blank">Substituição em Vetor I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1173" target="_blank">Preenchimento de Vetor I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1174" target="_blank">Seleçao em Vetor I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1172" target="_blank"  style="color: #077a18;">Substituição em Vetor I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1173" target="_blank"  style="color: #077a18;">Preenchimento de Vetor I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1174" target="_blank"  style="color: #077a18;">Seleçao em Vetor I</a></td>
                                                             
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1175" target="_blank">Troca em Vetor I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1176" target="_blank">Fibonacci em Vetor</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1177" target="_blank">Preenchimento de Vetor II</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1175" target="_blank"  style="color: #077a18;">Troca em Vetor I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1176" target="_blank"  style="color: #077a18;">Fibonacci em Vetor</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1177" target="_blank"  style="color: #077a18;">Preenchimento de Vetor II</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1178" target="_blank">Preenchimento de Vetor III</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1179" target="_blank"> Preenchimento de Vetor IV</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1180" target="_blank"> Menor e Posição</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1178" target="_blank"  style="color: #077a18;">Preenchimento de Vetor III</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1179" target="_blank"  style="color: #077a18;"> Preenchimento de Vetor IV</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1180" target="_blank"  style="color: #077a18;"> Menor e Posição</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -261,14 +261,14 @@ int Max(int array[], int n); /* cabeçalho 2 */</pre>
                                         <table class="table table-striped">
                                             <tbody>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2709" target="_blank">As Moedas de Robbie</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2715" target="_blank">Dividindo os Trabalhos I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2674" target="_blank">Super Primos: Ativar!</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2709" target="_blank" style="color: #077a18;">As Moedas de Robbie</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2715" target="_blank"  style="color: #077a18;">Dividindo os Trabalhos I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2674" target="_blank"  style="color: #077a18;">Super Primos: Ativar!</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2663" target="_blank">Fase</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2540" target="_blank">Impeachment do Líder</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2553" target="_blank">Estágio</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2663" target="_blank"  style="color: #077a18;">Fase</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2540" target="_blank"  style="color: #077a18;">Impeachment do Líder</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2553" target="_blank"  style="color: #077a18;">Estágio</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -293,7 +293,7 @@ int Max(int array[], int n); /* cabeçalho 2 */</pre>
                                         
                                         <li>A utilização envolve ponteiros, que é o retorno da função malloc.</li>
                                     </ul>
-                                    <pre class = "prettyprint linenums:1 lang-cpp" style=" font-size:100%; ">
+                                    <pre class = "prettyprint linenums:1 lang-cpp">
 int k = 100; /* future size of array */
 int* array = (int*) malloc(k * sizeof(int)); /* sizeof(int) returns size of int in bytes*/
 memset(array, 0, sizeof(array)); </pre>
