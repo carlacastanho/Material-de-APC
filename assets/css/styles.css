@@ -11,7 +11,7 @@
 body {
   font-family: 'Open Sans', arial, sans-serif;
   color: #494d55;
-  font-size: 14px;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -31,6 +31,9 @@ body {
 }
 .footer {
   height: 75px;
+}
+pre {
+  font-size: 14px;
 }
 p {
   line-height: 1.5;

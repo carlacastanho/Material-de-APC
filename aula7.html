@@ -74,13 +74,13 @@
                                     <ul class="list">
                                         <li><p>Busca é um método bastante utilizado em programação, pois frequentemente necessitamos de informações que podem ser adquiridas através dela.</p></li>
                                         <li><p>Pode-se realizar busca em diversos lugares como: vetores (verificação da existência de um valor dentro dele),intervalos numéricos (qual o melhor ponto dentro de um intervalo que satisfaz o problema), strings (se um letra está contida em uma string)...</p></li>
-                                        <li><p>Trataremos neste capítulo da pesquisa sequencial e da pesquisa binária.</p></li>
+                                        <li><p>Trataremos neste capítulo da <em>pesquisa sequencial</em> e da <em>pesquisa binária</em>.</p></li>
                                     </ul>   
                                     <h4>Ordenação</h4>
                                     <ul class="list">
-                                        <li><p>A ordenação consiste em dispor elementos em uma certa sequência, seguindo algum critério para isso. Por exemplo, a ordenação lexicográfica (alfabética) para dados literais, ou crescente e decrescente para dados numéricos.</p></li>
-                                        <li><p>Para isso temos muitos algoritmos conhecidos: InsertionSort, ShellSort, BubbleSort, HeapSort, MergeSort , QuickSort…</p></li>
-                                        <li><p>Aqui veremos o <em>BubbleSort</em> e o <em>MergeSort</em>.</p></li>    
+                                        <li><p>A ordenação consiste em dispor elementos em uma certa sequência, seguindo algum critério. Por exemplo, a ordenação lexicográfica (alfabética) para dados literais, ou crescente e decrescente para dados numéricos.</p></li>
+                                        <li><p>Existem muitos algoritmos de ordenação conhecidos: InsertionSort, ShellSort, BubbleSort, HeapSort, MergeSort , QuickSort…</p></li>
+                                        <li><p>Aqui veremos o <em>BubbleSort</em>. Outros algoritmos de ordenação serão vistos na matéria de Estruturas de Dados.</p></li>    
                                     </ul>
 
                                 </div>
@@ -135,8 +135,8 @@ if (achou)
 else
     printf("%d nao encontrado.\n", valor);
 }</pre>
-                                    <a href="assets/codes/buscaLinear.c" class="btn btn-pink" download="">Download Code</a>
-                                    <a href="https://goo.gl/cJvR4x"class="btn btn-pink" download="" target="blank">Code Execution</a>
+                                    <a href="assets/codes/aula7/buscaLinear.c" class="btn btn-pink" download="">Download Code</a>
+                                    <a href="https://goo.gl/cJvR4x"class="btn btn-pink" target="blank">Code Execution</a>
                                     </ul>
                                 </div>
                             </section><!--//doc-section-->
@@ -147,14 +147,69 @@ else
                                     
                                     </ul>
                                 </div>
-                            </section><!--//doc-section-->
+                            </section><!--// ORDENAÇÃO -->
                             <section id="sort" class="doc-section">
                                 <h2 class="section-title">Ordena&#xE7;&#xE3;o</h2>
                                 <div class="section-block">
                                     <ul class="list">
+                                       <li> Ordenar uma coleção significa dispor seus elementos seguindo um critério determinado.
+                                            Esta operação é bastante comum em computação, e por isso existem vários algoritmos para fazê-lo.
+                                            A principal diferença entre os algoritmos é sua <b>eficiência</b>.
+                                       </li>
+                                       <li> Como contato inicial vamos analisar o algoritmo <b>Bubble sort</b>. Ele é um algoritmo simples, apesar de não muito eficiente.</li>
+                                       <li> A ideia do Bubble Sort é organizar os elementos do conjunto colocando um elemento por vez no seu lugar certo. Isso reduz o tamanho do vetor a ser
+                                           organizado em 1 para cada elemento que é colocado em sua posição correta.
+                                       </li>
                                        
                                     </ul>
+                                       <h3>Exemplo</h3>
+                                       <p>Vamos analisar um exemplo de funcionamento do algoritmo antes de mostrá-lo. Suponha um vetor de inteiros com n 
+                                           elementos que queremos ordenar em ordem crescente.
+                                       </p>
+                                       <ol>
+                                           <li>Tomamos o primeiro elemento e analisamos o seu sucessor no array. Caso o sucessor seja menor que o antecessor,
+                                               trocamos os dois de lugar.
+                                           </li>
+                                           <li>Repetimos o passo 1 para todos os pares até o final do array. Ao final desse processo o elemento de maior valor
+                                               ficará na última posição do array.
+                                           </li>
+                                           <li>Repetimos a operação n vezes, uma para cada elemento. Ao final do processo o vetor estará ordenado.</li>
+                                       </ol>
                                    
+                                <pre class="prettyprint linenums:1 lang-cpp">
+void bubbleSort(int v[], int n){
+    int i, j;
+    // passo 3
+    for(j = 0; j < n; j++){
+        // passo 2
+        for(i = 0; i < n-1; i++){
+            // passo 1
+            if(v[i] > v[i+1]){
+                int aux = v[i];
+                v[i] = v[i+1];
+                v[i+1] = aux;
+            }
+        }
+    }
+}
+
+int main(){
+    int v[] = {-10, 2, 0, 4, 6, 2, -5, 20, 7, 9};
+    int n = 10, i;
+    printf("Vetor original com %d elementos\n", n);
+    for(i = 0; i < n; i++)
+        printf("%d ", v[i]);
+    printf("\n");
+    // ordenar o vetor
+    bubbleSort(v, n);
+    printf("Vetor ordenado com %d elementos\n", n);
+    for(i = 0; i < n; i++)
+        printf("%d ", v[i]);
+    printf("\n");
+}
+</pre>
+                            <a href="assets/codes/aula7/bubble.c" class="btn btn-pink" download="">Download Code</a>
+                            <a href="https://goo.gl/6gTzxe"class="btn btn-pink" target="blank">Code Execution</a>
                                 </div>
                             </section><!--//doc-section-->
                             
