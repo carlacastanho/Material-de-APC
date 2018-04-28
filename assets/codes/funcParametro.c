@@ -1,3 +1,5 @@
+#include<stdio.h>
+
 /* returns the max between two numbers */
 int max(int a, int b){
     return a > b ? a : b;
@@ -16,4 +18,5 @@ int main(){
     int array[] = {0, -1, 3, -10, 4, 22, -5, 2};
     int maior = maxElement(array, 8);
     prontf("O maior elemento é %d\n", maior);
+    return 0;
 }
