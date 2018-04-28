@@ -285,17 +285,23 @@ int Max(int array[], int n); /* cabe&#xE7;alho 2 */</pre>
                                         <li>Explicaremos como usar essas duas funções para criar vetores dinâmicos. Tudo bem se os conceitos não ficarem tão claros agora, mas tenha em mente que essas funções são muito utilizadas em Estruturas de Dados, e oferecem grande flexibilidade. </li>
                                         <li>Os vetores que vimos até agora são estáticos, pois seu tamanho é definido em tempo de compilação.
                                         Os vetores dinâmicos, por outro lado, são definidos em tempo de execução. </li>
-                                        <li>A utilização dos vetores dinâmicos é exatamente igual a dos vetores estáticos, só um cuidado à mais é necessário: liberar o espaço de memória alocado.</li>
+                                        <li>A utilização dos vetores dinâmicos é exatamente igual a dos vetores estáticos, só um cuidado à mais é necessário: <em>liberar o espaço de memória alocado.</em></li>
                                         
                                         <li>Lembre-se também  que ao alocar um espaço de memória sem inicializá-lo, aquele espaço terá lixo de memória. 
                                         A função memset então pode ser utilizada para inicializar aquele espaço com um valor determinado. Ela pode ser usada em qualquer vetor. </li>
                                         
                                         <li>A utilização envolve ponteiros, que é o retorno da função malloc.</li>
+
+                                        <li>Liberar o espaço de memória alocado é feito pela função <em>free()</em>. É importante fazer isso para evitar <em>memory leaks</em>
+                                        Isto é, espaços de memória que não estão sendo utilizados mas estão ocupados por algum vetor dinâmico. Isso compromete a eficiência
+                                        Da aplicação, e pode ter consequências catastróficas se uma quantidade meuito grande de memória for alocada e não liberada.</li>
                                     </ul>
                                     <pre class = "prettyprint linenums:1 lang-cpp">
 int k = 100; /* future size of array */
 int* array = (int*) malloc(k * sizeof(int)); /* sizeof(int) returns size of int in bytes*/
-memset(array, 0, sizeof(array)); </pre>
+memset(array, 0, sizeof(array));
+free(array); /* array doesn't existe any more */
+</pre>
                                 </div>
                             </section><!--//doc-section-->
                             

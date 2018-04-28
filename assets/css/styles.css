@@ -22,7 +22,7 @@ body {
 .page-wrapper {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -50px;
+  margin-bottom: -75px;
 }
 .page-wrapper:after {
   content: "";
@@ -30,7 +30,7 @@ body {
   height: 50px;
 }
 .footer {
-  height: 50px;
+  height: 75px;
 }
 p {
   line-height: 1.5;
