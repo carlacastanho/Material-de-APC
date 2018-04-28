@@ -33,7 +33,7 @@
     <![endif]-->
     <style>
         .img-responsive{
-            width: 100%;
+            width: 70%;
         }
     </style>
 
@@ -89,13 +89,54 @@
                                 <h2 class="section-title">Busca Linear</h2>
                                 <div class="section-block">
                                     <ul class="list">
-                                        <div id = "seq1"><img src="assets\images\Busca\seq1.png" class = "img-responsive"></div>
-                                        <div id = "seq2" style="display: none;"><img src="assets\images\Busca\seq2.png" class = "img-responsive"></div>
-                                        <div id = "seq3" style="display: none;"><img src="assets\images\Busca\seq3.png" class = "img-responsive"></div>
-                                        <div id = "seq4" style="display: none;"><img src="assets\images\Busca\seq4.png" class = "img-responsive"></div>
-                                        <div id = "seq5" style="display: none;"><img src="assets\images\Busca\seq5.png" class = "img-responsive"></div>
-                                        <a  class="btn btn-pink" onclick="animation_prev('seq',5)">Prev</a>
-                                        <a  class="btn btn-pink" style = "float: right;" onclick="animation_next('seq',5)">Next</a>
+                                        <li><p>Vamos supor que temos 4 portas fechadas, e atrás de cada porta contém 1 número, qual estratégia poderíamos tomar para encontrar o número 3?</p></li>
+                                        <li><p>O método trivial seria abrir qualquer porta aleatoriamente enquanto não encontrar o número 3.</p></li>
+                                        <div id = "random1"><img src="assets\images\Busca\Random\seq1.png" class = "img-responsive"></div>
+                                        <div id = "random2" style="display: none;"><img src="assets\images\Busca\Random\seq2.png" class = "img-responsive"></div>
+                                        <div id = "random3" style="display: none;"><img src="assets\images\Busca\Random\seq3.png" class = "img-responsive"></div>
+                                        <div id = "random4" style="display: none;"><img src="assets\images\Busca\Random\seq4.png" class = "img-responsive"></div>
+                                        <div id = "random5" style="display: none;"><img src="assets\images\Busca\Random\seq5.png" class = "img-responsive"></div>
+                                        <a  class="btn btn-pink" onclick="animation_prev('random',5)">Prev</a>
+                                        <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('random',5)">Next</a>
+                                        <li><p>Obviamente este método não é nem de perto o mais eficiente.</p></li>
+                                        <li><p>Outra estratégia seria começando na primeira porta e ir abrindo as próximas na sequencia. Este método se chama <b>Busca Linear</b>.</p></li>
+                                        <div id = "linear1"><img src="assets\images\Busca\Linear\seq1.png" class = "img-responsive"></div>
+                                        <div id = "linear2" style="display: none;"><img src="assets\images\Busca\Linear\seq2.png" class = "img-responsive"></div>
+                                        <div id = "linear3" style="display: none;"><img src="assets\images\Busca\Linear\seq3.png" class = "img-responsive"></div>
+                                        <div id = "linear4" style="display: none;"><img src="assets\images\Busca\Linear\seq4.png" class = "img-responsive"></div>
+                                        <div id = "linear5" style="display: none;"><img src="assets\images\Busca\Linear\seq5.png" class = "img-responsive"></div>
+                                        <a  class="btn btn-pink" onclick="animation_prev('linear',5)">Prev</a>
+                                        <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('linear',5)">Next</a>
+                                        <li><p>Verificamos sequencialmente (ou seja, um após o outro) cada elemento. Se encontramos o valor desejado, então a pesquisa foi bem sucedida. </p></li>
+                                        <li><p>Caso todos os elementos do conjunto sejam verificados e o elemento desejado não esteja entre eles, dizemos que a pesquisa foi mal sucedida.</p></li>
+                                        <pre class = "prettyprint linenums:1 lang-cpp">
+int conjunto[10], i, valor, achou;
+
+for (i = 0; i < 10; i++) {
+    printf("Informe o elemento %d do conjunto:\n", i + 1);
+    scanf("%d", &conjunto[i]);
+}
+
+printf("Informe o valor a ser procurado:\n");
+scanf("%d", &valor);
+
+i = 0;
+achou = 0;
+
+while ((i < 10) && (!achou)) {
+    if (conjunto[i] == valor)
+        achou = 1;
+    else
+        i++;
+}
+
+if (achou)
+    printf("%d encontrado na posicao %d.\n", valor, i + 1);
+else
+    printf("%d nao encontrado.\n", valor);
+}</pre>
+                                    <a href="assets/codes/buscaLinear.c" class="btn btn-pink" download="">Download Code</a>
+                                    <a href="https://goo.gl/cJvR4x"class="btn btn-pink" download="" target="blank">Code Execution</a>
                                     </ul>
                                 </div>
                             </section><!--//doc-section-->
