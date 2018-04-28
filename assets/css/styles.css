@@ -11,7 +11,7 @@
 body {
   font-family: 'Open Sans', arial, sans-serif;
   color: #494d55;
-  font-size: 18px;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -19,16 +19,10 @@ html,
 body {
   height: 100%;
 }
-small{
-    font-size: 12px;
-}
-pre {
-    font-size: 14px;
-}
 .page-wrapper {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -75px;
+  margin-bottom: -50px;
 }
 .page-wrapper:after {
   content: "";
@@ -36,7 +30,7 @@ pre {
   height: 50px;
 }
 .footer {
-  height: 75px;
+  height: 50px;
 }
 p {
   line-height: 1.5;
@@ -1271,8 +1265,3 @@ select {
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
-
-/* changes in original css */
-br {
-  line-height: 50%
-}
