@@ -163,6 +163,8 @@ else
                                        </li>
                                        
                                     </ul>
+
+                                    <img src="assets/images/Busca/Bubble-sort.gif" alt="Bubble Sort execution gif">
                                        <h3>Exemplo</h3>
                                        <p>Vamos analisar um exemplo de funcionamento do algoritmo antes de mostrá-lo. Suponha um vetor de inteiros com n 
                                            elementos que queremos ordenar em ordem crescente.
@@ -330,11 +332,63 @@ int main(){
                             <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
                                 <div class="section-block" id="introAnalise">
-                                    <h4>nálise de Algoritmos Básica</h4>
+                                    <h4>Análise de Algoritmos Básica</h4>
+                                    <p>A análise de algoritmos estuda a correção e o desempenho de algoritmos.  
+                                        Em outras palavras, a análise de algoritmos procura respostas para perguntas do seguinte tipo:  
+                                        "Este algoritmo resolve o meu problema?
+                                        Quanto tempo o algoritmo consome para processar uma 'entrada' de tamanho n?".
+                                    <br>
+                                        A análise feita é uma estimativa de tempo (e espaço) utilizado por um determinado algoritmo <em>independente do hardware utilizado</em>.</p>
                                 </div>
                                 
                                 <div class="section-block" id="AnaliseBubbleSort">
                                     <h4>Análise do Bubble Sort</h4>
+                                    <p>Primeiramente vamos recaptular os passos necessários para a execução do algoritmo.</p>
+                                    <ol class="list">
+                                        <li>Tomamos o primeiro elemento e analisamos o seu sucessor no array. Caso o sucessor seja menor que o antecessor,
+                                            trocamos os dois de lugar.
+                                        </li>
+                                        <li>Repetimos o passo 1 para todos os pares até o final do array. Ao final desse processo o elemento de maior valor
+                                            ficará na última posição do array.
+                                        </li>
+                                        <li>Repetimos a operação n vezes, uma para cada elemento. Ao final do processo o vetor estará ordenado.</li>
+                                    </ol>
+                                    <p>Pegando só a função do Bubble Sort, e considerando cada linha como uma operação, podemos ter uma estimativa da complexidade.</p>
+
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+void bubbleSort(int v[], int n){
+    int i, j; // executado 1 vez
+    // passo 3 - executado n vezes
+    for(j = 0; j < n; j++){
+        // passo 2 - executado n vezes
+        for(i = 0; i < n-1; i++){
+            // passo 1
+            if(v[i] > v[i+1]){  // executado toda vez
+                int aux = v[i];
+                v[i] = v[i+1];
+                v[i+1] = aux;
+            }
+        }
+    }
+}
+                                    </pre>
+                                    <ol class="list">
+                                        <li>A primeira linha é executada somente 1 vez.</li>
+                                        <li>O laço do passo 3 é executado n vezes.</li>
+                                        <li>O laço do passo 2 é executado n vezes para cada execução do passo 3, portanto n² vezes.</li>
+                                        <li>A condição if do passo 1 é executada sempre, portanto n² vezes.</li>
+                                    </ol>
+                                    <p>Portanto a estimativa seria da ordem de 1+ 2n² + &alpha;, onde &alpha; é a quantidade de vezes que as operações internas ao if do passo 1 são executadas.<br>
+                                    Removendo as constantes e variáveis de menor ordem temos que a complexidade do Bubble Sort, assintóticamente, é <b>O(n²)</b>. Conforme vimos na <a class="scrollto" href="#analiseBubble">Análise Inicial</a>
+                                este algoritmo terá o mesmo tempo para qualquer caso. As melhorias apresentadas naquela seção aceleram o algoritmo para alguns casos. O algoritmo melhorado é O(1) no melhor caso,
+                                mas continua O(n²) no pior caso. Uma análise mais completa do algoritmo pode ser vista <a href="https://en.wikipedia.org/wiki/Bubble_sort" target="_blank">aqui</a>.</p>
+
+                                <p>Algoritmos de ordenação com complexidade O(n²), por exemplo, Bubble Sort, Insertion Sort, Selection Sort, etc não são usados em
+                                    aplicações mais complexas, pois demoram demais para vetores grandes. Por exemplo, para vetores com 10 elementos o tempo seria 10² = 100 operações.
+                                    Para vetores com 100 elementos, temos 100² = 10000 operações. Para vetores com 1000 elementos, 1000² = 1000000 operações. Um computador consegue executar,
+                                    em geral, 10<sup>8</sup> operações em 1 segundo. Assim, este algoritmo demora muito para vetores com muito mais de 1000 elementos.
+                                </p>
+
                                 </div>
                             </section><!--//doc-section-->
                             
