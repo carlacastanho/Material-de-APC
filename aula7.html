@@ -332,13 +332,32 @@ int main(){
                             <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
                                 <div class="section-block" id="introAnalise">
-                                    <h4>Análise de Algoritmos Básica</h4>
+                                    <h3>Análise de Algoritmos Básica</h3>
                                     <p>A análise de algoritmos estuda a correção e o desempenho de algoritmos.  
                                         Em outras palavras, a análise de algoritmos procura respostas para perguntas do seguinte tipo:  
                                         "Este algoritmo resolve o meu problema?
                                         Quanto tempo o algoritmo consome para processar uma 'entrada' de tamanho n?".
                                     <br>
-                                        A análise feita é uma estimativa de tempo (e espaço) utilizado por um determinado algoritmo <em>independente do hardware utilizado</em>.</p>
+                                        A análise feita é uma estimativa de tempo (e espaço) utilizado por um determinado algoritmo <em>independente do hardware utilizado</em>. Esta estimativa consistem em analisar o número de <b>operações</b> do algoritmo para diversos casos possíveis,
+                                        em geral o melhor caso, o caso médio e o pior caso.
+                                    </p>
+                                        
+                                        <p><b>Definimos uma operação como uma linha de código executada, e contamos quantas vezes cada linha é executada</b>.</p>
+                                       
+                                    <!-- Analise da Busca linear como exemplo -->
+                                    <p>No algoritmo da busca linear, por exemplo, blah blah</p>
+                                    
+                                        <h3>Notação assintótica</h3>
+                                    <p> Com a análise das operações, chegamos a uma função que descreve o crescimento do tempo de execução do algoritmo. Em geral, esta
+                                    função pode ser bastante complicada, e não é tão prática de se trabalhar, por isso usamos a <b>notação assintótica</b>. Nesta notação, consideramos apenas o termo de maior <em>ordem</em>. No caso da busca linear, seria o n.
+                                    </p>
+                                    
+                                    <p> A notação assintótica que veremos é a <em>Big-O</em>. Ele representa um <b>limite assintótico superior</b>, isto quer dizer que o algoritmo pode ter uma execução <em>melhor</em> do que a notação indica, mas no <em>pior caso</em> ela será a analisada. Como em geral estamos interessados na execução do algoritmo no pior caso, a notação Big-O é muito interessante. Assim, dizemos que o algoritmo de busca linear tem ordem de complexidade O(n).
+
+                                    <br>
+                                    Algoritmos com limite assintótico melhor são mais eficientes, e preferíveis a outros com limites maiores.
+                                    </p>
+                                    <img src="assets/images/Busca/BigOGraph.png" alt="Gráfico de comparação Big-O" style="max-width:100%;margin:10px;">
                                 </div>
                                 
                                 <div class="section-block" id="AnaliseBubbleSort">
