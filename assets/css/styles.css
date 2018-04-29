@@ -32,6 +32,23 @@ body {
 .footer {
   height: 75px;
 }
+.note-pink {
+  border-color: rgb(234, 83, 149, 0.5);
+  border-radius: 10px;
+  background-color: rgb(234, 83, 149, 0.5);
+  padding: 30px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
 pre {
   font-size: 14px;
 }

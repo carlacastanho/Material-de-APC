@@ -150,7 +150,8 @@ else
                             </section><!--// ORDENAÇÃO -->
                             <section id="sort" class="doc-section">
                                 <h2 class="section-title">Ordena&#xE7;&#xE3;o</h2>
-                                <div class="section-block">
+                                <div id="bubble" class="section-block">
+                                    <h3>BubbleSort</h3>
                                     <ul class="list">
                                        <li> Ordenar uma coleção significa dispor seus elementos seguindo um critério determinado.
                                             Esta operação é bastante comum em computação, e por isso existem vários algoritmos para fazê-lo.
@@ -166,7 +167,7 @@ else
                                        <p>Vamos analisar um exemplo de funcionamento do algoritmo antes de mostrá-lo. Suponha um vetor de inteiros com n 
                                            elementos que queremos ordenar em ordem crescente.
                                        </p>
-                                       <ol>
+                                       <ol class="list">
                                            <li>Tomamos o primeiro elemento e analisamos o seu sucessor no array. Caso o sucessor seja menor que o antecessor,
                                                trocamos os dois de lugar.
                                            </li>
@@ -210,7 +211,76 @@ int main(){
 </pre>
                             <a href="assets/codes/aula7/bubble.c" class="btn btn-pink" download="">Download Code</a>
                             <a href="https://goo.gl/6gTzxe"class="btn btn-pink" target="blank">Code Execution</a>
-                                </div>
+                        <p class="note-pink"><b>Pergunta:</b> Se quisessemos organizar o vetor em ordem decrescente, o que precisaria ser mudado?</p>    
+                        </div>
+
+
+                        <div class="section-block" id="analiseBubble">
+                        <h3>Análise Inicial do Bubble Sort</h3>
+                        <p>Note que o vetor, ao final da execução do algoritmo, está ordenado em ordem crescente, como era o objetivo.
+                           Este algoritmo vai funcionar para qualquer vetor de inteiros. No entanto, como cientistas da computação sempre devemos estar
+                           preocupados em criar programas funcionais e <b>eficientes</b>. Vamos analisar este algoritmo acima:
+                        </p>        
+                        <ol class="list">
+                            <li>O algoritmo precisa percorrer o vetor inteiro várias vezes em sua execução (exatamente n² vezes)</li>
+                            <li>O número de operações a serem executadas é sempre o mesmo, indepentente de como os valores estão no vetor original,
+                                isto é, o tempo de "ordenar" um vetor já ordenado e de ordenar um vetor completamente não-ordenado, neste algoritmo, é o mesmo.</li>
+                            <li>É possível que o vetor fique ordenado antes do final da execução do algoritmo, mas ele não para quando o vetor está ordenado, levando sempre
+                                o mesmo tempo de execução.</li>
+                        </ol>
+
+                        <p>Com estas observações, podemos melhorar nosso algoritmo. A ideia básica continua sendo a mesma, mas a <em>eficiência</em>
+                        aumenta, pois melhoramos a performace dele para alguns casos mais comuns, adicionando as seguintes mudanças.</p>
+                        
+                        <ol class="list">
+                            <li>Adicionamos uma flag ok para indicar se uma passada pelo vetor não produziu nenhuma mudança. Isto é,
+                                se percorremos o vetor inteiro e nenhuma mudança foi necessária, podemos parar.</li>
+                            <li>Sabemos que a cada execução do passo 2 um elemento vai para a sua posição final. Podemos tirarr vantagem desse
+                                fato fazendo com que menos pares sejam comparados por iteração do loop mais interno.
+                            </li>
+                        </ol>
+                        <pre class="prettyprint linenums:1 lang-cpp">
+void betterBubbleSort(int v[], int n){
+    int i, j, ok = 0;
+    // passo 3
+    for(j = 0; j < n && ok == 0; j++){
+        // passo 2
+        ok = 1;
+        for(i = 0; i < n-j-1; i++){
+            // passo 1
+            if(v[i] > v[i+1]){
+            ok = 0;
+            int aux = v[i];
+            v[i] = v[i+1];
+            v[i+1] = aux;
+            }
+        }
+    }
+}
+                                
+int main(){
+    int v[] = {-10, 2, 0, 4, 6, 2, -5, 20, 7, 9};
+    int n = 10, i;
+    printf("Vetor original com %d elementos\n", n);
+    for(i = 0; i < n; i++)
+        printf("%d ", v[i]);
+    printf("\n");
+    // ordenar o vetor
+    betterBubbleSort(v, n);
+    printf("Vetor ordenado com %d elementos\n", n);
+    for(i = 0; i < n; i++)
+        printf("%d ", v[i]);
+    printf("\n");
+}
+                        </pre>
+                        <a href="assets/codes/aula7/betterBubble.c" class="btn btn-pink" download="">Download Code</a>
+                        <a href="https://goo.gl/okVHGh"class="btn btn-pink" target="blank">Code Execution</a>
+                        
+                        <p>A mudança pode parecer pequena, mas aumenta bastante a eficiência do algoritmo. Por exemplo, repare que o primeiro Bubble Sort, no link de execução
+                            possui 283 passos, enquanto o segundo só possui 190, uma melhora de quase 33%. <br>
+                            Uma análise mais detalhada do Bubble Sort está na seção <a class="scrollto" href="#AnaliseBubbleSort">Análise do Bubble Sort</a>.
+                        </p>
+                        </div>
                             </section><!--//doc-section-->
                             
                             <section id="recomendados" class="doc-section">
@@ -259,19 +329,12 @@ int main(){
                             </section><!--//doc-section-->
                             <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
-                                <h4 class="">Complexidade</h4>
-                                <div class="section-block">
-                                    <ul>
-                                       
-                                    </ul>
-                                   
+                                <div class="section-block" id="introAnalise">
+                                    <h4>nálise de Algoritmos Básica</h4>
                                 </div>
-                                <h4 class="">?</h4>
-                                <div class="section-block">
-                                    <ul>
-                                       
-                                    </ul>
-                                   
+                                
+                                <div class="section-block" id="AnaliseBubbleSort">
+                                    <h4>Análise do Bubble Sort</h4>
                                 </div>
                             </section><!--//doc-section-->
                             
@@ -284,9 +347,19 @@ int main(){
                                 <li><a class="scrollto" href="#intro">Introdu&#xE7;&#xE3;o</a></li>
                                 <li><a class="scrollto" href="#linear">Busca Linear</a></li>
                                 <li><a class="scrollto" href="#binary">Busca Bin&#xE1;ria</a></li>
-                                <li><a class="scrollto" href="#sort">Ordena&#xE7;&#xE3;o</a></li>
+                                <li><a class="scrollto" href="#sort">Ordena&#xE7;&#xE3;o</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#bubble">Bubble Sort</a></li>
+                                        <li><a class="scrollto" href="#analiseBubble">Análise Inicial do Bubble Sort</a></li>
+                                    </ul>
+                                </li>
                                 <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
-                                <li><a class="scrollto" href="#materiais">Materiais Extras</a></li>
+                                <li><a class="scrollto" href="#materiais">Materiais Extras</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#introAnalise">Análise de Algoritmos Básica</a></li>
+                                        <li><a class="scrollto" href="#AnaliseBubbleSort">Análise do Bubble Sort</a></li>
+                                    </ul>
+                                </li>
 
                             </ul><!--//doc-menu-->
                         </nav>
