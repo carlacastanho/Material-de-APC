@@ -35,6 +35,12 @@
         .img-responsive{
             width: 70%;
         }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
     </style>
 
 </head> 
@@ -110,15 +116,9 @@
                                         <li><p>Verificamos sequencialmente (ou seja, um após o outro) cada elemento. Se encontramos o valor desejado, então a pesquisa foi bem sucedida. </p></li>
                                         <li><p>Caso todos os elementos do conjunto sejam verificados e o elemento desejado não esteja entre eles, dizemos que a pesquisa foi mal sucedida.</p></li>
                                         <pre class = "prettyprint linenums:1 lang-cpp">
-int conjunto[10], i, valor, achou;
-
-for (i = 0; i < 10; i++) {
-    printf("Informe o elemento %d do conjunto:\n", i + 1);
-    scanf("%d", &conjunto[i]);
-}
-
-printf("Informe o valor a ser procurado:\n");
-scanf("%d", &valor);
+int i, valor, achou;
+int conjunto[] = {3,6,7,10,4,12,9,5,8};
+valor = 5;
 
 i = 0;
 achou = 0;
@@ -136,15 +136,73 @@ else
     printf("%d nao encontrado.\n", valor);
 }</pre>
                                     <a href="assets/codes/aula7/buscaLinear.c" class="btn btn-pink" download="">Download Code</a>
-                                    <a href="https://goo.gl/cJvR4x"class="btn btn-pink" target="blank">Code Execution</a>
+                                    <a href="https://goo.gl/76Dc3X" class="btn btn-pink" target="blank">Code Execution</a>
+                                    <div id = "lin1"><img src="assets\images\Busca\Linear\lin1.png" class = "img-responsive"></div>
+                                    <div id = "lin2" style="display: none;"><img src="assets\images\Busca\Linear\lin2.png" class = "img-responsive"></div>
+                                    <div id = "lin3" style="display: none;"><img src="assets\images\Busca\Linear\lin3.png" class = "img-responsive"></div>
+                                    <div id = "lin4" style="display: none;"><img src="assets\images\Busca\Linear\lin4.png" class = "img-responsive"></div>
+                                    <div id = "lin5" style="display: none;"><img src="assets\images\Busca\Linear\lin5.png" class = "img-responsive"></div>
+                                    <div id = "lin6" style="display: none;"><img src="assets\images\Busca\Linear\lin6.png" class = "img-responsive"></div>
+                                    <div id = "lin7" style="display: none;"><img src="assets\images\Busca\Linear\lin7.png" class = "img-responsive"></div>
+                                    <div id = "lin8" style="display: none;"><img src="assets\images\Busca\Linear\lin8.png" class = "img-responsive"></div>
+                                    <div id = "lin9" style="display: none;"><img src="assets\images\Busca\Linear\lin9.png" class = "img-responsive"></div>
+                                    
+                                    <a  class="btn btn-pink" onclick="animation_prev('lin',9)">Prev</a>
+                                    <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('lin',9)">Next</a>
                                     </ul>
+                                    
                                 </div>
                             </section><!--//doc-section-->
                             <section id="binary" class="doc-section">
                                 <h2 class="section-title">Busca bin&#xE1;ria</h2>
                                 <div class="section-block">
                                     <ul class="list">
-                                    
+                                        <li><p>A pesquisa binária utiliza a técnica de “dividir e conquistar”</p></li>
+                                        <li><p>primeiro, testamos se o elemento procurado é <b>menor</b> que o elemento do meio do vetor. Se for o caso, então passamos a buscar apenas na <b>primeira metade do vetor</b>.</p></li>
+                                        <li><p>Se não, testamos se o elemento procurado é <b>maior</b> que o elemento do meio do vetor. Se for o caso, então passamos a buscar apenas na <b>segunda metade do vetor</b>.</p></li>
+                                        <li><p>caso contrário o valor procurado é igual ao elemento que está no meio do vetor.</p></li>
+                                        <li>Esse procedimento é repetido até que o elemento seja encontrado ou não haja mais elementos a testar.</p></li>
+                                        <li><p>Suponha que desejamos buscar o número 6 no mesmo vetor anterior, porém agora foi informado que o vetor está ordenado em ordem crescente, como aplicar a busca binária ?</p></li>
+                                        <div id = "bin1"><img src="assets\images\Busca\Binary\bin1.png" class = "img-responsive"></div>
+                                        <div id = "bin2" style="display: none;"><img src="assets\images\Busca\Binary\bin2.png" class = "img-responsive"></div>
+                                        <div id = "bin3" style="display: none;"><img src="assets\images\Busca\Binary\bin3.png" class = "img-responsive"></div>
+                                        <div id = "bin4" style="display: none;"><img src="assets\images\Busca\Binary\bin4.png" class = "img-responsive"></div>
+                                        <div id = "bin5" style="display: none;"><img src="assets\images\Busca\Binary\bin5.png" class = "img-responsive"></div>
+                                        <div id = "bin6" style="display: none;"><img src="assets\images\Busca\Binary\bin6.png" class = "img-responsive"></div>
+                                        
+                                        <a  class="btn btn-pink" onclick="animation_prev('bin',6)">Prev</a>
+                                        <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('bin',6)">Next</a>
+                                        <p class="note-pink"><b>Observação:</b> Note que, a cada teste, descartamos uma das metades do (sub)vetor pesquisado.</p>
+                                        <pre class = "prettyprint linenums:1 lang-cpp">
+
+
+
+int inicio, fim, meio, valor, achou;
+int conjunto[] = {3,4,5,6,7,8,9,10,12};
+
+valor = 6;
+inicio = 0;
+fim = 8;
+achou = 0;
+
+while ((inicio <= fim) && (!achou)) {
+    meio = (inicio + fim) / 2;
+    if (valor < conjunto[meio])
+        fim = meio - 1;
+    else if (valor > conjunto[meio])
+        inicio = meio + 1;
+    else
+        achou = 1;
+}
+if (achou)
+    printf("%d encontrado na posicao %d.\n", valor, meio + 1);
+else
+    printf("%d nao encontrado.\n", valor);</pre>
+                                        <a href="assets/codes/aula7/buscaBinaria.c" class="btn btn-pink" download="">Download Code</a>
+                                        <a href="https://goo.gl/5dUWiU" class="btn btn-pink" target="blank">Code Execution</a>    
+                                        <li><p>Resumindo, a eficiência da busca binária é muito superior a uma busca linear (no pior caso), pois a cada iteração metade do sub-vetor é descartada. Sua complexidade é de O(log(n)) enquanto a complexidade da busca linear é O(n) (Assunto sobre complexidade será tratado futuramente).</p></li>
+                                        <li><p>Segue um exemplo da comparação entre as duas buscas.</p></li>
+                                        <img src="assets/images/Busca/binaryVSlinear.gif" alt="Binary Search VS Linear Search">
                                     </ul>
                                 </div>
                             </section><!--// ORDENAÇÃO -->
@@ -292,15 +350,15 @@ int main(){
                                         <table class="table table-striped">
                                             <tbody>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1172" target="_blank"  style="color: #077a18;">Substituição em Vetor I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1173" target="_blank"  style="color: #077a18;">Preenchimento de Vetor I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1174" target="_blank"  style="color: #077a18;">Seleçao em Vetor I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1171" target="_blank"  style="color: #077a18;">Frequência de Números</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2311" target="_blank"  style="color: #077a18;">Saltos Ornamentais</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1104" target="_blank"  style="color: #077a18;">Troca de Cartas</a></td>
                                                             
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1175" target="_blank"  style="color: #077a18;">Troca em Vetor I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1176" target="_blank"  style="color: #077a18;">Fibonacci em Vetor</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1177" target="_blank"  style="color: #077a18;">Preenchimento de Vetor II</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1551" target="_blank"  style="color: #077a18;">Frase Completa</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1259" target="_blank"  style="color: #077a18;">Pares e Ímpares</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1025" target="_blank"  style="color: #077a18;">Onde está o Mármore?</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1178" target="_blank"  style="color: #077a18;">Preenchimento de Vetor III</a></td>
