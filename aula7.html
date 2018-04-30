@@ -133,8 +133,7 @@ while ((i < 10) && (!achou)) {
 if (achou)
     printf("%d encontrado na posicao %d.\n", valor, i + 1);
 else
-    printf("%d nao encontrado.\n", valor);
-}</pre>
+    printf("%d nao encontrado.\n", valor);</pre>
                                     <a href="assets/codes/aula7/buscaLinear.c" class="btn btn-pink" download="">Download Code</a>
                                     <a href="https://goo.gl/zkgLT5	" class="btn btn-pink" target="blank">Code Execution</a>
                                     <div id = "lin1"><img src="assets\images\Busca\Linear\lin1.png" class = "img-responsive"></div>
@@ -162,23 +161,22 @@ else
                                         <li><p>Se não, testamos se o elemento procurado é <b>maior</b> que o elemento do meio do vetor. Se for o caso, então passamos a buscar apenas na <b>segunda metade do vetor</b>.</p></li>
                                         <li><p>Caso contrário o valor procurado é igual ao elemento que está no meio do vetor.</p></li>
                                         <li>Esse procedimento é repetido até que o elemento seja encontrado ou não haja mais elementos a testar.</p></li>
-                                        <li><p>Suponha que desejamos buscar o número 6 no mesmo vetor anterior, porém agora foi informado que o vetor está ordenado em ordem crescente, como aplicar a busca binária ?</p></li>
+                                        <li><p>Suponha que desejamos buscar o número 6 no mesmo vetor anterior, porém agora foi informado que o vetor está <b>ordenado</b> em ordem crescente, como aplicar a busca binária ?</p></li>
                                         <div id = "bin1"><img src="assets\images\Busca\Binary\bin1.png" class = "img-responsive"></div>
                                         <div id = "bin2" style="display: none;"><img src="assets\images\Busca\Binary\bin2.png" class = "img-responsive"></div>
                                         <div id = "bin3" style="display: none;"><img src="assets\images\Busca\Binary\bin3.png" class = "img-responsive"></div>
                                         <div id = "bin4" style="display: none;"><img src="assets\images\Busca\Binary\bin4.png" class = "img-responsive"></div>
                                         <div id = "bin5" style="display: none;"><img src="assets\images\Busca\Binary\bin5.png" class = "img-responsive"></div>
                                         <div id = "bin6" style="display: none;"><img src="assets\images\Busca\Binary\bin6.png" class = "img-responsive"></div>
+                                        <div id = "bin7" style="display: none;"><img src="assets\images\Busca\Binary\bin7.png" class = "img-responsive"></div>
+                                        <div id = "bin8" style="display: none;"><img src="assets\images\Busca\Binary\bin8.png" class = "img-responsive"></div>
                                         
-                                        <a  class="btn btn-pink" onclick="animation_prev('bin',6)">Prev</a>
-                                        <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('bin',6)">Next</a>
+                                        <a  class="btn btn-pink" onclick="animation_prev('bin',8)">Prev</a>
+                                        <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('bin',8)">Next</a>
                                         <p class="note-pink"><b>Observação 1:</b> O vetor precisa estar <b>ordenado</b> para conseguir realizar a busca binária.</p>
                                         <p class="note-pink"><b>Observação 2:</b> Note que, a cada teste, descartamos uma das metades do (sub)vetor pesquisado.</p>
                                         
                                         <pre class = "prettyprint linenums:1 lang-cpp">
-
-
-
 int inicio, fim, meio, valor, achou;
 int conjunto[] = {3,4,5,6,7,8,9,10,12};
 
