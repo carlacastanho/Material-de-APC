@@ -79,13 +79,13 @@
                                     <h4>Busca</h4>
                                     <ul class="list">
                                         <li><p>Busca é um método bastante utilizado em programação, pois frequentemente necessitamos de informações que podem ser adquiridas através dela.</p></li>
-                                        <li><p>Pode-se realizar busca em diversos lugares como: vetores (verificação da existência de um valor dentro dele),intervalos numéricos (qual o melhor ponto dentro de um intervalo que satisfaz o problema), strings (se um letra está contida em uma string)...</p></li>
+                                        <li><p>Pode-se realizar busca em diversos lugares como: vetores (verificação da existência de um valor dentro dele), intervalos numéricos (qual o melhor ponto dentro de um intervalo que satisfaz o problema), strings (se um letra está contida em uma string) e etc.</p></li>
                                         <li><p>Trataremos neste capítulo da <b>pesquisa sequencial</b> e da <b>pesquisa binária</b>.</p></li>
                                     </ul>   
                                     <h4>Ordenação</h4>
                                     <ul class="list">
                                         <li><p>A ordenação consiste em dispor elementos em uma certa sequência, seguindo algum critério. Por exemplo, a ordenação lexicográfica (alfabética) para dados literais, ou crescente e decrescente para dados numéricos.</p></li>
-                                        <li><p>Existem muitos algoritmos de ordenação conhecidos: InsertionSort, ShellSort, BubbleSort, HeapSort, MergeSort , QuickSort…</p></li>
+                                        <li><p>Existem muitos algoritmos de ordenação conhecidos: <b>InsertionSort</b>, <b>ShellSort</b>, <b>BubbleSort</b>, <b>HeapSort</b>, <b>MergeSort</b> , <b>QuickSort</b>, dentro Outros.</p></li>
                                         <li><p>Aqui veremos o <em>BubbleSort</em>. Outros algoritmos de ordenação serão vistos na matéria de Estruturas de Dados.</p></li>    
                                     </ul>
 
@@ -105,7 +105,7 @@
                                         <a  class="btn btn-pink" onclick="animation_prev('random',5)">Prev</a>
                                         <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('random',5)">Next</a>
                                         <li><p>Obviamente este método não é nem de perto o mais eficiente.</p></li>
-                                        <li><p>Outra estratégia seria começando na primeira porta e ir abrindo as próximas na sequencia. Este método se chama <b>Busca Linear</b>.</p></li>
+                                        <li><p>Outra estratégia seria começando na primeira porta e ir abrindo as próximas na sequência. Este método se chama <b>Busca Linear</b>.</p></li>
                                         <div id = "linear1"><img src="assets\images\Busca\Linear\seq1.png" class = "img-responsive"></div>
                                         <div id = "linear2" style="display: none;"><img src="assets\images\Busca\Linear\seq2.png" class = "img-responsive"></div>
                                         <div id = "linear3" style="display: none;"><img src="assets\images\Busca\Linear\seq3.png" class = "img-responsive"></div>
@@ -119,24 +119,24 @@
 int i, valor, achou;
 int conjunto[] = {3,6,7,10,4,12,9,5,8};
 valor = 5;
-
+ 
 i = 0;
 achou = 0;
-
+ 
 while ((i < 10) && (!achou)) {
     if (conjunto[i] == valor)
         achou = 1;
     else
         i++;
 }
-
+ 
 if (achou)
     printf("%d encontrado na posicao %d.\n", valor, i + 1);
 else
     printf("%d nao encontrado.\n", valor);
 }</pre>
                                     <a href="assets/codes/aula7/buscaLinear.c" class="btn btn-pink" download="">Download Code</a>
-                                    <a href="https://goo.gl/76Dc3X" class="btn btn-pink" target="blank">Code Execution</a>
+                                    <a href="https://goo.gl/zkgLT5	" class="btn btn-pink" target="blank">Code Execution</a>
                                     <div id = "lin1"><img src="assets\images\Busca\Linear\lin1.png" class = "img-responsive"></div>
                                     <div id = "lin2" style="display: none;"><img src="assets\images\Busca\Linear\lin2.png" class = "img-responsive"></div>
                                     <div id = "lin3" style="display: none;"><img src="assets\images\Busca\Linear\lin3.png" class = "img-responsive"></div>
@@ -157,10 +157,10 @@ else
                                 <h2 class="section-title">Busca bin&#xE1;ria</h2>
                                 <div class="section-block">
                                     <ul class="list">
-                                        <li><p>A pesquisa binária utiliza a técnica de “dividir e conquistar”</p></li>
-                                        <li><p>primeiro, testamos se o elemento procurado é <b>menor</b> que o elemento do meio do vetor. Se for o caso, então passamos a buscar apenas na <b>primeira metade do vetor</b>.</p></li>
+                                        <li><p>A pesquisa binária utiliza a técnica de “dividir e conquistar”.</p></li>
+                                        <li><p>Primeiro, testamos se o elemento procurado é <b>menor</b> que o elemento do meio do vetor. Se for o caso, então passamos a buscar apenas na <b>primeira metade do vetor</b>.</p></li>
                                         <li><p>Se não, testamos se o elemento procurado é <b>maior</b> que o elemento do meio do vetor. Se for o caso, então passamos a buscar apenas na <b>segunda metade do vetor</b>.</p></li>
-                                        <li><p>caso contrário o valor procurado é igual ao elemento que está no meio do vetor.</p></li>
+                                        <li><p>Caso contrário o valor procurado é igual ao elemento que está no meio do vetor.</p></li>
                                         <li>Esse procedimento é repetido até que o elemento seja encontrado ou não haja mais elementos a testar.</p></li>
                                         <li><p>Suponha que desejamos buscar o número 6 no mesmo vetor anterior, porém agora foi informado que o vetor está ordenado em ordem crescente, como aplicar a busca binária ?</p></li>
                                         <div id = "bin1"><img src="assets\images\Busca\Binary\bin1.png" class = "img-responsive"></div>
@@ -172,7 +172,9 @@ else
                                         
                                         <a  class="btn btn-pink" onclick="animation_prev('bin',6)">Prev</a>
                                         <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('bin',6)">Next</a>
-                                        <p class="note-pink"><b>Observação:</b> Note que, a cada teste, descartamos uma das metades do (sub)vetor pesquisado.</p>
+                                        <p class="note-pink"><b>Observação 1:</b> O vetor precisa estar <b>ordenado</b> para conseguir realizar a busca binária.</p>
+                                        <p class="note-pink"><b>Observação 2:</b> Note que, a cada teste, descartamos uma das metades do (sub)vetor pesquisado.</p>
+                                        
                                         <pre class = "prettyprint linenums:1 lang-cpp">
 
 
@@ -212,17 +214,17 @@ else
                                     <h3>BubbleSort</h3>
                                     <ul class="list">
                                        <li> Ordenar uma coleção significa dispor seus elementos seguindo um critério determinado.
-                                            Esta operação é bastante comum em computação, e por isso existem vários algoritmos para fazê-lo.
+                                            Esta operação é bastante comum em computação, e por isso existem vários algoritmos para fazê-la.
                                             A principal diferença entre os algoritmos é sua <b>eficiência</b>.
                                        </li>
-                                       <li> Como contato inicial vamos analisar o algoritmo <b>Bubble sort</b>. Ele é um algoritmo simples, apesar de não muito eficiente.</li>
-                                       <li> A ideia do Bubble Sort é organizar os elementos do conjunto colocando um elemento por vez no seu lugar certo. Isso reduz o tamanho do vetor a ser
+                                       <li> Como contato inicial vamos analisar o algoritmo <b>BubbleSort</b>. Ele é um algoritmo simples, apesar de não muito eficiente.</li>
+                                       <li> A ideia do BubbleSort é organizar os elementos do conjunto colocando um elemento por vez no seu lugar certo. Isso reduz o tamanho do vetor a ser
                                            organizado em 1 para cada elemento que é colocado em sua posição correta.
                                        </li>
                                        
                                     </ul>
 
-                                    <img src="assets/images/Busca/Bubble-sort.gif" alt="Bubble Sort execution gif">
+                                    <img src="assets/images/Busca/Bubble-sort.gif" alt="BubbleSort execution gif">
                                        <h3>Exemplo</h3>
                                        <p>Vamos analisar um exemplo de funcionamento do algoritmo antes de mostrá-lo. Suponha um vetor de inteiros com n 
                                            elementos que queremos ordenar em ordem crescente.
@@ -276,16 +278,16 @@ int main(){
 
 
                         <div class="section-block" id="analiseBubble">
-                        <h3>Análise Inicial do Bubble Sort</h3>
+                        <h3>Análise Inicial do BubbleSort</h3>
                         <p>Note que o vetor, ao final da execução do algoritmo, está ordenado em ordem crescente, como era o objetivo.
                            Este algoritmo vai funcionar para qualquer vetor de inteiros. No entanto, como cientistas da computação sempre devemos estar
                            preocupados em criar programas funcionais e <b>eficientes</b>. Vamos analisar este algoritmo acima:
                         </p>        
                         <ol class="list">
-                            <li>O algoritmo precisa percorrer o vetor inteiro várias vezes em sua execução (exatamente n² vezes)</li>
+                            <li>O algoritmo precisa percorrer o vetor inteiro várias vezes em sua execução (exatamente n² vezes).</li>
                             <li>O número de operações a serem executadas é sempre o mesmo, indepentente de como os valores estão no vetor original,
                                 isto é, o tempo de "ordenar" um vetor já ordenado e de ordenar um vetor completamente não-ordenado, neste algoritmo, é o mesmo.</li>
-                            <li>É possível que o vetor fique ordenado antes do final da execução do algoritmo, mas ele não para quando o vetor está ordenado, levando sempre
+                            <li>É possível que o vetor fique ordenado antes do final da execução do algoritmo, mas ele não pára quando o vetor está ordenado, levando sempre
                                 o mesmo tempo de execução.</li>
                         </ol>
 
@@ -293,9 +295,9 @@ int main(){
                         aumenta, pois melhoramos a performace dele para alguns casos mais comuns, adicionando as seguintes mudanças.</p>
                         
                         <ol class="list">
-                            <li>Adicionamos uma flag ok para indicar se uma passada pelo vetor não produziu nenhuma mudança. Isto é,
+                            <li>Adicionamos uma flag "<b>ok</b>" para indicar se uma passada pelo vetor não produziu nenhuma mudança. Isto é,
                                 se percorremos o vetor inteiro e nenhuma mudança foi necessária, podemos parar.</li>
-                            <li>Sabemos que a cada execução do passo 2 um elemento vai para a sua posição final. Podemos tirarr vantagem desse
+                            <li>Sabemos que a cada execução do passo 2 um elemento vai para a sua posição final. Podemos tirar vantagem desse
                                 fato fazendo com que menos pares sejam comparados por iteração do loop mais interno.
                             </li>
                         </ol>
@@ -309,10 +311,10 @@ void betterBubbleSort(int v[], int n){
         for(i = 0; i < n-j-1; i++){
             // passo 1
             if(v[i] > v[i+1]){
-            ok = 0;
-            int aux = v[i];
-            v[i] = v[i+1];
-            v[i+1] = aux;
+	            ok = 0;
+	            int aux = v[i];
+	            v[i] = v[i+1];
+	            v[i+1] = aux;
             }
         }
     }
@@ -336,9 +338,9 @@ int main(){
                         <a href="assets/codes/aula7/betterBubble.c" class="btn btn-pink" download="">Download Code</a>
                         <a href="https://goo.gl/okVHGh"class="btn btn-pink" target="blank">Code Execution</a>
                         
-                        <p>A mudança pode parecer pequena, mas aumenta bastante a eficiência do algoritmo. Por exemplo, repare que o primeiro Bubble Sort, no link de execução
+                        <p>A mudança pode parecer pequena, mas aumenta bastante a eficiência do algoritmo. Por exemplo, repare que o primeiro BubbleSort, no link de execução
                             possui 283 passos, enquanto o segundo só possui 190, uma melhora de quase 33%. <br>
-                            Uma análise mais detalhada do Bubble Sort está na seção <a class="scrollto" href="#AnaliseBubbleSort">Análise do Bubble Sort</a>.
+                            Uma análise mais detalhada do BubbleSort está na seção <a class="scrollto" href="#AnaliseBubbleSort">Análise do BubbleSort</a>.
                         </p>
                         </div>
                             </section><!--//doc-section-->
@@ -420,7 +422,7 @@ int main(){
                                 </div>
                                 
                                 <div class="section-block" id="AnaliseBubbleSort">
-                                    <h4>Análise do Bubble Sort</h4>
+                                    <h4>Análise do BubbleSort</h4>
                                     <p>Primeiramente vamos recaptular os passos necessários para a execução do algoritmo.</p>
                                     <ol class="list">
                                         <li>Tomamos o primeiro elemento e analisamos o seu sucessor no array. Caso o sucessor seja menor que o antecessor,
@@ -431,7 +433,7 @@ int main(){
                                         </li>
                                         <li>Repetimos a operação n vezes, uma para cada elemento. Ao final do processo o vetor estará ordenado.</li>
                                     </ol>
-                                    <p>Pegando só a função do Bubble Sort, e considerando cada linha como uma operação, podemos ter uma estimativa da complexidade.</p>
+                                    <p>Pegando só a função do BubbleSort, e considerando cada linha como uma operação, podemos ter uma estimativa da complexidade.</p>
 
                                     <pre class="prettyprint linenums:1 lang-cpp">
 void bubbleSort(int v[], int n){
@@ -457,11 +459,11 @@ void bubbleSort(int v[], int n){
                                         <li>A condição if do passo 1 é executada sempre, portanto n² vezes.</li>
                                     </ol>
                                     <p>Portanto a estimativa seria da ordem de 1+ 2n² + &alpha;, onde &alpha; é a quantidade de vezes que as operações internas ao if do passo 1 são executadas.<br>
-                                    Removendo as constantes e variáveis de menor ordem temos que a complexidade do Bubble Sort, assintóticamente, é <b>O(n²)</b>. Conforme vimos na <a class="scrollto" href="#analiseBubble">Análise Inicial</a>
+                                    Removendo as constantes e variáveis de menor ordem temos que a complexidade do BubbleSort, assintóticamente, é <b>O(n²)</b>. Conforme vimos na <a class="scrollto" href="#analiseBubble">Análise Inicial</a>
                                 este algoritmo terá o mesmo tempo para qualquer caso. As melhorias apresentadas naquela seção aceleram o algoritmo para alguns casos. O algoritmo melhorado é O(1) no melhor caso,
-                                mas continua O(n²) no pior caso. Uma análise mais completa do algoritmo pode ser vista <a href="https://en.wikipedia.org/wiki/Bubble_sort" target="_blank">aqui</a>.</p>
+                                mas continua O(n²) no pior caso. Uma análise mais completa do algoritmo pode ser vista. <a href="https://en.wikipedia.org/wiki/Bubble_sort" target="_blank">aqui</a>.</p>
 
-                                <p>Algoritmos de ordenação com complexidade O(n²), por exemplo, Bubble Sort, Insertion Sort, Selection Sort, etc não são usados em
+                                <p>Algoritmos de ordenação com complexidade O(n²), por exemplo, BubbleSort, Insertion Sort, Selection Sort, etc não são usados em
                                     aplicações mais complexas, pois demoram demais para vetores grandes. Por exemplo, para vetores com 10 elementos o tempo seria 10² = 100 operações.
                                     Para vetores com 100 elementos, temos 100² = 10000 operações. Para vetores com 1000 elementos, 1000² = 1000000 operações. Um computador consegue executar,
                                     em geral, 10<sup>8</sup> operações em 1 segundo. Assim, este algoritmo demora muito para vetores com muito mais de 1000 elementos.
@@ -481,15 +483,15 @@ void bubbleSort(int v[], int n){
                                 <li><a class="scrollto" href="#binary">Busca Bin&#xE1;ria</a></li>
                                 <li><a class="scrollto" href="#sort">Ordena&#xE7;&#xE3;o</a>
                                     <ul class="nav doc-sub-menu">
-                                        <li><a class="scrollto" href="#bubble">Bubble Sort</a></li>
-                                        <li><a class="scrollto" href="#analiseBubble">Análise Inicial do Bubble Sort</a></li>
+                                        <li><a class="scrollto" href="#bubble">BubbleSort</a></li>
+                                        <li><a class="scrollto" href="#analiseBubble">Análise Inicial do BubbleSort</a></li>
                                     </ul>
                                 </li>
                                 <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
                                 <li><a class="scrollto" href="#materiais">Materiais Extras</a>
                                     <ul class="nav doc-sub-menu">
                                         <li><a class="scrollto" href="#introAnalise">Análise de Algoritmos Básica</a></li>
-                                        <li><a class="scrollto" href="#AnaliseBubbleSort">Análise do Bubble Sort</a></li>
+                                        <li><a class="scrollto" href="#AnaliseBubbleSort">Análise do BubbleSort</a></li>
                                     </ul>
                                 </li>
 
