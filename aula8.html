@@ -89,10 +89,10 @@ scanf("%d", &array[0]);</pre>
                                     	<pre class="prettyprint linenums:1 lang-cpp">
 int prova1[40], prova2[40], prova3[40];</pre>
 
-                                        <li><p>Mas e se agora existissem 100 avaliações? ou então N avaliações (indefinido) ?</p></li>
+                                        <li><p>Mas e se agora existissem 100 avaliações? ou então <b>N</b> avaliações (indefinido) ?</p></li>
                                     	<pre class="prettyprint linenums:1 lang-cpp">
 int prova1[40], prova2[40], prova3[40], ... , prova98[40], prova99[40], prova100[40];</pre> 	
-                                    	<li><p>Se torna totalmente inviável criar 100 vetores para resolver este problema, sendo assim, o interessante é que cada aluno possa ser um vetor de notas, i.e, precisamos de um vetor de vetores, o famoso <b>vetore multidimensional</b>.</p></li>
+                                    	<li><p>Se torna totalmente inviável criar 100 vetores para resolver este problema, sendo assim, o interessante é que cada aluno possa ser um vetor de notas. Precisamos de um vetor de vetores, mais conhecido como <b>vetor multidimensional</b>.</p></li>
                                     	<img src="assets\images\Matrizes\notas.png" style = "width: 100%;">
 										<li><p>Podemos também declarar vetores com várias dimensões, tantas quanto forem necessárias.</p></li>
                                     	<pre class="prettyprint linenums:1 lang-cpp">
@@ -110,10 +110,10 @@ int array[1000][1000][1000] // Tamanho de 10³ x 10³ x 10³ = 10^9</pre>
                                 	<h4>O que são:</h4>
                                 	<ul class="list">
                                 			<li><p>Matrizes são vetores bidimensionais, usadas com mais frequência.</p></li>
-                                			<li><p>Uma matriz é uma tabela com n linhas e m colunas:</p></li>
+                                			<li><p>Uma matriz é uma tabela com <b>n</b> linhas e <b>m</b> colunas:</p></li>
                                     		<img src="assets\images\Matrizes\matriz.gif" class = "img-responsive" style = "margin: 5%;">
                                     		<li><p>Como você já deve imaginar, trabalhar com matrizes em C é <b>muito parecido com vetores</b>.</p></li>
-                                    		<li><p>Os índices continuam indo de zero até tamanho-1, e você só vai adicionar uma nova dimensão (<b>mais um par de colchetes</b>).</p></li>
+                                    		<li><p>Os índices continuam indo de <b>zero</b> até <b>tamanho-1</b>, e você só vai adicionar uma nova dimensão (<b>mais um par de colchetes</b>).</p></li>
                                     		<div id = "mat1"><img src="assets\images\Matrizes\Inserir\mat1.png" class = "img-responsive"></div>
                                     		<div id = "mat2" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat2.png" class = "img-responsive"></div>
                                     		<div id = "mat3" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat3.png" class = "img-responsive"></div>
@@ -147,14 +147,12 @@ int array[1000][1000][1000] // Tamanho de 10³ x 10³ x 10³ = 10^9</pre>
                                     <p>Já sabemos como podemos passar vetores como parâmetros de funções, existem duas alternativas:</p>
                                     <pre class="prettyprint linenums:1 lang-cpp">
 void func(int* array);  // alternativa 1 - ponteiro
-void func(int array[]); // alternativa 2 - vetor
-                                    </pre>
+void func(int array[]); // alternativa 2 - vetor</pre>
                                     <p>Para vetores de mais dimensões utilizaremos a alternativa 2, passar como vetores. Além disso, indicar o tamanho do vetor nos colchetes, para o caso unidimensional, é <em>opcional</em>, mas para os segundos colchetes em diante é <b>obrigatório</b>.</p>
 
                                     <pre class="prettyprint linenums:1 lang-cpp">
 void func(int mat[][M]); // indicar M é obrigatório
-void func(double mat[][M][P]); // matrizes de mais dimensões funcionam igual
-                                    </pre>
+void func(double mat[][M][P]); // matrizes de mais dimensões funcionam igual</pre>
                                     <p>O motivo de termos que indicar os tamanhos das dimensões diferentes da primeira é abordado em detalhes na seção <a href="#materiais">Materiais Extras</a>. A utilização da matriz dentro da função é idêntica a outras matrizes em C.</p>
 
                                     <h4>Example</h4>
@@ -200,7 +198,7 @@ int main(){
                                     </pre>
                                 <a href="#" class="btn btn-blue" download="assets/codes/aula8/func.c">Download Code</a>
                                 <a href="https://goo.gl/3pNbcn" class="btn btn-blue">Code Execution</a>
-                                <p>Pra mais exemplos visite este <a href="https://www.geeksforgeeks.org/pass-2d-array-parameter-c/">site</a>. Ele inclui também a opção 1, passar matrizes como ponteiros, mas ela é mais complicada (veja seção <a href="#materiais">Materiais Extras</a> para saber o porquê)</p>
+                                <p>Para mais exemplos visite este <a href="https://www.geeksforgeeks.org/pass-2d-array-parameter-c/">site</a>. Ele inclui também a opção 1, passar matrizes como ponteiros, mas ela é mais complicada (veja seção <a href="#materiais">Materiais Extras</a> para saber o porquê)</p>
                                 </div>
                             </section>                            
                           
