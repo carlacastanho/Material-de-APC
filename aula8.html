@@ -87,11 +87,11 @@ scanf("%d", &array[0]);</pre>
                                         <li><p>No entanto, em computação, frequentemente precisamos de vetores <b>multidimensionais</b>.</p></li>
                                         <li><p>Por exemplo: voltando aquele exemplo antigo de guardar as notas das 3 provas de cada aluno de uma turma, aprendemos que poderíamos criar 3 vetores de notas dos alunos (1 vetor para cada prova), sem a necessidade de ter 120 variáveis.</p></li>
                                     	<pre class="prettyprint linenums:1 lang-cpp">
-int prova1[40], prova2[40], prova3[40];</pre>
+double prova1[40], prova2[40], prova3[40];</pre>
 
                                         <li><p>Mas e se agora existissem 100 avaliações? ou então <b>N</b> avaliações (indefinido) ?</p></li>
                                     	<pre class="prettyprint linenums:1 lang-cpp">
-int prova1[40], prova2[40], prova3[40], ... , prova98[40], prova99[40], prova100[40];</pre> 	
+double prova1[40], prova2[40], prova3[40], ... , prova98[40], prova99[40], prova100[40];</pre> 	
                                     	<li><p>Se torna totalmente inviável criar 100 vetores para resolver este problema, sendo assim, o interessante é que cada aluno possa ser um vetor de notas. Precisamos de um vetor de vetores, mais conhecido como <b>vetor multidimensional</b>.</p></li>
                                     	<img src="assets\images\Matrizes\notas.png" style = "width: 100%;">
 										<li><p>Podemos também declarar vetores com várias dimensões, tantas quanto forem necessárias.</p></li>
