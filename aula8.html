@@ -34,6 +34,7 @@
     <style>
         .img-responsive{
             width: 70%;
+            margin: 15px;
         }
         .center {
             display: block;
@@ -104,7 +105,7 @@ int array[1000][1000][1000] // Tamanho de 10³ x 10³ x 10³ = 10^9</pre>
                                     </ul>   
                                 </div>
                             </section><!--//doc-section-->
-							 <section id="linear" class="doc-section">
+							 <section id="matrizes" class="doc-section">
                                 <h2 class="section-title">Matrizes</h2>
                                 <div class="section-block">
                                 	<h4>O que são:</h4>
@@ -134,12 +135,71 @@ int array[1000][1000][1000] // Tamanho de 10³ x 10³ x 10³ = 10^9</pre>
                                     		<div id = "mat18" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat18.png" class = "img-responsive"></div>
                                     		<div class = "center">
                                     			<a  class="btn btn-blue" onclick="animation_prev('mat',18)">Prev</a>
-                                    			<a href="assets/codes/aula7/buscaLinear.c" class="btn btn-blue" download="">Download Code</a>
+                                    			<a href="#" class="btn btn-blue" download="assets/codes/aula8/matriz.c">Download Code</a>
                                     			<a  class="btn btn-blue"  onclick="animation_next('mat',18)">Next</a>
                                     		</div>
+                                    </ul>
+                                </div>
+                                <div class="section-block" id="func-param">
+                                    <h2 class="block-title">Matrizes como Parâmetros de Funções</h2>
+                                    
+                                    <p>Já sabemos como podemos passar vetores como parâmetros de funções, existem duas alternativas:</p>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+void func(int* array);  // alternativa 1 - ponteiro
+void func(int array[]); // alternativa 2 - vetor
+                                    </pre>
+                                    <p>Para vetores de mais dimensões utilizaremos a alternativa 2, passar como vetores. Além disso, indicar o tamanho do vetor nos colchetes, para o caso unidimensional, é <em>opcional</em>, mas para os segundos colchetes em diante é <b>obrigatório</b>.</p>
 
-                                	</ul>
-                                	<h4>Matrizes como Parâmetros de Funções</h4>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+void func(int mat[][M]); // indicar M é obrigatório
+void func(double mat[][M][P]); // matrizes de mais dimensões funcionam igual
+                                    </pre>
+                                    <p>O motivo de termos que indicar os tamanhos das dimensões diferentes da primeira é abordado em detalhes na seção <a href="#materiais">Materiais Extras</a>. A utilização da matriz dentro da função é idêntica a outras matrizes em C.</p>
+
+                                    <h4>Example</h4>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;  // for rand()
+#define ROWS 5
+#define COLUMS 5
+                                       
+// conta os numeros pares em uma matriz
+int countEven(int m[ROWS][COLUMS]){
+    int r = 0, i, j;
+    for(i = 0; i < ROWS; i++){
+        for(j = 0; j < COLUMS; j++){
+            if(m[i][j]%2 == 0)
+                r++;
+        }
+    }
+    return r;
+}
+                                            
+// mostra uma matriz na tela
+void printMat(int m[][COLUMS]){ // note que ROWS eh opcional. COLUMS nao.
+    int i, j;
+    for(i = 0; i < ROWS; i++){
+        for(j = 0; j < COLUMS; j++)
+            printf("%d ", m[i][j]);
+        printf("\n");
+    }
+}
+                                            
+int main(){
+    int matriz[ROWS][COLUMS];
+    int i,j;
+    for(i = 0; i < ROWS; i++)
+        for(j = 0; j < COLUMS; j++)
+            matriz[i][j] = rand() % 100;
+                                            
+    int even = countEven(matriz);
+    printf("Existem %d numeros pares na matriz\n", even);
+    printMat(matriz);
+}
+                                    </pre>
+                                <a href="#" class="btn btn-blue" download="assets/codes/aula8/func.c">Download Code</a>
+                                <a href="https://goo.gl/3pNbcn" class="btn btn-blue">Code Execution</a>
+                                <p>Pra mais exemplos visite este <a href="https://www.geeksforgeeks.org/pass-2d-array-parameter-c/">site</a>. Ele inclui também a opção 1, passar matrizes como ponteiros, mas ela é mais complicada (veja seção <a href="#materiais">Materiais Extras</a> para saber o porquê)</p>
                                 </div>
                             </section>                            
                           
@@ -174,8 +234,33 @@ int array[1000][1000][1000] // Tamanho de 10³ x 10³ x 10³ = 10^9</pre>
                             </section><!--//doc-section-->
                             <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
-                                <div class="section-block" id="introAnalise">
-                                    
+                                <div class="section-block" id="idxCalc">
+                                <h3 class="block-title">Vetores multidimensionais na memória</h3>
+                                <p>Na sessão <a href="#func-param" class="scrollto">Matrizes como Parâmetros de Funções</a> vimos que só podemos passar matrizes como vetores para usá-las em funções, e é obrigatório informar o tamanho das dimensões, exceto a primeira. Isso acontece pela forma como os vetores são salvos na memória, e como o computador calcula os endereços dos elementos do vetor.</p>
+
+                                <p>Os elementos de um vetor estão salvos em posições <em>contíguas</em> na memória. Isto vale para array de qualquer dimensão. Assim, a seguinte matriz:</p>
+
+                                <img class="img-responsive" src="assets/images/Matrizes/matrizExemplo.jpg" alt="Exemplo de uma matriz">
+
+                                <p style="margin:15px;">Na verdade, na memória do computador, fica organizada em uma única dimensão:</p>
+                                
+                                <img class="img-responsive" src="assets/images/Matrizes/matrizMem.jpg" alt="Matriz anterior na memória">
+
+                                <p>Como os elementos estão em posições contíguas, seus endereços também são contíguos. Logo, para saber o endereço de um elemento em qualquer array unidimensionais, o computador só precisa fazer o cálculo <code>addr = array + idx*sizeof(type)</code> onde addr é o endereço procurado, array é o primeiro endereço do vetor, idx é a posição desejada e type é o tipo do vetor. Por exemplo</p>
+                                
+                                <div id = "ptr1"><img src="assets/images/Matrizes/Pointer/ptr1.png" class = "img-responsive"></div>
+                                <div id = "ptr2" style="display: none;"><img src="assets/images/Matrizes/Pointer/ptr2.png" class = "img-responsive"></div>
+                                <div id = "ptr3" style="display: none;"><img src="assets/images/Matrizes/Pointer/ptr3.png" class = "img-responsive"></div>
+                                <div class = "center">
+                                        <a  class="btn btn-blue" onclick="animation_prev('ptr',3)">Prev</a>
+                                        <a href="#" class="btn btn-blue" download="assets/codes/aula8/ptr.c">Download Code</a>
+                                        <a  class="btn btn-blue"  onclick="animation_next('ptr',3)">Next</a>
+                                </div>
+                                <p style="margin: 15px">Isso é perfeitamente possível de ser feito porque o computador sabe <b>quantos bytes pular</b> para chegar em qualquer elemento, já que todos ocupam um espaço definido pelo <b>tipo</b> do vetor. No entanto, se queremos, por exemplo, pular uma linha inteira de uma matriz, como saber qual o tamanho da linha? Não é possível, a menos que saibamos de antemão. Como o tamanho de uma linha é igual <em>ao número de colunas * tamanho de cada elemento</em>, conclui-se que precisamos informar o tamanho das colunas, para que o computador possa fazer o cálculo dos endereços. Assim, se não especificamos este tamanho (por exemplo, se passarmos uma matriz para uma função como ponteiro) temos que fazer o cálculo nós mesmos.</p>
+
+                                <p>Veja vários exemplos de como passar matrizes como parâmetros de funções neste <a href="https://www.geeksforgeeks.org/pass-2d-array-parameter-c/">site</a>.</p>
+
+
                                 </div>
                             </section><!--//doc-section-->
                             
@@ -186,19 +271,12 @@ int array[1000][1000][1000] // Tamanho de 10³ x 10³ x 10³ = 10^9</pre>
                         <nav id="doc-nav">
                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
                                 <li><a class="scrollto" href="#intro">Introdu&#xE7;&#xE3;o</a></li>
-                                <li><a class="scrollto" href="#linear">Busca Linear</a></li>
-                                <li><a class="scrollto" href="#binary">Busca Bin&#xE1;ria</a></li>
-                                <li><a class="scrollto" href="#sort">Ordena&#xE7;&#xE3;o</a>
-                                    <ul class="nav doc-sub-menu">
-                                        <li><a class="scrollto" href="#bubble">BubbleSort</a></li>
-                                        <li><a class="scrollto" href="#analiseBubble">Análise Inicial do BubbleSort</a></li>
-                                    </ul>
-                                </li>
+                                <li><a class="scrollto" href="#matrizes">Matrizes</a></li>
+                                <li><a class="scrollto" href="#func-param">Matriz em Funções</a></li>
                                 <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
                                 <li><a class="scrollto" href="#materiais">Materiais Extras</a>
                                     <ul class="nav doc-sub-menu">
-                                        <li><a class="scrollto" href="#introAnalise">Análise de Algoritmos Básica</a></li>
-                                        <li><a class="scrollto" href="#AnaliseBubbleSort">Análise do BubbleSort</a></li>
+                                        <li><a class="scrollto" href="#idxCalc">Matrizes em Memória</a></li>
                                     </ul>
                                 </li>
 
