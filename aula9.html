@@ -134,17 +134,131 @@ char string[100]; // sequência de até 100 caracteres</pre>
                                     <p class="callout-block" style="background-color: rgba(138, 64, 167, 0.685); margin-top: 10px;">Por conta do '\0' no final das strings, lembre-se de sempre alocar espaço a mais para suas strings.</p>
                                     <li><p>Dado que as strings são vetores, podemos fazer uma série de <b>operações</b> sobre elas:</p></li>
                                     <ul class = "list">
+                                        <li><p>Encontrar o <b>tamanho</b> de uma string;</p></li>
                                         <li><p><b>Concatenar</b> duas ou mais strings;</p></li>
                                         <li><p><b>Acessar um elemento</b> (caractere) específico (semelhante ao vetor já aprendido);</p></li>
                                         <li><p><b>Extrair</b> substrings;</p></li>
-                                        <li><p><b>Comparar</b>Duas strings segundo algum critério;</p></li>
+                                        <li><p><b>Comparar</b> duas strings segundo algum critério;</p></li>
                                         <li><p><b>Ordenar</b> os caracteres segundo algum critério;</p></li>
                                         <li><p>Entre outros.</p></li>
                                     </ul>
                                 </ul>    
                             </section>                            
-                          
-                            
+                            <section id="string.h" class="doc-section">
+                                <h2 class="section-title">Biblioteca &lt;string.h&gt;</h2>
+
+                                <p>Claramente podemos implementar nossas próprias funções para resolver os problemas destacados acima, como faremos nas aulas práticas, mas existe uma biblioteca que já trás muitas dessas funções prontas. É a biblioteca <a href="http://www.cplusplus.com/reference/cstring/">string.h</a>.  Vejamos alguns exemplos simples.</p>
+
+                                <p>Lembre-se de incluir a bibliotaca de strings para poder usá-la no seu programa com <code>#include &lt;string.h&gt;</code></p>
+
+                        <ul>
+                        <li>Verificar tamanho da string
+                            <pre class="prettyprint linenums:1 lang-cpp">
+// (precisa terminar em '\0')
+char str[20] = "Uma string qualquer"; // ['U''m''a'' ''s''t''r''i''n''g'' ''q''u''a''l''q''u''e''r''\0']
+int size;
+size = strlen(str); // recebe 19
+                            </pre>
+                        </li>
+                        <li>Copiar uma string em outra
+                            <pre class="prettyprint linenums:1 lang-cpp">
+// (verifique que o espaço no destino é suficiente)
+char ink[15] = "Some text"; // ['S''o''m''e'' ''t''e''x''t''\0''\0''\0''\0''\0''\0']
+char blank[15]; // ['\0''\0''\0''\0''\0''\0''\0''\0''\0''\0''\0''\0''\0''\0''\0']
+strcpy(blank, ink);
+printf("Ink = %s\n", ink);
+printf("Blank = %s\n", ink);
+
+// Blank e Ink agora contém o mesmo texto
+// A saída no terminal ficaria
+// $Ink = Some text
+// $Blank = Some text
+// $
+                            </pre>
+                        </li>
+                        <li>Concatenar strings
+                            <pre class="prettyprint linenums:1 lang-cpp">
+// (verifique que o espaço no destino é suficiente)
+char hello[15] = "Hello "; // ['H''e''l''l''o'' ''\0''\0''\0''\0''\0''\0''\0''\0''\0']
+char world[15] = "World!"; // ['W''o''r''l''d''!''\0''\0''\0''\0''\0''\0''\0''\0''\0']
+strcat(hello, world); // adiciona World! ao final de Hello
+printf("%s\n", hello);
+
+// saida ficaria:
+// $Hello World!
+// $
+                            </pre>
+                        </li>
+
+                        <li>Para outros exemplos veja a documentação da <a href="http://www.cplusplus.com/reference/cstring/">biblioteca</a>. Basta clicar na função de interesse.</li>
+                        </ul>
+                            </section>
+                            <section id="apps" class="doc-section">
+                                    <h2 class="section-title">Aplicações</h2>
+
+                                <p>Agora vamos explorar algumas aplicações em que empregamos srings.</p>
+
+                                <h2 class="block-title">DNA Complementar</h2>
+                                <p>Esta foi uma das questões da maratona de programação do IFB realizada em 12 de maio de 2018. Ela involve calcular a fita complementar de um DNA dado como string.</p>
+                                <p><b>Explicação:</b> Uma molécula de DNA é composta de duas fitas em forma de dupla-hélice contendo vários
+                                    pares de base nitrogenada. Os membros de um par de base nitrogenada estão um em cada
+                                    fita e cada base pode ser uma Adenina(A), Citosina(C), Guanina(G) ou Timina(T).
+                                    <br>
+                                    Os pares de base nitrogenada são ligados por pontes de hidrogênio, de modo que uma Adenina de uma Fita só pode se ligar a uma Timina de outra fita (A-T), já uma Guanina de uma fita só pode se ligar a uma Citosina de outra fita (C-G). Assim, a partir de uma fita é possível determinar exatamente quais as bases que estarão na fita complementar.
+                                    <br>
+                                    Em uma extremidade de uma fita de DNA, uma hidroxila do carbono-5 está livre enquanto na outra extremidade desta mesma fita, a hidroxila do carbono-3 é que estará livre. É neste sentido (5’3’), que o processo de replicação se inicia. Na fita complementar este sentido é invertido. Então temos uma situação assim:
+
+                                    <pre>
+Fita superior no sentido 5'3'->     5’ ACTTAACTAACTG 3’
+                                       |||||||||||||
+Fita inferiot no sentido 3'5'->     3’ TGAATTGATTGAC 5’
+                                    </pre>
+                                </p>
+                                <p><b>Problema:</b> Criar um programa que calcula a fita complementar, no sentido 5'3', de uma fita de DNA dada também no sentido 5'3'. A fita pode ter até 10<sup>6</sup> bases.</p>
+
+                                <pre class="prettyprint linenums:1 lang-cpp">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+// Calcula o complementar do DNA no sentido correto para a saída
+char* comp(char* dna, int n, char* comp){
+    int i;
+    char ch;
+    // Percorrer fita original de trás para a frente. Escrever a nova de frente para trás.
+    for(i = 0; i < n; i++){
+        // A - T; C - G;
+        ch = dna[n-i-1]; // char original
+        if(ch == 'A'){
+            comp[i] = 'T';
+        }
+        else if(ch == 'T'){
+            comp[i] = 'A';
+        }
+        else if(ch == 'C'){
+            comp[i] = 'G';
+        }
+        else{
+            comp[i] = 'C';
+        }
+    }
+    comp[n] = '\0'; // fim da string
+    return comp;
+}
+
+int main(){
+    // max de 10<sup>6</sup> bases
+    char dna[1000005];
+    char compl[1000005]; // string resposta
+    scanf("%s", dna); // nao precisa de & antes de string
+    int n = strlen(dna);
+    printf("%s\n", comp(dna, n, compl)); // mostra resposta
+}
+                                </pre>
+
+                            <a class="btn btn-purple" href="https://goo.gl/3N4TYc" target="blank">Code Execution</a>
+
+                            <a class="btn btn-purple" download="" href="assets/codes/aula9/L.c"> Download Code</a>
+
+                            </section>
                             <section id="recomendados" class="doc-section">
                                 <h2 class="section-title">Exercícios Recomendados</h2>
                                 <div class="section-block">
@@ -175,7 +289,7 @@ char string[100]; // sequência de até 100 caracteres</pre>
                             </section><!--//doc-section-->
                             <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
-                                <h3 class="block-title"> Byte adressing</h3>
+                                <h3 class="block-title" id="bytes"> Byte addressing</h3>
                                 <li><p>Se escrever em um arquivo de texto a palavra "APC" e salvá-lo (exemplo: apc.txt), é possível gerar um arquivo em hexadecimal correspondente ao arquivo com o comando:</p></li>
                                 <pre class="prettyprint linenums:1 lang-bsh">
 $ xxd apc.txt > apcEmBinario.txt</pre>
@@ -200,10 +314,12 @@ $ xxd apc.txt > apcEmBinario.txt</pre>
                                 <li><a class="scrollto" href="#intro">Introdu&#xE7;&#xE3;o</a></li>
                                 <li><a class="scrollto" href="#ascii">Tabela ASCII</a></li>
                                 <li><a class="scrollto" href="#strings">Strings</a></li>
+                                <li><a class="scrollto" href="#string.h">Biblioteca string.h</a></li>
+                                <li><a class="scrollto" href="#apps">Aplicações</a></li>
                                 <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
                                 <li><a class="scrollto" href="#materiais">Materiais Extras</a>
                                     <ul class="nav doc-sub-menu">
-                                        <li><a class="scrollto" href="#idxCalc">Matrizes em Memória</a></li>
+                                        <li><a class="scrollto" href="#bytes">Byte Addressing</a></li>
                                     </ul>
                                 </li>
 
