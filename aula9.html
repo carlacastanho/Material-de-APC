@@ -46,6 +46,7 @@
             width: 70%;
             margin: 15px;
         }
+
     </style>
 
 </head> 
@@ -289,6 +290,48 @@ int main(){
                             </section><!--//doc-section-->
                             <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
+                                <h3 class="block-title"> Tabela ASCII</h3>
+                                <ul class ="list">
+                                    <li><p>Tendo como base a <a href="assets\files\ASCII.pdf" download="">tabela ASCII</a>, é possível fazer diversas operações com string, tais como:</p></li>
+                                    <ul class = "list">
+                                        <li><b>Transformar</b> um <b>char</b> com um dígito em <b>número</b> e vice e versa:
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+int char2int(char digito){
+    int num = digit - '0';
+    return num;
+}
+char int2char(int digito){
+    char num = digito + '0';
+    return num;
+}
+</pre>               
+                                        Usando este método, qualquer char com apenas 1 dígito pode ser transformado para int e vice versa, pois a base dos chars 0,1,..,9 é o própio 0 e possui o valor 48 na tabela ASCII, então qualquer número somado com 48 irá representar o seu valor em char. Como por exemplo o número 4 somado com 48 é igual a 52, sendo o char '4' na tabela ASCII. Já para transformar um char em um número basta subtrair a base, então o char '3', que possui o valor 51 na tabela ASCII, subtraido de 48 (caracter '0') é igual a 3, sendo exatamente o dígito que queríamos.</li>
+                                        <p class="note-pink" style = "background-color: #8C41A7;"><b>Observação :</b> Este método só funciona para números com apenas <b>um dígito</b>.</p>
+
+                                        <li>Transformar letra minúscula para maiúscula e vice e versa:
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+char inverte(char letra){
+    if(letra >= 97 && letra <= 122)
+        letra -= 32;
+    else
+        letra += 32;    
+    return letra;
+}</pre>
+                                        Essa função funciona pois qualquer letra minúscula está no intervalo de 97 até 122 na tabela ASCII, e qualquer letra maiúscula está no intervalo de 65 até 90, analizando a tabela, a distância de qualquer letra para sua respectiva maiúscula ou minúscula é de 32, por isso basta apenas somar 32 para que o 'C', 67 na tabela ASCII, vá para o número 99 que é o código do char 'c', e subtrair 32 para voltar.
+ 
+
+
+
+                                        </li>                         
+
+                                    </ul>
+
+                                </ul>
+                                <h3 class="block-title"> Biblioteca ctype.h</h3>
+                                <ul class = "list"><li><p>Fica de dica conferir as funções desta biblioteca clicando na imagem abaixo.</p></li></ul>
+                                <a href="https://www.tutorialspoint.com/c_standard_library/ctype_h.htm" targe="_blank" ><img src="assets\images\Strings\ctype.png" class = "img-responsive-med"></a>
+
+
                                 <h3 class="block-title" id="bytes"> Byte addressing</h3>
                                 <li><p>Se escrever em um arquivo de texto a palavra "APC" e salvá-lo (exemplo: apc.txt), é possível gerar um arquivo em hexadecimal correspondente ao arquivo com o comando:</p></li>
                                 <pre class="prettyprint linenums:1 lang-bsh">
