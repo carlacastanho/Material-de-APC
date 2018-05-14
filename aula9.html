@@ -59,7 +59,7 @@
                     <h1 class="logo">
                         <a href="index.html">
                             <span aria-hidden="true" class="icon_documents_alt icon"></span>
-                            <span class="text-highlight">Aula </span><span class="text-bold">8</span>
+                            <span class="text-highlight">Aula </span><span class="text-bold">9</span>
                         </a>
                     </h1>
                 </div><!--//branding-->
@@ -83,9 +83,8 @@
                                 <div class="section-block">
                                     <h4>Representação de Caracteres:</h4>
                                     <ul class="list">
-                                        <li><p>Já vimos que computadores são excelentes para lidar com <b>números</b>.</p></li>
-                                        <li><p>Na verdade, computadores são capazes de lidar apenas com números, lembre-se que tudo em um computador é representado por meio de números em <b>código binário</b>.</p></li>
-                                        <li><p>Mas então como nós conseguimos trabalhar com <b>letras</b> do alfabeto e <b>palavras?</b> </p></li>
+                                        <li><p>Já vimos que computadores são excelentes para lidar com <b>números</b>. Na verdade, computadores são capazes de lidar <em>apenas</em> com números. Lembre-se que tudo em um computador é representado por meio de números em <b>código binário</b>.</p></li>
+                                        <li><p>Mas então como nós conseguimos trabalhar com <b>letras</b> e <b>palavras?</b> </p></li>
                                         <li><p>No computador, os caracteres, i.e., <b>letras</b>, <b>algarismos</b>, sinais de <b>pontuação</b>, comandos de <b>controle</b> e vários outros <b>símbolos</b>, são armazenados por meio de um código numérico.</p></li>
                                         <li><p>Cada símbolo recebe um <b>código único</b>. Por exemplo, em ANSI C, a letra ‘A’ maiúscula tem o código 65.</p></li>
                                         <pre class="prettyprint linenums:1 lang-cpp">
@@ -95,7 +94,7 @@ printf("%c = %d\n",c,c);</pre>
                                         <pre class="prettyprint linenums:1 lang-bsh">
 $ A = 65</pre>
                                         <li><p>Existem diversos padrões para definir tanto os códigos quanto a <b>forma de armazenar</b> caracteres. Ex.: EBCDIC, ASCII, ISSO-8859, UTF-8, UTF-16, etc...</p></li>
-                                        <li><p>Em ANSI C, usamos o padrão <b>ASCII</b> (American Standard Code for Information Interchange). Nesse formato, cada caractere ocupa <b>1 byte</b> e existem  <b>256 símbolos</b> diferentes. Uma variável do tipo <b>char</b> guarda exatamente <b>1 caractere</b>.</p></li>
+                                        <li><p>Em ANSI C, usamos o padrão <b>ASCII</b> (American Standard Code for Information Interchange). Nesse formato, cada caractere ocupa <b>1 byte</b> (8 bits) e existem  <b>256 símbolos</b> diferentes. Uma variável do tipo <b>char</b> guarda exatamente <b>1 caractere</b>.</p></li>
                                         
 
                                     </ul>   
@@ -104,6 +103,8 @@ $ A = 65</pre>
 							<section id="ascii" class="doc-section">
                                 <h2 class="section-title">Tabela ASCII</h2>
                                 <a href="assets\files\ASCII.pdf" download=""><img src="assets\images\Strings\ASCII.png" class = "img-responsive"></a>
+                            
+                            <p class="callout-block" style="background-color: rgba(138, 64, 167, 0.685)">O comando <code>$ man ascii</code> no terminal mostra uma cópia da tabela ASCII acima</p>
                             </section>
                             </section><!--//doc-section-->
                              <section id="strings" class="doc-section">
@@ -112,7 +113,7 @@ $ A = 65</pre>
                                 <ul class="list">
                                     <li><p>Se um char guarda um caractere, então uma frase ou palavra nada mais é que uma <b>sequência de chars</b>, que também chamamos de <b>string</b>. Podemos usar um <b>vetor</b> para representá-la.</p></li>
                                     <pre class="prettyprint linenums:1 lang-cpp">
-char string[100];</pre>                
+char string[100]; // sequência de até 100 caracteres</pre>                
                                     <li><p>Mas para manipular strings, o computador precisa saber onde a sequência <b>termina</b>. Como fazer isso?</p></li>
                                     <li><p>Podemos guardar o <b>tamanho</b> da string, como fazemos com vetores em geral...</p></li>                    
                                     <li><p>Ou podemos colocar uma <b>marca</b> no final da string, logo <b>após o último caractere</b>.</p></li>
@@ -129,6 +130,8 @@ char string[100];</pre>
 
                                     <a  class="btn btn-purple" onclick="animation_prev('barra',7)">Prev</a>
                                     <a  class="btn btn-purple" style = "float: right;" onclick="animation_next('barra',7)">Next</a>
+
+                                    <p class="callout-block" style="background-color: rgba(138, 64, 167, 0.685); margin-top: 10px;">Por conta do '\0' no final das strings, lembre-se de sempre alocar espaço a mais para suas strings.</p>
                                     <li><p>Dado que as strings são vetores, podemos fazer uma série de <b>operações</b> sobre elas:</p></li>
                                     <ul class = "list">
                                         <li><p><b>Concatenar</b> duas ou mais strings;</p></li>
@@ -173,7 +176,7 @@ char string[100];</pre>
                             <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
                                 <h3 class="block-title"> Byte adressing</h3>
-                                <li><p>Se escrever em um arquivo txt a palavra "APC" e salvá-lo (exemplo: apc.txt), é possível gerar um arquivo em hexadecimal correspondente ao arquivo com o comando:</p></li>
+                                <li><p>Se escrever em um arquivo de texto a palavra "APC" e salvá-lo (exemplo: apc.txt), é possível gerar um arquivo em hexadecimal correspondente ao arquivo com o comando:</p></li>
                                 <pre class="prettyprint linenums:1 lang-bsh">
 $ xxd apc.txt > apcEmBinario.txt</pre>
                                 <li><p>O arquivo apcEmBinario.txt será mais ou menos como esse.</p></li>
@@ -184,6 +187,8 @@ $ xxd apc.txt > apcEmBinario.txt</pre>
                                 <a  class="btn btn-purple" onclick="animation_prev('binary',4)">Prev</a>
                                 <a  class="btn btn-purple" style = "float: right;" onclick="animation_next('binary',4)">Next</a>
                                 <img src="assets\images\Strings\binary\final.png" class = "img-responsive">
+
+                                <p>Isso acontece porque cada char ocupa exatamente 1 byte. Desta forma, a representação <em>binária</em> do arquivo (saída do comando xxd) traduz exatamente os códigos dos caracteres utilizados no texto. Lembre-se que cada dígito hexadecimal corresponde a 4 dígitos binários. Assim, 2 dígitos hex representam 8 bits, ou seja, 1 byte.</p>
                             </section><!--//doc-section-->
                             
                   
