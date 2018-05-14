@@ -259,6 +259,68 @@ int main(){
 
                             <a class="btn btn-purple" download="" href="assets/codes/aula9/L.c"> Download Code</a>
 
+                            <h2 class="block-title">Pangrama</h2>
+
+                            <p><b>Explicação:</b>Pangrama, ou pantograma, é uma frase em que são usadas todas as letras do alfabeto de determinada língua.</p>
+
+                            <p><b>Problema:</b> Dada uma frase, verificar se esta frase é ou não um pangrama. Um dos pangramas mais conhecidos é "The quick brown fox jumps over the lazy dog."</p>
+
+                            <pre class="prettyprint linenums:1 lang-cpp">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int ehMaiuscula(char ch){
+    //        'A'           'Z'
+    if((ch >= 65) && (ch <= 90))
+        return 1;
+    return 0;
+}
+
+int ehMinuscula(char ch){
+    //         'a'            'z'
+    if ((ch >= 97) && (ch <= 122))
+        return 1;
+    return 0;
+}
+
+// 1 = true; 0 = false
+int ehPangrama(char* frase){
+    int alfabeto[26]; // alphabeto
+    memset(alfabeto, 0, sizeof(alfabeto)); // inicia tudo com 0 (false)
+    int l = strlen(frase), i;
+    // conta letras
+    for(i = 0; i < l; i++){
+        char ch = frase[i];
+        if(ehMaiuscula(ch)){
+            alfabeto[ch - 'A']++;
+        }
+        else if(ehMinuscula(ch)){
+            alfabeto[ch-'a']++;
+        }
+        // caracteres não alfabeticos nao acontece nada
+    }
+    for(i = 0; i < 26; i++){
+        if(alfabeto[i] == 0){
+            return 0; // false
+        }
+    }
+    return 1; // true
+}
+
+int main(){
+    char frase[1000000];
+    scanf("%s", frase);
+    int b = ehPangrama(frase);
+    if(b)
+        printf("A frase eh um pangrama\n");
+    else    
+        printf("A frase NAO eh um pangrama\n");
+}
+                            </pre>
+
+                            <a class="btn btn-purple" href="https://goo.gl/wBQDNC" target="blank">Code Execution</a>
+
+                            <a class="btn btn-purple" href="assets/codes/aula9/pangram.c" download="">Download Code</a>
                             </section>
                             <section id="recomendados" class="doc-section">
                                 <h2 class="section-title">Exercícios Recomendados</h2>
