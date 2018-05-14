@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>Strings</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Thiago Veras & Giovanni Guidini">    
+    <link rel="shortcut icon" href="assets/images/UnB-logo.png">  
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+    
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Syntax Prettyprint -->
+    <link rel="stylesheet"  href="assets/syntax/tomorrow_night.css">
+    <script src = "assets/syntax/prettify.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .img-responsive{
+            width: 95%;
+            margin: 15px;
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        .img-responsive-med{
+            width: 70%;
+            margin: 15px;
+        }
+    </style>
+
+</head> 
+
+<body class="body-purple">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                            <span class="text-highlight">Aula </span><span class="text-bold">8</span>
+                        </a>
+                    </h1>
+                </div><!--//branding-->
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aulas.html">Voltar</a></li>
+                </ol>
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"><i class="icon glyphicon glyphicon-font"></i> Strings</h1>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: May 5th, 2018</div>
+                </div><!--//doc-header-->
+                <div class="doc-body">
+                    <div class="doc-content">
+                        <div class="content-inner">
+                            <section id="intro" class="doc-section">
+                                <h2 class="section-title">Introdu&#xE7;&#xE3;o</h2>
+                                <div class="section-block">
+                                    <h4>Representação de Caracteres:</h4>
+                                    <ul class="list">
+                                        <li><p>Já vimos que computadores são excelentes para lidar com <b>números</b>.</p></li>
+                                        <li><p>Na verdade, computadores são capazes de lidar apenas com números, lembre-se que tudo em um computador é representado por meio de números em <b>código binário</b>.</p></li>
+                                        <li><p>Mas então como nós conseguimos trabalhar com <b>letras</b> do alfabeto e <b>palavras?</b> </p></li>
+                                        <li><p>No computador, os caracteres, i.e., <b>letras</b>, <b>algarismos</b>, sinais de <b>pontuação</b>, comandos de <b>controle</b> e vários outros <b>símbolos</b>, são armazenados por meio de um código numérico.</p></li>
+                                        <li><p>Cada símbolo recebe um <b>código único</b>. Por exemplo, em ANSI C, a letra ‘A’ maiúscula tem o código 65.</p></li>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+char c = 'A';
+printf("%c = %d\n",c,c);</pre>
+                                        No terminal.
+                                        <pre class="prettyprint linenums:1 lang-bsh">
+$ A = 65</pre>
+                                        <li><p>Existem diversos padrões para definir tanto os códigos quanto a <b>forma de armazenar</b> caracteres. Ex.: EBCDIC, ASCII, ISSO-8859, UTF-8, UTF-16, etc...</p></li>
+                                        <li><p>Em ANSI C, usamos o padrão <b>ASCII</b> (American Standard Code for Information Interchange). Nesse formato, cada caractere ocupa <b>1 byte</b> e existem  <b>256 símbolos</b> diferentes. Uma variável do tipo <b>char</b> guarda exatamente <b>1 caractere</b>.</p></li>
+                                        
+
+                                    </ul>   
+                                </div>
+                            </section><!--//doc-section-->
+							<section id="ascii" class="doc-section">
+                                <h2 class="section-title">Tabela ASCII</h2>
+                                <a href="assets\files\ASCII.pdf" download=""><img src="assets\images\Strings\ASCII.png" class = "img-responsive"></a>
+                            </section>
+                            </section><!--//doc-section-->
+                             <section id="strings" class="doc-section">
+                                <h2 class="section-title">Strings</h2>
+                                <h3 class="block-title"> Sequência de Caracteres</h3>
+                                <ul class="list">
+                                    <li><p>Se um char guarda um caractere, então uma frase ou palavra nada mais é que uma <b>sequência de chars</b>, que também chamamos de <b>string</b>. Podemos usar um <b>vetor</b> para representá-la.</p></li>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+char string[100];</pre>                
+                                    <li><p>Mas para manipular strings, o computador precisa saber onde a sequência <b>termina</b>. Como fazer isso?</p></li>
+                                    <li><p>Podemos guardar o <b>tamanho</b> da string, como fazemos com vetores em geral...</p></li>                    
+                                    <li><p>Ou podemos colocar uma <b>marca</b> no final da string, logo <b>após o último caractere</b>.</p></li>
+                                    <li><p>Essa última opção é mais interessante, pois evita que precisemos guardar o tamanho da string em uma <b>variável separada</b> ou passá-lo como um  <b>parâmetro extra</b> de uma função.</p></li>
+                                    <li><p>A linguagem C trabalha com essa última abordagem.</p></li>
+                                    <li><p>Portanto, na nossa representação, uma string é um <b>vetor de caracteres</b>, e seu final será indicado por uma posição do vetor contendo o valor NULO. Em C, esse valor é indicado por <code>'\0'</code> (lê-se “barra zero”).</p></li>
+                                    <div id = "barra1"><img src="assets\images\Strings\barraZero\barra1.png" class = "img-responsive-med"></div>
+                                    <div id = "barra2" style="display: none;"><img src="assets\images\Strings\barraZero\barra2.png" class = "img-responsive-med"></div>
+                                    <div id = "barra3" style="display: none;"><img src="assets\images\Strings\barraZero\barra3.png" class = "img-responsive-med"></div>
+                                    <div id = "barra4" style="display: none;"><img src="assets\images\Strings\barraZero\barra4.png" class = "img-responsive-med"></div>
+                                    <div id = "barra5" style="display: none;"><img src="assets\images\Strings\barraZero\barra5.png" class = "img-responsive-med"></div>
+                                    <div id = "barra6" style="display: none;"><img src="assets\images\Strings\barraZero\barra6.png" class = "img-responsive-med"></div>
+                                    <div id = "barra7" style="display: none;"><img src="assets\images\Strings\barraZero\barra7.png" class = "img-responsive-med"></div>
+
+                                    <a  class="btn btn-purple" onclick="animation_prev('barra',7)">Prev</a>
+                                    <a  class="btn btn-purple" style = "float: right;" onclick="animation_next('barra',7)">Next</a>
+                                    <li><p>Dado que as strings são vetores, podemos fazer uma série de <b>operações</b> sobre elas:</p></li>
+                                    <ul class = "list">
+                                        <li><p><b>Concatenar</b> duas ou mais strings;</p></li>
+                                        <li><p><b>Acessar um elemento</b> (caractere) específico (semelhante ao vetor já aprendido);</p></li>
+                                        <li><p><b>Extrair</b> substrings;</p></li>
+                                        <li><p><b>Comparar</b>Duas strings segundo algum critério;</p></li>
+                                        <li><p><b>Ordenar</b> os caracteres segundo algum critério;</p></li>
+                                        <li><p>Entre outros.</p></li>
+                                    </ul>
+                                </ul>    
+                            </section>                            
+                          
+                            
+                            <section id="recomendados" class="doc-section">
+                                <h2 class="section-title">Exercícios Recomendados</h2>
+                                <div class="section-block">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1181" target="_blank">Linha na Matriz</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1182" target="_blank">Coluna na Matriz</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1183" target="_blank">Acima da Diagonal Principal</a></td>
+                                                            
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1435" target="_blank">Matriz Quadrada I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1478" target="_blank">Matriz Quadrada II</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1534" target="_blank">Matriz 123</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1190" target="_blank">Área Direita</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2552" target="_blank">PãodeQuejoSweeper</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2542" target="_blank">Iu-Di-Oh!</a></td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!--//table-responsive-->
+                                </div>
+                            </section><!--//doc-section-->
+                            <section id="materiais" class="doc-section">
+                                <h2 class="section-title">Materiais Extras</h2>
+                                <h3 class="block-title"> Byte adressing</h3>
+                                <li><p>Se escrever em um arquivo txt a palavra "APC" e salvá-lo (exemplo: apc.txt), é possível gerar um arquivo em hexadecimal correspondente ao arquivo com o comando:</p></li>
+                                <pre class="prettyprint linenums:1 lang-bsh">
+$ xxd apc.txt > apcEmBinario.txt</pre>
+                                <li><p>O arquivo apcEmBinario.txt será mais ou menos como esse.</p></li>
+                                <div id = "binary1"><img src="assets\images\Strings\binary\binary1.png" class = "img-responsive"></div>
+                                <div id = "binary2" style="display: none;"><img src="assets\images\Strings\binary\binary2.png" class = "img-responsive"></div>
+                                <div id = "binary3" style="display: none;"><img src="assets\images\Strings\binary\binary3.png" class = "img-responsive"></div>
+                                <div id = "binary4" style="display: none;"><img src="assets\images\Strings\binary\binary4.png" class = "img-responsive"></div>
+                                <a  class="btn btn-purple" onclick="animation_prev('binary',4)">Prev</a>
+                                <a  class="btn btn-purple" style = "float: right;" onclick="animation_next('binary',4)">Next</a>
+                                <img src="assets\images\Strings\binary\final.png" class = "img-responsive">
+                            </section><!--//doc-section-->
+                            
+                  
+                        </div><!--//content-inner-->
+                    </div><!--//doc-content-->
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li><a class="scrollto" href="#intro">Introdu&#xE7;&#xE3;o</a></li>
+                                <li><a class="scrollto" href="#ascii">Tabela ASCII</a></li>
+                                <li><a class="scrollto" href="#strings">Strings</a></li>
+                                <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
+                                <li><a class="scrollto" href="#materiais">Materiais Extras</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#idxCalc">Matrizes em Memória</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->        
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Created by:<a class="link" href="https://github.com/VerasThiago" target="_blank"><span> Thiago Veras</span></a> &amp; <a class="link" href="https://github.com/Gguidini" target="_blank"><span> Giovanni M Guidini</span></a></small>
+             <br> <!-- break line-->
+             <small class="copyright">Theme PRETTYDOCS by <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a></small>
+ 
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
+    <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/animation.js"></script>
+    
+    <script>
+      prettyPrint();
+    </script>
+    
+</body>
+</html> 
+
