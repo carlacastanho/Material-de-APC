@@ -145,7 +145,7 @@ char string[100]; // sequência de até 100 caracteres</pre>
                                     </ul>
                                 </ul>    
                             </section>                            
-                            <section id="string.h" class="doc-section">
+                            <section id="stringH" class="doc-section">
                                 <h2 class="section-title">Biblioteca &lt;string.h&gt;</h2>
 
                                 <p>Claramente podemos implementar nossas próprias funções para resolver os problemas destacados acima, como faremos nas aulas práticas, mas existe uma biblioteca que já trás muitas dessas funções prontas. É a biblioteca <a href="http://www.cplusplus.com/reference/cstring/">string.h</a>.  Vejamos alguns exemplos simples.</p>
@@ -290,7 +290,7 @@ int main(){
                             </section><!--//doc-section-->
                             <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
-                                <h3 class="block-title"> Tabela ASCII</h3>
+                                <h3 class="block-title" id="ASC"> Tabela ASCII</h3>
                                 <ul class ="list">
                                     <li><p>Tendo como base a <a href="assets\files\ASCII.pdf" download="">tabela ASCII</a>, é possível fazer diversas operações com string, tais como:</p></li>
                                     <ul class = "list">
@@ -305,7 +305,9 @@ char int2char(int digito){
     return num;
 }
 </pre>               
-                                        Usando este método, qualquer char com apenas 1 dígito pode ser transformado para int e vice versa, pois a base dos chars 0,1,..,9 é o própio 0 e possui o valor 48 na tabela ASCII, então qualquer número somado com 48 irá representar o seu valor em char. Como por exemplo o número 4 somado com 48 é igual a 52, sendo o char '4' na tabela ASCII. Já para transformar um char em um número basta subtrair a base, então o char '3', que possui o valor 51 na tabela ASCII, subtraido de 48 (caracter '0') é igual a 3, sendo exatamente o dígito que queríamos.</li>
+                                        Usando este método, qualquer char com apenas 1 dígito pode ser transformado para int e vice versa, pois os chars '0','1',...,'9' estão em sequência na tabela, e o '0' possui o valor 48 na tabela ASCII, então qualquer número somado com 48 irá representar o seu valor em char. Por exemplo o número 4 somado com 48 é igual a 52, sendo o char '4' na tabela ASCII. 
+                                        <br>
+                                        Já para transformar um char em um número basta subtrair a base, então o char '3', que possui o valor 51 na tabela ASCII, subtraido de 48 (caracter '0') é igual a 3, exatamente o dígito que queríamos.</li>
                                         <p class="note-pink" style = "background-color: #8C41A7;"><b>Observação :</b> Este método só funciona para números com apenas <b>um dígito</b>.</p>
 
                                         <li>Transformar letra minúscula para maiúscula e vice e versa:
@@ -327,8 +329,8 @@ char inverte(char letra){
                                     </ul>
 
                                 </ul>
-                                <h3 class="block-title"> Biblioteca ctype.h</h3>
-                                <ul class = "list"><li><p>Fica de dica conferir as funções desta biblioteca clicando na imagem abaixo.</p></li></ul>
+                                <h3 class="block-title" id="ctype"> Biblioteca ctype.h</h3>
+                                <ul class = "list"><li><p>Fica de dica conferir as funções desta biblioteca clicando na imagem abaixo. Ela facilita verificações dos tipos de caracteres em uma string, por exemplo, se são dígitos, letras maiúsculas, minúsculas, etc.</p></li></ul>
                                 <a href="https://www.tutorialspoint.com/c_standard_library/ctype_h.htm" targe="_blank" ><img src="assets\images\Strings\ctype.png" class = "img-responsive-med"></a>
 
 
@@ -357,11 +359,13 @@ $ xxd apc.txt > apcEmBinario.txt</pre>
                                 <li><a class="scrollto" href="#intro">Introdu&#xE7;&#xE3;o</a></li>
                                 <li><a class="scrollto" href="#ascii">Tabela ASCII</a></li>
                                 <li><a class="scrollto" href="#strings">Strings</a></li>
-                                <li><a class="scrollto" href="#string.h">Biblioteca string.h</a></li>
+                                <li><a class="scrollto" href="#stringH">Biblioteca string.h</a></li>
                                 <li><a class="scrollto" href="#apps">Aplicações</a></li>
                                 <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
                                 <li><a class="scrollto" href="#materiais">Materiais Extras</a>
                                     <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#ASC">Tabela ASCII</a></li>
+                                        <li><a class="scrollto" href="#ctype">&lt;ctype.h&gt;</a></li>
                                         <li><a class="scrollto" href="#bytes">Byte Addressing</a></li>
                                     </ul>
                                 </li>
