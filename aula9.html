@@ -324,9 +324,38 @@ int main(){
                             </section>
                             <section id="recomendados" class="doc-section">
                                 <h2 class="section-title">Exercícios Recomendados</h2>
-                                <h3>EM BREVE ATÉ AS 21:00 DE HOJE</h3>
+                                <div class="section-block">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1332" target="_blank">Um-Dois-Três</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1168" target="_blank">LED</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2062" target="_blank">OBI URI</a></td>
+                                                            
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1238" target="_blank">Combinador</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1253" target="_blank">Cifra de César</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1024" target="_blank">Criptografia</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1241" target="_blank">Encaixa ou Não II</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1234" target="_blank">Sentença Dançante</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1262" target="_blank">Leitura Múltipla</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2694" target="_blank">Problema com a Calculadora</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1448" target="_blank">Telefone Sem Fio</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1586" target="_blank">Cabo de Guerra</a></td>
 
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!--//table-responsive-->
+                                </div>
                             </section><!--//doc-section-->
+
                             <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
                                 <h3 class="block-title" id="ASC"> Tabela ASCII</h3>
@@ -349,7 +378,7 @@ char int2char(int digito){
                                         Já para transformar um char em um número basta subtrair a base, então o char '3', que possui o valor 51 na tabela ASCII, subtraido de 48 (caracter '0') é igual a 3, exatamente o dígito que queríamos.</li>
                                         <p class="note-pink" style = "background-color: #8C41A7;"><b>Observação :</b> Este método só funciona para números com apenas <b>um dígito</b>.</p>
 
-                                        <li>Transformar letra minúscula para maiúscula e vice e versa:
+                                        <li><b>Transformar</b> letra <b>minúscula</b> para <b>maiúscula</b> e vice e versa:
                                         <pre class="prettyprint linenums:1 lang-cpp">
 char inverte(char letra){
     if(letra >= 97 && letra <= 122)
