@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 // Calcula o complementar do DNA no sentido correto para a saída
-char* comp(char* dna, int n, char* comp){
+void comp(char* dna, int n, char* comp){
     int i;
     char ch;
     // Percorrer fita original de trás para a frente. Escrever a nova de frente para trás.
@@ -22,7 +22,6 @@ char* comp(char* dna, int n, char* comp){
         }
     }
     comp[n] = '\0'; // fim da string
-    return comp;
 }
 
 int main(){
@@ -30,5 +29,6 @@ int main(){
     char dna[1000005], compl[1000005];
     scanf("%s", dna); // nao precisa de & antes de string
     int n = strlen(dna);
-    printf("%s\n", comp(dna, n, compl)); // mostra resposta
+    comp(dna, n, compl);
+    printf("%s\n", compl); // mostra resposta
 }

@@ -94,7 +94,7 @@ printf("%c = %d\n",c,c);</pre>
                                         No terminal.
                                         <pre class="prettyprint linenums:1 lang-bsh">
 $ A = 65</pre>
-                                        <li><p>Existem diversos padrões para definir tanto os códigos quanto a <b>forma de armazenar</b> caracteres. Ex.: EBCDIC, ASCII, ISSO-8859, UTF-8, UTF-16, etc...</p></li>
+                                        <li><p>Existem diversos padrões para definir tanto os códigos quanto a <b>forma de armazenar</b> caracteres. Ex.: EBCDIC, ASCII, ISSO-8859, UTF-8, UTF-16, etc.</p></li>
                                         <li><p>Em ANSI C, usamos o padrão <b>ASCII</b> (American Standard Code for Information Interchange). Nesse formato, cada caractere ocupa <b>1 byte</b> (8 bits) e existem  <b>256 símbolos</b> diferentes. Uma variável do tipo <b>char</b> guarda exatamente <b>1 caractere</b>.</p></li>
                                         
 
@@ -112,7 +112,7 @@ $ A = 65</pre>
                                 <h2 class="section-title">Strings</h2>
                                 <h3 class="block-title"> Sequência de Caracteres</h3>
                                 <ul class="list">
-                                    <li><p>Se um char guarda um caractere, então uma frase ou palavra nada mais é que uma <b>sequência de chars</b>, que também chamamos de <b>string</b>. Podemos usar um <b>vetor</b> para representá-la.</p></li>
+                                    <li><p>Se um char guarda um caractere, então uma frase ou palavra nada mais é que uma <b>sequência de chars</b>, que também chamamos de <b>string</b>. Podemos usar um <b>vetor</b> para armazená-la.</p></li>
                                     <pre class="prettyprint linenums:1 lang-cpp">
 char string[100]; // sequência de até 100 caracteres</pre>                
                                     <li><p>Mas para manipular strings, o computador precisa saber onde a sequência <b>termina</b>. Como fazer isso?</p></li>
@@ -132,16 +132,16 @@ char string[100]; // sequência de até 100 caracteres</pre>
                                     <a  class="btn btn-purple" onclick="animation_prev('barra',7)">Prev</a>
                                     <a  class="btn btn-purple" style = "float: right;" onclick="animation_next('barra',7)">Next</a>
 
-                                    <p class="callout-block" style="background-color: rgba(138, 64, 167, 0.685); margin-top: 10px;">Por conta do '\0' no final das strings, lembre-se de sempre alocar espaço a mais para suas strings.</p>
+                                    <p class="callout-block" style="background-color: rgba(138, 64, 167, 0.685); margin-top: 10px;">Por conta do '\0' no final das strings, lembre-se de sempre alocar um espaço a mais para suas strings.</p>
                                     <li><p>Dado que as strings são vetores, podemos fazer uma série de <b>operações</b> sobre elas:</p></li>
                                     <ul class = "list">
                                         <li><p>Encontrar o <b>tamanho</b> de uma string;</p></li>
                                         <li><p><b>Concatenar</b> duas ou mais strings;</p></li>
-                                        <li><p><b>Acessar um elemento</b> (caractere) específico (semelhante ao vetor já aprendido);</p></li>
+                                        <li><p><b>Acessar um elemento</b> (caractere) específico;</p></li>
                                         <li><p><b>Extrair</b> substrings;</p></li>
                                         <li><p><b>Comparar</b> duas strings segundo algum critério;</p></li>
                                         <li><p><b>Ordenar</b> os caracteres segundo algum critério;</p></li>
-                                        <li><p>Entre outros.</p></li>
+                                        <li><p>Dentre outras.</p></li>
                                     </ul>
                                 </ul>    
                             </section>                            
@@ -197,7 +197,7 @@ printf("%s\n", hello);
                             <section id="apps" class="doc-section">
                                     <h2 class="section-title">Aplicações</h2>
 
-                                <p>Agora vamos explorar algumas aplicações em que empregamos srings.</p>
+                                <p>Agora vamos explorar algumas aplicações em que empregamos strings.</p>
 
                                 <h2 class="block-title">DNA Complementar</h2>
                                 <p>Esta foi uma das questões da maratona de programação do IFB realizada em 12 de maio de 2018. Ela involve calcular a fita complementar de um DNA dado como string.</p>
@@ -221,7 +221,7 @@ Fita inferiot no sentido 3'5'->     3’ TGAATTGATTGAC 5’
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
 // Calcula o complementar do DNA no sentido correto para a saída
-char* comp(char* dna, int n, char* comp){
+void comp(char* dna, int n, char* comp){
     int i;
     char ch;
     // Percorrer fita original de trás para a frente. Escrever a nova de frente para trás.
@@ -242,7 +242,6 @@ char* comp(char* dna, int n, char* comp){
         }
     }
     comp[n] = '\0'; // fim da string
-    return comp;
 }
 
 int main(){
@@ -251,11 +250,12 @@ int main(){
     char compl[1000005]; // string resposta
     scanf("%s", dna); // nao precisa de & antes de string
     int n = strlen(dna);
-    printf("%s\n", comp(dna, n, compl)); // mostra resposta
+    comp(dna, n, compl);
+    printf("%s\n", compl); // mostra resposta
 }
                                 </pre>
 
-                            <a class="btn btn-purple" href="https://goo.gl/3N4TYc" target="blank">Code Execution</a>
+                            <a class="btn btn-purple" href="https://goo.gl/Fh5XzC" target="blank">Code Execution</a>
 
                             <a class="btn btn-purple" download="" href="assets/codes/aula9/L.c"> Download Code</a>
 
@@ -297,7 +297,7 @@ int main(){
                                         <li><b>Transformar</b> um <b>char</b> com um dígito em <b>número</b> e vice e versa:
                                         <pre class="prettyprint linenums:1 lang-cpp">
 int char2int(char digito){
-    int num = digit - '0';
+    int num = digito - '0';
     return num;
 }
 char int2char(int digito){
@@ -319,7 +319,7 @@ char inverte(char letra){
         letra += 32;    
     return letra;
 }</pre>
-                                        Essa função funciona pois qualquer letra minúscula está no intervalo de 97 até 122 na tabela ASCII, e qualquer letra maiúscula está no intervalo de 65 até 90, analizando a tabela, a distância de qualquer letra para sua respectiva maiúscula ou minúscula é de 32, por isso basta apenas somar 32 para que o 'C', 67 na tabela ASCII, vá para o número 99 que é o código do char 'c', e subtrair 32 para voltar.
+                                        Essa função funciona pois qualquer letra minúscula está no intervalo de 97 até 122 na tabela ASCII, e qualquer letra maiúscula está no intervalo de 65 até 90. Analizando a tabela, a distância de qualquer letra para sua respectiva maiúscula ou minúscula é de 32, por isso basta apenas somar 32 para que o 'C', 67 na tabela ASCII, vá para o número 99 que é o código do char 'c', e subtrair 32 para voltar.
  
 
 
