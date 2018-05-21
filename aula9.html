@@ -84,9 +84,8 @@
                                 <div class="section-block">
                                     <h4>Representação de Caracteres:</h4>
                                     <ul class="list">
-                                        <li><p>Já vimos que computadores são excelentes para lidar com <b>números</b>.</p></li>
-                                        <li><p>Na verdade, computadores são capazes de lidar apenas com números, lembre-se que tudo em um computador é representado por meio de números em <b>código binário</b>.</p></li>
-                                        <li><p>Mas então como nós conseguimos trabalhar com <b>letras</b> do alfabeto e <b>palavras?</b> </p></li>
+                                        <li><p>Já vimos que computadores são excelentes para lidar com <b>números</b>. Na verdade, computadores são capazes de lidar <em>apenas</em> com números. Lembre-se que tudo em um computador é representado por meio de números em <b>código binário</b>.</p></li>
+                                        <li><p>Mas então como nós conseguimos trabalhar com <b>letras</b> e <b>palavras?</b> </p></li>
                                         <li><p>No computador, os caracteres, i.e., <b>letras</b>, <b>algarismos</b>, sinais de <b>pontuação</b>, comandos de <b>controle</b> e vários outros <b>símbolos</b>, são armazenados por meio de um código numérico.</p></li>
                                         <li><p>Cada símbolo recebe um <b>código único</b>. Por exemplo, em ANSI C, a letra ‘A’ maiúscula tem o código 65.</p></li>
                                         <pre class="prettyprint linenums:1 lang-cpp">
@@ -95,8 +94,8 @@ printf("%c = %d\n",c,c);</pre>
                                         No terminal.
                                         <pre class="prettyprint linenums:1 lang-bsh">
 $ A = 65</pre>
-                                        <li><p>Existem diversos padrões para definir tanto os códigos quanto a <b>forma de armazenar</b> caracteres. Ex.: EBCDIC, ASCII, ISSO-8859, UTF-8, UTF-16, etc...</p></li>
-                                        <li><p>Em ANSI C, usamos o padrão <b>ASCII</b> (American Standard Code for Information Interchange). Nesse formato, cada caractere ocupa <b>1 byte</b> e existem  <b>256 símbolos</b> diferentes. Uma variável do tipo <b>char</b> guarda exatamente <b>1 caractere</b>.</p></li>
+                                        <li><p>Existem diversos padrões para definir tanto os códigos quanto a <b>forma de armazenar</b> caracteres. Ex.: EBCDIC, ASCII, ISSO-8859, UTF-8, UTF-16, etc.</p></li>
+                                        <li><p>Em ANSI C, usamos o padrão <b>ASCII</b> (American Standard Code for Information Interchange). Nesse formato, cada caractere ocupa <b>1 byte</b> (8 bits) e existem  <b>256 símbolos</b> diferentes. Uma variável do tipo <b>char</b> guarda exatamente <b>1 caractere</b>.</p></li>
                                         
 
                                     </ul>   
@@ -105,15 +104,17 @@ $ A = 65</pre>
 							<section id="ascii" class="doc-section">
                                 <h2 class="section-title">Tabela ASCII</h2>
                                 <a href="assets\files\ASCII.pdf" download=""><img src="assets\images\Strings\ASCII.png" class = "img-responsive"></a>
+                            
+                            <p class="callout-block" style="background-color: rgba(138, 64, 167, 0.685)">O comando <code>$ man ascii</code> no terminal mostra uma cópia da tabela ASCII acima</p>
                             </section>
                             </section><!--//doc-section-->
                              <section id="strings" class="doc-section">
                                 <h2 class="section-title">Strings</h2>
                                 <h3 class="block-title"> Sequência de Caracteres</h3>
                                 <ul class="list">
-                                    <li><p>Se um char guarda um caractere, então uma frase ou palavra nada mais é que uma <b>sequência de chars</b>, que também chamamos de <b>string</b>. Podemos usar um <b>vetor</b> para representá-la.</p></li>
+                                    <li><p>Se um char guarda um caractere, então uma frase ou palavra nada mais é que uma <b>sequência de chars</b>, que também chamamos de <b>string</b>. Podemos usar um <b>vetor</b> para armazená-la.</p></li>
                                     <pre class="prettyprint linenums:1 lang-cpp">
-char string[100];</pre>                
+char string[100]; // sequência de até 100 caracteres</pre>                
                                     <li><p>Mas para manipular strings, o computador precisa saber onde a sequência <b>termina</b>. Como fazer isso?</p></li>
                                     <li><p>Podemos guardar o <b>tamanho</b> da string, como fazemos com vetores em geral...</p></li>                    
                                     <li><p>Ou podemos colocar uma <b>marca</b> no final da string, logo <b>após o último caractere</b>.</p></li>
@@ -130,19 +131,197 @@ char string[100];</pre>
 
                                     <a  class="btn btn-purple" onclick="animation_prev('barra',7)">Prev</a>
                                     <a  class="btn btn-purple" style = "float: right;" onclick="animation_next('barra',7)">Next</a>
+
+                                    <p class="callout-block" style="background-color: rgba(138, 64, 167, 0.685); margin-top: 10px;">Por conta do '\0' no final das strings, lembre-se de sempre alocar um espaço a mais para suas strings.</p>
                                     <li><p>Dado que as strings são vetores, podemos fazer uma série de <b>operações</b> sobre elas:</p></li>
                                     <ul class = "list">
+                                        <li><p>Encontrar o <b>tamanho</b> de uma string;</p></li>
                                         <li><p><b>Concatenar</b> duas ou mais strings;</p></li>
-                                        <li><p><b>Acessar um elemento</b> (caractere) específico (semelhante ao vetor já aprendido);</p></li>
+                                        <li><p><b>Acessar um elemento</b> (caractere) específico;</p></li>
                                         <li><p><b>Extrair</b> substrings;</p></li>
-                                        <li><p><b>Comparar</b>Duas strings segundo algum critério;</p></li>
+                                        <li><p><b>Comparar</b> duas strings segundo algum critério;</p></li>
                                         <li><p><b>Ordenar</b> os caracteres segundo algum critério;</p></li>
-                                        <li><p>Entre outros.</p></li>
+                                        <li><p>Dentre outras.</p></li>
                                     </ul>
                                 </ul>    
                             </section>                            
-                          
-                            
+                            <section id="stringH" class="doc-section">
+                                <h2 class="section-title">Biblioteca &lt;string.h&gt;</h2>
+
+                                <p>Claramente podemos implementar nossas próprias funções para resolver os problemas destacados acima, como faremos nas aulas práticas, mas existe uma biblioteca que já trás muitas dessas funções prontas. É a biblioteca <a href="http://www.cplusplus.com/reference/cstring/">string.h</a>.  Vejamos alguns exemplos simples.</p>
+
+                                <p>Lembre-se de incluir a bibliotaca de strings para poder usá-la no seu programa com <code>#include &lt;string.h&gt;</code></p>
+
+                        <ul>
+                        <li>Verificar tamanho da string
+                            <pre class="prettyprint linenums:1 lang-cpp">
+// (precisa terminar em '\0')
+char str[20] = "Uma string qualquer"; // ['U''m''a'' ''s''t''r''i''n''g'' ''q''u''a''l''q''u''e''r''\0']
+int size;
+size = strlen(str); // recebe 19
+                            </pre>
+                        </li>
+                        <li>Copiar uma string em outra
+                            <pre class="prettyprint linenums:1 lang-cpp">
+// (verifique que o espaço no destino é suficiente)
+char ink[15] = "Some text"; // ['S''o''m''e'' ''t''e''x''t''\0''\0''\0''\0''\0''\0']
+char blank[15]; // ['\0''\0''\0''\0''\0''\0''\0''\0''\0''\0''\0''\0''\0''\0''\0']
+strcpy(blank, ink);
+printf("Ink = %s\n", ink);
+printf("Blank = %s\n", ink);
+
+// Blank e Ink agora contém o mesmo texto
+// A saída no terminal ficaria
+// $Ink = Some text
+// $Blank = Some text
+// $
+                            </pre>
+                        </li>
+                        <li>Concatenar strings
+                            <pre class="prettyprint linenums:1 lang-cpp">
+// (verifique que o espaço no destino é suficiente)
+char hello[15] = "Hello "; // ['H''e''l''l''o'' ''\0''\0''\0''\0''\0''\0''\0''\0''\0']
+char world[15] = "World!"; // ['W''o''r''l''d''!''\0''\0''\0''\0''\0''\0''\0''\0''\0']
+strcat(hello, world); // adiciona World! ao final de Hello
+printf("%s\n", hello);
+
+// saida ficaria:
+// $Hello World!
+// $
+                            </pre>
+                        </li>
+
+                        <li>Para outros exemplos veja a documentação da <a href="http://www.cplusplus.com/reference/cstring/">biblioteca</a>. Basta clicar na função de interesse.</li>
+                        </ul>
+                            </section>
+                            <section id="apps" class="doc-section">
+                                    <h2 class="section-title">Aplicações</h2>
+
+                                <p>Agora vamos explorar algumas aplicações em que empregamos strings.</p>
+
+                                <h2 class="block-title">DNA Complementar</h2>
+                                <p>Esta foi uma das questões da maratona de programação do IFB realizada em 12 de maio de 2018. Ela involve calcular a fita complementar de um DNA dado como string.</p>
+                                <p><b>Explicação:</b> Uma molécula de DNA é composta de duas fitas em forma de dupla-hélice contendo vários
+                                    pares de base nitrogenada. Os membros de um par de base nitrogenada estão um em cada
+                                    fita e cada base pode ser uma Adenina(A), Citosina(C), Guanina(G) ou Timina(T).
+                                    <br>
+                                    Os pares de base nitrogenada são ligados por pontes de hidrogênio, de modo que uma Adenina de uma Fita só pode se ligar a uma Timina de outra fita (A-T), já uma Guanina de uma fita só pode se ligar a uma Citosina de outra fita (C-G). Assim, a partir de uma fita é possível determinar exatamente quais as bases que estarão na fita complementar.
+                                    <br>
+                                    Em uma extremidade de uma fita de DNA, uma hidroxila do carbono-5 está livre enquanto na outra extremidade desta mesma fita, a hidroxila do carbono-3 é que estará livre. É neste sentido (5’3’), que o processo de replicação se inicia. Na fita complementar este sentido é invertido. Então temos uma situação assim:
+
+                                    <pre>
+Fita superior no sentido 5'3'->     5’ ACTTAACTAACTG 3’
+                                       |||||||||||||
+Fita inferiot no sentido 3'5'->     3’ TGAATTGATTGAC 5’
+                                    </pre>
+                                </p>
+                                <p><b>Problema:</b> Criar um programa que calcula a fita complementar, no sentido 5'3', de uma fita de DNA dada também no sentido 5'3'. A fita pode ter até 10<sup>6</sup> bases.</p>
+
+                                <pre class="prettyprint linenums:1 lang-cpp">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+// Calcula o complementar do DNA no sentido correto para a saída
+void comp(char* dna, int n, char* comp){
+    int i;
+    char ch;
+    // Percorrer fita original de trás para a frente. Escrever a nova de frente para trás.
+    for(i = 0; i < n; i++){
+        // A - T; C - G;
+        ch = dna[n-i-1]; // char original
+        if(ch == 'A'){
+            comp[i] = 'T';
+        }
+        else if(ch == 'T'){
+            comp[i] = 'A';
+        }
+        else if(ch == 'C'){
+            comp[i] = 'G';
+        }
+        else{
+            comp[i] = 'C';
+        }
+    }
+    comp[n] = '\0'; // fim da string
+}
+
+int main(){
+    // max de 10<sup>6</sup> bases
+    char dna[1000005];
+    char compl[1000005]; // string resposta
+    scanf("%s", dna); // nao precisa de & antes de string
+    int n = strlen(dna);
+    comp(dna, n, compl);
+    printf("%s\n", compl); // mostra resposta
+}
+                                </pre>
+
+                            <a class="btn btn-purple" href="https://goo.gl/Fh5XzC" target="blank">Code Execution</a>
+
+                            <a class="btn btn-purple" download="" href="assets/codes/aula9/L.c"> Download Code</a>
+
+                            <h2 class="block-title">Pangrama</h2>
+
+                            <p><b>Explicação:</b> Pangrama, ou pantograma, é uma frase em que são usadas todas as letras do alfabeto de determinada língua.</p>
+
+                            <p><b>Problema:</b> Dada uma frase, verificar se esta frase é ou não um pangrama. Um dos pangramas mais conhecidos é "The quick brown fox jumps over the lazy dog."</p>
+
+                            <pre class="prettyprint linenums:1 lang-cpp">
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int ehMaiuscula(char ch){
+    //        'A'           'Z'
+    if((ch >= 65) && (ch <= 90))
+        return 1;
+    return 0;
+}
+
+int ehMinuscula(char ch){
+    //         'a'            'z'
+    if ((ch >= 97) && (ch <= 122))
+        return 1;
+    return 0;
+}
+
+// 1 = true; 0 = false
+int ehPangrama(char* frase){
+    int alfabeto[26]; // alfabeto
+    memset(alfabeto, 0, sizeof(alfabeto)); // inicia tudo com 0 (false)
+    int l = strlen(frase), i;
+    // conta letras
+    for(i = 0; i < l; i++){
+        char ch = frase[i];
+        if(ehMaiuscula(ch)){
+            alfabeto[ch - 'A']++;
+        }
+        else if(ehMinuscula(ch)){
+            alfabeto[ch-'a']++;
+        }
+        // caracteres não alfabeticos nao acontece nada
+    }
+    for(i = 0; i < 26; i++){
+        if(alfabeto[i] == 0){
+            return 0; // false
+        }
+    }
+    return 1; // true
+}
+
+int main(){
+    char frase[1000000];
+    scanf("%s", frase);
+    int b = ehPangrama(frase);
+    if(b)
+        printf("A frase eh um pangrama\n");
+    else    
+        printf("A frase NAO eh um pangrama\n");
+}
+                            </pre>
+
+                            <a class="btn btn-purple" href="https://goo.gl/wBQDNC" target="blank">Code Execution</a>
+
+                            <a class="btn btn-purple" href="assets/codes/aula9/pangram.c" download="">Download Code</a>
+                            </section>
                             <section id="recomendados" class="doc-section">
                                 <h2 class="section-title">Exercícios Recomendados</h2>
                                 <div class="section-block">
@@ -150,20 +329,25 @@ char string[100];</pre>
                                         <table class="table table-striped">
                                             <tbody>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1181" target="_blank">Linha na Matriz</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1182" target="_blank">Coluna na Matriz</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1183" target="_blank">Acima da Diagonal Principal</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1332" target="_blank">Um-Dois-Três</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1168" target="_blank">LED</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2062" target="_blank">OBI URI</a></td>
                                                             
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1435" target="_blank">Matriz Quadrada I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1478" target="_blank">Matriz Quadrada II</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1534" target="_blank">Matriz 123</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1238" target="_blank">Combinador</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1253" target="_blank">Cifra de César</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1024" target="_blank">Criptografia</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1190" target="_blank">Área Direita</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2552" target="_blank">PãodeQuejoSweeper</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2542" target="_blank">Iu-Di-Oh!</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1241" target="_blank">Encaixa ou Não II</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1234" target="_blank">Sentença Dançante</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1262" target="_blank">Leitura Múltipla</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2694" target="_blank">Problema com a Calculadora</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1448" target="_blank">Telefone Sem Fio</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1586" target="_blank">Cabo de Guerra</a></td>
 
                                                 </tr>
                                             </tbody>
@@ -171,16 +355,17 @@ char string[100];</pre>
                                     </div><!--//table-responsive-->
                                 </div>
                             </section><!--//doc-section-->
+
                             <section id="materiais" class="doc-section">
                                 <h2 class="section-title">Materiais Extras</h2>
-                                <h3 class="block-title"> Tabela ASCII</h3>
+                                <h3 class="block-title" id="ASC"> Tabela ASCII</h3>
                                 <ul class ="list">
                                     <li><p>Tendo como base a <a href="assets\files\ASCII.pdf" download="">tabela ASCII</a>, é possível fazer diversas operações com string, tais como:</p></li>
                                     <ul class = "list">
                                         <li><b>Transformar</b> um <b>char</b> com um dígito em <b>número</b> e vice e versa:
                                         <pre class="prettyprint linenums:1 lang-cpp">
 int char2int(char digito){
-    int num = digit - '0';
+    int num = digito - '0';
     return num;
 }
 char int2char(int digito){
@@ -188,10 +373,12 @@ char int2char(int digito){
     return num;
 }
 </pre>               
-                                        Usando este método, qualquer char com apenas 1 dígito pode ser transformado para int e vice versa, pois a base dos chars 0,1,..,9 é o própio 0 e possui o valor 48 na tabela ASCII, então qualquer número somado com 48 irá representar o seu valor em char. Como por exemplo o número 4 somado com 48 é igual a 52, sendo o char '4' na tabela ASCII. Já para transformar um char em um número basta subtrair a base, então o char '3', que possui o valor 51 na tabela ASCII, subtraido de 48 (caracter '0') é igual a 3, sendo exatamente o dígito que queríamos.</li>
+                                        Usando este método, qualquer char com apenas 1 dígito pode ser transformado para int e vice versa, pois os chars '0','1',...,'9' estão em sequência na tabela, e o '0' possui o valor 48 na tabela ASCII, então qualquer número somado com 48 irá representar o seu valor em char. Por exemplo o número 4 somado com 48 é igual a 52, sendo o char '4' na tabela ASCII. 
+                                        <br>
+                                        Já para transformar um char em um número basta subtrair a base, então o char '3', que possui o valor 51 na tabela ASCII, subtraido de 48 (caracter '0') é igual a 3, exatamente o dígito que queríamos.</li>
                                         <p class="note-pink" style = "background-color: #8C41A7;"><b>Observação :</b> Este método só funciona para números com apenas <b>um dígito</b>.</p>
 
-                                        <li>Transformar letra minúscula para maiúscula e vice e versa:
+                                        <li><b>Transformar</b> letra <b>minúscula</b> para <b>maiúscula</b> e vice e versa:
                                         <pre class="prettyprint linenums:1 lang-cpp">
 char inverte(char letra){
     if(letra >= 97 && letra <= 122)
@@ -200,7 +387,7 @@ char inverte(char letra){
         letra += 32;    
     return letra;
 }</pre>
-                                        Essa função funciona pois qualquer letra minúscula está no intervalo de 97 até 122 na tabela ASCII, e qualquer letra maiúscula está no intervalo de 65 até 90, analizando a tabela, a distância de qualquer letra para sua respectiva maiúscula ou minúscula é de 32, por isso basta apenas somar 32 para que o 'C', 67 na tabela ASCII, vá para o número 99 que é o código do char 'c', e subtrair 32 para voltar.
+                                        Essa função funciona pois qualquer letra minúscula está no intervalo de 97 até 122 na tabela ASCII, e qualquer letra maiúscula está no intervalo de 65 até 90. Analizando a tabela, a distância de qualquer letra para sua respectiva maiúscula ou minúscula é de 32, por isso basta apenas somar 32 para que o 'C', 67 na tabela ASCII, vá para o número 99 que é o código do char 'c', e subtrair 32 para voltar.
  
 
 
@@ -210,13 +397,11 @@ char inverte(char letra){
                                     </ul>
 
                                 </ul>
-                                <h3 class="block-title"> Biblioteca ctype.h</h3>
-                                <ul class = "list"><li><p>Fica de dica conferir as funções desta biblioteca clicando na imagem abaixo.</p></li></ul>
-                                <a href="https://www.tutorialspoint.com/c_standard_library/ctype_h.htm" targe="_blank" ><img src="assets\images\Strings\ctype.png" class = "img-responsive-med"></a>
+                                
 
 
-                                <h3 class="block-title"> Byte adressing</h3>
-                                <li><p>Se escrever em um arquivo txt a palavra "APC" e salvá-lo (exemplo: apc.txt), é possível gerar um arquivo em hexadecimal correspondente ao arquivo com o comando:</p></li>
+                                <h3 class="block-title" id="bytes"> Byte addressing</h3>
+                                <li><p>Se escrever em um arquivo de texto a palavra "APC" e salvá-lo (exemplo: apc.txt), é possível gerar um arquivo em hexadecimal correspondente ao arquivo com o comando:</p></li>
                                 <pre class="prettyprint linenums:1 lang-bsh">
 $ xxd apc.txt > apcEmBinario.txt</pre>
                                 <li><p>O arquivo apcEmBinario.txt será mais ou menos como esse.</p></li>
@@ -228,6 +413,7 @@ $ xxd apc.txt > apcEmBinario.txt</pre>
                                 <a  class="btn btn-purple" style = "float: right;" onclick="animation_next('binary',4)">Next</a>
                                 <img src="assets\images\Strings\binary\final.png" class = "img-responsive">
 
+                                <p>Isso acontece porque cada char ocupa exatamente 1 byte. Desta forma, a representação <em>binária</em> do arquivo (saída do comando xxd) traduz exatamente os códigos dos caracteres utilizados no texto. Lembre-se que cada dígito hexadecimal corresponde a 4 dígitos binários. Assim, 2 dígitos hex representam 8 bits, ou seja, 1 byte.</p>
                             </section><!--//doc-section-->
                             
                   
@@ -239,8 +425,14 @@ $ xxd apc.txt > apcEmBinario.txt</pre>
                                 <li><a class="scrollto" href="#intro">Introdu&#xE7;&#xE3;o</a></li>
                                 <li><a class="scrollto" href="#ascii">Tabela ASCII</a></li>
                                 <li><a class="scrollto" href="#strings">Strings</a></li>
+                                <li><a class="scrollto" href="#stringH">Biblioteca string.h</a></li>
+                                <li><a class="scrollto" href="#apps">Aplicações</a></li>
                                 <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
                                 <li><a class="scrollto" href="#materiais">Materiais Extras</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#ASC">Tabela ASCII</a></li>
+                                        <li><a class="scrollto" href="#bytes">Byte Addressing</a></li>
+                                    </ul>
                                 </li>
 
                             </ul><!--//doc-menu-->
