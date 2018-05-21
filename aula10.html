@@ -78,7 +78,7 @@
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class="icon glyphicon glyphicon-compressed"></i> Struct</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: May 5th, 2018</div>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: May 20th, 2018</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -87,7 +87,7 @@
                                 <h2 class="section-title">Introdu&#xE7;&#xE3;o</h2>
                                 <div class="section-block">
                                     <ul class="list">
-                                        <li><p>Até o momento, vimos agrupamentos de dados de um <b>mesmo tipo</b>, vetores e matrizes.</p></li>
+                                        <li><p>Até o momento, vimos agrupamentos de dados de um <b>mesmo tipo</b>: vetores e matrizes.</p></li>
                                         <li><p>Frequentemente, no entanto, precisamos agrupar um conjunto de dados <b>relacionados</b>, de <b>tipos não necessariamente iguais</b>.</p></li>
                                         <li><p>Por exemplo:</p></li>
                                         <ul class = "list">
@@ -112,7 +112,7 @@
                                         <ul class = "list">
                                             <li><p>Vamos supor que vamos criar um registro para um determinado monstro, criando a tebela dos dados, será maios ou menos assim:</p></li>
                                             <img src="assets\images\Structs\table.png" class = "center" style = "width: 30%;">
-                                            <li><p>Podemos ver que a variável <i>Nome</i> é do tipo literal; que <i>Código</i>, <i>Level</i>, <i>Vida</i>, <i>Ataque</i> e <i>Defesa</i> são do tipo inteiro; que <i>Taxa de Captura</i> é do tipo real; e que <i>Paralisado</i> é do tipo booleano.</p></li>
+                                            <li><p>Podemos ver que a variável <i>Nome</i> é do tipo <em>vetor de char (string)</em>; que <i>Código</i>, <i>Level</i>, <i>Vida</i>, <i>Ataque</i> e <i>Defesa</i> são do tipo <em>int</em>; que <i>Taxa de Captura</i> é do tipo <em>float</em>; e que <i>Paralisado</i> é do tipo booleano.</p></li>
                                             <li><p>Todas essas variáveis são <b>relacionadas</b>, e estão agrupadas em um <b>novo domínio</b>.</p></li>
                                             <li><p>Dizemos então que, da mesma maneira que existem os tipos inteiro, real, literal, etc, agora existe um novo tipo, Dados do Monstro, e também <b>podemos criar variáveis desse novo tipo</b>.</p></li>
                                             <pre class="prettyprint linenums:1 lang-cpp">
@@ -158,6 +158,23 @@ for(i = 0; i < 3; i++)
                                 <h2 class="section-title">Materiais Extras</h2>
 
                             </section><!--//doc-section-->
+                            <section id="ponteiros" class="doc-section">
+                                <h2 class="section-title">Ponteiros de Registros</h2>
+                                <div class="section-block" id="declarar">
+                                    <p>Um ponteiro de registro é declarado da mesma maneira que um ponteiro para qualquer outra variável, usando o operador asterisco.</p>
+
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+typedef struct {
+    double x;
+    double y;
+} Ponto;
+
+int main(){
+    Ponto p = 
+}
+                                    </pre>
+                                </div>
+                            </section>
                             
                   
                         </div><!--//content-inner-->
