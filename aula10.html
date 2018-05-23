@@ -144,7 +144,7 @@ int main(){
     // cria as variáveis pikachu e chikorita conforme definição.
 }
                                             </pre>
-                                            <li>Também é possível omitir associar a struct a um <em>identificador de tipo</em>, evitando que tenhamos que adicionar a palavra <em>struct</em> sempre que formos instanciar uma variável do novo tipo. Isto é feito com o uso da palavra reservada <b>typedef</b></li>
+                                            <li>Também é possível associar a struct a um <em>identificador de tipo</em>, evitando que tenhamos que adicionar a palavra <em>struct</em> sempre que formos instanciar uma variável do novo tipo. Isto é feito com o uso da palavra reservada <b>typedef</b></li>
                                             <pre class="prettyprint linenums:1 lang-cpp">
 typedef struct {
     int cod;
@@ -204,10 +204,11 @@ float txPikachu = pt->txcap;
                                     </pre>
 
                                     <p>Ponteiros para registros são bastante úteis para alterar um registro em uma função diferente. Existem também estruturas de dados que envolvem structs que precisam de um ponteiro para a próxima struct da sequência, como listas, árvores, etc. Essas structs serão vistas em detalhes na matéria de Estruturas de Dados.</p>
+                                    <p>Para mais exemplos de declaração, acesso à elementos e uso de ponteiros veja este <a href="https://www.geeksforgeeks.org/structures-c/" target="_blank">site</a>.</p>
                                 </div>
                             </section>
 
-                            <section id="funções" class="doc-section">
+                            <section id="funcs" class="doc-section">
                                 <h2 class="section-title">Registros e Funções</h2>
                                 <div class="section-block">
                                     <p>Vamos observar alguns exemplos mais elaborados do uso de structs.</p>
@@ -300,6 +301,17 @@ int main(){
                             <section id="materiais" class="doc-section">
                                     <h2 class="section-title">Materiais Extras</h2>
     
+                                <div class="section-block">
+                                    <h2 id="regmem">Registros na Memória</h2>
+                                    <p>Sabemos usar structs, mas como elas estão armazenadas na mamória? De maneira interessante, elas são semelhantes aos vetores neste quesito também: os atributos da struct estão em endereços adjacentes da memória, conforme mostra a imagem.</p>
+
+                                    <ul>
+                                        <li>O primeiro endereço da struct é também o primeiro endereço do primeiro atributo.</li>
+                                        <li>Cada atributo ocupa a quantidade de bytes necessários para o seu tipo (e.g. int - 4 bytes, float - 4 bytes, char - 1 byte, etc)</li>
+                                        <li>Os atributos começam em endereços <b>alinhados</b> (i.e. múltiplos de 4), por isso os endereços 105-107 não estão sendo utilizados na figura.</li>
+                                    </ul>
+                                    <img class="img-responsive" src="assets/images/Structs/structInMemory.jpg" alt="Imagem representando um registro na memória">
+                                </div>
                                 </section><!--//doc-section-->
                         </div><!--//content-inner-->
                     </div><!--//doc-content-->
@@ -314,8 +326,12 @@ int main(){
 
                                     </ul>
 
-                                <li><a class="scrollto" href="#strings"></a></li>
+                                <li><a class="scrollto" href="#ponteiros">Ponteiros de Registros</a></li>
+                                <li><a class="scrollto" href="#funcs">Funções com Registros</a></li>
                                 <li><a class="scrollto" href="#materiais">Materiais Extras</a>
+                                    <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#regmem">Registro na Memória</a></li>
+                                    </ul>
                                 </li>
 
                             </ul><!--//doc-menu-->
