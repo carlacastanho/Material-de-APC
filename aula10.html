@@ -217,7 +217,7 @@ float txPikachu = pt->txcap;
                                         <li>Temos um empresa que começou a ser informatizada,
                                             queremos cadastrar no máximo 100 funcionários com
                                             as seguintes informações de cada funcionário: Nome;
-                                            Sexo; Salário; Matrícula; Endereço e Cargo.</li>
+                                            Sexo; Salário; Matrícula; Endereço e Cargo.
 
                                     <pre class="prettyprint linenums:1 lang-cpp">
 typedef struct {
@@ -230,8 +230,10 @@ typedef struct {
 } Funcionario;
 
 void cadastrarFuncionario(Funcionario f[], int idx){
+    getchar();
     printf("Qual o nome do funcionario?\n");
-    scanf(" %s", f[idx].nome);
+    scanf(" %[^\n]", f[idx].nome);
+    getchar();
     printf("Qual o sexo do funcionario?\n");
     scanf(" %c", &f[idx].sexo);
     printf("Qual o salario do funcionario?\n");
@@ -239,9 +241,9 @@ void cadastrarFuncionario(Funcionario f[], int idx){
     printf("Qual a matricula do funcionario?\n");
     scanf("%d", &f[idx].matricula);
     printf("Qual o endereco do funcionario?\n");
-    scanf(" %s", f[idx].endereco);
+    scanf(" %[^\n]", f[idx].endereco);
     printf("Qual o cargo do funcionario?\n");
-    scanf(" %s", f[idx].cargo);
+    scanf("%[^\n]", f[idx].cargo);
 }
 
 int main(){
@@ -260,17 +262,27 @@ int main(){
             cadastrarFuncionario(array, cadastrados);
             cadastrados++;
         }
-        else{
+        else
             done = 1;
-        }
+    }
+    int i;
+    for(i = 0; i < cadastrados; i++){
+        printf("Funcionario %d\n", i);
+        printf("Nome: %s (%c)\n", array[i].nome, array[i].sexo);
+        printf("Endereco: %s\n", array[i].endereco);
+        printf("Matricula: %d\n", array[i].matricula);
+        printf("Cargo: %d\n", array[i].cargo);
+        printf("Salario: %f\n", array[i].salario);
+        printf("============================================\n");
     }
 }
                                     </pre>
-
-                                    <li>Faça um simples programa para transformar um ponto polar em um ponto cartesiano.</li>
+                                    <a href="assets/codes/aula10/funcionario.c" download="" class="btn btn-orange">Download Code</a>
+                                    </li>
+                                    <li>Faça um simples programa para transformar um ponto polar em um ponto cartesiano.
 
                                     <pre class="prettyprint linenums:1 lang-cpp">
-#include <math.h>
+#define PI 3.1415
 
 typedef struct {
     double x,y;
@@ -282,18 +294,115 @@ typedef struct {
 
 Pcart polar2cart(Ppolar p){
     Pcart r;
-    r.x = p.r * cos(p.angle);
-    r.y = p.r * sin(p.angle);
+    float rad = (p.angle*PI)/180.0;
+    r.x = p.r * cos(rad);
+    r.y = p.r * sin(rad);
     return r;
 }
 
-int main(){
-    Ppolar p = {13, 22.6}
-    Pcart q = polar2cart(p);
-    printf("Ponto cartesiano: (%.2lf, %.2lf)\n", q.x, q.y);
+Ppolar cart2polar(Pcart p){
+    Ppolar asw;
+    asw.r = sqrt(pow(p.x,2) + pow(p.y,2));
+    float rad = atan(p.y/p.x);
+    asw.angle = (rad*180)/PI;
+    return asw;
 }
 
+int main(){
+    Ppolar p = {13, 22.6};
+    Pcart q = polar2cart(p);
+    Ppolar o = cart2polar(q);
+    printf("Ponto cartesiano: (%.2lf, %.2lf)\n", q.x, q.y);
+    printf("Ponto polar: (%.2lf, %.2lf)\n", o.r, o.angle);
+}
+
+// TERMINAL OUTPUT
+// [aula10]$ ./ponto
+// Ponto cartesiano: (12.00, 5.00)
+// Ponto polar: (13.00, 22.60)
                                     </pre>
+
+                                    <a href="assets/codes/aula10/ponto.c" download="" class="btn btn-orange">Download Code</a>
+                                    </li>
+                                    <li>Veras é um aluno sempre preocupado com suas notas, e que busca subir seu IRA sempre. Sendo de computação, Veras criou um programa simples para ver em qual das matérias que está fazendo ele está com o melhor rendimento, e qual precisa se dedicar mais. Para isso ele usa registros para suas notas de cada matéria, ordenando-os de maneira crescente. Claro que o programa de verdade do Veras é bem mais complicado do que este, mas quando estava no primeiro semestre ele fez algo mais ou menos assim:
+
+                                <pre class="prettyprint linenums:1 lang-cpp">                        
+#include &lt;stdlib.h&gt;
+
+typedef struct {
+    int mat;
+    int pNum;
+    float nota;
+    int peso;
+} Nota;
+
+void matNome(int idx){
+    switch (idx) {
+        case 0: printf("APC\n");
+                break;
+        case 1: printf("ISC\n");
+                break;
+        case 2: printf("C1\n");
+                break;
+        case 3: printf("FTC\n");
+                break;
+        case 4: printf("InfoSoc\n");
+                break;
+        default: printf("Lembro dessa materia nao..\n");
+    }
+}
+// funcao de comparacao entre Notas
+int ehMenor(Nota* a, Nota* b){
+    float n_a = a->nota;
+    float n_b = b->nota;
+    if(n_a <= n_b)
+        return 1;
+    else
+        return 0;
+}
+
+void showNota(Nota* n){
+    printf("Materia: ");
+    matNome(n->mat);
+    printf("Prova numero %d\n", n->pNum);
+    printf("Nota: %.2f, peso: %d\n", n->nota, n->peso);
+}
+
+void stats(Nota* arr, int n){
+    // funcao para ordenar vetores. Faz parte da stdlib.h
+    Nota pior = arr[0];
+    Nota melhor = arr[0];
+    int i;
+    for(i = 1; i < n; i++){
+        if(ehMenor(&arr[i], &pior))
+            pior = arr[i];
+        else if(ehMenor(&melhor, &arr[i]))
+            melhor = arr[i];
+    }
+    printf("MELHOR NOTA\n");
+    showNota(&melhor);
+    printf("=============================\n");
+    printf("PIOR NOTA\n");
+    showNota(&pior);
+}
+
+int main(){
+    Nota vetor[10];
+    int sub[] = {0,0,1,1,2,2,3,3,4,4};
+    float nota[] = {10,10,6.5,8.2,4.5,7.9,4.2,6.5,7.8,8.5};
+    int i;
+    for(i = 0; i < 10; i++){
+        Nota a = {sub[i], (i%2)+1, nota[i], (i%3)+2};
+        vetor[i] = a;
+    }
+
+    stats(vetor, 10);
+}
+                                    </pre>
+                                    <a class="btn btn-orange" target="_blank" href="https://goo.gl/rArpuy">Code Execution</a>
+
+                                    <a href="assets/codes/aula10/veras.c" download="" class="btn btn-orange">Download Code</a>
+                                    </li>
                                     </ol>
                                 </div>
                             </section>
