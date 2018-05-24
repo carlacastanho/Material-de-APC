@@ -51,7 +51,7 @@ int main(){
         printf("Nome: %s (%c)\n", array[i].nome, array[i].sexo);
         printf("Endereco: %s\n", array[i].endereco);
         printf("Matricula: %d\n", array[i].matricula);
-        printf("Cargo: %d\n", array[i].cargo);
+        printf("Cargo: %s\n", array[i].cargo);
         printf("Salario: %f\n", array[i].salario);
         printf("============================================\n");
     }
