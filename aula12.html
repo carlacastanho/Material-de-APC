@@ -3,7 +3,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Structs</title>
+    <title>Arquivos Texto</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -123,16 +123,119 @@
                                 <section id="manipular" class="doc-section">
                                     <h2 class="section-title">Manipulando Arquivos</h2>
                                     <div class="section-block">
-                                        
+                                        <ul class="list">
+                                            <li>Na linguagem C os arquivos são abstraídos por um <b>ponteiro para arquivo</b>. Todas as operações feitas no arquivo acontecem através deste ponteiro.</li>
+
+                                            <li>Este ponteiro é a ligação entre o seu programa e o arquivo sendo manipulado. Ele também guarda a posição atual do arquivo, que é automaticamente atualizada toda vez que uma leitura ou escrita acontece.</li>
+
+                                            <li>No mais, é um ponteiro como qualquer outro. Eles são declarados assim:
+
+                                            <pre class="prettyprint linenums:1 lang-cpp">
+FILE* fd; // ponteiro para arquivo</pre>
+
+                                            Neste caso o ponteiro se chama "fd", mas pode ter qualquer nome.
+                                            </li>
+
+                                        </ul>
 
                                     </div>
 
                                     <h2 class="block-title" id="abrir">Abrindo Arquivos</h2>
                                     <div class="section-block">
 
+                                        <p>Antes de operarmos com os arquivos precisamos saber algumas informações sobre tal arquivo. Por exemplo: </p>
+                                        <ul>
+                                            <li>Em qual diretório o arquivo se encontra?</li>
+                                            <li>O arquivo já existe ou vamos criá-lo?</li>
+                                            <li>O arquivo existe mas queremos refazê-lo?</li>
+                                        </ul>
+
+                                        <p>Sabendo essas informações poderemos abrir o arquivo corretamente. A função que faz isso é <b>fopen()</b> (file open), que recebe 2 parâmetros, nesta ordem, <b>nome</b> do arquivo e <b>modo</b> em que abriremos o arquivo. Os modos disponíveis estão listados na tabela abaixo.</p>
                                     </div>
 
-                                    <h2 class="block-title" id="ops">Operações em Arquivos</h2>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+FILE* fd; // file descriptor
+char file[] = "file.txt"; // file name
+fd = fopen(file, "w"); // abrindo arquivo para escrita
+                                    </pre>
+
+                                    <h2 class="block-title" id="modos">Modos de Abertura de Arquivos Texto</h2>
+                                    <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Code</th>
+                                                <th>Nome</th>
+                                                <th>Descrição</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>"r"</td>
+                                                <td>Read</td>
+                                                <td>Abre um arquivo TEXTO para leitura, já deve existir o arquivo.</td>
+                                            </tr>
+                                            <tr>
+                                                    <td>"w"</td>
+                                                    <td>Write</td>
+                                                    <td>Abre (ou cria) um arquivo TEXTO para escrita. Se o arquivo já existir seu conteúdo anterior é descartado.</td>
+                                            </tr>
+                                            <tr>
+                                                    <td>"a"</td>
+                                                    <td>Append</td>
+                                                    <td>Abre (ou cria) um arquivo TEXTO para escrita. Ponteiro começa no final do arquivo.</td>
+                                            </tr>
+                                            <tr>
+                                                    <td>"r+"</td>
+                                                    <td>Read Plus</td>
+                                                    <td>Abre um arquivo TEXTO para leitura ou escrita. O arquivo deve existir e poder ser modificado.</td>
+                                            </tr>
+                                            <tr>
+                                                    <td>"w+"</td>
+                                                    <td>Write Plus</td>
+                                                    <td>Abre (ou cria) um arquivo TEXTO para leitura e escrita. Se o arquivo já existir seu conteúdo anterior é descartado.</td>
+                                            </tr>
+                                            <tr>
+                                                    <td>"a+"</td>
+                                                    <td>Append Plus</td>
+                                                    <td>Abre (ou cria) um arquivo TEXTO para leitura e escrita. Ponteiro começa no final do arquivo.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                    
+                                    <p>A função fopen() retorna um descriptor do arquivo, que é gerado pelo SO e associa o arquivo desejado ao ponteiro que criamos. Caso o arquivo não possa ser aberto por qualquer motivo o retorno será NULL. Assim, para saber se o arquivo foi aberto com sucesso basta testar se o ponteiro tem valor NULL.</p>
+
+                                    <p>Veja nos <a href="#fail" class="scrollto">materiais extras</a> alguns motivos que podem causar falha na abertura do arquivo.</p>
+
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+FILE* fd;
+char file[] = "file.txt";
+fd = fopen(file, "r+");
+
+// testar se arquivo existe
+if(fd == NULL)
+    fd = fopen(file, "w"); // se nao existe, cria o arquivo
+                                    </pre>
+
+                                    <p>Depois de utilizarmos o arquivo é necessário <b>fechá-lo</b>. Isso é importante por 2 motivos: 
+                                        <ul>
+                                        <li> Liberar espaço alocado para as operações com o arquivo. </li>
+                                        <li> Garantir que as mudanças feitas no arquivo realmente foram salvas.</li>
+                                        </ul>
+
+                                    Veja nos <a href="#fechar" class="scrollto">materiais extras</a>  explicações mais detalhadas sobre a importância de fechar arquivos corretamente.
+                                    </p>
+
+                                    <p>Para fechar um arquivo usamos a função fclose(). Após fecharmos um arquivo a associação entre o arquivo e o ponteiro é desfeita, e poderemos associar o ponteiro à outro arquivo.</p>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+FILE* fd = fopen("file.txt", "r+");
+
+// utiliza o arquivo no programa....
+fclose(fd); // fecha o arquivo
+                                    </pre>
+
+                                    <h2 class="block-title" id="ops">Movimentação em Arquivos</h2>
                                 </section>
 
                                 <!-- ARQUIVOS TEXTO -->
@@ -140,14 +243,22 @@
                                         <h2 class="section-title">Arquivos Texto</h2>
                                         <div class="section-block">
                                             
-    
+                                        <h2 class="block-title" id="leitura">Operação de Leitura</h2>
+                                        <h2 class="block-title" id="escrita">Operação de Escrita</h2>
                                         </div>
                                 </section>
 
                                 <!-- METERIAIS EXTRAS -->
                                 <section id="materiais" class="doc-section">
                                         <h2 class="section-title">Materiais Extras</h2>
-                                    
+                                        <div class="section-block">
+
+                                            <h2 class="block-title" id="fail">Falhas na Abertura de Arquivos</h2>
+
+                                            <h2 class="block-title" id="fechar">Fechando Arquivos Corretamente</h2>
+
+
+                                        </div>
                                 </section>
 
                             </div> <!-- Content inner -->
@@ -165,11 +276,22 @@
                                                 <li><a class="scrollto" href="#manipular">Manipulando Arquivos</a>
                                                     <ul class="nav doc-sub-menu">
                                                             <li><a class="scrollto" href="#abrir">Abrindo Arquivos</a></li>
-                                                            <li><a class="scrollto" href="#ops">Operações em Arquivos</a></li>
+                                                            <li><a class="scrollto" href="#modos">Modos de Abertura</a></li>
+                                                            <li><a class="scrollto" href="#ops">Movimentação em Arquivos</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a class="scrollto" href="#arq_texto">Arquivos Texto</a></li>
-                                                <li><a class="scrollto" href="#materiais">Materiais Extras</a></li>
+                                                <li><a class="scrollto" href="#arq_texto">Arquivos Texto</a>
+                                                    <ul class="nav doc-sub-menu">
+                                                            <li><a class="scrollto" href="#leitura">Leitura</a></li>
+                                                            <li><a class="scrollto" href="#escrita">Escrita</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a class="scrollto" href="#materiais">Materiais Extras</a>
+                                                    <ul class="nav doc-sub-menu">
+                                                            <li><a class="scrollto" href="#fail">Sobre Falhas de Abertura</a></li>
+                                                            <li><a class="scrollto" href="#fechar">Sobre Fechar Arquivos</a></li>
+                                                    </ul>
+                                                </li>
                                             </ul><!--//doc-menu-->
                                         </nav>
                                 </div> <!--//doc-sidebar-->
