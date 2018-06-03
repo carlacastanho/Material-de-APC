@@ -236,6 +236,37 @@ fclose(fd); // fecha o arquivo
                                     </pre>
 
                                     <h2 class="block-title" id="ops">Movimentação em Arquivos</h2>
+                                    <p>O ponteiro do arquivo também guarda a posição atual em que o arquivo está sendo manipulado. Lembre-se que um arquivo é uma sequência de bytes, assim, a posição atual significa qual byte da sequência estamos olhando. Toda vez que uma operação de leitura ou escrita acontece esta posição é automaticamente atualizada, mas por vezes queremos ir para uma posição específica no arquivo. Vejamos algumas das funções que nos ajudam a fazer isso.</p>
+
+                                    <ul class="list">
+                                        <li>Se quisermos ir ao começo do arquivo podemos usar a função rewind()
+
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+rewind(fd); // retorna para o inicio do arquivo</pre>
+                                        </li>
+
+                                        <li>Para saber a posição atual do arquivo usamos ftell()
+                                        
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+int pos;
+pos = ftell(fd);
+                                        </pre>
+                                        </li>
+
+                                        <li>Para ir para uma posição específica usamos a função fseek(). Ela recebe 3 parâmetros: o ponteiro para o arquivo, o offset <b>em bytes</b> para movimentação, e a <b>origem</b>. A origem pode receber 2 valores:
+                                            <ul>
+                                                <li>SEEK_SET - Beginning of file</li>
+                                                <li>SEEK_CUR - Current position of the file pointer</li>
+                                            </ul>
+
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+fseek(fd, 15, SEEK_SET); // go to 15th byte from beggining
+                                        </pre>
+                                        </li>
+
+                                    </ul>
+
+                                    <p>Existem muitas outras funções para manipulação de arquivos. Elas fazem parte da biblioteca stdio.h . Leia a <a href="http://www.cplusplus.com/reference/cstdio/">referência</a> da biblioteca para conhecer mais funções (lembre-se que nem todas as funções desta biblioteca são sobre arquivos).</p>
                                 </section>
 
                                 <!-- ARQUIVOS TEXTO -->
@@ -255,9 +286,40 @@ fclose(fd); // fecha o arquivo
 
                                             <h2 class="block-title" id="fail">Falhas na Abertura de Arquivos</h2>
 
+                                            <p>Alguns dos erros que podem ocorrer na abertura de arquivos são:</p>
+
+                                            <ul>
+                                                <li>O arquivo não existir no dietório corrente. Isso significa que o arquivo não existe no mesmo diretório em que o programa está rodando, mesmo que exista em outro diretório.
+
+                                                        <p>
+                                                            Se queremos acessar um arquivo em um diretório diferente daquele do programa podemos passar o caminho completo do arquivo, ou um relativo em relação ao diretório que estamos. Por exemplo, se estivermos no diretório "/Desktop" e queremos acessar um arquivo "file.txt" dentro da pasta "files/", que fica no Desktop podemos fazer
+                                                        </p>
+
+                                                        <pre class="prettyprint lang-cpp">
+FILE* fd = fopen("files/file.txt", "r+");
+                                                        </pre>
+
+                                                        <p>Se a pasta "files/" ficar no diretório "Documents" podemos fazer assim:</p>
+
+                                                                                                                                                                  <pre class="prettyprint lang-cpp">
+FILE* fd = fopen("../Documents/files/file.txt", "r+");
+                                                        </pre>
+
+                                                        <p>Lembre-se que ".." acessa o diretório acima do diretório atual. No caso, o diretório acima de Desktop é o diretório home.</p>
+                                                </li>
+                                                <li>Podemos não ter permissão de leitura ou escrita no arquivo, dependendo do lugar em que ele está salvo. Para resolver esse problema é necessário mudar as permissões do arquivo ou executar o programa como um usuário que tenha permissão sobre o arquivo.</li>
+                                            </ul>
                                             <h2 class="block-title" id="fechar">Fechando Arquivos Corretamente</h2>
 
+                                            <p>O tempo de acesso de disco é muito inferior ao tempo de acesso da RAM, por isso o computador procura fazer o menor número possível de operações em disco possível. Uma das técnicas que permitem isso é o <em>buffering</em>.</p>
 
+                                            <p>Você irá aprender mais sobre isso na matéria de Organização de Arquivos, mas o importante agora é saber que quando o SO faz a ligação entre o ponteiro de arquivo e o arquivo ele também reserva um espaço na memória principal para operações com esse arquivo, i.e. o buffer do arquivo. Qualquer operação que fazemos com o arquivo, de leitura ou escrita, na verdade é realizada nesse buffer. Quando operações suficientes foram realizadas, ou se uma operação não pode ser feita no buffer, então o buffer é escrito no arquivo, e depois modificado na nova operação.</p>
+
+                                            <p>De qualquer forma, quando o arquivo é fechado, usando a função fclose(), esse buffer é então escrito para o arquivo. Caso o arquivo não seja fechado e o programa termine, é possível que algumas operações feitas no buffer não sejam passadas para o arquivo, e sejam perdidas. Por isso é fundamental fechar os arquivos antes do final do programa.</p>
+
+                                            <div class="callout-block" style="background-color: darkgreen;color: cornsilk">
+                                                Se uma mudança é essencial para o arquivo e precisamos que ela seja passada ao arquivo imediatamente, podemos usar a função fflush(fd). Ela força a escrita do buffer no stream necessário.
+                                            </div>
                                         </div>
                                 </section>
 
