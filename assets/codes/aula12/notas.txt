@@ -1,4 +1,4 @@
-Thiago 10
-Joao 9.7
-Maria 5.8
-Henrique 9.6
+Thiago 9.0
+Joao 8.7
+Maria 8.1
+Henrique 7.6
