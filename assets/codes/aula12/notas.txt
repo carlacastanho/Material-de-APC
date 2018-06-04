@@ -1,0 +1,4 @@
+Thiago 10
+Joao 9.7
+Maria 5.8
+Henrique 9.6
