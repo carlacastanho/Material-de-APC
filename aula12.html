@@ -254,7 +254,7 @@ pos = ftell(fd);
                                         </li>
 
                                         <li>Para ir para uma posição específica usamos a função fseek(). Ela recebe 3 parâmetros: o ponteiro para o arquivo, o offset <b>em bytes</b> para movimentação, e a <b>origem</b>. A origem pode receber 2 valores:
-                                            <ul>
+                                            <ul class = "list">
                                                 <li>SEEK_SET - Beginning of file</li>
                                                 <li>SEEK_CUR - Current position of the file pointer</li>
                                             </ul>
@@ -274,8 +274,90 @@ fseek(fd, 15, SEEK_SET); // go to 15th byte from beggining
                                         <h2 class="section-title">Arquivos Texto</h2>
                                         <div class="section-block">
                                             
+                                        <li><p>Para facilitar o entendimento, utilizaremos um arquivo chamdo <b>notas.txt</b>, com os seguintes dados:</p></li>
+                                        <pre class="prettyprint lang-md" style="width: 15%;    margin-left: 40%; ">
+Thiago 9.0
+Joao 8.7
+Maria 8.1
+Henrique 7.6</pre>                                            
+
                                         <h2 class="block-title" id="leitura">Operação de Leitura</h2>
+                                        <ul class = "list">
+                                            <li><p>Para conseguir ler os dados de um arquivo, basta seguir os seguintes passos:</p></li>
+                                            <ol class = "list">
+                                                <li><p>Declarar as variáveis para leitura e um ponteiro para o arquivo;</p></li>
+                                                <pre class="prettyprint linenums:1 lang-cpp">
+typedef struct {
+    char nome[100];
+    double nota;
+}Estudante;
+
+int main(){
+    FILE *arquivo;
+    int i,n = 0;
+    Estudante aluno[100];</pre>
+                                                <li><p>Abrir o arquivo no modo <b>leitura</b>;</p></li>
+                                                <pre class="prettyprint linenums:1 lang-cpp">
+arquivo = fopen("notas.txt","r");</pre>
+                                                <li><p>Verificar se o arquivo foi aberto com sucesso;</p></li>
+                                                <pre class="prettyprint linenums:1 lang-cpp">
+if (arquivo == NULL){
+   printf("Error! opening file");
+   return 1;
+}</pre>                                             
+                                                <li><p>Percorcorrer o arquivo e ler os dados</p></li>
+                                                <ul class = "list">
+                                                    <li><p>Existem várias funções para ler os dados do arquivo, essas funções possuem os mesmos nomes que as funções já conhecidas, porém precedem de um 'f'.
+                                                    <li><p>As funções mais usadas são : <b>fscanf, fgetchar, fgets</b>.</p></li>
+                                                    <li><p>A função <b>fscanf</b> é uma função que recebe 3 parâmetros, o primeiro é o ponteiro para o arquivo, o segundo são os parametros de leitura (%d pra numero, %s pra sting ...) e o ultimo os endereços para salvar os dados (igual já conhecemos com o scanf)</p></li>
+                                                </ul>
+                                                <pre class="prettyprint linenums:1 lang-cpp">
+for(int i = 0; i < 4; i++){
+    fscanf(arquivo, "%s %lf",aluno[n].nome, &amp;aluno[n].nota);
+}</pre>                                                
+                                                <ul class = "list">
+                                                    <li><p>Porém, caso não for conhecido a quantidade de linhas do arquivo, devemos ler os dados enquanto (While) não chegarmos ao final do arquivo (End of File).</p></li>
+                                                </ul>
+                                                <pre class="prettyprint linenums:1 lang-cpp">
+while(fscanf(arquivo, "%s %lf", aluno[n].nome, &amp;aluno[n].nota)  != EOF){
+    n++;
+}</pre>    
+                                                <li>Operar com os dados</li>
+                                                <ul class = "list">
+                                                    <li><p>Vai do programador decidir o que fazer com os dados lidos.</p></li>
+                                                </ul>
+                                                <pre class="prettyprint linenums:1 lang-cpp">
+for(i = 0; i < n; i++){                                                
+    printf("Aluno: %s\n",aluno[i].nome);
+    printf("Nota: %.2lf\n",aluno[i].nota);                                                
+}</pre>
+                                                <li><p>Fechar o arquivo</p></li>
+                                                <pre class="prettyprint linenums:1 lang-cpp">
+fclose(arquivo);</pre>
+                                            </ol>
+
+                                        </u>
                                         <h2 class="block-title" id="escrita">Operação de Escrita</h2>
+                                        <li><p>Para conseguir escrever os dados em um arquivo, basta novamente seguir os 3 primeiros passos mostrado anteriormente (com uma pequena mudança no passo 2) junto com esses novos passos:</p></li>
+                                            <ol class = "list" start="2">
+                                                <li><p>Abrir o arquivo no modo <b>escrita</b></p></li>
+                                                <pre class="prettyprint linenums:1 lang-cpp">
+arquivo = fopen("notas.txt","w"); </pre>
+                                            </ol>
+                                            <ol class = "list" start="4">
+                                                <li><p>Percorrer os dados para salvar no arquivo;</p></li>
+                                                 <ul class = "list">
+                                                    <li><p>A função utilizada para escrever em um arquivo de texto é a função <b>fprintf</b>, ou seja, a função printf imprime na tela uma mensagem, e a função fprintf imprime no arquivo a mensagem.</p></li>
+                                                    <li><p>Vamos supor que as notas dos alunos tiveram um aumento de 10% e agora necessita de atualizar o arquivo</p></li>
+                                                </ul>
+                                                <pre class="prettyprint linenums:1 lang-cpp">
+for(i = 0; i < n; i++){  
+    aluno[i].nota *= 1.1;                                              
+    fprintf(arquivo,"%s %lf\n",aluno[i].nome,aluno[i].nota);
+}</pre>                                                
+                                            </ol>
+                                        <li>O código completo você encontra aqui</li>
+                                        <a href="assets/codes/aula12/read&write.c" download="" class="btn btn-green">Download Code</a>
                                         </div>
                                 </section>
 
