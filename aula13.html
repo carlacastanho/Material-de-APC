@@ -68,11 +68,172 @@
                     <div class="doc-content">
                         <div class="content-inner">
                             <section id="intro" class="doc-section">
+
+                            <!-- INTRODUCTION -->
                                 <h2 class="section-title">Introdução</h2>
                                 <div class="section-block">
+                                    <ul class="list">
+                                        <li>Estamos estudando <b>arquivos</b>. Lembre-se que arquivos nada mais são do que uma abstração do sistema operacional para dados <b>não voláteis</b>. Para nós, um arquivo é simplesmente uma sequência de bytes.</li>
+
+                                        <li>Já vimos <a target="_blank" href="aula12.html">arquivos de texto</a>, onde cada byte representa um caractere, e agora vamos conhecer os arquivos do tipo binário.</li>
+
+                                        <li>Binário é o formato mais <b>genérico</b> e de <b>mais baixo nível</b> no computador. De fato, <b>qualquer</b> arquivo no computador pode ser visto como um arquivo binário.</li>
+
+                                        <li>Nesses arquivos, realizamos operações de leitura e escrita em <b>blocos de bytes</b>. Quem decide o que cada byte significa é o criador do arquivo. Isso fornece grande flexibilidade, mas significa que esses arquivos são difíceis de serem lidos por humanos, e precisam ser tratados por programas que saibam o que cada byte significa.</li>
+
+                                        <li>A maior vantagem dos arquivos binários é poder salvar as informações exatamente como estão na memória. Podemos inclusive guardar estruturas inteiras, como <b>structs e vetores</b>.</li>
+
+                                        <li><b>Visualizar</b> um arquivo binário é complicado. Existem programas para editar arquivos binários que permitem sua visualização. Esses arquivos mostram o valor de cada byte em <b>hexadecimal</b>, mas a interpretação deve ser feita manualmente. Vejamos um exemplo.<br>
+                                        
+                                        <pre class="prettyprint">5353 2065 6d20 4150 4320 6f2f</pre>
+
+                                        <p>Esta é uma saída típica da representação hex de um arquivo binário. Como cada dígito hexadecimal equivale a 4 bits, e cada byte tem 8 bits, então <b>cada 2 dígitos hexadecimais são 1 byte</b>. Mas o que esses bytes significam?</p>
+
+                                        <p>O significado depende da interpretação.</p>
+                                            <ul class="list">
+                                                <li>Vetor de inteiros: 1397956709, 1830830416, 1126199087</li>
+                                                <li>Vetor de floats: 9.06782e+11, 3.09978e+27, 160.434</li>
+                                                <li>String: SS em APC o/</li>
+
+                                            </ul>
+
+                                            <p>Opções para visualização de arquivos binários são WinHex (Windows) e os comandos <code>hexdump</code> ou <code>xxd</code> (Linux)</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section id="abrir" class="doc-section">
+                                <h2 class="section-title">Abrindo Arquivos Binários</h2>
+                                <div class="section-block">
+                                    <p>Abrir arquivo binários é muito parecido com abrir arquivos texto, usamos a mesma função <em>fopen()</em>, e um ponteiro para arquivo também. A diferença é no <b>modo</b> de abertura. Para arquivos binários devemos informar ao SO que iremos abrir o arquivo no modo binário, adicionando um "b" ao final do modo. Assim, os modos de abertura binários são:</p>
+
+                                    <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Code</th>
+                                                        <th>Nome</th>
+                                                        <th>Descrição</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>"rb"</td>
+                                                        <td>Read</td>
+                                                        <td>Abre um arquivo BINÁRIO para leitura, já deve existir o arquivo.</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>"wb"</td>
+                                                            <td>Write</td>
+                                                            <td>Abre (ou cria) um arquivo BINÁRIO para escrita. Se o arquivo já existir seu conteúdo anterior é descartado.</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>"ab"</td>
+                                                            <td>Append</td>
+                                                            <td>Abre (ou cria) um arquivo BINÁRIO para escrita. Ponteiro começa no final do arquivo.</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>"r+b"</td>
+                                                            <td>Read Plus</td>
+                                                            <td>Abre um arquivo BINÁRIO para leitura ou escrita. O arquivo deve existir e poder ser modificado.</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>"w+b"</td>
+                                                            <td>Write Plus</td>
+                                                            <td>Abre (ou cria) um arquivo BINÁRIO para leitura e escrita. Se o arquivo já existir seu conteúdo anterior é descartado.</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>"a+b"</td>
+                                                            <td>Append Plus</td>
+                                                            <td>Abre (ou cria) um arquivo BINÁRIO para leitura e escrita. Ponteiro começa no final do arquivo.</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            </div>
+
+                                            <p>Um comando típico para abrir um arquivo binário em modo de leitura seria:</p>
+                                            <pre class="prettyprint linenums:1 lang-cpp">
+FILE* fd; // file descriptor
+char file[] = "file.bin"; // file name
+fd = fopen(file, "wb"); // abrindo arquivo para escrita
+                                            </pre>
+
+                                            <p>Lembre-se de sempre <b>fechar</b> os arquivos depois de usá-los. Isso com certeza vale para arquivos binários também. A função usada é <code>fclose(fd)</code></p>
                                 </div>
                             </section>
 
+                            <section id="ops" class="doc-section">
+                                    <h2 class="section-title">Leitura e Escrita em Arquivos Binários</h2>
+                                    <div class="section-block">
+                                        <p>Em arquivos binários realizamos operações de leitura e escrita em <b>blocos de bytes</b> através das funções abaixo.</p>
+
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+int fread(void* ptr, int size, int count, FILE* stream ); // leitura
+int fwrite(const void* ptr, int size, int count, FILE* stream ); // escrita
+                                        </pre>
+
+                                        Os parâmetros dessas funções são:
+                                        <ul>
+                                            <li><b>ptr</b> é o buffer de transferência, isto é, a região de memória na de/para onde os dados serão lidos/escritos.</li>
+
+                                            <li><b>size</b> é o tamanho, em bytes, de um bloco individual.</li>
+
+                                            <li><b>count</b> é a quantidade de blocos.</li>
+
+                                            <li><b>stream</b> é o ponteiro para o arquivo manipulado.</li>
+                                        </ul>
+
+                                        <p>Note que <code>size * count</code> representa o <b>total de bytes</b> a serem lidos/escritos. A função <code>sizeof()</code> é muito útil para descobrir o tamanho em bytes de uma variável.</p>
+
+                                        <p>Ambas as funções retornam <b>o total de blocos trnansferidos com sucesso</b>. Podemos usar esse valor para verificar se houve algum problema na leitura/escrita.</p>
+                                    </div>
+
+                                    <!-- TODO: ADICIONAR OS EXEMPLOS-->
+                            </section>
+
+                            <section id="state" class="doc-section">
+                                <h2 class="section-title">Verificando o Estado dos arquivos</h2>
+                                <div class="section-block"> 
+                                    <p>É uma boa prática <b>verificar o estado do arquivo</b> após cada operação com ele. Ao final de cada chamada de função que manipule o arquivo, se ocorreu qualquer erro ele fica <b>armazenado no ponteiro do arquivo</b> (fd). Podemos acessar essas informações com as funções abaixo.</p>
+
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+feof(fd); // != 0 if End Of File
+ferror(fd); // != 0 if Error Occured
+                                    </pre>
+                                </div>
+                            </section>       
+                            
+                            <section class="doc-section" id="move">
+                                    <h2 class="section-title">Movimentação em Arquivos</h2>
+                                    <p>O ponteiro do arquivo também guarda a posição atual em que o arquivo está sendo manipulado. Lembre-se que um arquivo é uma sequência de bytes, assim, a posição atual significa qual byte da sequência estamos olhando. Toda vez que uma operação de leitura ou escrita acontece esta posição é automaticamente atualizada, mas por vezes queremos ir para uma posição específica no arquivo. Vejamos algumas das funções que nos ajudam a fazer isso.</p>
+
+                                    <ul class="list">
+                                        <li>Se quisermos ir ao começo do arquivo podemos usar a função  <code>rewind()</code>
+
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+rewind(fd); // retorna para o inicio do arquivo</pre>
+                                        </li>
+
+                                        <li>Para saber a posição atual do arquivo usamos <code>ftell()</code>
+                                        
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+int pos;
+pos = ftell(fd);
+                                        </pre>
+                                        </li>
+
+                                        <li>Para ir para uma posição específica usamos a função <code>fseek()</code>. Ela recebe 3 parâmetros: o ponteiro para o arquivo, o offset <b>em bytes</b> para movimentação, e a <b>origem</b>. A origem pode receber 2 valores:
+                                            <ul class = "list">
+                                                <li>SEEK_SET - Beginning of file</li>
+                                                <li>SEEK_CUR - Current position of the file pointer</li>
+                                                <li>SEEK_END - End of FIle</li>
+                                            </ul>
+
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+fseek(fd, 15, SEEK_SET); // go to 15th byte from beggining
+fseek(fd, 30, SEEK_CUR); // forward 30 bytes from current position
+                                        </pre>
+                            </section>
                         </div><!--//content-inner-->
                     </div><!--//doc-content-->
                     <div class="doc-sidebar hidden-xs">
