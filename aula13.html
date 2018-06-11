@@ -155,8 +155,7 @@
                                             <pre class="prettyprint linenums:1 lang-cpp">
 FILE* fd; // file descriptor
 char file[] = "file.bin"; // file name
-fd = fopen(file, "wb"); // abrindo arquivo para escrita
-                                            </pre>
+fd = fopen(file, "wb"); // abrindo arquivo para escrita</pre>
 
                                             <p>Lembre-se de sempre <b>fechar</b> os arquivos depois de usá-los. Isso com certeza vale para arquivos binários também. A função usada é <code>fclose(fd)</code></p>
                                 </div>
@@ -168,9 +167,8 @@ fd = fopen(file, "wb"); // abrindo arquivo para escrita
                                         <p>Em arquivos binários realizamos operações de leitura e escrita em <b>blocos de bytes</b> através das funções abaixo.</p>
                                         
                                         <pre class="prettyprint linenums:1 lang-cpp">
-                                            int fread(void* ptr, int size, int count, FILE* stream ); // leitura
-                                            int fwrite(const void* ptr, int size, int count, FILE* stream ); // escrita
-                                        </pre>
+int fread(void* ptr, int size, int count, FILE* stream ); // leitura
+int fwrite(const void* ptr, int size, int count, FILE* stream ); // escrita</pre>
                                         
                                         Os parâmetros dessas funções são:
                                         <ul>
