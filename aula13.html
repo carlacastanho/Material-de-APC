@@ -166,27 +166,87 @@ fd = fopen(file, "wb"); // abrindo arquivo para escrita
                                     <h2 class="section-title">Leitura e Escrita em Arquivos Binários</h2>
                                     <div class="section-block">
                                         <p>Em arquivos binários realizamos operações de leitura e escrita em <b>blocos de bytes</b> através das funções abaixo.</p>
-
+                                        
                                         <pre class="prettyprint linenums:1 lang-cpp">
-int fread(void* ptr, int size, int count, FILE* stream ); // leitura
-int fwrite(const void* ptr, int size, int count, FILE* stream ); // escrita
+                                            int fread(void* ptr, int size, int count, FILE* stream ); // leitura
+                                            int fwrite(const void* ptr, int size, int count, FILE* stream ); // escrita
                                         </pre>
-
+                                        
                                         Os parâmetros dessas funções são:
                                         <ul>
                                             <li><b>ptr</b> é o buffer de transferência, isto é, a região de memória na de/para onde os dados serão lidos/escritos.</li>
-
+                                            
                                             <li><b>size</b> é o tamanho, em bytes, de um bloco individual.</li>
-
+                                            
                                             <li><b>count</b> é a quantidade de blocos.</li>
-
+                                            
                                             <li><b>stream</b> é o ponteiro para o arquivo manipulado.</li>
                                         </ul>
-
+                                        
                                         <p>Note que <code>size * count</code> representa o <b>total de bytes</b> a serem lidos/escritos. A função <code>sizeof()</code> é muito útil para descobrir o tamanho em bytes de uma variável.</p>
-
+                                        
                                         <p>Ambas as funções retornam <b>o total de blocos trnansferidos com sucesso</b>. Podemos usar esse valor para verificar se houve algum problema na leitura/escrita.</p>
                                     </div>
+                                    <h2 class = "subsection-title">Exemplo de escrita</h2>
+                                    <ul class = "list">
+                                        <li><p>Utilizando o mesmo exemplo da aula passada, com a struct Estudante e o arquivo notas.txt</p></li>
+                                    </ul>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+typedef struct{
+    char nome[100];
+    double nota;
+}Estudante;
+
+int main(){
+
+    int i;
+    Estudante aluno;
+    FILE *arquivo;
+    arquivo = fopen("notas.bin","wb");
+
+    if (arquivo == NULL){
+       printf("Error! opening file");
+       return 1;
+    }
+
+    for(i = 0; i < 3; i++){
+        scanf("%s", aluno.nome);
+        scanf("%lf", &aluno.nota);
+        fwrite(&aluno, sizeof(Estudante), 1, arquivo); 
+    }
+    fclose(arquivo); 
+  
+   return 0;
+}</pre>                         
+                                <ul class = "list">
+                                    <li><p>Note que conseguimos salvar a struct inteira dentro do arquivo notas.bin</p></li>
+                                </ul>
+                                <h2 class = "subsection-title">Exemplo de leitura</h2>
+                                <pre class = "prettyprint linenums:1 lang-cpp">
+typedef struct{
+    char nome[100];
+    double nota;
+}Estudante;
+
+int main()
+{
+    int i;
+    Estudante aluno;
+    FILE *arquivo;
+
+    if ((arquivo = fopen("notas.bin","rb")) == NULL){
+        printf("Error! opening file");
+        return 1;
+    }
+
+    for(n = 0; n < 3; ++n){
+        fread(&aluno, sizeof(Estudante), 1, arquivo); 
+        printf("nome : %s\n nota : %lf\n",aluno.nome, aluno.nota);
+    }
+    
+    fclose(arquivo); 
+    return 0;
+}</pre>                                
 
                                     <!-- TODO: ADICIONAR OS EXEMPLOS-->
                             </section>
@@ -198,8 +258,7 @@ int fwrite(const void* ptr, int size, int count, FILE* stream ); // escrita
 
                                     <pre class="prettyprint linenums:1 lang-cpp">
 feof(fd); // != 0 if End Of File
-ferror(fd); // != 0 if Error Occured
-                                    </pre>
+ferror(fd); // != 0 if Error Occured</pre>
                                 </div>
                             </section>       
                             
