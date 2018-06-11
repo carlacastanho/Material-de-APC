@@ -203,37 +203,6 @@ ferror(fd); // != 0 if Error Occured
                                 </div>
                             </section>       
                             
-                            <section class="doc-section" id="move">
-                                    <h2 class="section-title">Movimentação em Arquivos</h2>
-                                    <p>O ponteiro do arquivo também guarda a posição atual em que o arquivo está sendo manipulado. Lembre-se que um arquivo é uma sequência de bytes, assim, a posição atual significa qual byte da sequência estamos olhando. Toda vez que uma operação de leitura ou escrita acontece esta posição é automaticamente atualizada, mas por vezes queremos ir para uma posição específica no arquivo. Vejamos algumas das funções que nos ajudam a fazer isso.</p>
-
-                                    <ul class="list">
-                                        <li>Se quisermos ir ao começo do arquivo podemos usar a função  <code>rewind()</code>
-
-                                        <pre class="prettyprint linenums:1 lang-cpp">
-rewind(fd); // retorna para o inicio do arquivo</pre>
-                                        </li>
-
-                                        <li>Para saber a posição atual do arquivo usamos <code>ftell()</code>
-                                        
-                                        <pre class="prettyprint linenums:1 lang-cpp">
-int pos;
-pos = ftell(fd);
-                                        </pre>
-                                        </li>
-
-                                        <li>Para ir para uma posição específica usamos a função <code>fseek()</code>. Ela recebe 3 parâmetros: o ponteiro para o arquivo, o offset <b>em bytes</b> para movimentação, e a <b>origem</b>. A origem pode receber 2 valores:
-                                            <ul class = "list">
-                                                <li>SEEK_SET - Beginning of file</li>
-                                                <li>SEEK_CUR - Current position of the file pointer</li>
-                                                <li>SEEK_END - End of FIle</li>
-                                            </ul>
-
-                                        <pre class="prettyprint linenums:1 lang-cpp">
-fseek(fd, 15, SEEK_SET); // go to 15th byte from beggining
-fseek(fd, 30, SEEK_CUR); // forward 30 bytes from current position
-                                        </pre>
-                            </section>
                         </div><!--//content-inner-->
                     </div><!--//doc-content-->
                     <div class="doc-sidebar hidden-xs">
@@ -243,7 +212,6 @@ fseek(fd, 30, SEEK_CUR); // forward 30 bytes from current position
                                 <li><a class="scrollto" href="#abrir">Abrindo Arquivos Binários</a></li>
                                 <li><a class="scrollto" href="#ops">Leitura e Escrita</a></li>
                                 <li><a class="scrollto" href="#state">Verificando Estado do Arquivo</a></li>
-                                <li><a class="scrollto" href="#move">Movimentação por Arquivos</a></li>
 
                             </ul><!--//doc-menu-->
                         </nav>
