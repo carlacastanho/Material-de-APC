@@ -70,19 +70,66 @@
                             <section id="intro" class="doc-section">
                                 <h2 class="section-title">Introdução</h2>
                             <div class="section-block">
+                                <p>Já sabemos como usar <a href="aula4.html">funções</a>. Mas existe uma classe particular de funções que ainda não exploramos: as funções <b>recursivas</b>. Essas funções tem a particularidade de <b>chamar elas mesmas durante sua execução</b>, e são muito úteis para resolver problemas <em>recursivos</em>.</p>
 
+                                <p>Os <b>problemas recursivos</b> são aqueles que podem ser definidos utilizando instâncias menores deles mesmos. Pos exemplo, a função <b>fatorial</b> é recursiva, podendo ser definida como:</p>
+
+                                <p ><img src="https://latex.codecogs.com/gif.latex?n!&space;=&space;\left\{\begin{matrix}&space;n&space;*&space;(n-1)!&space;&,&space;n&space;>&space;0\\&space;1&space;&,&space;n&space;=&space;0&space;\end{matrix}\right." title="n! = \left\{\begin{matrix} n * (n-1)! &, n > 0\\ 1 &, n = 0 \end{matrix}\right." style="display: block; margin-left: auto; margin-right: auto"/></p>
+
+                                <p>Note na linha superior que a definição de n! utiliza a função fatorial em uma instância menor, i.e. (n-1)!. Isso caracteriza uma função fatorial. A segunda linha da definição define a <b>condição de parada</b> da função. <b>Toda</b> função recursiva possui uma condição de parada.</p>
+
+                                EXEMPLO DE FUNÇÃO FATORIAL AQUI - GIF
+                                <p>Resumidamente temos:</p>
+                                <ul class="list">
+                                    <li>Problemas recursivos são definidos a partir de instâncias menores deles mesmos.</li>
+                                    <li>Podemos utilizar funções recursivas para resolver esses problemas. Elas chamam elas mesmas em sua execução.</li>
+                                    <li>Toda função recursiva <b>precisa</b> de um <b>caso base</b>, isto é, uma condição de parada.</li>
+                                </ul>
+                                <p>Agora vejamos como isso fica em código C.</p>
+
+                                EXEMPLO DE FUNÇÃO FATORIAL AQUI - CODIGO
                             </div>
                             </section>
 
                             <section id="pilha" class="doc-section">
                                 <h2 class="section-title">Pilha de Execução</h2>
                             <div class="section-block">
-        
+                                <p>Vamos entender então como funciona a recursividade no computador. Para isso precisamos entender melhor a <b>pilha de execução</b>. Os conceitos básicos são os seguintes:</p>
+                                    
+                                <ul>
+                                    <li>Toda vez que fazemos uma chamada de função dentro do programa, o SO <b>reserva memória</b> para as variáveis e parâmetros desta função.</li>
+                                    <li>A função no <b>topo</b> da pilha é função sendo executada no momento.</li>
+                                    <li>Quando uma função termina de ser executada ela é <b>removida</b> da pilha.</li>
+                                    <li>Quando ocorre uma nova <b>chamada</b> de função, a função chamada é colocada imediatamente no topo da pilha e começa a ser executada.</li>
+                                </ul>
+
+                            <p>Vejamos um esquema.</p>
+
+                            EXEMPLO DA PILHA DE EXECUÇÃO
+
+                            <p>Note que: </p>
+                                <ul>
+                            <li> Uma chamada recursiva nada mais é que uma simples chamada de função. Tudo que acontece é que várias instâncias da mesma função ficam empilhadas. </li>
+                            <li> Cada instância da função na pilha tem suas próprias variáveis locais, por isso o que acontece em uma instância de uma função recursiva não influencia o que acontece em outras instâncias.</li>
+                                </ul>
                             </div>
                             </section>
 
                             <section id="cuidado" class="doc-section">
                                 <h2 class="section-title">Cuidados com a Recursividade</h2>
+                            <div class="section-block">
+                                <p>Nada no computador é ilimitado, principalemtne a memória. Pelo exemplo de funcionamento da pilha de execução você deve ter percebido que <b>chamar funções ocupa memória</b>. Como uma função recursiva faz várias chamadas de função temos que tomar alguns cuidados:</p>
+
+                                <ul>
+                                    <li>Se um algoritmo recursivo faz muitas chamadas, ele pode causar um estouro de pilha (stack overflow), ou seja, ficar sem memória suficiente para continuar a execução do programa.</li>
+
+                                    <li>Para evitar o estouro da pilha, as chamadas reecursivas precisam <b>parar</b>. Daí a importancia da condição de parada da função.</li>
+                                </ul>
+                            </div>
+                            </section>
+
+                            <section id="exemplo" class="doc-section">
+                                <h2 class="section-title">Exemplos</h2>
                             <div class="section-block">
 
                             </div>
@@ -95,6 +142,7 @@
                                 <li><a class="scrollto" href="#intro">Introdução</a></li>
                                 <li><a class="scrollto" href="#pilha">Pilha de Execução</a></li>
                                 <li><a class="scrollto" href="#cuidado">Cuidados</a></li>
+                                <li><a class="scrollto" href="#exemplo">Exemplos</a></li>
                             </ul><!--//doc-menu-->
                         </nav>
                     </div><!--//doc-sidebar-->
