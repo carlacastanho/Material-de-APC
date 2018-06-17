@@ -78,6 +78,15 @@
 
                                 <p>Note na linha superior que a definição de n! utiliza a função fatorial em uma instância menor, i.e. (n-1)!. Isso caracteriza uma função fatorial. A segunda linha da definição define a <b>condição de parada</b> da função. <b>Toda</b> função recursiva possui uma condição de parada.</p>
 
+                                <div class="callout-block callout-info">
+                                        <div class="icon-holder">
+                                            <i class="fa fa-info fa-2x"></i>
+                                        </div><!--//icon-holder-->
+                                        <div class="content">
+                                            <p>Em geral, problemas recursivos possuem também versões iterativas. Algumas vezes é mais fácil visualizar a solução iterativa de um problema, outras vezes a recursiva é mais simples.</p>
+                                        </div><!--//content-->
+                                    </div><!--//callout-block-->
+
                                 <!-- Exemplo Fatorial - GIF Pausado-->
                                 <div id = "factorial1"><img src="assets/images/Recursividade/factorial/frame_000_delay-5.1s.gif" class = "img-responsive"></div>
                                 <div id = "factorial2" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_027_delay-0.05s.gif" class = "img-responsive"></div>
@@ -90,9 +99,18 @@
                                 <div id = "factorial9" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_205_delay-0.1s.gif" class = "img-responsive"></div>
                                 <div id = "factorial10" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_224_delay-0.05s.gif" class = "img-responsive"></div>
                                 <div id = "factorial11" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_240_delay-0.85s.gif" class = "img-responsive"></div>
-                                <a  class="btn btn-blue" onclick="animation_prev('factorial',11)">Prev</a>
-                                <a  class="btn btn-blue" style = "margin-left: 50%;" onclick="animation_next('factorial',11)">Next</a>
-
+                                <div id = "factorial12" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_250_delay-0.05s.gif" class = "img-responsive"></div>
+                                <div id = "factorial13" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_294_delay-0.05s.gif" class = "img-responsive"></div>
+                                <div id = "factorial14" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_319_delay-0.05s.gif" class = "img-responsive"></div>
+                                <div id = "factorial15" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_341_delay-0.2s.gif" class = "img-responsive"></div>
+                                <div id = "factorial16" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_389_delay-0.05s.gif" class = "img-responsive"></div>
+                                <div id = "factorial17" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_412_delay-0.05s.gif" class = "img-responsive"></div>
+                                <div id = "factorial18" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_425_delay-0.05s.gif" class = "img-responsive"></div>
+                                <div id = "factorial19" style="display: none;"><img src="assets/images/Recursividade/factorial/frame_434_delay-1s.gif" class = "img-responsive"></div>
+                                <a  class="btn btn-blue" onclick="animation_prev('factorial',19)">Prev</a>
+                                <a href="assets/images/factorial.gif" target="_blank" class="btn btn-blue" style = "margin-left: 30%; margin-right: 30%">GIF</a>
+                                <a  class="btn btn-blue" onclick="animation_next('factorial',19)">Next</a>
+                                
 
                                 <p>Resumidamente temos:</p>
                                 <ul class="list">
@@ -100,9 +118,20 @@
                                     <li>Podemos utilizar funções recursivas para resolver esses problemas. Elas chamam elas mesmas em sua execução.</li>
                                     <li>Toda função recursiva <b>precisa</b> de um <b>caso base</b>, isto é, uma condição de parada.</li>
                                 </ul>
-                                <p>Agora vejamos como isso fica em código C.</p>
+                                <p>A função de fatorial é muito simples de ser implementada, como mostrado abaixo. Note que precisamos <b>retornar</b> o valor calculado recursivamente para que ele chegue na chamada anterior. Se n~ao retornarmos o valor ele será perdido. Isso é por conta da maneira que a pilha de execução funciona. Veremos isso com mais detalhes adiante.</p>
 
-                                EXEMPLO DE FUNÇÃO FATORIAL AQUI - CODIGO
+                                <!-- EXEMPLO DE FUNÇÃO FATORIAL AQUI - CODIGO -->
+                                <pre class="prettyprint linenums:1 lang-cpp">
+long long factorial(int n){
+    if(n == 1)  // caso base
+        return 1;
+    // caso recursivo
+    return n * factorial(n-1);
+}
+                                </pre>
+                                <a class="btn btn-blue" href="https://goo.gl/n36A2V" target="_blank">Veja Execução</a>
+                                <a class="btn btn-blue" href="assets/codes/aula14/factorial.c" download="">Download Code</a>
+
                             </div>
                             </section>
 
@@ -139,7 +168,13 @@
                                     <li>Se um algoritmo recursivo faz muitas chamadas, ele pode causar um estouro de pilha (stack overflow), ou seja, ficar sem memória suficiente para continuar a execução do programa.</li>
 
                                     <li>Para evitar o estouro da pilha, as chamadas reecursivas precisam <b>parar</b>. Daí a importancia da condição de parada da função.</li>
+
+                                    <li>Apesar de funções recursivas serem mais elegantes e mais fáceis de implementar, elas costumam ser <b>menos eficientes</b> que suas correspondentes iterativas, por causa do <em>overhead</em> de empilhar e desempilhar chamadas de funções.</li>
                                 </ul>
+
+                                <p>Não é tão simples decidir quando usar umasolução recursiva para um problema, mas você vai perceber que alguns problemas são muito mais fáceis e intuitivos de serem resolvidos recursivamente. É nesses casos que a recursão vale a pena.</p>
+
+                                <p>A título de curiosidade, existe um <em>paradigma de programação</em>, a chamada <b>programação funcional</b> que faz extenso uso de recursividade nas definições de estruturas de dados e funções.</p>
                             </div>
                             </section>
 
