@@ -118,7 +118,7 @@
                                     <li>Podemos utilizar funções recursivas para resolver esses problemas. Elas chamam elas mesmas em sua execução.</li>
                                     <li>Toda função recursiva <b>precisa</b> de um <b>caso base</b>, isto é, uma condição de parada.</li>
                                 </ul>
-                                <p>A função de fatorial é muito simples de ser implementada, como mostrado abaixo. Note que precisamos <b>retornar</b> o valor calculado recursivamente para que ele chegue na chamada anterior. Se n~ao retornarmos o valor ele será perdido. Isso é por conta da maneira que a pilha de execução funciona. Veremos isso com mais detalhes adiante.</p>
+                                <p>A função de fatorial é muito simples de ser implementada, como mostrado abaixo. Note que precisamos <b>retornar</b> o valor calculado recursivamente para que ele chegue na chamada anterior. Se não retornarmos o valor ele será perdido. Isso é por conta da maneira que a pilha de execução funciona. Veremos isso com mais detalhes adiante.</p>
 
                                 <!-- EXEMPLO DE FUNÇÃO FATORIAL AQUI - CODIGO -->
                                 <pre class="prettyprint linenums:1 lang-cpp">
@@ -173,7 +173,7 @@ long long factorial(int n){
                             <section id="cuidado" class="doc-section">
                                 <h2 class="section-title">Cuidados com a Recursividade</h2>
                             <div class="section-block">
-                                <p>Nada no computador é ilimitado, principalemtne a memória. Pelo exemplo de funcionamento da pilha de execução você deve ter percebido que <b>chamar funções ocupa memória</b>. Como uma função recursiva faz várias chamadas de função temos que tomar alguns cuidados:</p>
+                                <p>Nada no computador é ilimitado, principalmente a memória. Pelo exemplo de funcionamento da pilha de execução você deve ter percebido que <b>chamar funções ocupa memória</b>. Como uma função recursiva faz várias chamadas de função temos que tomar alguns cuidados:</p>
 
                                 <ul>
                                     <li>Se um algoritmo recursivo faz muitas chamadas, ele pode causar um estouro de pilha (stack overflow), ou seja, ficar sem memória suficiente para continuar a execução do programa.</li>
@@ -183,7 +183,7 @@ long long factorial(int n){
                                     <li>Apesar de funções recursivas serem mais elegantes e mais fáceis de implementar, elas costumam ser <b>menos eficientes</b> que suas correspondentes iterativas, por causa do <em>overhead</em> de empilhar e desempilhar chamadas de funções.</li>
                                 </ul>
 
-                                <p>Não é tão simples decidir quando usar umasolução recursiva para um problema, mas você vai perceber que alguns problemas são muito mais fáceis e intuitivos de serem resolvidos recursivamente. É nesses casos que a recursão vale a pena.</p>
+                                <p>Não é tão simples decidir quando usar uma solução recursiva para um problema, mas você vai perceber que alguns problemas são muito mais fáceis e intuitivos de serem resolvidos recursivamente. É nesses casos que a recursão vale a pena.</p>
 
                                 <p>A título de curiosidade, existe um <em>paradigma de programação</em>, a chamada <b>programação funcional</b> que faz extenso uso de recursividade nas definições de estruturas de dados e funções.</p>
                             </div>
