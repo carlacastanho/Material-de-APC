@@ -3,7 +3,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Vetores</title>
+    <title>Representação de Algoritmos</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,7 +39,7 @@
 
 </head> 
 
-<body class="body-green">
+<body class="body-orange">
     <div class="page-wrapper">
         <!-- ******Header****** -->
         <header id="header" class="header">
@@ -48,7 +48,7 @@
                     <h1 class="logo">
                         <a href="index.html">
                             <span aria-hidden="true" class="icon_documents_alt icon"></span>
-                            <span class="text-highlight">Aula </span><span class="text-bold">6</span>
+                            <span class="text-highlight">Aula </span><span class="text-bold">0</span>
                         </a>
                     </h1>
                 </div><!--//branding-->
@@ -61,8 +61,8 @@
         <div class="doc-wrapper">
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
-                    <h1 class="doc-title"><i class="icon glyphicon glyphicon-th-list"></i> Vetores</h1>
-                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: April 28th, 2018</div>
+                    <h1 class="doc-title"><i class="icon glyphicon glyphicon-globe"></i> Representação de Algoritmos</h1>
+                    <div class="meta"><i class="fa fa-clock-o"></i> Last updated: August 14th, 2018</div>
                 </div><!--//doc-header-->
                 <div class="doc-body">
                     <div class="doc-content">
@@ -70,166 +70,37 @@
                             <section id="intro" class="doc-section">
                                 <h2 class="section-title">Introdução</h2>
                                 <div class="section-block">
+                                    <h3 class="block-title">Lógica</h3>
+                                    <h3 class="block-title">Algoritmo</h3>
                                     <ul class="list">
-                                        <li><p>Em algumas aplicações podemos ter uma quantidade muito grande de dados do mesmo tipo para processar, e criar uma variável para cada dado seria muito complicado.</p></li>
-                                        <li><p>Em algumas aplicações temos sequências de algum tipo e o programa precisa funcionar para qualquer sequência, independente dos valores nela ou do tamanho da sequência.</p></li>
-                                        <li><p>Imagine que você precisa fazer um programa para calcular as médias finais dos alunos de APC.
-                                        <li><p>Para cada aluno, você deve ler as notas de 3 provas. Deve então e calcular e mostrar a média de cada um.</p></li>
-                                        <li><p>Com o que aprendemos até agora, é possível resolver esse problema. No entanto, você precisaria de: 40 x 3 provas = <b>120 variáveis!!</b></p></li>
-                                        <div id = "exemplo1"><img src="assets\images\Vetores\exemplo1.1.png" class = "img-responsive"></div>
-                                        <div id = "exemplo2" style="display: none;"><img src="assets\images\Vetores\exemplo1.2.png" class = "img-responsive"></div>
-                                        <div id = "exemplo3" style="display: none;"><img src="assets\images\Vetores\exemplo1.3.png" class = "img-responsive"></div>
-                                        <a  class="btn btn-green" onclick="animation_prev('exemplo',3)">Prev</a>
-                                        <a  class="btn btn-green" style = "float: right;" onclick="animation_next('exemplo',3)">Next</a>
-
-                                        <li><p>E se fosse um programa para calcular as médias da UnB inteira?</p></li>
-                                        <li><p>E se você precisar adicionar uma nota? Ou fazer qualquer alteração no cálculo?</p></li>
-                                        <li><p>Para essas situações usamos vetores (também chamados arrays).</p></li>
-
-
-
+                                        <li><p>bla bla.</p></li>
                                     </ul>
 
                                 </div>
                             </section><!--//doc-section-->
                             <section id="estrutura" class="doc-section">
-                                <h2 class="section-title">Estrutura de um Vetor</h2>
+                                <h2 class="section-title">Dados</h2>
                                 <div class="section-block">
-                                    <ul class="list">
-                                        <li><p>Vetores são sequências ordenadas e indexáveis de um mesmo tipo (int, float, double, char, … )</p>
-                                        <li><p>Vetores possuem:</p>
-                                            <ul class="list">
-                                                <li>Tipo</li>      <li>Nome.</li>       <li>Tamanho.</li>
-                                            </ul>
-                                            <pre class = "prettyprint linenums:1 lang-cpp">
-int array[100]; // vetor &#x201C;array&#x201D; de tipo int com tamanho 100
-float nums[] = {3.14, 2.71, 1.44, 9.98}; // vetor &#x201C;nums&#x201D; de tipo float inicializado</pre>
-                                        </li>
-                                        <li><p>Vetores podem ser inicializados na declaração, e somente nesse caso não é necessário indicar o tamanho</p></li>
-                                    </ul>
+                                    <h3 class="block-title">Informação</h3>
+                                    <h3 class="block-title">Entrada e Saída</h3>
                                 </div>
                             </section><!--//doc-section-->
                             <section id="segfault" class="doc-section">
-                                <h2 class="section-title">Índices &amp; Seg Fault</h2>
+                                <h2 class="section-title">Lógica de programação</h2>
                                 <div class="section-block">
                                     <ul class="list">
-                                    <pre class = "prettyprint linenums:1 lang-cpp">
-int array[3] = {1, 4 ,-8}           </pre>
-                                    <li><p>Vetores são indexados de 0 até n-1, ou seja, a primeira posição  do vetor se encontra no índice 0.</p></li>
-                                    <pre class = "prettyprint linenums:1 lang-cpp">
-&#xED;ndice:    0   1   2
-valor:    [1] [4] [-8]                     </pre>
-                                    <li><p>Os valores de um vetor podem ser acessados em tempo  constante,  para isso, basta indicar qual posição  deseja acessar.</p></li>
-                                    <pre class = "prettyprint linenums:1 lang-cpp">
-int array[3] = {1, 4 ,-8}  
-int a,b,c,x = 2;
-a = array[0]; // a = 1
-b = array[1]; // b = 4
-c = array[x]; // c = -8             </pre>
-                                    <li><p>Deve-se atentar bastante para não acessar um índice que não existe. O acesso de um vetor por um índice inválido causa um erro chamado <b>Segmentation Fault</b>.</p>
-                                    </li>
-                                    <li><p>Índices negatios (-1, -2 … ) ou maiores ou iguais ao tamanho do vetor (n , n+1 …) causam falha de segmentação.</p>
-                                    </li>
-                                    <pre class = "prettyprint linenums:1 lang-cpp">
-int n = 31230;
-int array[3] = {1, 4 ,-8};  
-printf(&#x22;%d\n&#x22;,array[n]); // Ir&#xE1; ocorrer falha de segmenta&#xE7;&#xE3;o</pre>
-                                    <a href="assets/codes/aula6/segfault.c" class="btn btn-green" download="">Download Code</a>
-                                    <a href="https://goo.gl/jR8cty" class="btn btn-green" target="blank">Code Execution</a>
-                                    <p>Executando o programa no terminal</p>
-                                    <pre class = "prettyprint  lang-bsh">
-    $ gcc -Wall -ansi -o segfault segfault.c
-    $ ./segfault
-    Segmentation fault (core dumped)
-    $         </pre>
-                                    </li>
-                                    <li><p>Exemplos:</p>
-                                         <ul><li>Funcionamento de um vetor</li></ul>
-                                        <div class="row">
-                                            <div>
-                                                <pre class = "prettyprint linenums:1 lang-cpp">
-int main(){
-    int a[3] = {1, 4, -8};
-    int b[3], i;
- 
-    for(i = 0; i &#x3C; 3; i++){
-        b[i] = a[i] * 2;
-    }
-    return 0;
-}                                                   </pre>
-                                                <a href="assets/codes/aula6/array1.c" class="btn btn-green" download="">Download Code</a>
-                                                <a href="https://goo.gl/33nxi1" class="btn btn-green" target="blank">Code Execution</a>
-                                            </div>
-                                        </div>
-                                    <ul><li>Disputa de alunos:</li>
-                                            <p>Apos vários jantares a Luz de Veras, permitiu que Veras tivesse uma idéia que possibilitasse esquentar o clima entre duas turmas de programação, visando o aumento do rendimento das notas dos alunos. Ambas as turmas possuem <b>N</b> alunos, e cada aluno tirou uma nota <b>Xi</b> na prova (Xi representa a nota do iésimo aluno). A disputa seria feita da seguinte forma: se o aluno i da turma A, tirou uma nota maior que o aluno i da turma B, então a turma A ganha um ponto, caso contrário a turma B ganha 1 ponto. Sua tarefa é ajudar Veras a descobrir quantos pontos cada turma fez, sabendo que ambas as turmas possuem a mesma quantidade de alunos.</p>
-                                    </ul>
-                                    <pre class = "prettyprint linenums:1 lang-cpp">
-int n,i, resp = 0;
-scanf(&#x22;%d&#x22;, &#x26;n);
- 
-double turmaA[n], turmaB[n];
- 
-for(i = 0; i &#x3C; n; i++)
-    scanf(&#x22;%lf&#x22;, &#x26;turmaA[i]);
- 
-for(i = 0; i &#x3C; n; i++)
-    scanf(&#x22;%lf&#x22;, &#x26;turmaB[i]);
- 
-for(i = 0; i &#x3C; n; i++){
-    if(turmaA[i] &#x3E; turmaB[i]){
-        resp++;
-    }
-}
- 
-printf(&#x22;A turma A possui %d pontos\n&#x22;,resp);    
-printf(&#x22;A turma B possui %d pontos\n&#x22;,n-resp);</pre>
-                                    <a href="assets/codes/aula6/disputa.c" class="btn btn-green" download="">Download Code</a>
-                                    </li>
+                                        <li><p>Blah blah.</p></li>
                                     </ul>
                                 </div>
                             </section><!--//doc-section-->
                             <section id="parametros" class="doc-section">
-                                <h2 class="section-title">Vetores como parâmetros de função</h2>
+                                <h2 class="section-title">Representação de Algoritmos</h2>
                                 <div class="section-block">
                                     <ul>
-                                        <li>Vetores são muito utilizados como parâmetros de funções. Eles são passados por referência, entao qualquer
-                                            alteração no vetor feita dentro da função afeta o vetor original.
-                                        </li>
-                                        <li>Em geral, ao passar o vetor para uma função também precisamos passar o tamanho dele.</li>
+                                        <li>Blah blah</li>
                                     </ul>
-                                    <pre class = "prettyprint linenums:1 lang-cpp">
-/* returns the max between two numbers */
-int Max(int a, int b){
-    return a &#x3E; b ? a : b;
-}
-/* returns the biggest element in array */
-int maxElement(int* array, int n){
-    int i;
-    int max = array[0];
-    for(i = 1; i &#x3C; n; i++){
-        max = Max(array[i], max);
-    }
-    return max;
-}
- 
-int main(){
-    int array[] = {0, -1, 3, -10, 4, 22, -5, 2};
-    int maior = maxElement(array, 8);
-    printf(&#x22;O maior elemento &#xE9; %d\n&#x22;, maior);
-}</pre>
-                                <a href="assets/codes/aula6/funcParametro.c" class="btn btn-green" download="">Download Code</a>
-                                <a href="https://goo.gl/oUGKex"class="btn btn-green">Code Execution</a>
-                            <ul>
-                                <li>Existem duas maneiras diferentes de passar vetores como parâmetros de função. Não faz diferença qual você usa, pode ser a da sua preferência.</li>
-                                <li>Não é necessário especificar o tamanho do array na segunda maneira</li>
-                            </ul>    
-                            <pre class = "prettyprint linenums:1 lang-cpp">
-int Max(int* array, int n); /* cabe&#xE7;alho 1 */
-int Max(int array[], int n); /* cabe&#xE7;alho 2 */</pre>
-                            </div>
+                                </div>
                             </section><!--//doc-section-->
-                            
                             <section id="recomendados" class="doc-section">
                                 <h2 class="section-title">Exercícios Recomendados</h2>
                                 <div class="section-block">
@@ -237,20 +108,20 @@ int Max(int array[], int n); /* cabe&#xE7;alho 2 */</pre>
                                         <table class="table table-striped">
                                             <tbody>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1172" target="_blank"  style="color: #077a18;">Substituição em Vetor I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1173" target="_blank"  style="color: #077a18;">Preenchimento de Vetor I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1174" target="_blank"  style="color: #077a18;">Seleçao em Vetor I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1172" target="_blank"  style="color: orange;">Substituição em Vetor I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1173" target="_blank"  style="color: orange;">Preenchimento de Vetor I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1174" target="_blank"  style="color: orange;">Seleçao em Vetor I</a></td>
                                                             
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1175" target="_blank"  style="color: #077a18;">Troca em Vetor I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1176" target="_blank"  style="color: #077a18;">Fibonacci em Vetor</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1177" target="_blank"  style="color: #077a18;">Preenchimento de Vetor II</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1175" target="_blank"  style="color: orange;">Troca em Vetor I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1176" target="_blank"  style="color: orange;">Fibonacci em Vetor</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1177" target="_blank"  style="color: orange;">Preenchimento de Vetor II</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1178" target="_blank"  style="color: #077a18;">Preenchimento de Vetor III</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1179" target="_blank"  style="color: #077a18;"> Preenchimento de Vetor IV</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1180" target="_blank"  style="color: #077a18;"> Menor e Posição</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1178" target="_blank"  style="color: orange;">Preenchimento de Vetor III</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1179" target="_blank"  style="color: orange;"> Preenchimento de Vetor IV</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1180" target="_blank"  style="color: orange;"> Menor e Posição</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -260,14 +131,14 @@ int Max(int array[], int n); /* cabe&#xE7;alho 2 */</pre>
                                         <table class="table table-striped">
                                             <tbody>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2709" target="_blank" style="color: #077a18;">As Moedas de Robbie</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2715" target="_blank"  style="color: #077a18;">Dividindo os Trabalhos I</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2674" target="_blank"  style="color: #077a18;">Super Primos: Ativar!</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2709" target="_blank" style="color: orange;">As Moedas de Robbie</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2715" target="_blank"  style="color: orange;">Dividindo os Trabalhos I</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2674" target="_blank"  style="color: orange;">Super Primos: Ativar!</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2663" target="_blank"  style="color: #077a18;">Fase</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2540" target="_blank"  style="color: #077a18;">Impeachment do Líder</a></td>
-                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2553" target="_blank"  style="color: #077a18;">Estágio</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2663" target="_blank"  style="color: orange;">Fase</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2540" target="_blank"  style="color: orange;">Impeachment do Líder</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2553" target="_blank"  style="color: orange;">Estágio</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -312,9 +183,17 @@ free(array); /* array doesn't existe any more */
                         <nav id="doc-nav">
                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
                                 <li><a class="scrollto" href="#intro">Introdução</a></li>
-                                <li><a class="scrollto" href="#estrutura">Estrutura de um Vetor</a></li>
-                                <li><a class="scrollto" href="#segfault">Índices &amp; Seg Fault</a></li>
-                                <li><a class="scrollto" href="#parametros">Parâmetros de função</a></li>
+                                <ul class="nav doc-sub-menu">
+                                    <li><a class="scrollto" href="#declarar">Lógica</a></li>
+                                    <li><a class="scrollto" href="#acessar">Algoritmo</a></li>
+                                </ul>
+                                <li><a class="scrollto" href="#estrutura">Dados</a></li>
+                                <ul class="nav doc-sub-menu">
+                                    <li><a class="scrollto" href="#declarar">Informação</a></li>
+                                    <li><a class="scrollto" href="#acessar">Entrada e Saída</a></li>
+                                </ul>
+                                <li><a class="scrollto" href="#estrutura">Lógica de Programação</a></li>
+                                <li><a class="scrollto" href="#segfault">Representação de algoritmos</a></li>
                                 <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
                                 <li><a class="scrollto" href="#materiais">Materiais Extras</a></li>
 
