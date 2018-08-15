@@ -74,8 +74,11 @@
                                 <section id="intro" class="doc-section">
                                     <h2 class="section-title">Introdução</h2>
                                     <div class="section-block" id="intro">
-                                        Falar um pouco sobre a linguagem de Programação C.
-
+                                        <p>
+                                        A linguagem C foi criada em 1972 por Dennis Ritchie no Bell Laboratories. O foco da linguagem C inicialmente foi o desenvolvimento de sistemas operacionais e compiladores. C foi usada com grande êxito na construção de uma nova versão do sistema operacional Unix, que inicialmente foi escrito em Assembly. O grande sucesso obtido no mundo do Unix fez com que a linguagem ganhasse mais e mais adeptos e atualmente, quase todos os grandes sistemas operacionais são construídos em C/C++.
+                                        </p>
+                                        <p>É uma linguagem de propósito geral, o que quer dizer que se adapta a praticamente qualquer tipo de projeto, altamente portável e extremamente rápida em tempo de execução.</p>
+                                        <p>Em nosso curso estaremos usando o padrão ANSI da linguagem C para fazer nossos programas. Na aula de hoje conheceremos os elementos básicos da linguagem, e expandiremos esse conhecimento ao longo do semestre.</p>
                                     </div>
                                 </section><!--//doc-section-->
 
@@ -86,14 +89,122 @@
                                         <div class="section-block" id="estrutura">
                                             <h3 class="block-title">Estrutura Básica</h3>
                                             
+                                            Animação com as partes do código
                                         </div>
                                         <div class="section-block" id="comentario">
                                             <h3 class="block-title">Comentários</h3>
                                                 
+                                        <p>Comentários são uma parte importante de qualquer código. Conforme os códigos vão crescendo, é importante comentá-los para explicar o funcionamento dele para alguém que poderá lê-lo depois. Além disso eles são usados como forma simplificada de documentação.</p>
+
+                                        <p>Na linguagem C os comentários são delimitaods por <code>/*</code> e <code>*/</code>. Tudo que estiver entre esses delimitadores será ignorado pelo compilador.</p>
+                                        <pre class="prettyprint lang-cpp linenums:1">
+#include &lt;stdio.h&gt;
+/* Isto eh um comentario, ele serah ignorado pelo compilador. Nao use
+acentos ou caracteres especiais, pois nao sao C ANSI! */
+
+/* Programa que calcula a media de dois numeros. */
+int main () {
+    float media; /* declara uma variavel chamada media */
+    media = (4 + 5) / 2.0;
+
+    /* fim do programa normal */
+    return 0
+}
+                                        </pre>
                                         </div>
                                         <div class="section-block" id="ops">
                                             <h3 class="block-title">Operadores</h3>
                                                 
+                                            <p>Abaixo temos uma tabela com os operadores lógicos e aritméticos da linguagem C. Existem outros operadores, os operadores <em>bitwise</em>, mas eles não são menos utilizados então não foram incluídos. Lembre-se que essa tabela pode não ser a mesma para outras linguagens.</p>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead >
+                                                        <tr>
+                                                            <th>Operador</th>
+                                                            <th>Operação</th>
+                                                            <th>Linguagem C</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody >
+                                                        <tr>
+                                                            <td ><h4>=</h4></td>
+                                                            <td><h4>Igualdade</h4></td>
+                                                            <td><h4>==</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td ><h4>&ne;</h4></td>
+                                                            <td><h4>Desigualdade</h4></td>
+                                                            <td><h4>!=</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td ><h4>&lt;</h4></td>
+                                                            <td><h4>Menor que</h4></td>
+                                                            <td><h4>&lt;</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td ><h4>&le;</h4></td>
+                                                            <td><h4>Menor ou igual</h4></td>
+                                                            <td><h4>&lt;=</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td ><h4>&gt;</h4></td>
+                                                            <td><h4>Maior que</h4></td>
+                                                            <td><h4>&gt;</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td ><h4>&ge;</h4></td>
+                                                            <td><h4>Maior ou igual</h4></td>
+                                                            <td><h4>&gt;=</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td ><h4>OR</h4></td>
+                                                            <td><h4>Disjunção</h4></td>
+                                                            <td><h4>||</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td ><h4>NOT</h4></td>
+                                                            <td><h4>Negação</h4></td>
+                                                            <td><h4>!</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td ><h4>AND</h4></td>
+                                                            <td><h4>Conjunção</h4></td>
+                                                            <td><h4>&&</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td ><h4>&#xd7;</h4></td>
+                                                            <td><h4>Multiplicação</h4></td>
+                                                            <td><h4>*</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><h4>&divide;</h4></td>
+                                                            <td ><h4>Divisão</h4></td>
+                                                            <td><h4>/</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><h4>&#8330;</h4></td>
+                                                            <td ><h4>Adição</h4></td>
+                                                            <td><h4>&#8330;</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><h4>&minus;</h4></td>
+                                                            <td ><h4>Subtração</h4></td>
+                                                            <td><h4>&minus;</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><h4>Resto ou Mod</h4></td>
+                                                            <td ><h4>Resto de Divisão Inteira</h4></td>
+                                                            <td><h4>%</h4></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><h4>&larr;</h4></td>
+                                                            <td ><h4>Atribuição</h4></td>
+                                                            <td><h4>=</h4></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                </div>
+    
                                         </div>
                                         <div class="section-block" id="vars">
                                             <h3 class="block-title">Tipos de Variáveis</h3>
@@ -118,7 +229,24 @@
                                     </section><!--//doc-section-->
                                     <section id="scanf" class="doc-section">
                                             <h2 class="section-title">O Comando <em>scanf</em> </h2>
+                                        <p>O comando <em>scanf</em> é uma função disponível na biblioteca <em>stdio.h</em> do C. Ele é utilizado para receber input do usuário.</p>
 
+                                        <ul>
+                                            <li>Ele armazena o que o usuário digitou em uma variável no programa.</li>
+                                            <li>Segue a mesma lógica de modificadores que o <em>printf</em> (usando os mesmos modificadores), porém, exige que seja passado o <b>ENDEREÇO</b> da variável, ou seja, colocando um <b>&</b> antes do nome da variável.</li>
+                                        </ul>
+
+                                        <p>Exemplos:</p>
+                                        <pre class="prettyprint lang-cpp linenums:1">
+int idade;
+print("Digite sua idade\n");
+scanf("%d", &idade); /* le um valor inteiro digitado e atribui para variavel idade */
+
+/* atencao! em caso de strings nao eh necessário o & antes da variavel */
+char nome[30];
+print("Digite seu nome\n");
+scanf("%s", nome); /* nao utiliza & */
+                                        </pre>
                                     </section><!--//doc-section-->
                                 
                             </div><!--//content-inner-->
@@ -134,7 +262,7 @@
                                     <li><a class="scrollto" href="#comentario">Comentários</a></li>
                                     <li><a class="scrollto" href="#ops">Operadores</a></li>
                                     <li><a class="scrollto" href="#vars">Variáveis</a></li>
-                                    <li><a class="scrollto" href="#defs">Declaração de Variáveis e Constantes</a></li>
+                                    <li><a class="scrollto" href="#defs">Declaração de Variáveis <br> e Constantes</a></li>
                                     <li><a class="scrollto" href="#macs">Declaração de Macros</a></li>
                                 </ul>
                                 <li><a class="scrollto" href="#printf">Comando <em>printf</em></a></li>
