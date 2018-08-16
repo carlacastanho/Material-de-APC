@@ -202,7 +202,7 @@ printf("Olá Mundo!\n"); // A string Olá mundo! é uma constante</pre>
                                                             <td class="tg-s6z2">??</td>
                                                           </tr>
                                                           <tr>
-                                                            <td class="tg-s6z2">float pi = 3.15</td>
+                                                            <td class="tg-s6z2">float pi = 3.15;</td>
                                                             <td class="tg-s6z2">0x00000014</td>
                                                             <td class="tg-s6z2">3.15</td>
                                                           </tr>
@@ -298,6 +298,7 @@ bool go;</pre>
                                             <h2 id="exp_ops" class="section-title">Expressões e Operadores</h2>
                                             <div class="section-block">
                                                 <h3 id="op_art" class="block-title">Operadores Aritméticos</h3>
+
                                                 <table class="table tg">
                                                         <tr class="tg">
                                                           <th style="background-color: #f1a6c8;">Prioridade</th>
@@ -343,9 +344,109 @@ bool go;</pre>
                                             </div>
                                             <div id="exp_log" class="section-block">
                                                 <h3 class="block-title">Expressões Lógicas</h3>
+
+                                                <table class="table tg">
+                                                        <tr>
+                                                        <th style="background-color: #f1a6c8;">Prioridade</th>
+                                                          <th style="background-color: #f1a6c8;">Operador</th>
+                                                          <th style="background-color: #f1a6c8;">Operações</th>
+                                                          <th style="background-color: #f1a6c8;">Tipo</th>
+                                                          <th style="background-color: #f1a6c8;">Exemplo</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td rowspan="2">Maior<br>
+                                                            <span style="font-size: 6em;">&#8595;</span>
+                                                            <br>Menor</td>
+                                                          <td>&lt; , &lt;=,<br>&gt;,&nbsp;&nbsp;&gt;=<br></td>
+                                                          <td>menor, menor ou igual<br>maior, maior ou igual<br></td>
+                                                          <td>binário</td>
+                                                          <td>0  &lt;   0   :   F<br><br>1  &lt;= 2   :   V<br><br>-1  &gt; -5&nbsp;&nbsp;:   V<br><br></td>
+                                                        </tr>
+                                                        <tr>
+                                                          <td>=, !=</td>
+                                                          <td>igual, diferente</td>
+                                                          <td>binário</td>
+                                                          <td>1  =  1  :   V<br><br>0 != 0&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;F</td>
+                                                        </tr>
+                                                      </table>
                                             </div>
                                             <div id="exp_op" class="section-block">
                                                 <h3 class="block-title">Operadores Lógicos</h3>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                            <table class="table">
+                                                            <tr>
+                                                                <th style="background-color: #f1a6c8;">Prioridade</th>
+                                                              <th style="background-color: #f1a6c8;">Operador</th>
+                                                              <th style="background-color: #f1a6c8;">Operações</th>
+                                                              <th style="background-color: #f1a6c8;">Tipo</th>
+                                                            </tr>
+                                                            <tr>
+                                                                    <td rowspan="3">Maior<br>
+                                                                        <span style="font-size: 6em;">&#8595;</span>
+                                                                        <br>Menor</td>
+                                                              <td>NÃO</td>
+                                                              <td>não lógico<br>(negação)</td>
+                                                              <td>binário</td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>E<br></td>
+                                                              <td>e lógico<br>(conjunção)</td>
+                                                              <td>binário</td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>OU<br></td>
+                                                              <td>ou lógico<br>(disjunção)</td>
+                                                              <td>binário</td>
+                                                            </tr>
+                                                          </table>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                            <table class="table">
+                                                                    <tr>
+                                                                      <th style="background-color: #f1a6c8;">A<br></th>
+                                                                      <th style="background-color: #f1a6c8;">B</th>
+                                                                      <th style="background-color: #f1a6c8;"><span style="font-weight:bold">NÃO </span>A</th>
+                                                                      <th style="background-color: #f1a6c8;"><span style="font-weight:bold">NÃO</span> B<br></th>
+                                                                      <th style="background-color: #f1a6c8;">A <span style="font-weight:bold">E</span> B</th>
+                                                                      <th style="background-color: #f1a6c8;">A <span style="font-weight:bold">OU</span> B</th>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td>V</td>
+                                                                      <td>V</td>
+                                                                      <td>F</td>
+                                                                      <td>F</td>
+                                                                      <td>V</td>
+                                                                      <td>V</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td>V</td>
+                                                                      <td>F</td>
+                                                                      <td>F</td>
+                                                                      <td>V</td>
+                                                                      <td>F</td>
+                                                                      <td>V</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td>F</td>
+                                                                      <td>V</td>
+                                                                      <td>V</td>
+                                                                      <td>F</td>
+                                                                      <td>F</td>
+                                                                      <td>V</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                      <td>F</td>
+                                                                      <td>F</td>
+                                                                      <td>V</td>
+                                                                      <td>V</td>
+                                                                      <td>F</td>
+                                                                      <td>F</td>
+                                                                    </tr>
+                                                                  </table>
+                                                    </div>
+
+                                                </div>
                                             </div>
 
                                     </section><!--//doc-section-->
