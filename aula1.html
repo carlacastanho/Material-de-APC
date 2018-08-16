@@ -3,7 +3,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Linguagem C</title>
+    <title>Algoritmos Computacionais</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,7 +43,7 @@
 
 </head> 
 
-<body class="body-blue">
+<body class="body-pink">
         <div class="page-wrapper">
             <!-- ******Header****** -->
             <header id="header" class="header">
@@ -65,8 +65,8 @@
             <div class="doc-wrapper">
                 <div class="container">
                     <div id="doc-header" class="doc-header text-center">
-                        <h1 class="doc-title"><span class="icon-holder"><img src="assets/images/linguagem-C.png" alt="C" style="width: 1em"></span> Linguagem C</h1>
-                        <div class="meta"><i class="fa fa-clock-o"></i> Last updated: August 14th, 2018</div>
+                        <h1 class="doc-title"><span class="icon-holder"><img src="assets/images/linguagem-C.png" alt="C" style="width: 1em"></span> Algoritmos Computacionais</h1>
+                        <div class="meta"><i class="fa fa-clock-o"></i> Last updated: August 15th, 2018</div>
                     </div><!--//doc-header-->
                     <div class="doc-body">
                         <div class="doc-content">
@@ -74,179 +74,67 @@
                                 <section id="intro" class="doc-section">
                                     <h2 class="section-title">Introdução</h2>
                                     <div class="section-block" id="intro">
-                                        <p>
-                                        A linguagem C foi criada em 1972 por Dennis Ritchie no Bell Laboratories. O foco da linguagem C inicialmente foi o desenvolvimento de sistemas operacionais e compiladores. C foi usada com grande êxito na construção de uma nova versão do sistema operacional Unix, que inicialmente foi escrito em Assembly. O grande sucesso obtido no mundo do Unix fez com que a linguagem ganhasse mais e mais adeptos e atualmente, quase todos os grandes sistemas operacionais são construídos em C/C++.
-                                        </p>
-                                        <p>É uma linguagem de propósito geral, o que quer dizer que se adapta a praticamente qualquer tipo de projeto, altamente portável e extremamente rápida em tempo de execução.</p>
-                                        <p>Em nosso curso estaremos usando o padrão ANSI da linguagem C para fazer nossos programas. Na aula de hoje conheceremos os elementos básicos da linguagem, e expandiremos esse conhecimento ao longo do semestre.</p>
+                                        Falar um pouco sobre o que são algoritmos computacionais.
+
                                     </div>
                                 </section><!--//doc-section-->
 
-                                <section id="program" class="doc-section">
-                                        <h2 class="section-title">Programação em C</h2>
-                                        Apresentação breve dos elementos essenciais da gramática de C.
-
-                                        <div class="section-block" id="estrutura">
-                                            <h3 class="block-title">Estrutura Básica</h3>
-                                            
-                                            Animação com as partes do código
+                                <section id="types" class="doc-section">
+                                        <h2 class="section-title">Tipos de dados</h2>
+                                        <p>Para que sejam manipulados por computadores, os <b>dados</b> devem estar em um <b>formato</b> adequado e devem obedecer a um conjunto de <b>restrições</b>.</p>
+                                        <p>Por isso os dados possuem <b>tipos</b>:</p>
+                                        <ul>
+                                            <li><p>Numérico – guarda números inteiros ou reais;</p></li>
+                                            <li><p>Literal – guarda caracteres (texto);</p></li>
+                                            <li><p>Lógico – guarda valores lógicos (verdadeiro ou falso), também chamados de <b>booleanos</b>, em homenagem ao matemático George Boole.</p></li>
+                                        </ul> 
+                                        <div class="section-block" id="num">
+                                            <h3 class="block-title">Numérico</h3>
+                                            <p>Dados numéricos são apenas os números como conhecemos e são divididos em 2 grupos: os inteiros e os reais</p>
+                                            <p>Dados do tipo <b>inteiro</b> são números, positivos ou negativos, que não possuem parte fracionária, pertencentes ao conjunto dos inteiros.</p>
+                                            <p>  <code>Exemplo: 36; 0; -18;</code>
+                                            <p>Dados do tipo <b>real</b> são aqueles que podem possuir compnentes decimais ou fracionários, e também podem ser positivos ou negativos, pertencentes ao conjunto dos <b>racionais</b></p>
+                                            <p><code>Exemplo: 36.01; 0.0; -18.5; 42; </code></p>
                                         </div>
-                                        <div class="section-block" id="comentario">
-                                            <h3 class="block-title">Comentários</h3>
-                                                
-                                        <p>Comentários são uma parte importante de qualquer código. Conforme os códigos vão crescendo, é importante comentá-los para explicar o funcionamento dele para alguém que poderá lê-lo depois. Além disso eles são usados como forma simplificada de documentação.</p>
-
-                                        <p>Na linguagem C os comentários são delimitaods por <code>/*</code> e <code>*/</code>. Tudo que estiver entre esses delimitadores será ignorado pelo compilador.</p>
-                                        <pre class="prettyprint lang-cpp linenums:1">
-#include &lt;stdio.h&gt;
-/* Isto eh um comentario, ele serah ignorado pelo compilador. Nao use
-acentos ou caracteres especiais, pois nao sao C ANSI! */
-
-/* Programa que calcula a media de dois numeros. */
-int main () {
-    float media; /* declara uma variavel chamada media */
-    media = (4 + 5) / 2.0;
-
-    /* fim do programa normal */
-    return 0
-}
-                                        </pre>
+                                        <div class="section-block" id="lit">
+                                            <h3 class="block-title">Literal</h3>
+                                            <p>Dados <b>literais</b> são sequências de <b>caracteres</b> que podem conter letras, dígitos e/ou símbolos especiais. Também são chamados de alfanumérico, cadeia de caracteres ou, ainda, <b>string</b>. Observe que também é válida uma <b>string vazia</b>!</p>
+                                            <p>Usualmente são representados nos algoritmos pela coleção de caracteres delimitada por aspas (“ ”). Em algumas linguagens de programação, existe a diferenciação entre um caractere único (‘A’) e um conjunto de caracteres (“Olá Mundo”).</p>
+                                            <p><code>Exemplo: "Quem?"; "APC-2018-2"; "Olá Mundo!";</code></p>
                                         </div>
-                                        <div class="section-block" id="ops">
-                                            <h3 class="block-title">Operadores</h3>
-                                                
-                                            <p>Abaixo temos uma tabela com os operadores lógicos e aritméticos da linguagem C. Existem outros operadores, os operadores <em>bitwise</em>, mas eles não são menos utilizados então não foram incluídos. Lembre-se que essa tabela pode não ser a mesma para outras linguagens.</p>
-                                            <div class="table-responsive">
-                                                <table class="table table-striped">
-                                                    <thead >
-                                                        <tr>
-                                                            <th>Operador</th>
-                                                            <th>Operação</th>
-                                                            <th>Linguagem C</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody >
-                                                        <tr>
-                                                            <td ><h4>=</h4></td>
-                                                            <td><h4>Igualdade</h4></td>
-                                                            <td><h4>==</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td ><h4>&ne;</h4></td>
-                                                            <td><h4>Desigualdade</h4></td>
-                                                            <td><h4>!=</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td ><h4>&lt;</h4></td>
-                                                            <td><h4>Menor que</h4></td>
-                                                            <td><h4>&lt;</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td ><h4>&le;</h4></td>
-                                                            <td><h4>Menor ou igual</h4></td>
-                                                            <td><h4>&lt;=</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td ><h4>&gt;</h4></td>
-                                                            <td><h4>Maior que</h4></td>
-                                                            <td><h4>&gt;</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td ><h4>&ge;</h4></td>
-                                                            <td><h4>Maior ou igual</h4></td>
-                                                            <td><h4>&gt;=</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td ><h4>OR</h4></td>
-                                                            <td><h4>Disjunção</h4></td>
-                                                            <td><h4>||</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td ><h4>NOT</h4></td>
-                                                            <td><h4>Negação</h4></td>
-                                                            <td><h4>!</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td ><h4>AND</h4></td>
-                                                            <td><h4>Conjunção</h4></td>
-                                                            <td><h4>&&</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td ><h4>&#xd7;</h4></td>
-                                                            <td><h4>Multiplicação</h4></td>
-                                                            <td><h4>*</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><h4>&divide;</h4></td>
-                                                            <td ><h4>Divisão</h4></td>
-                                                            <td><h4>/</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><h4>&#8330;</h4></td>
-                                                            <td ><h4>Adição</h4></td>
-                                                            <td><h4>&#8330;</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><h4>&minus;</h4></td>
-                                                            <td ><h4>Subtração</h4></td>
-                                                            <td><h4>&minus;</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><h4>Resto ou Mod</h4></td>
-                                                            <td ><h4>Resto de Divisão Inteira</h4></td>
-                                                            <td><h4>%</h4></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><h4>&larr;</h4></td>
-                                                            <td ><h4>Atribuição</h4></td>
-                                                            <td><h4>=</h4></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                                </div>
-    
+                                        <div class="section-block" id="logic">
+                                            <h3 class="block-title">Lógicos</h3>
+                                            <p>São caracterizados como tipos lógicos (ou booleanos), os dados que podem assumir apenas os valores <b>verdadeiro</b> ou <b>falso</b> (mas <b>nunca os dois ao mesmo tempo</b>).</p>
+                                            <p>Se definimos que Verdadeiro = 1, e Falso = 0, então um dado booleano pode ser representado em apenas 1 bit.</p>
                                         </div>
-                                        <div class="section-block" id="vars">
-                                            <h3 class="block-title">Tipos de Variáveis</h3>
-                                                
-                                        </div>
-                                        <div class="section-block" id="defs">
-                                            <h3 class="block-title">Declaração de Variáveis e Constantes</h3>
-                                                
-                                        </div>
-                                        <div class="section-block" id="macs">
-                                            <h3 class="block-title">Declaração de Macros</h3>
-                                                
-                                        </div>
+                                      
                                         
                                     </section><!--//doc-section-->
-                                    <section id="printf" class="doc-section">
-                                            <h2 class="section-title">O Comando <em>printf</em> </h2>
-                                            <div class="section-block" id="mods">
-                                                    <h3 class="block-title">Modificadores</h3>
-        
+                                    <section id="conc" class="doc-section">
+                                            <h2 class="section-title">Conceitos</em> </h2>
+                                            <div class="section-block" id="const">
+                                                    <h3 class="block-title">Constantes</h3>
+                                            </div>
+                                            <div class="section-block" id="var">
+                                                    <h3 class="block-title">Variáveis</h3>
+                                            </div>
+                                            <div class="section-block" id="resv">
+                                                    <h3 class="block-title">Palavras Reservadas</h3>
                                             </div>
                                     </section><!--//doc-section-->
+                                    <section id="vars" class="doc-section">
+                                            <h2 class="section-title">Variáveis</em> </h2>
+                                            <div class="section-block" id="name">
+                                                    <h3 class="block-title">Nomes de Variáveis</h3>
+                                            </div>
+                                            <div class="section-block" id="decl">
+                                                    <h3 class="block-title">Declaração de Variáveis</h3>
+                                            </div>
+
+                                    </section><!--//doc-section-->
                                     <section id="scanf" class="doc-section">
-                                            <h2 class="section-title">O Comando <em>scanf</em> </h2>
-                                        <p>O comando <em>scanf</em> é uma função disponível na biblioteca <em>stdio.h</em> do C. Ele é utilizado para receber input do usuário.</p>
+                                            <h2 class="section-title">Tem bastante coisa ainda e nao sei se é pra colocar aqui</em> </h2>
 
-                                        <ul>
-                                            <li>Ele armazena o que o usuário digitou em uma variável no programa.</li>
-                                            <li>Segue a mesma lógica de modificadores que o <em>printf</em> (usando os mesmos modificadores), porém, exige que seja passado o <b>ENDEREÇO</b> da variável, ou seja, colocando um <b>&</b> antes do nome da variável.</li>
-                                        </ul>
-
-                                        <p>Exemplos:</p>
-                                        <pre class="prettyprint lang-cpp linenums:1">
-int idade;
-print("Digite sua idade\n");
-scanf("%d", &idade); /* le um valor inteiro digitado e atribui para variavel idade */
-
-/* atencao! em caso de strings nao eh necessário o & antes da variavel */
-char nome[30];
-print("Digite seu nome\n");
-scanf("%s", nome); /* nao utiliza & */
-                                        </pre>
                                     </section><!--//doc-section-->
                                 
                             </div><!--//content-inner-->
@@ -256,20 +144,24 @@ scanf("%s", nome); /* nao utiliza & */
                         <nav id="doc-nav">
                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
                                 <li><a class="scrollto" href="#intro">Introdução</a></li>
-                                <li><a class="scrollto" href="#program">Elementos da Gramática</a></li>
+                                <li><a class="scrollto" href="#types">Tipos de Dados</a></li>
                                 <ul class="nav doc-sub-menu">
-                                    <li><a class="scrollto" href="#estrutura">Estrutura</a></li>
-                                    <li><a class="scrollto" href="#comentario">Comentários</a></li>
-                                    <li><a class="scrollto" href="#ops">Operadores</a></li>
-                                    <li><a class="scrollto" href="#vars">Variáveis</a></li>
-                                    <li><a class="scrollto" href="#defs">Declaração de Variáveis <br> e Constantes</a></li>
-                                    <li><a class="scrollto" href="#macs">Declaração de Macros</a></li>
+                                    <li><a class="scrollto" href="#num">Numérico</a></li>
+                                    <li><a class="scrollto" href="#lit">Literal</a></li>
+                                    <li><a class="scrollto" href="#logic">Lógicos</a></li>
                                 </ul>
-                                <li><a class="scrollto" href="#printf">Comando <em>printf</em></a></li>
+                                <li><a class="scrollto" href="#conc">Conceitos</a></li>
                                 <ul class="nav doc-sub-menu">
-                                        <li><a class="scrollto" href="#mods">Modificadores</a></li>
+                                        <li><a class="scrollto" href="#const">Constantes</a></li>
+                                        <li><a class="scrollto" href="#var">Variáveis</a></li>
+                                        <li><a class="scrollto" href="#resv">Palavras Reservadas</a></li>
+
                                 </ul>
-                                <li><a class="scrollto" href="#scanf">Comando <em>scanf</em></a></li>
+                                <li><a class="scrollto" href="#vars">Variáveis</a></li>
+                                <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#name">Nomes de Variáveis</a></li>
+                                        <li><a class="scrollto" href="#decl">Declaração de Variáveis</a></li>
+                                </ul>
 
                             </ul><!--//doc-menu-->
                         </nav>
