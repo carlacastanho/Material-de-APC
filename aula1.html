@@ -121,14 +121,14 @@ Exemplo: "Quem?"; "APC-2018-2"; "Olá Mundo!";</pre>
                                                     <p>Constantes são valores que não se modificam ao longo da execução do programa.</p>
                                                     <p>Uma constante criada pelo usuário deve ter um nome (nome da variável), um tipo (inteiro, real, etc) e um valor (10, 10.5, "ola"). Nenhum desses três elementos pode ser modificado pelo programa.</p>
                                                     <pre class = "prettyprint  lang-cpp">
-PI : real = 3.141522
-NOME_ALUNO : string = "Marcos"</pre>                                            
+const float PI = 3.141522;
+const char NOME_ALUNO[] = "Marcos";</pre>                                            
                                                     <p>Por convenção, é utilizado apenas <b>letras maiúsculas</b> e <b>underscore (" _ ") no nome de constantes.</b></p>
                                                     <p>Constantes criadas pelo usuário tipicamente ocupam uma <b>região de memória</b> cujo conteúdo <b>nunca muda</b>.</p>
                                                     <p>Outro ponto são os valores literais no código, pois também são considerados constantes.</p>                  
                                                     <pre class = "prettyprint  lang-cpp">
-x &larr; 2 * x  // O 2 é uma constante
-imprima("Olá mundo!") // A string Olá mundo! é uma constante</pre>
+x = 2 * x;  // O 2 é uma constante
+printf("Olá Mundo!\n"); // A string Olá mundo! é uma constante</pre>
                                             </div>
                                             <div class="section-block" id="var">
                                                     <h3 class="block-title">Variáveis</h3>
