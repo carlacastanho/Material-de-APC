@@ -108,13 +108,15 @@
                                             <p>Dados do tipo <b>inteiro</b> são números, positivos ou negativos, que não possuem parte fracionária, pertencentes ao conjunto dos inteiros.</p>
                                             <p>  <code>Exemplo: 36; 0; -18;</code>
                                             <p>Dados do tipo <b>real</b> são aqueles que podem possuir compnentes decimais ou fracionários, e também podem ser positivos ou negativos, pertencentes ao conjunto dos <b>racionais</b></p>
-                                            <p><code>Exemplo: 36.01; 0.0; -18.5; 42; </code></p>
+                                            <pre class = "prettyprint  lang-cpp">
+Exemplo: 36.01; 0.0; -18.5; 42;</pre>
                                         </div>
                                         <div class="section-block" id="lit">
                                             <h3 class="block-title">Literal</h3>
                                             <p>Dados <b>literais</b> são sequências de <b>caracteres</b> que podem conter letras, dígitos e/ou símbolos especiais. Também são chamados de alfanumérico, cadeia de caracteres ou, ainda, <b>string</b>. Observe que também é válida uma <b>string vazia</b>!</p>
                                             <p>Usualmente são representados nos algoritmos pela coleção de caracteres delimitada por aspas (“ ”). Em algumas linguagens de programação, existe a diferenciação entre um caractere único (‘A’) e um conjunto de caracteres (“Olá Mundo”).</p>
-                                            <p><code>Exemplo: "Quem?"; "APC-2018-2"; "Olá Mundo!";</code></p>
+                                            <pre class = "prettyprint  lang-cpp">
+Exemplo: "Quem?"; "APC-2018-2"; "Olá Mundo!";</pre>
                                         </div>
                                         <div class="section-block" id="logic">
                                             <h3 class="block-title">Lógicos</h3>
@@ -126,31 +128,43 @@
                                     </section><!--//doc-section-->
                                     <section id="conc" class="doc-section">
                                             <h2 class="section-title">Conceitos</em> </h2>
+
+                                            <p>Os conceitos básicos necessários para escrever um algoritmo computacional são:</p>
                                             <div class="section-block" id="const">
                                                     <h3 class="block-title">Constantes</h3>
+                                                    <p>Constantes são valores que não se modificam ao longo da execução do programa.</p>
+                                                    <p>Uma constante criada pelo usuário deve ter um nome (nome da variável), um tipo (inteiro, real, etc) e um valor (10, 10.5, "ola"). Nenhum desses três elementos pode ser modificado pelo programa.</p>
+                                                    <pre class = "prettyprint  lang-cpp">
+const float PI = 3.141522;
+const char NOME_ALUNO[] = "Marcos";</pre>                                            
+                                                    <p>Por convenção, é utilizado apenas <b>letras maiúsculas</b> e <b>underscore (" _ ") no nome de constantes.</b></p>
+                                                    <p>Constantes criadas pelo usuário tipicamente ocupam uma <b>região de memória</b> cujo conteúdo <b>nunca muda</b>.</p>
+                                                    <p>Outro ponto são os valores literais no código, pois também são considerados constantes.</p>                  
+                                                    <pre class = "prettyprint  lang-cpp">
+x = 2 * x;  // O 2 é uma constante
+printf("Olá Mundo!\n"); // A string Olá mundo! é uma constante</pre>
                                             </div>
                                             <div class="section-block" id="var">
                                                     <h3 class="block-title">Variáveis</h3>
-                                                    <p>Uma variável é uma <b>região de memória</b>. O que acontece é que, ao <b>declarar</b> uma variável, o programador está reservando uma parte da memória da máquina para ser usada pelo programa.</p>
+                                                    <p>Uma variável é uma <b>região de memória</b>. Isto é, ao
+                                                    <b>declarar</b> uma variável, o programador está reservando
+                                                    memória da máquina para ser usada por seu programa.</p>
 
-                                                    <p>Para que não precisemos referênciar diretamente o <b>endereço</b> da região reservada, as linguagens de programação permitem atribuir um <b>nome</b> às variáveis.</p>
+                                                    <p>Para que não precisemos nos referir ao <b>endereço</b> de
+                                                    memória de uma variável diretamente, as linguagens de
+                                                    programação nos permitem atribuir-lhe um <b>nome</b>.</p>
 
-                                                    <p>Toda variável também precisa de um <b>tipo</b>, que diz ao computador <b>quanto espaço</b> reservar para aquela variável.</p>
-
-                                                    <div class="callout-block btn-pink" style="margin-top: 2em;">
-                                                            <div class="icon-holder">
-                                                                <i class="fa fa-exclamation-triangle"></i>
-                                                            </div><!--//icon-holder-->
-                                                            <div class="content">
-                                                                <h4 class="callout-title">Atenção!</h4>
-                                                                <p>O <b>conteúdo</b>armazenado em uma variável, i.e. seu valor, pode mudar ao longo da execução do programa, mas seu <b>nome e tipo são constantes</b>.</p>
-                                                            </div><!--//content-->
-                                                    </div>
-
-                                                    
+                                                    <p>Toda variável deve também ter um <b>tipo</b> declarado.</p>
+                                                    <p class="note-pink" ><b>Atenção</b>: o <b>conteúdo</b>, i.e., o valor armazenado em uma variável, pode <b>mudar</b> ao longo da execução, mas <b>seu nome e seu tipo são constantes</b>!</p>
                                             </div>
                                             <div class="section-block" id="resv">
                                                     <h3 class="block-title">Palavras Reservadas</h3>
+                                                    <p>Palavras reservadas, são <b>identificadores</b> que têm um significado especial para o compilador, por isso <b>não podem ser utilizadas</b> pelo programador para nomear variáveis e constantes.</p>
+
+                                                    <p>Por exemplo, na Linguagem ANSI C, as palavras reservadas são:</p>
+                                                    <pre class = "prettyprint  lang-c">
+return union const float short unsigned continue for signed void default goto sizeof volatile do 
+if static while auto double int struct break else long switch case enum register typedef char extern</pre>
                                             </div>
                                     </section><!--//doc-section-->
                                     <section id="vars" class="doc-section">
