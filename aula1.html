@@ -74,7 +74,21 @@
                                 <section id="intro" class="doc-section">
                                     <h2 class="section-title">Introdução</h2>
                                     <div class="section-block" id="intro">
-                                        Falar um pouco sobre o que são algoritmos computacionais.
+                                        <p>Algoritmos são uma sequência de passos para se chegar a um determinado objetivo, e não precisam necessariamente que um computador os execute. Um <b>algoritmo computacional</b> é então, uma sequência de <b>instruções</b> que podem ser executadas por um computador, e que manipulam e geram <b>dados</b>.</p>
+
+                                        <p>Para que um computador possa executar um algoritmo computacional, é necessário que uma <b>implementação</b> deste algoritmo seja feita em uma linguagem de programação que o computador "conheça" e depois transformado em linguagem de máquina para poder ser executado.</p>
+
+                                        <img class="img-responsive" src="assets/images/alg_flow.png" alt="Flow de implementação de algoritmo">
+
+                                        <div class="callout-block btn-pink" style="margin-top: 2em;">
+                                            <div class="icon-holder">
+                                                <i class="fa fa-info-circle"></i>
+                                            </div><!--//icon-holder-->
+                                            <div class="content">
+                                                <p>Alguns algoritmos não podem ser executados por um computador. Pode ser porque o computador não tenha recursos para executá-los (trocar um pneu), seja porque eles são indecidíveis.</p>
+                                            </div><!--//content-->
+                                        </div>
+                                        
 
                                     </div>
                                 </section><!--//doc-section-->
@@ -117,6 +131,23 @@
                                             </div>
                                             <div class="section-block" id="var">
                                                     <h3 class="block-title">Variáveis</h3>
+                                                    <p>Uma variável é uma <b>região de memória</b>. O que acontece é que, ao <b>declarar</b> uma variável, o programador está reservando uma parte da memória da máquina para ser usada pelo programa.</p>
+
+                                                    <p>Para que não precisemos referênciar diretamente o <b>endereço</b> da região reservada, as linguagens de programação permitem atribuir um <b>nome</b> às variáveis.</p>
+
+                                                    <p>Toda variável também precisa de um <b>tipo</b>, que diz ao computador <b>quanto espaço</b> reservar para aquela variável.</p>
+
+                                                    <div class="callout-block btn-pink" style="margin-top: 2em;">
+                                                            <div class="icon-holder">
+                                                                <i class="fa fa-exclamation-triangle"></i>
+                                                            </div><!--//icon-holder-->
+                                                            <div class="content">
+                                                                <h4 class="callout-title">Atenção!</h4>
+                                                                <p>O <b>conteúdo</b>armazenado em uma variável, i.e. seu valor, pode mudar ao longo da execução do programa, mas seu <b>nome e tipo são constantes</b>.</p>
+                                                            </div><!--//content-->
+                                                    </div>
+
+                                                    
                                             </div>
                                             <div class="section-block" id="resv">
                                                     <h3 class="block-title">Palavras Reservadas</h3>
@@ -126,9 +157,53 @@
                                             <h2 class="section-title">Variáveis</em> </h2>
                                             <div class="section-block" id="name">
                                                     <h3 class="block-title">Nomes de Variáveis</h3>
+                                                    <p>Ao definirmos o nome de uma variável temos que seguir algumas regras básicas:</p>
+
+                                                    <ul class="list">
+                                                        <li>O <b>primeiro caractere</b> deve ser uma letra.</li>
+                                                        <li>Os caracteres seguintes só podem ser <b>letras, underscore (_) ou algarismos</b>.</li>
+                                                        <li>O nome das variáveis é <em>case sensitive</em>, ou seja, existe diferença entre letras maiúsculas e minúsculas (var &ne; Var)</li>
+                                                        <li>Nenhuma <b>palavra reservada</b> pode ser usada como nome de variável.</li>
+                                                        <li>Duas variáveis diferentes no mesmo escopo não podem ter o mesmo nome.</li>
+                                                        <li>Procure dar nomes <b>mnemônicos</b> às variáveis, isto é, nomes significativos, mas não muito longos.</li>
+                                                    </ul>
+
+                                                    <h5>Exemplos:</h5>
+                                                    <pre class="prettyprint">
+=> NOMES VÁLIDOS
+nota        salario     X
+valor       total       w
+valor_min   valor_max   n1
+
+=> NOMES INVÁLIDOS
+5B      (não começa com letra)
+X+Y     (Possui caractere inválido)
+while   (Palavra reservada)
+                                                    </pre>
                                             </div>
                                             <div class="section-block" id="decl">
                                                     <h3 class="block-title">Declaração de Variáveis</h3>
+
+                                                <p>Variáveis geralmente são declaradas no início do programa. Elas precisam ter um <b>nome</b> e um <b>tipo</b>. Os tipos básicos são:</p>
+
+                                                <ul>
+                                                    <li>Inteiro - int</li>
+                                                    <li>Real - float</li>
+                                                    <li>Caractere - char</li>
+                                                    <li>Literal - string</li>
+                                                    <li>Lógico - bool</li>
+                                                </ul>
+
+                                                <p>O tipo da variável vem primeiro, seguido pelo nome. Você pode declarar mais de uma variável de um mesmo tipo em uma única linha, separando o nome delas por vírgula (o tipo aparece só uma vez). </p>
+
+                                                <h5>Exemplo:</h5>
+                                                <pre class="prettyprint">
+string nome
+int qtd
+float valor, valor_total
+bool go
+                                                </pre>
+
                                             </div>
 
                                     </section><!--//doc-section-->
