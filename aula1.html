@@ -41,6 +41,12 @@
         }
     </style>
 
+    <style type="text/css">
+        .tg .tg-s6z2{text-align:center}
+        .tg .tg-baqh{text-align:center;vertical-align:top}
+        .tg .tg-r8a3{font-size:14px;background-color:#ffccc9;text-align:center}
+    </style>
+
 </head> 
 
 <body class="body-pink">
@@ -80,7 +86,7 @@
 
                                         <img class="img-responsive" src="assets/images/alg_flow.png" alt="Flow de implementação de algoritmo">
 
-                                        <div class="callout-block btn-pink" style="margin-top: 2em;">
+                                        <div class="callout-block note-pink" style="margin-top: 2em;">
                                             <div class="icon-holder">
                                                 <i class="fa fa-info-circle"></i>
                                             </div><!--//icon-holder-->
@@ -155,7 +161,75 @@ printf("Olá Mundo!\n"); // A string Olá mundo! é uma constante</pre>
                                                     programação nos permitem atribuir-lhe um <b>nome</b>.</p>
 
                                                     <p>Toda variável deve também ter um <b>tipo</b> declarado.</p>
-                                                    <p class="note-pink" ><b>Atenção</b>: o <b>conteúdo</b>, i.e., o valor armazenado em uma variável, pode <b>mudar</b> ao longo da execução, mas <b>seu nome e seu tipo são constantes</b>!</p>
+
+                                                    <img src="assets/images/Representação/var_mem.jpg" alt="Representação de variável na memória" class="img-responsive">
+
+                                                    <h3>Exemplos: </h3>
+
+                                                        <table class="table table-pink tg">
+                                                        <colgroup>
+                                                        <col style="width: 147px">
+                                                        <col style="width: 91px">
+                                                        <col style="width: 90px">
+                                                        </colgroup>
+                                                          <tr>
+                                                            <th class="tg-r8a3">Declaração</th>
+                                                            <th class="tg-r8a3">Memória</th>
+                                                            <th class="tg-r8a3">Conteúdo</th>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="tg-s6z2">int a = 10;</td>
+                                                            <td class="tg-s6z2">0x00000000</td>
+                                                            <td class="tg-s6z2">10</td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="tg-s6z2">int b;</td>
+                                                            <td class="tg-s6z2">0x00000004</td>
+                                                            <td class="tg-s6z2">??</td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="tg-s6z2" rowspan="2">string name = "Stark";</td>
+                                                            <td class="tg-s6z2">0x00000008</td>
+                                                            <td class="tg-s6z2">'S' 't' 'a' 'r'</td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="tg-s6z2">0x0000000C</td>
+                                                            <td class="tg-s6z2">'k' ? ? ?</td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="tg-s6z2">bool achou;</td>
+                                                            <td class="tg-s6z2">0x00000010</td>
+                                                            <td class="tg-s6z2">??</td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="tg-s6z2">float pi = 3.15</td>
+                                                            <td class="tg-s6z2">0x00000014</td>
+                                                            <td class="tg-s6z2">3.15</td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td class="tg-baqh">...</td>
+                                                            <td class="tg-baqh">...</td>
+                                                            <td class="tg-baqh">...</td>
+                                                          </tr>
+                                                        </table>
+
+                                                    <ul>
+                                                    
+                                                    <li>Note que podemos assinalar um valor inicial para uma variável. Isso é chamado <b>inicialização da variável</b>.</li>
+
+                                                    <li>Quando <b>não</b> inicializamos uma variável, o valor armazenado no espaço de memória reservado para ela é <b>desconhecido</b>.</li>
+
+                                                    <li>Variáveis de <b>tipos</b> deferentes possuem <b>tamanhos em memória</b> diferentes.</li>
+                                                    </ul>
+                                                    <div class="callout-block note-pink" style="margin-top: 2em;">
+                                                            <div class="icon-holder">
+                                                                <i class="fa fa-exclamation-triangle"></i>
+                                                            </div><!--//icon-holder-->
+                                                            <div class="content">
+                                                                <h4 class="callout-title">Atenção!</h4>
+                                                                <p>o <b>conteúdo</b>, i.e., o valor armazenado em uma variável, pode <b>mudar</b> ao longo da execução, mas <b>seu nome e seu tipo são constantes</b>!</p>
+                                                            </div><!--//content-->
+                                                        </div>
                                             </div>
                                             <div class="section-block" id="resv">
                                                     <h3 class="block-title">Palavras Reservadas</h3>
