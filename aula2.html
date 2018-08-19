@@ -396,9 +396,92 @@ scanf("%s", nome); /* nao utiliza & */
                                     <section id="seq" class="doc-section">
                                         <h2 class="section-title">Estrutura Sequencial</h2>
                                     </section><!--//doc-section-->
+                                    <p>C é uma linguagem de programação sequencial. Isso significa que os comandos são executados linha por linha, em <em>sequência</em> até o final do programa. A maior parte das linguagens de programação é sequencial.</p>
 
+                                    <p>O <em>ponto de entrada</em> de um programa em C é a função <em>main</em>, que deve existir em todo programa obrigatoriamente. Isso significa que a primeira linha a ser executada em qualquer programa C é a primeira linha da função main, seguida pela linha abaixo dela, e assim por diante.
+                                    </p>
+
+                                    <p> Ao longo do curso, estudaremos estruturas de controle de fluxo do programa, que <em>alteram a ordem de execução do programa</em>, <b>no entanto</b> a execução do programa é sempre sequencial, uma linha por vez.
+                                    </p>
+
+                                    <h3>Exemplo:</h3>
+                                    <iframe width="900" height="500" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=int%20main%28%29%20%7B%0A%20%20int%20a%20%3D%2010%3B%0A%20%20int%20b%20%3D%2020%3B%0A%20%20const%20float%20PI%20%3D%203.1514%3B%0A%20%20/*%20comentarios%20sao%20ignorados%20*/%0A%20%20printf%28%22Exemplos%20de%20Estrutura%20Sequencial%5Cn%22%29%3B%0A%20%20printf%28%22a%3A%20%25d%5Cnb%3A%20%25d%5CnPI%3A%20%25f%5Cn%22,%20a,%20b,%20PI%29%3B%0A%20%20float%20area%20%3D%20PI*a*a%3B%0A%20%20printf%28%22area%20de%20um%20circulo%20de%20raio%20%25d%3A%20%25f%5Cn%22,%20a,%20area%29%3B%0A%20%20a%20%3D%20a%20%2B%20b%3B%0A%20%20area%20%3D%20PI*a*a%3B%0A%20%20printf%28%22area%20de%20um%20circulo%20de%20raio%20%25d%3A%20%25f%5Cn%22,%20a,%20area%29%3B%0A%20%20return%200%3B%0A%7D&codeDivHeight=400&codeDivWidth=350&curInstr=0&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D"> </iframe>
+
+                                    <p>A ferramenta acima é o <a href="http://www.pythontutor.com/c.html#mode=edit" target="blank">C Tutor</a>. Uma ferramenta muito útil para visualização de código que estaremos usando ao longo do semestre.</p>
                                     <section id="materiais" class="doc-section">
                                         <h2 class="section-title">Materiais Extras</h2>
+
+                                        <div class="section-block">
+                                            <h3 id="types-full" class="block-title">Tipos em C</h3>
+
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                    <th><strong>Tipo</strong></th>
+                                                    <th><strong>Tamanho (bytes)</strong></th>
+                                                    <th><strong>Faixa de Valores</strong></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                    <td>char</td>
+                                                    <td>1 byte</td>
+                                                    <td>-128 to 127 or 0 to 255</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>unsigned char</td>
+                                                    <td>1 byte</td>
+                                                    <td>0 to 255</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>signed char</td>
+                                                    <td>1 byte</td>
+                                                    <td>-128 to 127</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>int</td>
+                                                    <td>4 bytes</td>
+                                                    <td>-2.147.483.648 to 2.147.483.647</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>unsigned int</td>
+                                                    <td>4 bytes</td>
+                                                    <td>0 to 4.294.967.295</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>short</td>
+                                                    <td>2 bytes</td>
+                                                    <td>-32,768 to 32,767</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>long</td>
+                                                    <td>4 bytes</td>
+                                                    <td>-2,147,483,648 to 2,147,483,647</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>unsigned long</td>
+                                                    <td>4 bytes</td>
+                                                    <td>0 to 4,294,967,295</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>float</td>
+                                                    <td>4 bytes</td>
+                                                    <td>1.2E-38 to 3.4E+38 (6 decimal places)</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>double</td>
+                                                    <td>8 bytes</td>
+                                                    <td>2.3E-308 to 1.7E+308 (15 decimal places)</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>long double</td>
+                                                    <td>10 bytes</td>
+                                                    <td>3.4E-4932 to 1.1E+4932 (19 decimal places)</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
                                     </section><!--//doc-section-->
 
                                     
@@ -429,6 +512,9 @@ scanf("%s", nome); /* nao utiliza & */
                                 <li><a class="scrollto" href="#scanf">Comando <em>scanf</em></a></li>
                                 <li><a class="scrollto" href="#seq">Estrutura Sequencial</a></li>
                                 <li><a class="scrollto" href="#materiais">Materiais Extras</a></li>
+                                <ul class="nav doc-sub-menu">
+                                    <li><a class="scrollto" href="#types-full">Tipos em C</a></li>
+                                </ul>
 
                             </ul><!--//doc-menu-->
                         </nav>
