@@ -209,22 +209,166 @@ int main () {
                                         <div class="section-block" id="vars">
                                             <h3 class="block-title">Tipos de Variáveis</h3>
                                                 
+                                        <p>Toda variável em C precisa de um <b>tipo</b>. Essa informação diz ao compilador quanto espaço alocar para aquela variável, e como o conteúdo dela deve ser interpretado no programa.
+                                            
+                                        <p>
+                                        O <em>tamanho</em> da variável também define uma <em>faixa de valores</em> que podem ser armazenados corretamente dentro da variável (sem causar <em>overflow</em>).</p>
+                                        
+                                        <p>
+                                        Abaixo temos os tipos essenciais da linguagem C. Para ver todos os tipos básicos veja a seção <a href="#materiais" class="scrollto">Materiais Extras</a>.</p>
+
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tipo</th>
+                                                    <th>linguagem C</th>
+                                                    <th>Bytes</th>
+                                                    <th>Faixa de Valores</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Inteiro</td>
+                                                    <td>int</td>
+                                                    <td>4</td>
+                                                    <td>-2.147.483.648 a 2.147.483.647</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Real</td>
+                                                    <td>float</td>
+                                                    <td>4</td>
+                                                    <td>±3.4028234e±38</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Caractere</td>
+                                                    <td>char</td>
+                                                    <td>1</td>
+                                                    <td>-128 a 127</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <p>Os 2 tipos abaixo não são "nativos" da linguagem C, mas são muito utilizados:</p>
+
+                                        <ul>
+                                            <li>Lógico (Booleano): <br> Usar <b>int</b>, será “falso” quando for zero, e “verdadeiro” quando não for zero.</li>
+                                            <li>String (Sequência de caracteres): <br> <b>char nome[tamanho]</b> <br>
+                                                    ex: char endereco[30]</li>
+                                        </ul>
                                         </div>
+
                                         <div class="section-block" id="defs">
                                             <h3 class="block-title">Declaração de Variáveis e Constantes</h3>
+
+                                            <p>Declaramos constantes e variáveis quase da mesma maneira: </p>
+                                            <ul>
+                                                <li>Variáveis: <code> &lt;tipo&gt; &lt;nome 1&gt;, ..., &lt;nome n&gt;;</code></li>
+                                                <li>Constantes: <code>&lt;tipo&gt; &lt;nome 1&gt; = &lt;valor ou expressão&gt;</code></li>
+                                            </ul>
+                                                
+
+                                            <h3>Exemplo:</h3>
+                                            <pre class="prettyprint linenums:1 lang-cpp">
+/* Variaveis */
+int a, b, c;
+float media, p1, p2;
+char sexo, est_civil;
+
+/* Constantes */
+const int VALOR = 10;
+const float PI = 3.1514;
+const char COD = 'x';
+                                            </pre>
                                                 
                                         </div>
                                         <div class="section-block" id="macs">
                                             <h3 class="block-title">Declaração de Macros</h3>
                                                 
+                                        <p>A diretiva <b>#define</b> associa um identificador a um valor. É utilizado para definir constantes, vincular uma determinada informação a um identificador,  ou criar macros.</p>
+
+                                        <p><code>#define &lt;nome da macro&gt; &lt;valor ou expressão&gt;</code></p>
+
+                                        <p>Macros são diferentes de constantes pois nenhum espaço de memória é alocado para elas. Durante a <b>compilação</b> o compilador troca o <em>identificador da macro</em> em todas as ocorrências dele no código pelo <em>valor associado.</em></p>
+
+                                        <p>Além disso, macros podem ser bastante poderosas, se o programador souber usá-las corretamente. É poossível, por exemplo, construir funções usando macros.</p>
+
+                                        <h3>Exemplo:</h3>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+#define FALSE 0
+#define TRUE 1
+#define MSG "Digite S para sair."
+                                        </pre>
                                         </div>
                                         
                                     </section><!--//doc-section-->
                                     <section id="printf" class="doc-section">
                                             <h2 class="section-title">O Comando <em>printf</em> </h2>
+
+                                        <p>O comando <em>printf</em> é uma função disponível na biblioteca <em>stdio.h</em> do C. Ele é utilizado para mostrar informação na tela do usuário, ou seja, produzir output.</p>
+
+                                        <p>O <em>printf</em> pode ser usado para mostrar conteúdo de constantes, variáveis do programa ou uma combinação dessas. Para mostrar o conteúdo de variáveis existem <b>modificadores</b> que devem ser utilizados.</p>
+
+                                        <p>Além disso, ele pode ser usado com <em>caracteres especiais</em>, dos quais o mais utilizado é o caractere '\n', que gera uma quebra de linha.</p>
+                                        <h3>Exemplos:</h3>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+/* mostrar mensagem constante */
+printf("1. Ola mundo!\n");
+
+/* mostrar conteudo de variaveis na mensagem */
+int idade = 37;
+printf("2. Idade do funcionario: %d\n", idade);
+int cod = 2340;
+float prix = 1.59;
+printf("3. Codigo do produto: %d\nValor do Produto: %f\n", cod, prix);
+
+/* Os comandos acima geram os seguintes outputs: */
+/*
+1. Ola mundo!
+2. Idade do funcionario: 37
+3. Codigo do produto: 2340
+Valor do Produto: 1.59
+*/
+</pre>
+
+                                        <ul>
+                                            <li>Note que, após a string de mensagem, há uma lista de variáveis a serem mostradas, na mesma ordem em que seus modificadores foram inseridos, e que o tipo da variável deve ser compatível com o tipo indicado pelo modificador, como veremos a seguir.</li>
+                                        </ul>
                                             <div class="section-block" id="mods">
                                                     <h3 class="block-title">Modificadores</h3>
         
+                                                    Os modificadores para os tipos básicos de C estão listados abaixo. Existem outros modificadores e opções de formatação para <em>printf</em> (e <em>scanf</em> como veremos em seguida) que podem ser vistos <a href="http://homepages.dcc.ufmg.br/~rodolfo/aedsi-2-10/printf_scanf/printfscanf.html" target="blank">aqui. </a>No entanto vale dizer que a lista é longa e esses modificadores serão pouco utilizados.
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Tipo</th>
+                                                                <th>Modificador</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>int</td>
+                                                                <td>%d</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>float</td>
+                                                                <td>%f</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>float</td>
+                                                                <td>%.nf <br>
+                                                                    Onde n é o número de casas decimais
+                                                                    ex: %.2f para duas casas decimais</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>char</td>
+                                                                <td>%c</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>string</td>
+                                                                <td>%s</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                             </div>
                                     </section><!--//doc-section-->
                                     <section id="scanf" class="doc-section">
@@ -248,6 +392,19 @@ print("Digite seu nome\n");
 scanf("%s", nome); /* nao utiliza & */
                                         </pre>
                                     </section><!--//doc-section-->
+
+                                    <section id="seq" class="doc-section">
+                                        <h2 class="section-title">Estrutura Sequencial</h2>
+                                    </section><!--//doc-section-->
+
+                                    <section id="materiais" class="doc-section">
+                                        <h2 class="section-title">Materiais Extras</h2>
+                                    </section><!--//doc-section-->
+
+                                    
+
+
+                                    
                                 
                             </div><!--//content-inner-->
                         </div><!--//doc-content-->
@@ -270,6 +427,8 @@ scanf("%s", nome); /* nao utiliza & */
                                         <li><a class="scrollto" href="#mods">Modificadores</a></li>
                                 </ul>
                                 <li><a class="scrollto" href="#scanf">Comando <em>scanf</em></a></li>
+                                <li><a class="scrollto" href="#seq">Estrutura Sequencial</a></li>
+                                <li><a class="scrollto" href="#materiais">Materiais Extras</a></li>
 
                             </ul><!--//doc-menu-->
                         </nav>
