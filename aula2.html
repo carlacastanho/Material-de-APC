@@ -52,7 +52,7 @@
                         <h1 class="logo">
                             <a href="index.html">
                                 <span aria-hidden="true" class="icon_documents_alt icon"></span>
-                                <span class="text-highlight">Aula </span><span class="text-bold">1</span>
+                                <span class="text-highlight">Aula </span><span class="text-bold">2</span>
                             </a>
                         </h1>
                     </div><!--//branding-->
@@ -78,7 +78,7 @@
                                         A linguagem C foi criada em 1972 por Dennis Ritchie no Bell Laboratories. O foco da linguagem C inicialmente foi o desenvolvimento de sistemas operacionais e compiladores. C foi usada com grande êxito na construção de uma nova versão do sistema operacional Unix, que inicialmente foi escrito em Assembly. O grande sucesso obtido no mundo do Unix fez com que a linguagem ganhasse mais e mais adeptos e atualmente, quase todos os grandes sistemas operacionais são construídos em C/C++.
                                         </p>
                                         <p>É uma linguagem de propósito geral, o que quer dizer que se adapta a praticamente qualquer tipo de projeto, altamente portável e extremamente rápida em tempo de execução.</p>
-                                        <p>Em nosso curso estaremos usando o padrão ANSI da linguagem C para fazer nossos programas. Na aula de hoje conheceremos os elementos básicos da linguagem, e expandiremos esse conhecimento ao longo do semestre.</p>
+                                        <p>Em nosso curso estaremos usando o padrão ANSI da linguagem C para fazer nossos programas. Na aula de hoje conheceremos os elementos básicos da linguagem e expandiremos esse conhecimento ao longo do semestre.</p>
                                     </div>
                                 </section><!--//doc-section-->
 
@@ -217,7 +217,7 @@ int main () {
                                         <div class="section-block" id="vars">
                                             <h3 class="block-title">Tipos de Variáveis</h3>
                                                 
-                                        <p>Toda variável em C precisa de um <b>tipo</b>. Essa informação diz ao compilador quanto espaço alocar para aquela variável, e como o conteúdo dela deve ser interpretado no programa.
+                                        <p>Toda variável em C precisa de um <b>tipo</b>. Essa informação diz ao compilador quanto espaço alocar para aquela variável e como o conteúdo dela deve ser interpretado no programa.
                                             
                                         <p>
                                         O <em>tamanho</em> da variável também define uma <em>faixa de valores</em> que podem ser armazenados corretamente dentro da variável (sem causar <em>overflow</em>).</p>
@@ -271,7 +271,7 @@ int main () {
                                             <p>Declaramos constantes e variáveis quase da mesma maneira: </p>
                                             <ul>
                                                 <li>Variáveis: <code> &lt;tipo&gt; &lt;nome 1&gt;, ..., &lt;nome n&gt;;</code></li>
-                                                <li>Constantes: <code>&lt;tipo&gt; &lt;nome 1&gt; = &lt;valor ou expressão&gt;</code></li>
+                                                <li>Constantes: <code>&lt;const&gt; &lt;tipo&gt; &lt;nome 1&gt; = &lt;valor ou expressão&gt;</code></li>
                                             </ul>
                                                 
 
@@ -298,7 +298,7 @@ const char COD = 'x';
 
                                         <p>Macros são diferentes de constantes pois nenhum espaço de memória é alocado para elas. Durante a <b>compilação</b> o compilador troca o <em>identificador da macro</em> em todas as ocorrências dele no código pelo <em>valor associado.</em></p>
 
-                                        <p>Além disso, macros podem ser bastante poderosas, se o programador souber usá-las corretamente. É poossível, por exemplo, construir funções usando macros.</p>
+                                        <p>Além disso, macros podem ser bastante poderosas, se o programador souber usá-las corretamente. É possível, por exemplo, construir funções usando macros.</p>
 
                                         <h3>Exemplo:</h3>
                                         <pre class="prettyprint linenums:1 lang-cpp">
