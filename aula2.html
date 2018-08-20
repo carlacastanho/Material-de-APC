@@ -389,16 +389,47 @@ Valor do Produto: 1.59
                                         </ul>
 
                                         <p>Exemplos:</p>
+                                        <p>Algoritmo para ler o nome e idade de uma pessoa (em anos, meses e dias) e mostrar sua idade expressa apenas em dias.
+                                        <p>Versão em C: </p>
                                         <pre class="prettyprint lang-cpp linenums:1">
-int idade;
-print("Digite sua idade\n");
-scanf("%d", &idade); /* le um valor inteiro digitado e atribui para variavel idade */
-
-/* atencao! em caso de strings nao eh necessário o & antes da variavel */
+int idade_dias, anos, meses, dias;
 char nome[30];
-print("Digite seu nome\n");
+
+printf("Digite seu nome: ");
+/* atencao! em caso de strings nao eh necessário o & antes da variavel */
 scanf("%s", nome); /* nao utiliza & */
-                                        </pre>
+
+printf("Digite sua idade em anos, meses e dias: ");
+scanf("%d %d %d", &anos, &meses, &dias); /* le 3 valores inteiros digitados e 
+atribui para as variáveis anos, meses e dias */
+
+idade_dias = ((anos * 365) + (meses * 30) + dias);
+printf("A idade de %s é de %d dias\n", nome, idade_dias);
+
+return 0;
+</pre>
+                                        
+                                        <p>Versão em Pseudocódigo:</p>
+                                        <pre class="prettyprint lang-html linenums:1">
+Variáveis
+
+    idade_dias, anos, meses, dias: inteiro
+
+Início
+    
+    Escreva (“Digite seu nome: ”)
+
+    Leia (nome)
+
+    Escreva (“Digite sua idade em anos, meses e dias: ”)
+
+    Leia (anos, meses, dias)
+
+    idade_dias ← ((anos * 365) + (meses * 30) + dias)
+
+    Escreva (“A sua idade é de ”, idade_dias, “dias.”)
+
+Fim</pre>    
                                     </section><!--//doc-section-->
 
                                     <section id="seq" class="doc-section">
