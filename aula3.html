@@ -43,7 +43,7 @@
 
 </head> 
 
-<body class="body-blue">
+<body class="body-green">
         <div class="page-wrapper">
             <!-- ******Header****** -->
             <header id="header" class="header">
@@ -66,7 +66,7 @@
                 <div class="container">
                     <div id="doc-header" class="doc-header text-center">
                         <h1 class="doc-title"><span class="icon-holder"><img src="assets/images/linguagem-C.png" alt="C" style="width: 1em"></span> Estruturas Condicionais</h1>
-                        <div class="meta"><i class="fa fa-clock-o"></i> Last updated: August 24th, 2018</div>
+                        <div class="meta"><i class="fa fa-clock-o"></i> Last updated: August 26th, 2018</div>
                     </div><!--//doc-header-->
                     <div class="doc-body">
                         <div class="doc-content">
@@ -74,37 +74,246 @@
                                 <section id="intro" class="doc-section">
                                     <h2 class="section-title">Introdução</h2>
                                     <div class="section-block" id="intro">
-                                        Falar um pouco sobre a estruturas.
+                                        <p>Na aula anterior aprendemos que, na linguagem C, os programas são executados sequencialmente, i.e. linha por linha, <b>incondicionalmente</b>.</p>
+
+                                        <p>No entanto, frequêntemente precisamos que o programa <b>tome decisões</b>, e aja de acordo com algumas <b>condições</b> encontradas. Para podermos fazer isso, vamos aprender sobre <b>estruturas condicionais</b>.</p>
 
                                     </div>
                                 </section><!--//doc-section-->
 
-                                <section id="program" class="doc-section"> 
+                                <section id="if" class="doc-section"> 
                                         <h2 class="section-title">Estrutura Condicional Simples</h2>
-                                        Apresentação breve dos elementos essenciais da gramática de C.
-
-                                        <div class="section-block" id="estrutura">
-                                            <h3 class="block-title">Estrutura Básica</h3>
+                                        <p> Uma estrutura condicional define um <b>bloco</b> de código. Esse bloco de código só é executado se a CONDIÇÃO dada for <b>verdadeira</b>. Se a condição for <b>falsa</b>, as linhas dentro do bloco condicional são <b>puladas</b>.</p>
                                             
-                                        </div>
+                                        Um bloco condicional é definido usando a palavra reservada <b>if</b>:
+
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+int main(){
+    /* comando 1 */
+    /* comando 2 */
+    /* ... */
+    if ( &lt;CONDIÇÃO&gt; ) {
+        /* comando 1 */
+        /* comando 2 */
+        /* ... */
+    }
+    /* comando n */
+    /* comando n+1 */
+    /* ... */
+}
+                                        </pre>
                                         
-                                        
+                                    <p>Algumas observações inportantes:</p>
+                                    <ul>
+                                        <li>A condição fica obrigatoriamente entre parêntesis,</li>
+                                        <li>As <b>chaves</b> delimitam o bloco condicional,</li>
+                                        <li>Os comandos do bloco condicional estão <b>identados</b> em relação à condição,</li>
+                                        <li>Não existe limite prático para os comandos do bloco condicional.</li>
+                                    </ul>
+
+                                    <div class="section-block">
+                                        <h3>Exemplo</h3>
+                                        EXEMPLO DO C-TUTOR
+                                    </div>
                                     </section><!--//doc-section-->
-                                    <section id="printf" class="doc-section">
+                                    <section id="ifelse" class="doc-section">
                                             <h2 class="section-title">Estrutura Condicional Composta</h2>
-                                            <div class="section-block" id="mods">
-                                                    <h3 class="block-title">Modificadores</h3>
-        
-                                            </div>
+                                            <p>Nas estruturas condicionais simples, compostas simplesmente por im <em>if</em>, caso a condição dada seja <b>falsa</b>, as linhas do bloco condicional serão puladas, e as linhas seguintes executadas incondicionalmente. No entanto, pode ser interessante tomar uma ação diferente se a condição for <b>falsa</b>. Para isso utilizamos condicionais compostos.</p>
+
+                                            <p>Nessas estruturas, temos 2 blocos condicionais em sequência: o primeiro é executado se a condição dada for <b>verdadeira</b>, o segundo é executado se a condição for <b>falsa</b>.</p>
+
+                                            <p>Note que, como uma condição só pode ser verdadeira ou falsa (ou seja, é booleana), um dos blocos condicionais <b>será executado</b>.</p>
+
+                                            <p>A estrutura extra é definida usando a palavra reservada <b>else</b>. Todo <em>else</em> <b>precisa</b> ser precedido por um <em>if</em> correspondente.</p>
+                                            <pre class="prettyprint linenums:1 lang-cpp">
+int main(){
+    /* comando 1 */
+    /* comando 2 */
+    /* ... */
+    if ( &lt;CONDIÇÃO&gt; ) {
+        /* comando 1 */
+        /* comando 2 */
+        /* ... */
+    }
+    else {
+        /* comando 1 */
+        /* comando 2 */
+        /* ... */
+    }
+    /* comando n */
+    /* comando n+1 */
+    /* ... */
+}
+                                        </pre>
+
+                                    <div class="section-block">
+                                        <h3>Exemplo</h3>
+                                        EXEMPLO DO C-TUTOR
+                                    </div>
                                     </section><!--//doc-section-->
-                                    <section id="scanf" class="doc-section">
+                                    <section id="ifelseif" class="doc-section">
                                             <h2 class="section-title">Encadeamento de Estruturas Condicionais</h2>
+                                    <p>Por vezes, pode ser que 2 casos seja muito pouco para decidir a ação correta a ser executada pelo programa. Por exemplo, se tiver 2 variáveis booleanas de controle já temos um total de 4 possibilidades.</p>
 
+                                    <p>Nesses casos, podemos <b>encadear</b> as estruturas condicionais, criando diversos blocos condicionais. Isso é feito adicionando novas condições ao bloco else de um if anterior.</p>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+                                    
+int main(){
+    /* ... */
+    if ( &lt;CONDIÇÃO 1&gt; ) {
+        /* comando 1 */
+        /* comando 2 */
+        /* ... */
+    }
+    else if ( &lt;CONDIÇÃO 2&gt; ) {
+        /* comando 1 */
+        /* comando 2 */
+        /* ... */
+    }
+    else if ( &lt;CONDIÇÃO 3&gt; ) {
+        /* comando 1 */
+        /* comando 2 */
+        /* ... */
+    }
+    else {
+        /* comando 1 */
+        /* comando 2 */
+        /* ... */
+    }
+    /* comando n */
+    /* comando n+1 */
+    /* ... */
+}
+                                    </pre>
+
+                                    <p>Algumas observações importantes:</p>
+                                    <ul>
+                                        <li>Somente <b>um</b> desses blocos será executado. O bloco a ser executado é o <b>primeiro</b> cuja condição for avaliada como <b>verdadeira</b>. Os blocos seguintes serão <b>pulados</b>.</li>
+                                        <li>Não existe um limite de blocos condicionais encadeados.</li>
+                                        <li>O <b>else</b> final é <b>opcional</b>.</li>
+                                    </ul>
+
+                                    <div class="section-block">
+                                            <h3>Exemplo</h3>
+                                            EXEMPLO DO C-TUTOR
+                                        </div>
                                     </section><!--//doc-section-->
-                                    <section id="scanf" class="doc-section">
-                                            <h2 class="section-title">Estrutura Condicional Composta</h2>
+                                    <section id="complex" class="doc-section">
+                                            <h2 class="section-title">Condições Compostas</h2>
 
-                                
+                                    <p>Todas as condições de um bloco condicional devem ser <b>expressões</b> que possam ser avaliadas como <b>verdadeiras ou falsas</b>. No entanto, é possível <b>combinar</b> expressões diferentes utilizando <b>operadores lógicos</b>, criando assim condições compostas de múltiplas expressões.</p>
+
+                                    <p>Os operadores lógicos disponíveis são:</p>
+                                    <ul>
+                                        <li>AND - <code>&&</code></li>
+                                        <li>OR - <code>||</code></li>
+                                        <li>NOT - <code>!</code></li>
+                                    </ul>
+
+                                    Vejamos um exemplo:
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+if ( (x > 0) && (y &lt; 0)){
+    /* Executado se X for positivo E y negativo */
+}
+
+if ( (in == 'S') || (in == 's')){
+    /* Executado se in for 'S' OU 's'*/
+}
+
+if ( !end ){
+    /* Executado se end for FALSO */
+}
+
+if ( (!achou) && (idx &lt; tamanho)){
+    /* Executado se achou for falso E idx menor do que tamaho */
+}
+                                    </pre>
+
+                            <p>Note que cada expressão precisa estar delimitada por parentesis.</p>
+
+                            <section class="doc-section" id="Extra">
+                                <h2 class="section-title">Materiais Extras</h2>
+
+                                <div class="section-block">
+                                    <h3 class="block-title">Switch Case</h3>
+                                    <p>Além dos condicionais <b>if/else</b>, a linguagem C possui outra maneira de criar blocos condicionais, através da palavra reservada <b>switch</b>.</p>
+
+                                    <p>O switch é utilizado quando sabemos que existem alguns <b>casos</b> que podem acontecer, na prática, se conhecemos alguns dos <b>valores</b> que uma variável pode assumir. Nesse caso, definimos a estrutura do switch para executar um dos <b>casos possíveis</b>.</p>
+
+                                    <p>Neste caso, o <b>primeiro caso</b> que for verdadeiro, ou seja, se o valor da variável for igual ao da constante que define o caso, será executado.</p>
+                                    <p>O switch é construído da seguinte maneira:</p>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+switch (variável) {
+   case &lt;CONSTANTE 1&gt;:
+        /* comando 1 */
+        /* comando 2 */
+        /* ... */
+   break;
+
+   case &lt;CONSTANTE 2&gt;:
+        /* comando 1 */
+        /* comando 2 */
+        /* ... */
+   break;
+
+    /* outros possíveis casos */
+   default:
+        /* comando 1 */
+        /* comando 2 */
+        /* ... */
+}
+                                    </pre>
+
+                                <p>Observações importantes:</p>
+                                <ul>
+                                    <li>O comando <code>break</code> é muito importante. Ele que <b>delimita</b> o final do caso. Se ele for esquecido, as linhas de comando <b>dos casos abaixo do escolhido também serão executadas</b>.</li>
+                                    <li>O caso <b>default</b> é opcional. Ele funciona como o else, sendo executado sempre que nenhum outro caso for executado.</li>
+                                </ul>
+
+                                <h3>Exemplo:</h3>
+                                <p>Vejamos um exemplo de utilização do switch para retornar o dia da semana a partir de um número:</p>
+
+                                <pre class="prettyprint linenums:1 lang-cpp">
+#include &lt;stdio.h&gt;
+int main(){
+    int day;
+    printf("Digite um número\n");
+    scanf("%d", &day);
+    day = day%7; /* existem apenas 7 dias na semana */
+
+    switch (day){
+        case 0:
+            printf("Segunda-feira\n");
+        break;
+
+        case 1:
+            printf("Terça-feira\n");
+        break;
+
+        case 2:
+            printf("Quarta-feira\n");
+        break;
+
+        case 3:
+            printf("Quinta-feira\n");
+        break;
+
+        case 4:
+            printf("Sexta-feira\n");
+        break;
+
+        case 5:
+            printf("Sábado\n");
+        break;
+
+        case 6:
+            printf("Domingo\n");
+        break;
+    }
+}
+                                </pre>
+                                </div>
+                            </section>
                             </div><!--//content-inner-->
                         </div><!--//doc-content-->
 
@@ -112,20 +321,12 @@
                         <nav id="doc-nav">
                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
                                 <li><a class="scrollto" href="#intro">Introdução</a></li>
-                                <li><a class="scrollto" href="#program">Elementos da Gramática</a></li>
-                                <ul class="nav doc-sub-menu">
-                                    <li><a class="scrollto" href="#estrutura">Estrutura</a></li>
-                                    <li><a class="scrollto" href="#comentario">Comentários</a></li>
-                                    <li><a class="scrollto" href="#ops">Operadores</a></li>
-                                    <li><a class="scrollto" href="#vars">Variáveis</a></li>
-                                    <li><a class="scrollto" href="#defs">Declaração de Variáveis e Constantes</a></li>
-                                    <li><a class="scrollto" href="#macs">Declaração de Macros</a></li>
-                                </ul>
-                                <li><a class="scrollto" href="#printf">Comando <em>printf</em></a></li>
-                                <ul class="nav doc-sub-menu">
-                                        <li><a class="scrollto" href="#mods">Modificadores</a></li>
-                                </ul>
-                                <li><a class="scrollto" href="#scanf">Comando <em>scanf</em></a></li>
+                                <li><a class="scrollto" href="#if">Estrutura Básica</a></li>
+                                <li><a class="scrollto" href="#ifelse">Condicionais Compostos</a></li>
+                                <li><a class="scrollto" href="#ifelseif">Condicionais Encadeados</a></li>
+                                <li><a class="scrollto" href="#complex">Condicionais mais Complexos</a></li>
+                                <li><a class="scrollto" href="#Extra">Materiais Extras</a></li>
+                                
 
                             </ul><!--//doc-menu-->
                         </nav>
