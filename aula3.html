@@ -89,17 +89,19 @@
 
                                         <pre class="prettyprint linenums:1 lang-cpp">
 int main(){
-    /* comando 1 */
-    /* comando 2 */
-    /* ... */
-    if ( &lt;CONDIÇÃO&gt; ) {
-        /* comando 1 */
-        /* comando 2 */
-        /* ... */
+    char estudante, nome[100];
+    double preco = 30.0;
+
+    printf("Digite o nome do cliente : ");
+    scanf("%s", nome);
+    printf("O cliente %s eh estudante ? (S/N) : ", nome);
+    scanf(" %c", &amp;estudante);
+
+    if ( estudante == 'S' ) {
+        preco = preco/2.0;
     }
-    /* comando n */
-    /* comando n+1 */
-    /* ... */
+
+    printf("O ingresso para o(a) %s : R$%.2lf\n",nome,preco);
 }
                                         </pre>
                                         
@@ -111,10 +113,7 @@ int main(){
                                         <li>Não existe limite prático para os comandos do bloco condicional.</li>
                                     </ul>
 
-                                    <div class="section-block">
-                                        <h3>Exemplo</h3>
-                                        EXEMPLO DO C-TUTOR
-                                    </div>
+                                    
                                     </section><!--//doc-section-->
                                     <section id="ifelse" class="doc-section">
                                             <h2 class="section-title">Estrutura Condicional Composta</h2>
@@ -127,29 +126,35 @@ int main(){
                                             <p>A estrutura extra é definida usando a palavra reservada <b>else</b>. Todo <em>else</em> <b>precisa</b> ser precedido por um <em>if</em> correspondente.</p>
                                             <pre class="prettyprint linenums:1 lang-cpp">
 int main(){
-    /* comando 1 */
-    /* comando 2 */
-    /* ... */
-    if ( &lt;CONDIÇÃO&gt; ) {
-        /* comando 1 */
-        /* comando 2 */
-        /* ... */
+
+    char nome[100];
+    double nota1, nota2, nota3, nota_final;
+
+    printf("Digite o nome do(a) aluno(a) : ");
+    scanf("%s", nome);
+
+    printf("Digite a nota da prova 1 : ");
+    scanf("%lf", &amp;nota1);
+
+    printf("Digite a nota da prova 2 : ");
+    scanf("%lf", &amp;nota2);
+
+    printf("Digite a nota da prova 3 : ");
+    scanf("%lf", &amp;nota3);
+
+    nota_final = ( ( 2 * nota1)  + ( 2 * nota2 ) + ( 3 * nota3 ) )/7.0;
+
+    if ( nota_final >= 5.0 ) {
+        printf("%s foi aprovado com %.2lf!!\n", nome, nota_final);
     }
-    else {
-        /* comando 1 */
-        /* comando 2 */
-        /* ... */
+    else{
+        printf("%s foi reprovado por %.2lf :(\n", nome, 5.0 - nota_final);
     }
-    /* comando n */
-    /* comando n+1 */
-    /* ... */
+
 }
                                         </pre>
 
-                                    <div class="section-block">
-                                        <h3>Exemplo</h3>
-                                        EXEMPLO DO C-TUTOR
-                                    </div>
+                                    
                                     </section><!--//doc-section-->
                                     <section id="ifelseif" class="doc-section">
                                             <h2 class="section-title">Encadeamento de Estruturas Condicionais</h2>
@@ -159,30 +164,45 @@ int main(){
                                     <pre class="prettyprint linenums:1 lang-cpp">
                                     
 int main(){
-    /* ... */
-    if ( &lt;CONDIÇÃO 1&gt; ) {
-        /* comando 1 */
-        /* comando 2 */
-        /* ... */
+
+    char nome[100];
+    double nota1, nota2, nota3, frequencia, nota_final;
+
+    printf("Digite o nome do(a) aluno(a) : ");
+    scanf("%s", nome);
+
+    printf("Digite a nota da prova 1 : ");
+    scanf("%lf", &amp;nota1);
+
+    printf("Digite a nota da prova 2 : ");
+    scanf("%lf", &amp;nota2);
+
+    printf("Digite a nota da prova 3 : ");
+    scanf("%lf", &amp;nota3);
+
+    printf("Digite a porcentagem da frequencia : ");
+    scanf("%lf", &amp;frequencia);
+
+    nota_final = ( ( 2 * nota1)  + ( 2 * nota2 ) + ( 3 * nota3 ) )/7.0;
+
+    if(frequencia < 75.00){
+        printf("%s foi reprovado, menção : SR\n",nome);
     }
-    else if ( &lt;CONDIÇÃO 2&gt; ) {
-        /* comando 1 */
-        /* comando 2 */
-        /* ... */
+    else if(nota_final  < 3.0){
+        printf("%s foi reprovado, menção : II\n",nome);
     }
-    else if ( &lt;CONDIÇÃO 3&gt; ) {
-        /* comando 1 */
-        /* comando 2 */
-        /* ... */
+    else if(nota_final  < 5.0){
+        printf("%s foi reprovado, menção : MI\n",nome);
     }
-    else {
-        /* comando 1 */
-        /* comando 2 */
-        /* ... */
+    else if(nota_final  < 7.0){
+        printf("%s foi aprovado, menção : MM\n",nome);
     }
-    /* comando n */
-    /* comando n+1 */
-    /* ... */
+    else if(nota_final  < 9.0){
+        printf("%s foi aprovado, menção : MS\n",nome);
+    }
+    else{
+        printf("%s foi aprovado, menção : SS\n",nome);
+    }
 }
                                     </pre>
 
@@ -193,10 +213,7 @@ int main(){
                                         <li>O <b>else</b> final é <b>opcional</b>.</li>
                                     </ul>
 
-                                    <div class="section-block">
-                                            <h3>Exemplo</h3>
-                                            EXEMPLO DO C-TUTOR
-                                        </div>
+                                    
                                     </section><!--//doc-section-->
                                     <section id="complex" class="doc-section">
                                             <h2 class="section-title">Condições Compostas</h2>
@@ -230,7 +247,40 @@ if ( (!achou) && (idx &lt; tamanho)){
                                     </pre>
 
                             <p>Note que cada expressão precisa estar delimitada por parentesis.</p>
-
+                            <section id="recomendados" class="doc-section">
+                                <h2 class="section-title">Exercícios Recomendados  (1035 ~ 1052)</h2>
+                                <div class="section-block">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1035" target="_blank">Teste de Seleção 1</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1036" target="_blank">Fórmula de Bhaskara</a></td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1037" target="_blank">Intervalo</a></td>
+                                                            
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1038" target="_blank">Lanche</a></td>
+                                                    <td> ... ATÉ ... </td>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1052" target="_blank">Mês</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!--//table-responsive-->
+                                    <h6>Questões desafio (Nivel: Médio / Difícil)</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2057" target="_blank">Fuso Horário</a></td>
+                                                    <td><a href="http://codeforces.com/problemset/problem/805/A" target="_blank">Fake NP</a></td>
+                                                    <td><a href="http://codeforces.com/gym/101484/problem/J" target="_blank">Beautiful Triangles</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!--//table-responsive-->
+                                </div>
+                            </section><!--//doc-section-->
                             <section class="doc-section" id="Extra">
                                 <h2 class="section-title">Materiais Extras</h2>
 
@@ -325,6 +375,7 @@ int main(){
                                 <li><a class="scrollto" href="#ifelse">Condicionais Compostos</a></li>
                                 <li><a class="scrollto" href="#ifelseif">Condicionais Encadeados</a></li>
                                 <li><a class="scrollto" href="#complex">Condicionais mais Complexos</a></li>
+                                <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
                                 <li><a class="scrollto" href="#Extra">Materiais Extras</a></li>
                                 
 
