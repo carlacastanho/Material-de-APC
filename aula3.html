@@ -43,7 +43,7 @@
 
 </head> 
 
-<body class="body-green">
+<body class="body-pink">
         <div class="page-wrapper">
             <!-- ******Header****** -->
             <header id="header" class="header">
@@ -65,7 +65,7 @@
             <div class="doc-wrapper">
                 <div class="container">
                     <div id="doc-header" class="doc-header text-center">
-                        <h1 class="doc-title"><span class="icon-holder"><img src="assets/images/linguagem-C.png" alt="C" style="width: 1em"></span> Estruturas Condicionais</h1>
+                        <h1 class="doc-title"><i class="icon glyphicon glyphicon-link"></i> Estruturas Condicionais</h1>
                         <div class="meta"><i class="fa fa-clock-o"></i> Last updated: August 26th, 2018</div>
                     </div><!--//doc-header-->
                     <div class="doc-body">
@@ -117,7 +117,7 @@ int main(){
                                     </section><!--//doc-section-->
                                     <section id="ifelse" class="doc-section">
                                             <h2 class="section-title">Estrutura Condicional Composta</h2>
-                                            <p>Nas estruturas condicionais simples, compostas simplesmente por im <em>if</em>, caso a condição dada seja <b>falsa</b>, as linhas do bloco condicional serão puladas, e as linhas seguintes executadas incondicionalmente. No entanto, pode ser interessante tomar uma ação diferente se a condição for <b>falsa</b>. Para isso utilizamos condicionais compostos.</p>
+                                            <p>Nas estruturas condicionais simples, compostas simplesmente por um <em>if</em>, caso a condição dada seja <b>falsa</b>, as linhas do bloco condicional serão puladas, e as linhas seguintes executadas incondicionalmente. No entanto, pode ser interessante tomar uma ação diferente se a condição for <b>falsa</b>. Para isso utilizamos condicionais compostos.</p>
 
                                             <p>Nessas estruturas, temos 2 blocos condicionais em sequência: o primeiro é executado se a condição dada for <b>verdadeira</b>, o segundo é executado se a condição for <b>falsa</b>.</p>
 
@@ -158,7 +158,7 @@ int main(){
                                     </section><!--//doc-section-->
                                     <section id="ifelseif" class="doc-section">
                                             <h2 class="section-title">Encadeamento de Estruturas Condicionais</h2>
-                                    <p>Por vezes, pode ser que 2 casos seja muito pouco para decidir a ação correta a ser executada pelo programa. Por exemplo, se tiver 2 variáveis booleanas de controle já temos um total de 4 possibilidades.</p>
+                                    <p>Por vezes, pode ser que 2 casos nao sejam suficientes para decidir a ação correta a ser executada pelo programa. Por exemplo, se tiver 2 variáveis booleanas de controle já temos um total de 4 possibilidades.</p>
 
                                     <p>Nesses casos, podemos <b>encadear</b> as estruturas condicionais, criando diversos blocos condicionais. Isso é feito adicionando novas condições ao bloco else de um if anterior.</p>
                                     <pre class="prettyprint linenums:1 lang-cpp">
@@ -246,9 +246,9 @@ if ( (!achou) && (idx &lt; tamanho)){
 }
                                     </pre>
 
-                            <p>Note que cada expressão precisa estar delimitada por parentesis.</p>
+                            <p>Note que cada expressão precisa estar delimitada por parênteses.</p>
                             <section id="recomendados" class="doc-section">
-                                <h2 class="section-title">Exercícios Recomendados  (1035 ~ 1052)</h2>
+                                <h2 class="section-title">Exercícios Recomendados  (1035 ~ 1052 URI)</h2>
                                 <div class="section-block">
                                     <div class="table-responsive">
                                         <table class="table table-striped">
@@ -267,7 +267,7 @@ if ( (!achou) && (idx &lt; tamanho)){
                                             </tbody>
                                         </table>
                                     </div><!--//table-responsive-->
-                                    <h6>Questões desafio (Nivel: Médio / Difícil)</h6>
+                                    <h6>Questões desafio (Nivel: Médio / Difícil) (URI ~ Codeforces)</h6>
                                     <div class="table-responsive">
                                         <table class="table table-striped">
                                             <tbody>
@@ -286,7 +286,7 @@ if ( (!achou) && (idx &lt; tamanho)){
 
                                 <div class="section-block">
                                     <h3 class="block-title">Switch Case</h3>
-                                    <p>Além dos condicionais <b>if/else</b>, a linguagem C possui outra maneira de criar blocos condicionais, através da palavra reservada <b>switch</b>.</p>
+                                    <p>Além dos condicionais <b>if/else</b>, a linguagem C possui outra maneira de criar blocos condicionais, através da palavra reservada <b>switch</b> (muito utilizado para criar menus).</p>
 
                                     <p>O switch é utilizado quando sabemos que existem alguns <b>casos</b> que podem acontecer, na prática, se conhecemos alguns dos <b>valores</b> que uma variável pode assumir. Nesse caso, definimos a estrutura do switch para executar um dos <b>casos possíveis</b>.</p>
 
