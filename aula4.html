@@ -39,6 +39,10 @@
             margin-right: auto;
             margin-top: 5%;
         }
+
+        .note-purple {
+            background-color: #8A40A7;
+        }
     </style>
 
 </head> 
@@ -74,15 +78,128 @@
                                 <section id="intro" class="doc-section">
                                     <h2 class="section-title">Introdução</h2>
                                     <div class="section-block" id="intro">
-                                        Introduzir.
+                                        <p>Computadores são especialmente bons em realizar tarefas repetitivas. Nesta aula, veremos como codificar <b>estruturas de repetição</b>, que permitem que um conjunto de comandos seja executado em sequência mais de uma vez. </p>
+
+                                        <p>Uma <b>estrutura de repetição</b> permite que um conjunto
+                                            de comandos sejam executados <b>enquanto uma
+                                            condição for verdadeira</b>. As estruturas de repetição
+                                            também são chamadas de <b>laços</b> ou <b>loops</b>.</p>
+
+                                        <p>Cada vez que o conjunto de ações do laço é repetido,
+                                            acontece uma <b>iteração</b>. Portanto, veremos as <em>estruturas de repetição iterativas</em> nesta aula.</p>
+
+                                        <p>As estruturas deste tipo mais comuns são:</p>
+                                        <ul>
+                                            <li>Repetição contada</li>
+                                            <li>Condicional com teste no início</li>
+                                            <li>Condicional com teste no final</li>
+                                        </ul>
 
                                     </div>
                                 </section><!--//doc-section-->
 
                                 <section id="for" class="doc-section">
                                         <h2 class="section-title">Laço <em>for</em></h2>
-                                        Apresentação breve dos elementos essenciais da gramática de C.
+                                        <p>O laço for é a estrutura de repetição <b>contada</b>. Utilizamos ele quando sabemos <em>de antemão</em> quantas repetições serão feitas.</p>
 
+                                        <p>Este número de repetições pode ser um valor <b>fixo</b>, por exemplo, mostrar os primeiros 10 números pares; ou pode ser um valor <b>informado</b> pelo usuário ou <b>calculado</b> pelo programa.</p>
+
+                                        <p>O importante é que, ao entrar no laço, o computador já sabe quantas iterações serão feitas. Os laços <em>for</em> são construídos conforme mostrado abaixo.</p>
+
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+...
+int idx; /* variavel de indice */
+for(idx = &lt;inicio&gt;; idx &lt;teste&gt; &lt;parada&gt;; idx &lt;incremento&gt;){
+    /* comandos */
+}
+                                        </pre>
+                                    
+                                        <ul>
+                                            <li>inicio é o valor inicial do índice, geralmente 0 ou 1.</li>
+                                            <li>teste é a condição a ser testada, i.e. &lt;, &lt;=, =, >, >=, !=</li>
+                                            <li>parada é o valor de parada.</li>
+                                            <li>incremento é o valor a ser atribuído ao índice ao final de uma iteração.</li>
+                                        </ul>
+
+                                    <p>A <b>ordem</b> em que cada parte do laço for é executada acontece da seguinte maneira:</p>
+
+                                    <ol>
+                                        <li>O valor de início é atribuído à variável índice.</li>
+                                        <li>A condição de parada é testada.</li>
+                                        <li>Os comandos do laço for são executados.</li>
+                                        <li>O incremento é feito.</li>
+                                        <li>Repete do passo 2, até que a condição seja avaliada como falsa.</li>
+                                    </ol>
+
+                                    <h3 class="block-title">Exemplos</h3>
+
+                                    <p>Listar os primeiros 100 números inteiros começando do 1.</p>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+int idx = 0;
+/* Ordem crescente */
+for(idx = 1; idx &lt;= 100; idx++){
+    printf("%d ", i);
+}
+printf("\n");
+/* Ordem decrescente */
+for(idx = 100; idx > 0; idx--){
+    printf("%d ", i);
+}
+printf("\n");
+                                    </pre>
+
+                                    <p>Média de uma quantidade de números informada pelo usuário.</p>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+printf("Quantidade de numeros:\n");
+int n, i;
+scanf("%d", &n);
+float total = 0;
+/* ler todos os numeros */
+for(i = 0; i &lt; n; i++){
+    float f;
+    scanf("%f", &f);
+    total += f; /* Armazenando a soma total */
+}
+float media = total / n;
+printf("Media eh %f\n", media);
+                                    </pre>
+
+                                    <p>Mostrar o valor ASCII das letras minúsculas.</p>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+int i;
+/* i recebe o valor do caractere 'a', e eh comparado ao valor do caractere 'z' */
+for(i = 'a'; i &lt; 'z'; i++){
+    printf("%d - %c\n", i, i);
+}
+                                    </pre>
+                                    <div class="section-block" id="forfor">
+                                        <h3 class="block-title">Laços <em>for</em> aninhados</h3>
+                                        <p>É possível ter laços aninhados, isto é, um laço de repetição dentro do outro.</p>
+
+                                        <p>Quando isso acontece, o laço <b>interno</b> é repetido <b>por completo</b> todas as vezes que o laço <b>externo</b> for executado. Veja o exemplo.</p>
+
+                                        <div class="callout-block note-purple" style="margin-top: 2em;">
+                                                <div class="icon-holder">
+                                                        <i class="fa fa-warning"></i>
+                                                </div><!--//icon-holder-->
+                                                <div class="content">
+                                                    <h4 class="callout-title">Atenção!</h4>
+                                                    <p>Lembre-se de usar variáveis <b>diferentes</b> para guardar o índice dos laços diferentes!</p>
+                                                </div><!--//content-->
+                                            </div>
+                                        <h3 class="block-title">Exemplo</h3>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+int i, j;
+for(i = 0; i &lt; 3; i++){
+    printf("Loop externo %d\n", i);
+    for(j = 0; j &lt 3; j++){
+        printf("Loop interno %d\n", j);
+    }
+}
+                                    </pre>
+
+                                    <p>Teoricamente não existe um limite de laços aninhados permitidos. Na prática, no entanto, laços aninhados não são muito eficiêntes. Existem ocasiões em que são necessários, mas muito dificilmente você precisará mais do que 3 laços aninhados.</p>
+                                    </div>
                                         
                                 </section><!--//doc-section-->
                                 <section id="while" class="doc-section">
@@ -94,7 +211,48 @@
                                         <h2 class="section-title">Laço<em>do-while</em> </h2>
 
                                 </section><!--//doc-section-->
-                                
+                                <section id="extra" class="doc-section">
+                                    <h2 class="section-title">Materiais Extras</h2>
+
+                                    <div class="section-block">
+                                        <h3 class="block-title">Comando <em>break</em></h3>
+                                        Em algumas situações podemos querer parar o laço de repetição antes da condição de parada ser atingida. Para isso, utilizamos o comando <code>break</code>. Ele termina o laço que está sendo executado e vai para a próxima instrução depois dele.
+
+                                        <div class="callout-block note-purple" style="margin-top: 2em;">
+                                                <div class="icon-holder">
+                                                    <i class="fa fa-info-circle"></i>
+                                                </div><!--//icon-holder-->
+                                                <div class="content">
+                                                    <p>Em laços aninhados, se o comando <em>break</em> for executado em um laço mais interno, o laço externo continuará sendo executado. Ou seja, o comando <em>break</em> só termina <b>o laço atual</b>.</p>
+                                                </div><!--//content-->
+                                            </div>
+
+                                        </div>
+                                        <h3>Exemplo</h3>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+int op = 1;
+while (True){
+    printf("Informe uma opção:\n");
+    printf("1 - Nova Operação\n");
+    printf("2 - Sair\n");
+    scanf("%d", &op);
+
+    if(op == 1){
+        /* realiza nova operação */
+    }
+    else if(op == 2){
+        printf("Tchau\n");
+        break;
+    }
+    else{
+        printf("Opção invalida.\n");
+    }
+}
+
+
+                                        </pre>
+                                    </div>
+                                </section>
                             </div><!--//content-inner-->
                         </div><!--//doc-content-->
 
@@ -103,8 +261,13 @@
                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
                                 <li><a class="scrollto" href="#intro">Introdução</a></li>
                                 <li><a class="scrollto" href="#for">Laço <em>for</em></a></li>
+                                <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#forfor">Laços <em>for</em> aninhados</a></li>
+
+                                </ul>
                                 <li><a class="scrollto" href="#while">Laço <em>while</em></a></li>
                                 <li><a class="scrollto" href="#do_while">Laço <em>do-while</em></a></li>
+                                <li><a class="scrollto" href="#extra">Materiais Extras</a></li>
 
                             </ul><!--//doc-menu-->
                         </nav>
