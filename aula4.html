@@ -133,19 +133,27 @@ for(idx = &lt;inicio&gt;; idx &lt;teste&gt; &lt;parada&gt;; idx &lt;incremento&g
 
                                     <h3 class="block-title">Exemplos</h3>
 
-                                    <p>Listar os primeiros 100 números inteiros começando do 1.</p>
+                                    <p>Listar os primeiros 10 números inteiros de maneiras diferentes.</p>
+                                    <a href="http://www.pythontutor.com/c.html#code=int%20main%28%29%20%7B%0A%20%20int%20idx%20%3D%200%3B%0A%20%20printf%28%22Ordem%20crescente%5Cn%22%29%3B%0A%20%20for%28idx%20%3D%201%3B%20idx%20%3C%3D%2010%3B%20idx%2B%2B%29%7B%0A%20%20%20%20%20%20printf%28%22%25d%20%22,%20idx%29%3B%0A%20%20%7D%0A%20%20printf%28%22%5CnOrdem%20decrescente%5Cn%22%29%3B%0A%20%20/*%20Ordem%20decrescente%20*/%0A%20%20for%28idx%20%3D%2010%3B%20idx%20%3E%200%3B%20idx--%29%7B%0A%20%20%20%20%20%20printf%28%22%25d%20%22,%20idx%29%3B%0A%20%20%7D%0A%20%20printf%28%22%5CnCrescente,%20somente%20pares.%5Cn%22%29%3B%0A%20%20for%28idx%20%3D%202%3B%20idx%20%3C%3D%2010%3B%20idx%20%2B%3D%202%29%7B%0A%20%20%20%20%20%20printf%28%22%25d%20%22,%20idx%29%3B%0A%20%20%7D%20%0A%20%20printf%28%22%5CnCrescente,%20somente%20impares.%5Cn%22%29%3B%0A%20%20for%28idx%20%3D%201%3B%20idx%20%3C%3D%2010%3B%20idx%20%2B%3D%202%29%7B%0A%20%20%20%20%20%20printf%28%22%25d%20%22,%20idx%29%3B%0A%20%20%7D%20%20%20%0A%20%20return%200%3B%0A%7D&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" target="_blank" class="btn btn-purple" style="margin-bottom: 1em;">Execução</a>
                                     <pre class="prettyprint linenums:1 lang-cpp">
-int idx = 0;
-/* Ordem crescente */
-for(idx = 1; idx &lt;= 100; idx++){
-    printf("%d ", i);
-}
-printf("\n");
-/* Ordem decrescente */
-for(idx = 100; idx > 0; idx--){
-    printf("%d ", i);
-}
-printf("\n");
+  int idx = 0;
+  printf("Ordem crescente\n");
+  for(idx = 1; idx &lt;= 10; idx++){
+      printf("%d ", idx);
+  }
+  printf("\nOrdem decrescente\n");
+  /* Ordem decrescente */
+  for(idx = 10; idx > 0; idx--){
+      printf("%d ", idx);
+  }
+  printf("\nCrescente, somente pares.\n");
+  for(idx = 2; idx &lt;= 10; idx += 2){
+      printf("%d ", idx);
+  } 
+  printf("\nCrescente, somente impares.\n");
+  for(idx = 1; idx &lt;= 10; idx += 2){
+      printf("%d ", idx);
+  }  
                                     </pre>
 
                                     <p>Média de uma quantidade de números informada pelo usuário.</p>
@@ -165,10 +173,11 @@ printf("Media eh %f\n", media);
                                     </pre>
 
                                     <p>Mostrar o valor ASCII das letras minúsculas.</p>
+                                    <a href="http://www.pythontutor.com/c.html#code=int%20main%28%29%20%7B%0A%20%20int%20i%3B%0A%20%20for%28i%20%3D%20'a'%3B%20i%20%3C%3D%20'z'%3B%20i%2B%2B%29%7B%0A%20%20%20%20%20%20printf%28%22%253d%20-%20%25c%5Cn%22,%20i,%20i%29%3B%0A%20%20%7D%0A%20%20return%200%3B%0A%7D&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" target="_blank" class="btn btn-purple" style="margin-bottom: 1em;">Execução</a>
                                     <pre class="prettyprint linenums:1 lang-cpp">
 int i;
 /* i recebe o valor do caractere 'a', e eh comparado ao valor do caractere 'z' */
-for(i = 'a'; i &lt; 'z'; i++){
+for(i = 'a'; i &lt;= 'z'; i++){
     printf("%d - %c\n", i, i);
 }
                                     </pre>
@@ -188,6 +197,7 @@ for(i = 'a'; i &lt; 'z'; i++){
                                                 </div><!--//content-->
                                             </div>
                                         <h3 class="block-title">Exemplo</h3>
+                                        <a href="http://www.pythontutor.com/c.html#code=int%20main%28%29%20%7B%0A%20%20int%20i,%20j%3B%0A%20%20for%28i%20%3D%200%3B%20i%20%3C%203%3B%20i%2B%2B%29%7B%0A%20%20%20%20%20%20printf%28%22Loop%20externo%20%25d%5Cn%22,%20i%29%3B%0A%20%20%20%20%20%20for%28j%20%3D%200%3B%20j%20%3C%203%3B%20j%2B%2B%29%7B%0A%20%20%20%20%20%20%20%20%20%20printf%28%22Loop%20interno%20%25d%5Cn%22,%20j%29%3B%0A%20%20%20%20%20%20%7D%0A%20%20%7D%0A%20%20return%200%3B%0A%7D&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" class="btn btn-purple" target="_blank" style="margin-bottom: 1em;">Execução</a>
                                         <pre class="prettyprint linenums:1 lang-cpp">
 int i, j;
 for(i = 0; i &lt; 3; i++){
