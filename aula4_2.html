@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>Estruturas de Repetição</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Thiago Veras & Giovanni Guidini">    
+    <link rel="shortcut icon" href="assets/images/UnB-logo.png">  
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+    
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Syntax Prettyprint -->
+    <link rel="stylesheet"  href="assets/syntax/tomorrow_night.css">
+    <script src = "assets/syntax/prettify.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .img-responsive{
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+        }
+    </style>
+
+</head> 
+
+<body class="body-purple">
+        <div class="page-wrapper">
+            <!-- ******Header****** -->
+            <header id="header" class="header">
+                <div class="container">
+                    <div class="branding">
+                        <h1 class="logo">
+                            <a href="index.html">
+                                <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                                <span class="text-highlight">Aula </span><span class="text-bold">4</span>
+                            </a>
+                        </h1>
+                    </div><!--//branding-->
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aulas.html">Voltar</a></li>
+                    </ol>
+                </div><!--//container-->
+            </header><!--//header-->
+            <div class="doc-wrapper">
+                <div class="container">
+                    <div id="doc-header" class="doc-header text-center">
+                        <h1 class="doc-title"><span class="icon-holder glyphicon glyphicon-repeat"></span> Estruturas de Repetição</h1>
+                        <div class="meta"><i class="fa fa-clock-o"></i> Last updated: September 2nd, 2018</div>
+                    </div><!--//doc-header-->
+                    <div class="doc-body">
+                        <div class="doc-content">
+                            <div class="content-inner">
+                                <section id="intro" class="doc-section">
+                                    <h2 class="section-title">Introdução</h2>
+                                    <div class="section-block" id="intro">
+                                        <p>Computadores são especialmente bons em realizar tarefas repetitivas. Nesta aula, veremos como codificar <b>estruturas de repetição</b>, que permitem que um conjunto de comandos seja executado em sequência mais de uma vez. </p>
+
+                                        <p>Uma <b>estrutura de repetição</b> permite que um conjunto
+                                            de comandos sejam executados <b>enquanto uma
+                                            condição for verdadeira</b>. As estruturas de repetição
+                                            também são chamadas de <b>laços</b> ou <b>loops</b>.</p>
+
+                                        <p>Cada vez que o conjunto de ações do laço é repetido,
+                                            acontece uma <b>iteração</b>. Portanto, veremos as <em>estruturas de repetição iterativas</em> nesta aula.</p>
+
+                                        <p>As estruturas deste tipo mais comuns são:</p>
+                                        <ul>
+                                            <li>Repetição contada</li>
+                                            <li>Condicional com teste no início</li>
+                                            <li>Condicional com teste no final</li>
+                                        </ul>
+
+                                    </div>
+                                </section><!--//doc-section-->
+
+                                <section id="for" class="doc-section">
+                                        <h2 class="section-title">Laço <em>for</em></h2>
+                                        <p>O laço for é a estrutura de repetição <b>contada</b>. Utilizamos ele quando sabemos <em>de antemão</em> quantas repetições serão feitas.</p>
+
+                                        <p>Este número de repetições pode ser um valor <b>fixo</b>, por exemplo, mostrar os primeiros 10 números pares; ou pode ser um valor <b>informado</b> pelo usuário ou <b>calculado</b> pelo programa.</p>
+
+                                        <p>O importante é que, ao entrar no laço, o computador já sabe quantas iterações serão feitas. Os laços <em>for</em> são construídos conforme mostrado abaixo.</p>
+
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+...
+int idx; /* variavel de indice */
+for(idx = &lt;inicio&gt;; idx &lt;teste&gt; &lt;parada&gt;; idx &lt;incremento&gt;){
+    /* comandos */
+}</pre>
+                                        
+                                    
+                                        <ul>
+                                            <li>inicio é o valor inicial do índice, geralmente 0 ou 1.</li>
+                                            <li>teste é a condição a ser testada, i.e. &lt;, &lt;=, =, >, >=, !=</li>
+                                            <li>parada é o valor de parada.</li>
+                                            <li>incremento é o valor a ser atribuído ao índice ao final de uma iteração.</li>
+                                        </ul>
+
+                                    <p>A <b>ordem</b> em que cada parte do laço for é executada acontece da seguinte maneira:</p>
+
+                                    <ol>
+                                        <li>O valor de início é atribuído à variável índice.</li>
+                                        <li>A condição de parada é testada.</li>
+                                        <li>Os comandos do laço for são executados.</li>
+                                        <li>O incremento é feito.</li>
+                                        <li>Repete do passo 2, até que a condição seja avaliada como falsa.</li>
+                                    </ol>
+
+                                    <h3 class="block-title">Exemplo 1</h3>
+
+                                    <p>Listar os primeiros 10 números inteiros de maneiras diferentes.</p>
+                                    <a href="http://www.pythontutor.com/c.html#code=int%20main%28%29%20%7B%0A%20%20int%20idx%20%3D%200%3B%0A%20%20printf%28%22Ordem%20crescente%5Cn%22%29%3B%0A%20%20for%28idx%20%3D%201%3B%20idx%20%3C%3D%2010%3B%20idx%2B%2B%29%7B%0A%20%20%20%20%20%20printf%28%22%25d%20%22,%20idx%29%3B%0A%20%20%7D%0A%20%20printf%28%22%5CnOrdem%20decrescente%5Cn%22%29%3B%0A%20%20/*%20Ordem%20decrescente%20*/%0A%20%20for%28idx%20%3D%2010%3B%20idx%20%3E%200%3B%20idx--%29%7B%0A%20%20%20%20%20%20printf%28%22%25d%20%22,%20idx%29%3B%0A%20%20%7D%0A%20%20printf%28%22%5CnCrescente,%20somente%20pares.%5Cn%22%29%3B%0A%20%20for%28idx%20%3D%202%3B%20idx%20%3C%3D%2010%3B%20idx%20%2B%3D%202%29%7B%0A%20%20%20%20%20%20printf%28%22%25d%20%22,%20idx%29%3B%0A%20%20%7D%20%0A%20%20printf%28%22%5CnCrescente,%20somente%20impares.%5Cn%22%29%3B%0A%20%20for%28idx%20%3D%201%3B%20idx%20%3C%3D%2010%3B%20idx%20%2B%3D%202%29%7B%0A%20%20%20%20%20%20printf%28%22%25d%20%22,%20idx%29%3B%0A%20%20%7D%20%20%20%0A%20%20return%200%3B%0A%7D&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" target="_blank" class="btn btn-purple" style="margin-bottom: 1em;">Execução</a>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+  int idx = 0;
+  printf("Ordem crescente\n");
+  for(idx = 1; idx &lt;= 10; idx++){
+      printf("%d ", idx);
+  }
+  printf("\nOrdem decrescente\n");
+  /* Ordem decrescente */
+  for(idx = 10; idx > 0; idx--){
+      printf("%d ", idx);
+  }
+  printf("\nCrescente, somente pares.\n");
+  for(idx = 2; idx &lt;= 10; idx += 2){
+      printf("%d ", idx);
+  } 
+  printf("\nCrescente, somente impares.\n");
+  for(idx = 1; idx &lt;= 10; idx += 2){
+      printf("%d ", idx);
+  }</pre>  
+                                    
+                                    <h3 class="block-title">Exemplo 2</h3>
+                                    <p>Média de uma quantidade de números informada pelo usuário.</p>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+printf("Quantidade de numeros:\n");
+int n, i;
+scanf("%d", &n);
+float total = 0;
+/* ler todos os numeros */
+for(i = 0; i &lt; n; i++){
+    float f;
+    scanf("%f", &f);
+    total += f; /* Armazenando a soma total */
+}
+float media = total / n;
+printf("Media eh %f\n", media); </pre>
+                                   
+                                    
+                                    <h3 class="block-title">Exemplo 3</h3>
+                                    <p>Mostrar o valor ASCII das letras minúsculas.</p>
+                                    <a href="http://www.pythontutor.com/c.html#code=int%20main%28%29%20%7B%0A%20%20int%20i%3B%0A%20%20for%28i%20%3D%20'a'%3B%20i%20%3C%3D%20'z'%3B%20i%2B%2B%29%7B%0A%20%20%20%20%20%20printf%28%22%253d%20-%20%25c%5Cn%22,%20i,%20i%29%3B%0A%20%20%7D%0A%20%20return%200%3B%0A%7D&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" target="_blank" class="btn btn-purple" style="margin-bottom: 1em;">Execução</a>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+int i;
+/* i recebe o valor do caractere 'a', e eh comparado ao valor do caractere 'z' */
+for(i = 'a'; i &lt;= 'z'; i++){
+    printf("%d - %c\n", i, i);
+}</pre>
+                                    
+                                    <div class="section-block" id="forfor">
+                                        <h3 class="block-title">Laços <em>for</em> aninhados</h3>
+                                        <p>É possível ter laços aninhados, isto é, um laço de repetição dentro do outro.</p>
+
+                                        <p>Quando isso acontece, o laço <b>interno</b> é repetido <b>por completo</b> todas as vezes que o laço <b>externo</b> for executado. Veja o exemplo.</p>
+
+                                        <div class="callout-block" style="margin-top: 2em; background-color:#8a40a7;color: black;">
+                                                <div class="icon-holder">
+                                                        <i class="fa fa-warning"></i>
+                                                </div><!--//icon-holder-->
+                                                <div class="content">
+                                                    <h4 class="callout-title">Atenção!</h4>
+                                                    <p>Lembre-se de usar variáveis <b>diferentes</b> para guardar o índice dos laços diferentes!</p>
+                                                </div><!--//content-->
+                                            </div>
+                                        <h3 class="block-title">Exemplo</h3>
+                                        <a href="http://www.pythontutor.com/c.html#code=int%20main%28%29%20%7B%0A%20%20int%20i,%20j%3B%0A%20%20for%28i%20%3D%200%3B%20i%20%3C%203%3B%20i%2B%2B%29%7B%0A%20%20%20%20%20%20printf%28%22Loop%20externo%20%25d%5Cn%22,%20i%29%3B%0A%20%20%20%20%20%20for%28j%20%3D%200%3B%20j%20%3C%203%3B%20j%2B%2B%29%7B%0A%20%20%20%20%20%20%20%20%20%20printf%28%22Loop%20interno%20%25d%5Cn%22,%20j%29%3B%0A%20%20%20%20%20%20%7D%0A%20%20%7D%0A%20%20return%200%3B%0A%7D&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" class="btn btn-purple" target="_blank" style="margin-bottom: 1em;">Execução</a>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+int i, j;
+for(i = 0; i &lt; 3; i++){
+    printf("Loop externo %d\n", i);
+    for(j = 0; j &lt 3; j++){
+        printf("Loop interno %d\n", j);
+    }
+}
+                                    </pre>
+
+                                    <p>Teoricamente não existe um limite de laços aninhados permitidos. Na prática, no entanto, laços aninhados não são muito eficiêntes. Existem ocasiões em que são necessários, mas muito dificilmente você precisará mais do que 3 laços aninhados.</p>
+                                    </div>
+                                        
+                                </section><!--//doc-section-->
+                                <section id="while" class="doc-section">
+                                        <h2 class="section-title">Laço <em>while</em> </h2>
+                                        <p>Vimos com o <code> for </code> o que é um laço de repetição contado, agora iremos ver o que é um laço de repetição condicional</p>
+                                        <p>Laço de repetição condicional é uma estrutura que irá <b>executar uma instrução</b> que está <b>dentro</b> de seu <b>escopo</b> sempre que a <b>condição</b> de teste for <b>verdadeira</b></p>
+                                        <div class="callout-block" style="margin-top: 2em; background-color:#8a40a7;color: black;">
+                                            <div class="icon-holder">
+                                                <i class="fa fa-info-circle"></i>
+                                            </div><!--//icon-holder-->
+                                            <div class="content">
+                                                <p>Essa condição pode ser feita no <b>começo</b> do laço ou no <b>final</b> do laço</p>
+                                            </div><!--//content-->
+                                        </div> 
+                                        <p>Se a condição é realizada no <b>começo</b> do laço, então temos um laço <code>while</code></p>
+                                        <p>A repetição com teste no início apenas inicia o conjunto de instruções caso a condição teste seja verdadeira (testado antes de executar as instruções de dentro) e continua o laço enquanto ela for verdadeira</p>
+                                        <h3 class="block-title">Exemplo 1</h3>
+                                        <p>Faça um algoritmo que leia a variável SEXO.  Enquanto o valor fornecido não for correto (‘M’, ‘m’, ‘F’, ‘f’), exibir mensagem de erro e ler novamente. Quando for fornecido um valor correto, ler a variável ANO. Escrever ANO e SEXO.</p>
+                                        <pre class="prettyprint lang-cpp linenums:1">
+#include < stdio.h >
+
+int main () {
+    int ano;
+    char sexo;
+    printf("Informe o sexo (M/F):\n");
+    scanf(" %c", &sexo);
+    // A variável de controle deve ter um valor conhecido. Neste caso ela foi lida antes do laço.
+    while ((sexo != 'M') && (sexo != 'm') && (sexo != 'F') && (sexo != 'f')) {
+        printf("Erro! Valor invalido!\n");
+        printf("Informe o sexo novamente (M/F):\n");
+        //A variável de controle deve ter seu valor modificado dentro do laço.
+        //Neste caso, ela foi lida novamente.
+        scanf(" %c", &sexo);
+    }
+    printf("Informe o ano:\n");
+    scanf("%d", &ano);
+    printf("%d - %c\n", ano, sexo);
+    return 0;
+}</pre>                               
+                                    <h3 class="block-title">Exemplo 2</h3>
+                                    <p>Dado um valor n, imprima na tela o valor de n! (1 * 2 * ... * (n-1) * n)</p>       
+                                    <pre class = "prettyprint    lang-cpp    linenums:1">
+#include < stdio.h >
+
+int main () {
+    int n, i, fat;
+    printf("Informe um número:\n");
+    scanf("%d", &n);
+    fat = 1;
+    i = 2;
+    while (i <= n) {
+        fat *= i; /* fat = fat * i */
+        i++;
+    }
+    printf("O fatorial de %d eh %d.\n", n, fat);
+    
+    return 0;
+}
+</pre>                              <p>Demonstração da execução do algoritmo anterior para n = 3</p>        
+                                    <div id = "fat1"><img src="assets\images\While\fatorial\fat1.png" class = "img-responsive"  ></div>
+                                    <div id = "fat2" style="display: none;"><img src="assets\images\While\fatorial\fat2.png" class = "img-responsive" ></div>               
+                                    <div id = "fat3" style="display: none;"><img src="assets\images\While\fatorial\fat3.png" class = "img-responsive"></div>
+                                    <div id = "fat4" style="display: none;"><img src="assets\images\While\fatorial\fat4.png" class = "img-responsive"></div>
+                                    <div id = "fat5" style="display: none;"><img src="assets\images\While\fatorial\fat5.png" class = "img-responsive"></div>
+                                    <div id = "fat6" style="display: none;"><img src="assets\images\While\fatorial\fat6.png" class = "img-responsive"></div>
+                                    <div id = "fat7" style="display: none;"><img src="assets\images\While\fatorial\fat7.png" class = "img-responsive"></div>
+                                    <div style="text-align:center">
+                                    <a  class="btn btn-purple" onclick="animation_prev('fat',7)">Prev</a>
+                                    <a  class="btn btn-purple" style = "margin-left: 50%;" onclick="animation_next('fat',7)">Next</a>  
+                                        
+                                </section><!--//doc-section-->
+
+                                <section id="do_while" class="doc-section">
+                                    <h2 class="section-title">Laço <em>do-while</em> </h2>
+                                    <p>Vimos com o <code> for </code> o que é um laço de repetição contado e com o <code>while</code> o que é um laço de repetição condicional com teste no início.</p>
+                                    <p>O próximo laço de repetição a ser estudado é com teste da condição no <b>final</b> do código</p>
+                                    <div class="callout-block" style="margin-top: 2em; background-color:#8a40a7;color: black;">
+                                        <div class="icon-holder">
+                                            <i class="fa fa-info-circle"></i>
+                                        </div><!--//icon-holder-->
+                                        <div class="content">
+                                            <p>Lembre-se: a repetição com teste no início testa a condição <b>antes</b> de executar o laço. A repetição com teste no final, por sua vez, testa a condição apenas <b>depois</b> de executar o laço, ou seja, ele é executado <b>pelo menos uma vez</b>. Em qualquer uma das duas, o laço só continua sendo executado enquanto a condição for <b>verdadeira</b>.</p>
+                                        </div><!--//content-->
+                                    </div> 
+                                    <h3 class="block-title">Exemplo</h3>
+                                    <p>Elabore um algoritmo que solicite números inteiros enquanto os numeros digitados sejam diferentes de 0. O algoritmo deverá informar, ao final, qual a soma dos numeros informados.</p>
+                                    <pre class = "prettyprint    lang-cpp    linenums:1">
+int n, soma = 0;
+
+do{
+    printf("Digite um numero: ");
+    scanf("%d", &n);
+    soma += n;
+}while(n != 0);
+
+printf("Soma total = %d\n",soma);</pre>
+                                    <p> Exemplo 1 no terminal </p>
+                                    <pre class = "prettyprint lang-html">
+Digite um numero: 25
+Digite um numero: 25
+Digite um numero: 50
+Digite um numero: 0
+Soma total = 100</pre>                                   
+                                    <p> Exemplo 2 no terminal </p>
+                                    <pre class = "prettyprint lang-html">
+Digite um numero: 0
+Soma total = 0</pre>                                        
+                                <div class="callout-block" style="margin-top: 2em; background-color:#8a40a7;color: black;">
+                                    <div class="icon-holder">
+                                        <i class="fa fa-info-circle"></i>
+                                    </div><!--//icon-holder-->
+                                    <div class="content">
+                                        <p>Note que mesmo digitando 0 como primeiro número (segundo exemplo) as instruções do while ainda são executadas uma vez</p>
+                                    </div><!--//content-->
+                                </div> 
+                                </section><!--//doc-section-->
+                               <section id="extra" class="doc-section">
+                                    <h2 class="section-title">Materiais Extras</h2>
+
+                                    <div class="section-block">
+                                        <h3 class="block-title">Comando <em>break</em></h3>
+                                        <p>Em algumas situações podemos querer parar o laço de repetição antes da condição de parada ser atingida. Para isso, utilizamos o comando <code>break</code>. Ele termina o laço que está sendo executado e vai para a próxima instrução depois dele.</p>
+
+                                        <div class="callout-block" style="margin-top: 2em; background-color:#8a40a7;color: black;">
+                                            <div class="icon-holder">
+                                                <i class="fa fa-info-circle"></i>
+                                            </div><!--//icon-holder-->
+                                            <div class="content">
+                                                <p>Em laços aninhados, se o comando <em>break</em> for executado em um laço mais interno, o laço externo continuará sendo executado. Ou seja, o comando <em>break</em> só termina <b>o laço atual</b>.</p>
+                                            </div><!--//content-->
+                                        </div>
+
+                                        <h3>Exemplo</h3>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+int op = 1;
+while (True){
+    printf("Informe uma opção:\n");
+    printf("1 - Nova Operação\n");
+    printf("2 - Sair\n");
+    scanf("%d", &op);
+
+    if(op == 1){
+        /* realiza nova operação */
+    }
+    else if(op == 2){
+        printf("Tchau\n");
+        break;
+    }
+    else{
+        printf("Opção invalida.\n");
+    }
+}</pre>
+
+
+                                        
+                                    </div>
+                                    <div class="section-block">
+                                        <h3 class="block-title">Comando <em>continue</em></h3>
+                                        <p>O comando continue, diferente do break, não interrompe o laço de repetição e sim ignora todas as instruções embaixo dele <b>dentro do mesmo escopo</b></p>
+                                    </div>
+                                    <h3>Exemplo</h3>
+                                    <p>Pograma que soma apenas números positivos</p>
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+int n, soma = 0,i,x;
+
+printf("Digite a quantidade de numeros que deseja ler: ");
+scanf("%d", &n);
+for(i = 0; i < n; i++){
+    scanf("%d", &x);
+    if(x < 0) // Se o numero lido for negativo, ele ignora tudo que tem embaixo dele
+        continue;
+    soma += x;
+}
+printf("Soma total = %d\n",soma);</pre>
+                                <p>Exemplo no terminal</p>
+                                <pre class = "prettyprint lang-html">
+Digite a quantidade de numeros que deseja ler: 4
+10
+20
+-10
+-25
+Soma total = 30</pre>
+                                </section>
+                                
+                                
+                            </div><!--//content-inner-->
+                        </div><!--//doc-content-->
+
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li><a class="scrollto" href="#intro">Introdução</a></li>
+                                <li><a class="scrollto" href="#for">Laço <em>for</em></a></li>
+                                <ul class="nav doc-sub-menu">
+                                    <li><a class="scrollto" href="#forfor">Laço <em>for</em> aninhado</a></li>
+                                </ul>
+                                <li><a class="scrollto" href="#while">Laço <em>while</em></a></li>
+                                <li><a class="scrollto" href="#do_while">Laço <em>do-while</em></a></li>
+                                <li><a class="scrollto" href="#extra">Materiais Extras</a></li>
+
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->        
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Created by:<a class="link" href="https://github.com/VerasThiago" target="_blank"><span> Thiago Veras</span></a> &amp; <a class="link" href="https://github.com/Gguidini" target="_blank"><span> Giovanni M Guidini</span></a></small>
+             <br> <!-- break line-->
+             <small class="copyright">Theme PRETTYDOCS by <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a></small>
+ 
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
+    <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/animation.js"></script>
+    
+    <script>
+      prettyPrint();
+    </script>
+    
+</body>
+</html> 
