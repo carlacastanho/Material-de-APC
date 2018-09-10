@@ -74,20 +74,20 @@
                                
                                 <section id="while" class="doc-section">
                                         <h2 class="section-title">Laço <em>while</em> </h2>
-                                        <p>Vimos com o <code> for </code> o que é um laço de repetição contado, agora iremos ver o que é um laço de repetição condicional</p>
-                                        <p>Laço de repetição condicional é uma estrutura que irá <b>executar uma instrução</b> que está <b>dentro</b> de seu <b>escopo</b> sempre que a <b>condição</b> de teste for <b>verdadeira</b></p>
+                                        <p>Vimos com o <code> for </code> o que é um laço de repetição contado, agora iremos ver o que é um laço de repetição condicional.</p>
+                                        <p>Laço de repetição condicional é uma estrutura que irá <b>executar uma instrução</b> que está <b>dentro</b> de seu <b>escopo</b> sempre que a <b>condição</b> de teste for <b>verdadeira</b>.</p>
                                         <div class="callout-block" style="margin-top: 2em; background-color:orange;color: black;">
                                             <div class="icon-holder">
                                                 <i class="fa fa-info-circle"></i>
                                             </div><!--//icon-holder-->
                                             <div class="content">
-                                                <p>Essa condição pode ser feita no <b>começo</b> do laço ou no <b>final</b> do laço</p>
+                                                <p>Essa condição pode ser feita no <b>começo</b> do laço ou no <b>final</b> do laço.</p>
                                             </div><!--//content-->
                                         </div> 
                                         <p>Se a condição é realizada no <b>começo</b> do laço, então temos um laço <code>while</code></p>
-                                        <p>A repetição com teste no início apenas inicia o conjunto de instruções caso a condição teste seja verdadeira (testado antes de executar as instruções de dentro) e continua o laço enquanto ela for verdadeira</p>
+                                        <p>A repetição com teste no início apenas inicia o conjunto de instruções caso a condição teste seja verdadeira (testado antes de executar as instruções de dentro) e continua o laço enquanto ela for verdadeira.</p>
                                         <h3 class="block-title">Exemplo 1</h3>
-                                        <p>Faça um algoritmo que leia a variável SEXO.  Enquanto o valor fornecido não for correto (‘M’, ‘m’, ‘F’, ‘f’), exibir mensagem de erro e ler novamente. Quando for fornecido um valor correto, ler a variável ANO. Escrever ANO e SEXO.</p>
+                                        <p>Faça um algoritmo que leia a variável SEXO.  Enquanto o valor fornecido não for correto (‘M’, ‘m’, ‘F’, ‘f’), exibir mensagem de erro e ler novamente. Quando for fornecido um valor correto, ler a variável ANO. Essacrever ANO e SEXO.</p>
                                         <pre class="prettyprint lang-cpp linenums:1">
 #include < stdio.h >
 
@@ -128,24 +128,14 @@ int main () {
     
     return 0;
 }
-</pre>                              <p>Demonstração da execução do algoritmo anterior para n = 3</p>        
-                                    <div id = "fat1"><img src="assets\images\While\fatorial\fat1.png" class = "img-responsive"  ></div>
-                                    <div id = "fat2" style="display: none;"><img src="assets\images\While\fatorial\fat2.png" class = "img-responsive" ></div>               
-                                    <div id = "fat3" style="display: none;"><img src="assets\images\While\fatorial\fat3.png" class = "img-responsive"></div>
-                                    <div id = "fat4" style="display: none;"><img src="assets\images\While\fatorial\fat4.png" class = "img-responsive"></div>
-                                    <div id = "fat5" style="display: none;"><img src="assets\images\While\fatorial\fat5.png" class = "img-responsive"></div>
-                                    <div id = "fat6" style="display: none;"><img src="assets\images\While\fatorial\fat6.png" class = "img-responsive"></div>
-                                    <div id = "fat7" style="display: none;"><img src="assets\images\While\fatorial\fat7.png" class = "img-responsive"></div>
-                                    <div style="text-align:center">
-                                    <a  class="btn btn-orange" onclick="animation_prev('fat',7)">Prev</a>
-                                    <a  class="btn btn-orange" style = "margin-left: 50%;" onclick="animation_next('fat',7)">Next</a>  
-                                        
+</pre>
+<a href="http://www.pythontutor.com/c.html#code=%23include%3Cstdio.h%3E%0A%20%0Aint%20main%20%28%29%20%7B%0A%20%20%20%20int%20n,%20i,%20fat%3B%0A%20%20%20%20n%20%3D%203%3B%0A%20%20%20%20fat%20%3D%201%3B%0A%20%20%20%20i%20%3D%202%3B%0A%20%20%20%20while%20%28i%20%3C%3D%20n%29%20%7B%0A%20%20%20%20%20%20%20%20fat%20*%3D%20i%3B%20/*%20fat%20%3D%20fat%20*%20i%20*/%0A%20%20%20%20%20%20%20%20i%2B%2B%3B%0A%20%20%20%20%7D%0A%20%20%20%20printf%28%22O%20fatorial%20de%20%25d%20eh%20%25d.%5Cn%22,%20n,%20fat%29%3B%0A%20%20%20%20%0A%20%20%20%20return%200%3B%0A%7D&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" class = "btn btn-orange" target = "_blank">Execução</a>                                        
                                 </section><!--//doc-section-->
 
                                 <section id="do_while" class="doc-section">
                                     <h2 class="section-title">Laço <em>do-while</em> </h2>
                                     <p>Vimos com o <code> for </code> o que é um laço de repetição contado e com o <code>while</code> o que é um laço de repetição condicional com teste no início.</p>
-                                    <p>O próximo laço de repetição a ser estudado é com teste da condição no <b>final</b> do código</p>
+                                    <p>O próximo laço de repetição a ser estudado é com teste da condição no <b>final</b> do código.</p>
                                     <div class="callout-block" style="margin-top: 2em; background-color:orange;color: black;">
                                         <div class="icon-holder">
                                             <i class="fa fa-info-circle"></i>
@@ -182,7 +172,7 @@ Soma total = 0</pre>
                                         <i class="fa fa-info-circle"></i>
                                     </div><!--//icon-holder-->
                                     <div class="content">
-                                        <p>Note que mesmo digitando 0 como primeiro número (segundo exemplo) as instruções do while ainda são executadas uma vez</p>
+                                        <p>Note que mesmo digitando 0 como primeiro número (segundo exemplo) as instruções do while ainda são executadas uma vez.</p>
                                     </div><!--//content-->
                                 </div> 
                                 </section><!--//doc-section-->
