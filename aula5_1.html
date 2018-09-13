@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>Subalgoritmos I</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Thiago Veras & Giovanni Guidini">    
+    <link rel="shortcut icon" href="assets/images/UnB-logo.png">  
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+    
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Syntax Prettyprint -->
+    <link rel="stylesheet"  href="assets/syntax/tomorrow_night.css">
+    <script src = "assets/syntax/prettify.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .img-responsive{
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+        }
+    </style>
+
+</head> 
+
+<body class="body-blue">
+        <div class="page-wrapper">
+            <!-- ******Header****** -->
+            <header id="header" class="header">
+                <div class="container">
+                    <div class="branding">
+                        <h1 class="logo">
+                            <a href="index.html">
+                                <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                                <span class="text-highlight">Aula </span><span class="text-bold">5.1</span>
+                            </a>
+                        </h1>
+                    </div><!--//branding-->
+                    <ol class="breadcrumb">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aulas.html">Voltar</a></li>
+                    </ol>
+                </div><!--//container-->
+            </header><!--//header-->
+            <div class="doc-wrapper">
+                <div class="container">
+                    <div id="doc-header" class="doc-header text-center">
+
+                        <h1 class="doc-title"><i class="icon glyphicon glyphicon-modal-window"></i> Subalgoritmos I</h1>
+                        <div class="meta"><i class="fa fa-clock-o"></i> Last updated: September 13th, 2018</div>
+                    </div><!--//doc-header-->
+                    <div class="doc-body">
+                        <div class="doc-content">
+                            <div class="content-inner">
+                                <section id="intro" class="doc-section">
+                                    <h2 class="section-title">Introdução</h2>
+                                    <div class="section-block" id="o_que_sao">
+                                        <h3 class="block-title"> O que são subalgoritmos ?</h3>
+                                        <ul>
+                                            <li><p>Subalgoritmos são como pequenos programas internos à um programa. Também chamados de “funções”, por lembrarem funções matemáticas.</p></li>
+
+                                            <li><p>Esses subalgoritmos são definidos 1 vez no programa e podem ser usados tantas vezes quanto forem necessárias. </p></li>
+
+                                            <li><p>As funções ajudam a organizar um código que seja muito extenso, facilitando sua manutenção e leitura, uma vez que seria muito complicado entender um código de 1000+ linhas com tudo escrito na <code> int main() </code></p></li>
+                                            <li><p>Auxiliam na modularização do código</p></li>
+
+                                        </ul>
+
+                                    </div>
+                                    <div class="section-block" id="problemas">
+
+                                        <h3 class="block-title">Problemas de não usar funções</h3>
+                                        <ul>
+                                            <li><p>Repetir códigos (CTRL+C CTRL+V) diminui a legibilidade do programa;</p></li>
+
+                                            <li><p>Código copiado com erro precisa ser consertado em múltiplos lugares do programa;</p></li>
+
+                                            <li><p>Mais linhas de código do que seriam necessárias causa maior dificuldade de manutenção;</p></li>
+
+                                            <li><p>O programador fica perdido no código;</p></li>
+
+                                            <li><p>Mais difícil de fazer o debugging.</p></li>
+                                        </ul>
+                                    </div>
+                                </section><!--//doc-section-->
+
+                                <section id="program" class="doc-section">
+                                        <h2 class="section-title">Estrutura de funções</h2>
+                                        <div class="section-block">
+                                            <img   src="assets/images/Funcoes/func.jpeg">
+                                            <ol>
+                                                <li><p>Cabeçalho - declaração da função. Inclui tipo de retorno, nome e lista de parâmetros. Como boa prática é imediatamente precedida de um comentário explicando o que a função faz.</p></li>
+
+                                                <li><p>Corpo da função - Define a implementação e funcionamento da função. Idealmente não é muito extenso.</p></li>
+
+                                                <li><p>Escopo da função - Marcam a abertura e o fechamento da função, “separando-a” do resto do programa.</p></li>
+                                            </ol>
+                                        </div>
+                                        <div class="section-block">
+                                            <h3 class = "block-title"> Palavra reservada return</h3>
+                                            <p>A palavra <b>return</b> é especial, e marca o retorno de uma função. As únicas funções que podem não ter um retorno são as de tipo <b>void</b>.</p>
+                                        </div>
+                                      
+                                    </section><!--//doc-section-->
+                                    <section id="printf" class="doc-section">
+                                            <h2 class="section-title">Exemplos </h2>
+                                            <div class="section-block" id="mods">
+                                                    <h3 class="block-title">Funções void sem parâmetros</h3>
+                                                    <p>Esta função não possui retorno nem parâmetros.</p>
+                                                    <p>Ela pode ser usada se for necessário mostrar as opções várias vezes.</p>
+                                                    <pre class = "prettyprint    lang-cpp    linenums:1">
+/* Simples função para mostrar um menu. */
+
+void options(){
+    int i;
+
+    /* clear screen*/
+    system("@cls||clear");
+
+    /* Show options*/
+    printf("Choose your option\n");
+    printf("(1) First options\n");
+    printf("(2) Second options\n");
+    printf("(3) Third options\n");
+}
+
+int main(){
+    int option;
+
+    do{
+        options();
+        scanf("%d", &option);
+    }while(option < 1 or option > 3);
+
+    return 0;
+}   </pre>
+                                                    <a href="assets/codes/aula5/menu.c" download="" class="btn btn-blue">Download Code</a>      
+                                            </div>
+                                            <div class="section-block">
+                                                <h3 class="section-title">Função void com parâmetros</h3>
+                                                <p>Esta função novamente não possui retorno (pois é void) porém desta vez possui parâmetros</p>
+                                                <p>Possui 2 parâmetros, uma variável h e w para altura e largura, respectivamente</p>
+                                                <pre class=" prettyprint lang-cpp linenums:1">
+void printSquare(int h, int w){
+    int i,j;
+
+    /* Print first line */
+    for(i = 0; i < w; i++)
+        printf("#");
+    printf("\n");
+
+    /* Print left & right columns */
+    for(i = 1; i < h-1; i++){
+        for(j = 0; j < w; j++){
+            if(!j || j == w-1)
+                printf("#");
+            else
+                printf(" ");
+        }
+        printf("\n");
+    }
+
+    /* Print last line if exist */
+    if(h > 1){
+        for(i = 0; i < w; i++)
+            printf("#");
+        printf("\n");
+    }
+
+}
+
+int main(){
+    printf("What's rectangle size?\n");
+    int x,y;
+    scanf("%d %d", &x, &y);
+    printSquare(x,y);
+
+    return 0;
+
+}</pre>
+                                        <a href="assets/codes/aula5/rectangle.c" download="" class="btn btn-blue">Download Code</a>      
+
+                                        <p>Exemplo no terminal</p>
+                                        <pre class=" prettyprint lang-bsh">
+APC$ gcc -Wall -ansi -o rectangle rectangle.c
+APC$ ./rectangle 
+What's rectangle size?
+5 9
+#########
+#       #
+#       #
+#       #
+#########</pre>
+                                        </div>
+                                        <div class="section-block">
+                                            <h3 class="block-title">Função com retorno e parâmetro</h3>
+                                            <p>Programa mostra quais dos 100 primeiros números são primos.</p>
+                                            <p>Note os returns na função.</p>
+                                        </div>
+                                    </section><!--//doc-section-->
+                                    <section id="scanf" class="doc-section">
+                                    <pre class=" prettyprint lang-cpp linenums:1">
+/* Retorna 1 (true) se o numero for primo e 0 (false) caso contrário*/
+int primo(int n){
+    int i;
+    int m = (int) sqrt(n);
+    for(i = 2; i <= m; i++){
+        if(n%i == 0){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int main(){
+    int i;  
+    for(i = 2; i <= 100; i++){
+        if(primo(i) == 1)
+            printf("%d eh primo\n", i);
+        else
+            printf("%d nao eh primo\n", i);
+    }
+    return 0;
+}   </pre>  
+                                    <a href="assets/codes/aula5/prime.c" download="" class="btn btn-blue">Download Code</a>      
+
+                                    <p>Exemplo no terminal</p>
+                                    <pre class=" prettyprint lang-bsh">
+APC$ gcc -Wall -ansi -o prime prime.c -lm
+APC$ ./prime
+2 eh primo
+3 eh primo
+4 nao eh primo
+5 eh primo
+6 nao eh primo
+7 eh primo
+8 nao eh primo
+9 nao eh primo
+10 nao eh primo
+    .
+    .
+    .</pre>
+
+                                    </section><!--//doc-section-->
+                                
+                            </div><!--//content-inner-->
+                        </div><!--//doc-content-->
+
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li><a class="scrollto" href="#intro">Introdução</a></li>
+                                <li><a class="scrollto" href="#program">Elementos da Gramática</a></li>
+                                <ul class="nav doc-sub-menu">
+                                    <li><a class="scrollto" href="#estrutura">Estrutura</a></li>
+                                    <li><a class="scrollto" href="#comentario">Comentários</a></li>
+                                    <li><a class="scrollto" href="#ops">Operadores</a></li>
+                                    <li><a class="scrollto" href="#vars">Variáveis</a></li>
+                                    <li><a class="scrollto" href="#defs">Declaração de Variáveis</a></li>
+                                    <li><a class="scrollto" href="#macs">Declaração de Macros</a></li>
+                                </ul>
+                                <li><a class="scrollto" href="#printf">Comando <em>printf</em></a></li>
+                                <ul class="nav doc-sub-menu">
+                                        <li><a class="scrollto" href="#mods">Modificadores</a></li>
+                                </ul>
+                                <li><a class="scrollto" href="#scanf">Comando <em>scanf</em></a></li>
+
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->        
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Created by:<a class="link" href="https://github.com/VerasThiago" target="_blank"><span> Thiago Veras</span></a> &amp; <a class="link" href="https://github.com/Gguidini" target="_blank"><span> Giovanni M Guidini</span></a></small>
+             <br> <!-- break line-->
+             <small class="copyright">Theme PRETTYDOCS by <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a></small>
+ 
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
+    <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/animation.js"></script>
+    
+    <script>
+      prettyPrint();
+    </script>
+    
+</body>
+</html> 
