@@ -341,6 +341,42 @@ APC$ ./prime
 
                                     </section><!--//doc-section-->
                                 
+                    <section class="doc-section" id="extras">
+                        <h2 class="section-title">Materiais Extras</h2>
+
+                        <h3 class="block-title">Variáveis Globais vs Variáveis Locais</h3>
+                        <p> Vimos que variáveis locais são as declaradas dentro de um <b>escopo</b>. As variáveis globais são aquelas cujo escopo é o <b>programa inteiro</b>.
+                        </p>
+
+                        <p>Elas são declaradas fora de qualquer função (incluindo a função main)</p>
+
+                        <pre class="prettyprint linenums:1 lang-cpp">
+#include &lt;stdio.h&gt;
+int a = 10; /* variavel global */
+
+void print(){
+    printf("a = %d\n", a); /* variaveis globais podem ser acessadas em qualquer lugar do programa */
+}
+
+int main(){
+    printf("a = %d\n", a);
+    a += 10; /* variaveis globais podem ser alteradas em qualquer lugar do programa */
+    print();
+}
+                        </pre>
+
+                        <h3 class="block-title">Cuidados com variáveis globais</h3>
+                        <ul>
+                            
+                        <li> Evite usar variáveis globais indiscriminadamente. Elas devem ser usadas somente se existe algum valor que precisa realmente ser acessado por várias funções.</li>
+
+                        <li> Variáveis globais diminuem a modularização do programa, tornando-o mais difícil de manutenir e gerenciar. </li>
+                        <li> Variáveis globais tornam mais difícil debugar o programa, já que temos partes diferentes do código alterando uma mesmo variável.</li>
+
+                        <li> Além disso, elas desperdiçam memória: variáveis locais só existem quando seu escopo está ativo, ou seja, só enquanto são necessárias, variáveis globais existem sempre!</li>
+</ul>
+
+                    </section>
                             </div><!--//content-inner-->
                         </div><!--//doc-content-->
 
@@ -365,6 +401,8 @@ APC$ ./prime
                                     <li><a href="#void_param" class="scrollto">Funções void com parâmetro</a></li>
                                     <li><a href="#return_param" class="scrollto">Funções com retorno e parâmetro</a></li>
                                 </ul>
+                                <li><a class="scrollto" href="#extras">Materiais Extras</a></li>
+                            
  
                             </ul><!--//doc-menu-->
                         </nav>
