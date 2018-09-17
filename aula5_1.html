@@ -67,7 +67,7 @@
                     <div id="doc-header" class="doc-header text-center">
 
                         <h1 class="doc-title"><i class="icon glyphicon glyphicon-modal-window"></i> Subalgoritmos I</h1>
-                        <div class="meta"><i class="fa fa-clock-o"></i> Last updated: September 13th, 2018</div>
+                        <div class="meta"><i class="fa fa-clock-o"></i> Last updated: September 17th, 2018</div>
                     </div><!--//doc-header-->
                     <div class="doc-body">
                         <div class="doc-content">
@@ -104,7 +104,7 @@
                                     </div>
                                 </section><!--//doc-section-->
 
-                                <section id="program" class="doc-section">
+                                <section id="struct" class="doc-section">
                                         <h2 class="section-title">Estrutura de funções</h2>
                                         <div class="section-block">
                                             <img   src="assets/images/Funcoes/func.jpeg">
@@ -116,15 +116,93 @@
                                                 <li><p>Escopo da função - Marcam a abertura e o fechamento da função, “separando-a” do resto do programa.</p></li>
                                             </ol>
                                         </div>
-                                        <div class="section-block">
-                                            <h3 class = "block-title"> Palavra reservada return</h3>
-                                            <p>A palavra <b>return</b> é especial, e marca o retorno de uma função. As únicas funções que podem não ter um retorno são as de tipo <b>void</b>.</p>
+
+                                        <div class="section-block" id="type">
+                                            <h3 class="block-title">Tipo de Função</h3>
+
+                                            <p>Toda função precisa de um <b>tipo</b>. O tipo da função informa ao compilador se a função irá retornar alguma coisa, e qual o tipo dessa coisa, ou se a função não deve retornar nada.</p>
+
+                                            <p>O tipo da função <b>precede</b> o nome dela no cabeçalho. Uma função pode ser de qualquer tipo: int, float, double, etc.</p>
+
                                         </div>
-                                      
+                                       <div class="section-block" id="scope">
+                                            <h3 class="block-title">Escopo</h3>
+
+                                            <p>O escopo de uma função define quais linhas de código serão executadas quando a função for invocada, e também separa as variáveis <b>locais</b> da função do resto do programa.</p>
+                                            <p>Os escopos são marcados por <b>chaves</b> (i.e. {}). Cada chave { abre um escopo e a cada chave } fecha o último escopo aberto. Obviamente toda chave { <b>precisa</b> de uma chave } correspondente.</p>
+
+                                            <p>Não são apenas funções que possuem escopo, estruturas de repetição e condicionais também possuem. Por exemplo:</p>
+
+                                            <pre class="prettyprint linenums:1 lang-cpp">
+...
+if (a > b){
+    /* Escopo do if marcado por chaves. A variável local tmp só existe
+    dentro do escopo */
+    int tmp = a;
+    a = b;
+    b = tmp;
+}
+else {
+    /* Escopo do else. A variável tmp não existe neste escopo. */
+}
+...
+                                            </pre>
+
+                                       </div>
+                                       <div class="section-block">
+                                            <h3 class = "block-title" id="return"> Palavra reservada return</h3>
+                                            <ul>
+                                                <li>A palavra <b>return</b> é especial, e marca o retorno de uma função. As únicas funções que podem não ter um retorno são as de tipo <b>void.</b></li> 
+                                                <li>O que é retornado pela função <b>precisa</b> ser do mesmo tipo que foi especificado no cabeçalho da função.</li>
+                                                <li>Depois que o comando <b>return</b> é executado a função é terminada e linhas depois dele são ignoradas.</li>
+                                            </ul>    
+
+                                            <div class="callout-block callout-info">
+                                        <div class="icon-holder">
+                                            <i class="fa fa-info-circle"></i>
+                                        </div><!--//icon-holder-->
+                                        <div class="content">
+                                            <p>Uma função só pode retornar um valor. Mas este valor pode ser de qualquer tipo.</p>
+                                        </div><!--//content-->
+                                    </div><!--//callout-block-->
+
+                                        </div>
+                                        <div class="section-block" id="param">
+                                            <h3 class="block-title">Parâmetros de Funções</h3>
+
+                                            <p>Algumas funções podem precisar de variáveis auxiliares enviadas de fora da função. Essas variáveis são os <b>parâmetros</b>. Parâmetros precisam ser definidos no <b>cabeçalho</b> da função, incluindo seu tipo.</p>
+                                                
+                                            <p>Pense neles como os parâmetros de uma função matemática. Por exemplo, a função f(x) = x<sup>2</sup> recebe um parâmetro x e calcula o quadrado dele. Em C podemos escrever a mesma função como:</p>
+
+                                            <pre class="prettyprint linenums:1 lang-cpp">
+int f(int x){
+    return x*x;
+}
+</pre>
+                                            <p>Note que ambas as funções fazem a mesma coisa: retornam o quadrado do parâmetro. Para executar uma função, basta chamá-la passando o valor do parâmetro entre parênteses, por exemplo:</p>
+
+                                            <pre class="prettyprint linenums:1 lang-cpp">
+int a = f(5); /* a recebe 25 */
+int sq_a = f(a); /* sq_a recebe 625 */
+printf("%d\n", f(2)); /* Imprime 4*/
+                                            </pre>
+
+                                            <p>Existem algumas particularidades sobre parâmetros de função em C que serão vistos em mais detalhes na próxima aula.</p>
+                                            <div class="callout-block callout-info">
+                                                <div class="icon-holder">
+                                                    <i class="fa fa-info-circle"></i>
+                                                </div>
+                                                <div class="content">
+                                                    Parâmetros de funções são tratados como variáveis locais e <b>deixam de existir</b> quando a execução da função é encerrada. Isto quer dizer que <b>não</b> podemos acessar parâmetros da função fora dela.
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                       
                                     </section><!--//doc-section-->
-                                    <section id="printf" class="doc-section">
+                                    <section id="ex" class="doc-section">
                                             <h2 class="section-title">Exemplos </h2>
-                                            <div class="section-block" id="mods">
+                                            <div class="section-block" id="void">
                                                     <h3 class="block-title">Funções void sem parâmetros</h3>
                                                     <p>Esta função não possui retorno nem parâmetros.</p>
                                                     <p>Ela pode ser usada se for necessário mostrar as opções várias vezes.</p>
@@ -156,8 +234,8 @@ int main(){
 }   </pre>
                                                     <a href="assets/codes/aula5/menu.c" download="" class="btn btn-blue">Download Code</a>      
                                             </div>
-                                            <div class="section-block">
-                                                <h3 class="section-title">Função void com parâmetros</h3>
+                                            <div class="section-block" id="void_param">
+                                                <h3 class="block-title">Função void com parâmetros</h3>
                                                 <p>Esta função novamente não possui retorno (pois é void) porém desta vez possui parâmetros</p>
                                                 <p>Possui 2 parâmetros, uma variável h e w para altura e largura, respectivamente</p>
                                                 <pre class=" prettyprint lang-cpp linenums:1">
@@ -212,7 +290,7 @@ What's rectangle size?
 #       #
 #########</pre>
                                         </div>
-                                        <div class="section-block">
+                                        <div class="section-block" id="return_param">
                                             <h3 class="block-title">Função com retorno e parâmetro</h3>
                                             <p>Programa mostra quais dos 100 primeiros números são primos.</p>
                                             <p>Note os returns na função.</p>
@@ -270,21 +348,24 @@ APC$ ./prime
                         <nav id="doc-nav">
                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
                                 <li><a class="scrollto" href="#intro">Introdução</a></li>
-                                <li><a class="scrollto" href="#program">Elementos da Gramática</a></li>
                                 <ul class="nav doc-sub-menu">
-                                    <li><a class="scrollto" href="#estrutura">Estrutura</a></li>
-                                    <li><a class="scrollto" href="#comentario">Comentários</a></li>
-                                    <li><a class="scrollto" href="#ops">Operadores</a></li>
-                                    <li><a class="scrollto" href="#vars">Variáveis</a></li>
-                                    <li><a class="scrollto" href="#defs">Declaração de Variáveis</a></li>
-                                    <li><a class="scrollto" href="#macs">Declaração de Macros</a></li>
+                                    <li><a href="#o_que_sao" class="scrollto">O que são subalgoritmos?</a></li>
+                                    <li><a href="#problemas" class="scrollto">Problemas em não usar funções</a></li>
                                 </ul>
-                                <li><a class="scrollto" href="#printf">Comando <em>printf</em></a></li>
+                                <li><a class="scrollto" href="#struct">Estrutura</em></a></li>
                                 <ul class="nav doc-sub-menu">
-                                        <li><a class="scrollto" href="#mods">Modificadores</a></li>
+                                    <li><a href="#type" class="scrollto">Tipo de Função</a></li>
+                                    <li><a href="#scope" class="scrollto">Escopo</a></li>
+                                    <li><a href="#return" class="scrollto">Retorno de funções</a></li>
+                                    <li><a href="#param" class="scrollto">Parâmetros de funções</a></li>
                                 </ul>
-                                <li><a class="scrollto" href="#scanf">Comando <em>scanf</em></a></li>
-
+                                <li><a href="#ex" class="scrollto">Exemplos</a></li>
+                                <ul class="nav doc-sub-menu">
+                                    <li><a href="#void" class="scrollto">Funções void sem parâmetro</a></li>
+                                    <li><a href="#void_param" class="scrollto">Funções void com parâmetro</a></li>
+                                    <li><a href="#return_param" class="scrollto">Funções com retorno e parâmetro</a></li>
+                                </ul>
+ 
                             </ul><!--//doc-menu-->
                         </nav>
                     </div><!--//doc-sidebar-->
