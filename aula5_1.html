@@ -344,7 +344,7 @@ APC$ ./prime
                     <section class="doc-section" id="extras">
                         <h2 class="section-title">Materiais Extras</h2>
 
-                        <h3 class="block-title">Variáveis Globais vs Variáveis Locais</h3>
+                        <h3 class="block-title" id="global">Variáveis Globais vs Variáveis Locais</h3>
                         <p> Vimos que variáveis locais são as declaradas dentro de um <b>escopo</b>. As variáveis globais são aquelas cujo escopo é o <b>programa inteiro</b>.
                         </p>
 
@@ -365,7 +365,7 @@ int main(){
 }
                         </pre>
 
-                        <h3 class="block-title">Cuidados com variáveis globais</h3>
+                        <h3 class="block-title" id="care">Cuidados com variáveis globais</h3>
                         <ul>
                             
                         <li> Evite usar variáveis globais indiscriminadamente. Elas devem ser usadas somente se existe algum valor que precisa realmente ser acessado por várias funções.</li>
@@ -375,6 +375,75 @@ int main(){
 
                         <li> Além disso, elas desperdiçam memória: variáveis locais só existem quando seu escopo está ativo, ou seja, só enquanto são necessárias, variáveis globais existem sempre!</li>
 </ul>
+
+                        <h3 class="block-title" id="preference">Prioridade de Escopo</h3>
+
+                        <p>
+                        Se tivermos uma variável global e outra local com o mesmo nome, qual terá preferência?</p>
+                        <p> Vamos ver qual escopo tem preferência através de um exemplo.</p>
+                        <div class="callout-block callout-info">
+                            <div class="icon-holder">
+                                <i class="fa fa-exclamation-triangle"></i>
+                            </div><!--//icon-holder-->
+                            <div class="content">
+                                <p>Independente da resposta, nunca é uma boa prática ter 2 variáveis com o mesmo nome!</p>
+                            </div><!--//content-->
+                        </div>
+                        
+                        <pre class="prettyprint linenums:1 lang-cpp">
+#include &lt;stdio.h&gt;
+/* variavel global */
+int a = 0;
+
+void question(){
+    /* variavel local de question */
+    int a = 50;
+    printf("a: %d\n", a);
+}
+
+int main(){
+    printf("global a: %d\n", a);
+    /* variavel local em main */
+    int a = 10;
+    if(a == 10){
+        printf("Variavel local tem preferencia.\n");
+    }
+    else{
+        printf("Variavel global tem preferencia.\n");
+    }
+    printf("a: %d\n", a);
+    printf("Agora em outro escopo - question\n");
+    question();
+    printf("A variavel na main foi alterada?\n");
+    printf("a: %d\n", a);
+}
+                        </pre>
+
+    <a href="http://www.pythontutor.com/c.html#code=%23include%20%3Cstdio.h%3E%3B%0A/*%20variavel%20global%20*/%0Aint%20a%20%3D%200%3B%0A%0Avoid%20question%28%29%7B%0A%20%20%20%20/*%20variavel%20local%20de%20question%20*/%0A%20%20%20%20int%20a%20%3D%2050%3B%0A%20%20%20%20printf%28%22a%3A%20%25d%5Cn%22,%20a%29%3B%0A%7D%0A%0Aint%20main%28%29%7B%0A%20%20%20%20printf%28%22global%20a%3A%20%25d%5Cn%22,%20a%29%3B%0A%20%20%20%20/*%20variavel%20local%20em%20main%20*/%0A%20%20%20%20int%20a%20%3D%2010%3B%0A%20%20%20%20if%28a%20%3D%3D%2010%29%7B%0A%20%20%20%20%20%20%20%20printf%28%22Variavel%20local%20tem%20preferencia.%5Cn%22%29%3B%0A%20%20%20%20%7D%0A%20%20%20%20else%7B%0A%20%20%20%20%20%20%20%20printf%28%22Variavel%20global%20tem%20preferencia.%5Cn%22%29%3B%0A%20%20%20%20%7D%0A%20%20%20%20printf%28%22a%3A%20%25d%5Cn%22,%20a%29%3B%0A%20%20%20%20printf%28%22Agora%20em%20outro%20escopo%20-%20question%5Cn%22%29%3B%0A%20%20%20%20question%28%29%3B%0A%20%20%20%20printf%28%22A%20variavel%20na%20main%20foi%20alterada%3F%5Cn%22%29%3B%0A%20%20%20%20printf%28%22a%3A%20%25d%5Cn%22,%20a%29%3B%0A%7D%0A&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" target="_blank" class="btn btn-blue">Resposta</a>
+
+                    <h3 class="block-title" id="desafio">Desafio</h3>
+                    <p>Agora que aprendemos sobre escopo, qual será o valor impresso em cada saída?</p>
+
+                    <pre class="prettyprint linenums:1 lang-cpp">
+#include &lt;stdio.h&gt;
+int y = 20;
+
+int max(int a, int b){
+    y += 15;
+    if (a >= b) return a;
+    else return b;
+}
+
+int main(){
+    int x = 5;
+    y = 10;
+    printf("x = %d\n", x);
+    printf("y = %d\n", y);
+    printf("max(x,y) = %d\n", max(x,y));
+    printf("y = %d\n", y);
+}
+                    </pre>
+                    <a href="http://www.pythontutor.com/c.html#code=%23include%20%3Cstdio.h%3E%3B%0Aint%20y%20%3D%2020%3B%0A%0Aint%20max%28int%20a,%20int%20b%29%7B%0A%20%20%20%20y%20%2B%3D%2015%3B%0A%20%20%20%20if%20%28a%20%3E%3D%20b%29%20return%20a%3B%0A%20%20%20%20else%20return%20b%3B%0A%7D%0A%0Aint%20main%28%29%7B%0A%20%20%20%20int%20x%20%3D%205%3B%0A%20%20%20%20y%20%3D%2010%3B%0A%20%20%20%20printf%28%22x%20%3D%20%25d%5Cn%22,%20x%29%3B%0A%20%20%20%20printf%28%22y%20%3D%20%25d%5Cn%22,%20y%29%3B%0A%20%20%20%20printf%28%22max%28x,y%29%20%3D%20%25d%5Cn%22,%20max%28x,y%29%29%3B%0A%20%20%20%20printf%28%22y%20%3D%20%25d%5Cn%22,%20y%29%3B%0A%7D%0A&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" target="_blank" class="btn btn-blue">Resposta</a>
 
                     </section>
                             </div><!--//content-inner-->
@@ -402,6 +471,13 @@ int main(){
                                     <li><a href="#return_param" class="scrollto">Funções com retorno e parâmetro</a></li>
                                 </ul>
                                 <li><a class="scrollto" href="#extras">Materiais Extras</a></li>
+                                <ul class="nav doc-sub-menu">
+                                    <li><a href="#global" class="scrollto">Variáveis Globais</a></li>
+                                    <li><a href="#care" class="scrollto">Cuidados com Variáveis Globais</a></li>
+                                    <li><a href="#preference" class="scrollto">Prioridade de Escopo</a></li>
+                                    <li><a href="#desafio" class="scrollto">Desafio</a></li>
+                                </ul>
+
                             
  
                             </ul><!--//doc-menu-->
