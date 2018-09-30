@@ -90,6 +90,16 @@
 
                                         <p>Logo, um parâmetro por valor pode ser tanto uma variável quanto uma constante.</p>
 
+                                        <p>Para definir que um parâmetro seja por valor, basta colocar o <b>tipo</b> daquele parâmetro como o <b>tipo</b> desejado.</p>
+
+                                        <code class="prettyprint">void parametro_valor(int a, float b, char c){...}</code>
+
+                                        <ul>
+                                            <li>O parâmetro <b>a</b> é um parâmetro por valor do <b>tipo</b> int</li>
+                                            <li>O parâmetro <b>b</b> é um parâmetro por valor do <b>tipo</b> float</li>
+                                            <li>O parâmetro <b>c</b> é um parâmetro por valor do <b>tipo</b> char</li>
+                                        </ul>
+
                                         EXEMPLO
                                     </div>
                                 </section>
@@ -100,6 +110,15 @@
                                         <p>Os parâmetros por referência não são uma <em>cópia</em> do argumento a ser passado, mas uma <em>referência</em> para este. Ou seja, parâmetros por referência na verdade são <b>ponteiros</b> para as variáveis passadas.</p>
 
                                         <p>Logo, eles só podem ser usados com variáveis.</p>
+                                        <p>Para definir que um parâmetro seja por valor, deve-se colocar o <b>tipo</b> daquele parâmetro como um <b>ponteiro</b> para o tipo desejado.</p>
+
+                                        <code class="prettyprint">void parametro_referência(int* a, float* b, char* c){...}</code>
+
+                                        <ul>
+                                            <li>O parâmetro <b>a</b> é um parâmetro por referência do <b>tipo</b> ponteiro para int</li>
+                                            <li>O parâmetro <b>b</b> é um parâmetro por referência do <b>tipo</b> ponteiro para float</li>
+                                            <li>O parâmetro <b>c</b> é um parâmetro por referência do <b>tipo</b> ponteiro para char</li>
+                                        </ul>
 
                                         EXEMPLO
                                     </div>
