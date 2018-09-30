@@ -99,8 +99,50 @@
                                             <li>O parâmetro <b>b</b> é um parâmetro por valor do <b>tipo</b> float</li>
                                             <li>O parâmetro <b>c</b> é um parâmetro por valor do <b>tipo</b> char</li>
                                         </ul>
+                                        <p>O programa a seguir lê um número <b>n</b> e em seguida lê <b>n</b> números, informando se o mesmo é par e maior que 20, par e menor ou igual a 20 ou impar</p>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+#include < stdio.h >
 
-                                        EXEMPLO
+int check(int x){
+    if(x%2 == 0){
+        if(x > 20)
+            return 1;
+        return 0;
+    }
+    return -1;
+}
+
+int main(){
+
+    int n,i,y, resp;
+    scanf("%d", &n);
+    for(i = 0; i < n; i++){
+        scanf("%d", &y);
+        resp = check(y);
+        if(resp == 1)
+            printf("%d eh par e maior que 20\n",y);
+        else if(resp == 0)
+            printf("%d eh par e menor ou igual a 20\n",y);
+        else
+            printf("%d eh impar\n",y);
+    }
+
+    return 0;
+}</pre> 
+                                    <p>Exemplo no Terminal</p>
+                                    <pre class = "prettyprint linenums:1 lang-cpp">
+APC$ gcc -o valor -std=c11 valor.c
+APC$ ./valor
+4
+1
+1 eh impar
+20
+20 eh par e menor ou igual a 20
+25
+25 eh impar
+26
+26 eh par e maior que 20</pre>                                        
+
                                     </div>
                                 </section>
 
@@ -119,12 +161,73 @@
                                             <li>O parâmetro <b>b</b> é um parâmetro por referência do <b>tipo</b> ponteiro para float</li>
                                             <li>O parâmetro <b>c</b> é um parâmetro por referência do <b>tipo</b> ponteiro para char</li>
                                         </ul>
+                                        <p>O programa a seguir realiza o mesmo papel do programa anterior porém a diferença é que há uma passagam de valor por referência</p>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
 
-                                        EXEMPLO
+
+#include < stdio.h >
+
+void check(int x, int *resp){
+    if(x%2 == 0){
+        if(x > 20)
+            *resp = 1;
+        else 
+            *resp = 0;
+    }
+    else
+        *resp = - 1;
+}
+
+int main(){
+
+    int n,i,y, resp;
+    scanf("%d", &n);
+    for(i = 0; i < n; i++){
+        scanf("%d", &y);
+        check(y, &resp);
+        if(resp == 1)
+            printf("%d eh par e maior que 20\n",y);
+        else if(resp == 0)
+            printf("%d eh par e menor ou igual a 20\n",y);
+        else
+            printf("%d eh impar\n",y);
+    }
+
+    return 0;
+}</pre>                             
+                                <p>Exemplo no Terminal</p>
+                                <pre class = "prettyprint linenums:1 lang-cpp">
+APC$ gcc -o referencia -std=c11 referencia.c
+APC$ ./referencia
+4
+1
+1 eh impar
+20
+20 eh par e menor ou igual a 20
+25
+25 eh impar
+26
+26 eh par e maior que 20</pre>                                      
                                     </div>
 
                                 </section>
-
+                                <section id="recomendados" class="doc-section">
+                                    <h2 class="section-title">Exercícios Recomendados</h2>
+                                    <div class="section-block">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1099" target="_blank">Soma de Pares Consecutivos II</a></td>
+                                                        <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2543" target="_blank">Jogatina UFPR</a></td>
+                                                        <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2846" target="_blank">Fibonot</a></td>
+                                                                
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div><!--//table-responsive-->
+                                    </div>
+                                </section><!--//doc-section-->
                                 <section id="extras" class="doc-section">
                                     <h2 class="section-title">Materiais Extras</h2>
                                     <div class="section-block" id="returns">
@@ -202,23 +305,7 @@ X2: 0.00</pre>
                                 
                                     </div>
                                 </section>
-                                <section id="recomendados" class="doc-section">
-                                    <h2 class="section-title">Exercícios Recomendados</h2>
-                                    <div class="section-block">
-                                        <div class="table-responsive">
-                                            <table class="table table-striped">
-                                                <tbody>
-                                                    <tr>
-                                                        <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1099" target="_blank">Soma de Pares Consecutivos II</a></td>
-                                                        <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2543" target="_blank">Jogatina UFPR</a></td>
-                                                        <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2846" target="_blank">Fibonot</a></td>
-                                                                
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div><!--//table-responsive-->
-                                    </div>
-                                </section><!--//doc-section-->
+                                
                             </div><!--//content-inner-->
                         </div><!--//doc-content-->
 
@@ -228,10 +315,11 @@ X2: 0.00</pre>
                                 <li><a class="scrollto" href="#intro">Introdução</a></li>
                                 <li><a class="scrollto" href="#value">Parâmetro por Valor</a></li>
                                 <li><a class="scrollto" href="#reference">Parâmetro por Referência</a></li>
+                                <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
+                                <li><a class="scrollto" href="#extras">Materiais Extras</a></li>
                                 <ul class="nav doc-sub-menu">
                                 <li><a class="scrollto" href="#returns">Múltiplos Retornos</a></li>
                                 </ul>
-                                <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
                             </ul><!--//doc-menu-->
                         </nav>
                     </div><!--//doc-sidebar-->
