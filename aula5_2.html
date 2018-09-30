@@ -187,10 +187,38 @@ int main(){
                                     <p>Executando o código acima temos a seguinte saída abaixo. Note que não aletamos o valor de x1 e x2 na função <em>main</em> para a função com raízes reais. Esses valores foram alterados pela função <em>baskara</em>.</p>
 
                                     <p><b>Obs:</b> Note que na linha de compilação foi usada a flag <b>-lm</b>. Ela é necessária para utilizar funções da biblioteca <em>math.h</em>. A função <em>sqrt</em> é desta biblioteca.</p>
-
-                                    <img class="img-responsive" src="assets/images/Funções II/baskara_output.png" alt="Saída do código acima">
+                                    <pre class="prettyprint lang-bsh">
+APC$ gcc -lm -o baskara -std=c11 baskara.c
+APC$ ./baskara
+Função com raizes reais
+Delta: 5.00
+X1: 2.62
+X2: 0.38
+===============
+Função sem raizes reais
+Delta: -3.00
+X1: 0.00
+X2: 0.00</pre>                                          
+                                
                                     </div>
                                 </section>
+                                <section id="recomendados" class="doc-section">
+                                    <h2 class="section-title">Exercícios Recomendados</h2>
+                                    <div class="section-block">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1099" target="_blank">Soma de Pares Consecutivos II</a></td>
+                                                        <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2543" target="_blank">Jogatina UFPR</a></td>
+                                                        <td><a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/2846" target="_blank">Fibonot</a></td>
+                                                                
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div><!--//table-responsive-->
+                                    </div>
+                                </section><!--//doc-section-->
                             </div><!--//content-inner-->
                         </div><!--//doc-content-->
 
@@ -203,7 +231,7 @@ int main(){
                                 <ul class="nav doc-sub-menu">
                                 <li><a class="scrollto" href="#returns">Múltiplos Retornos</a></li>
                                 </ul>
-
+                                <li><a class="scrollto" href="#recomendados">Exercícios Recomendados</a></li>
                             </ul><!--//doc-menu-->
                         </nav>
                     </div><!--//doc-sidebar-->
