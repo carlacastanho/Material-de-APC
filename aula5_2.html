@@ -106,6 +106,72 @@
 
                                 </section>
 
+                                <section id="extras" class="doc-section">
+                                    <h2 class="section-title">Materiais Extras</h2>
+                                    <div class="section-block" id="returns">
+                                        <h3 class="block-title">Múltiplos Retornos</h3>
+                                        <p>Uma funçao em C só pode retornar <b>1</b> valor, de qualqer tipo. Existem algumas maneiras de conseguir "retornar" mais de um valor no entanto, e uma delas é com <em>ponteiros</em>.</p>
+
+                                        <p>Podemos tomar vantagem do fato que parâmetros por referência, em uma função, referenciam uma variável <b>externa</b> à função e utilizar esses ponteiros para alterar o valor destas variáveis dentro da função. Desta forma, ao final da execução da função o valor destas variáveis terá sido alterado, fazendo parecer que a função "retornou" esses valores também.</p>
+
+                                        <p>Este não é um uso tão comum, no entanto, pois causa <b>efeitos colaterais</b> que podem ser difíceis de detectar, uma vez que este "retorno" não é explícito.</p>
+
+                                        <h3>Exemplo</h3>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+#include &lt;stdio.h>
+#include &lt;math.h>
+
+/* Esta função retorna o valor de delta de uma função quadratica.
+   Se a função tiver raízes reais, elas também são "retornadas".
+Parâmetros por valor: a, b, c. As constantes reais da função.
+Parâmetros por referência: x1 and x2. Referência para as variáveis onde
+as raízes devem ser armazenadas, se existirem. */
+double baskara(double a, double b, double c, double* x1, double* x2){
+    double delta = b*b - 4*a*c;
+    if (delta > 0){
+        /* Assigns solutions of function, if they exist */
+        *x1 = (-b + sqrt(delta))/(2*a);
+        *x2 = (-b - sqrt(delta))/(2*a);
+    }
+    return delta;
+}
+
+int main(){
+    double a,b,c,x1,x2;
+    printf("Função com raizes reais\n");
+    a = 1;
+    b = -3;
+    c = 1;
+    x1 = 0;
+    x2 = 0;
+    /* Note que x1 e x2 são parâmetros de referência */
+    double delta = baskara(a, b, c, &x1, &x2);
+    printf("Delta: %.2lf\n", delta);
+    /* Note que o valor de x1 e x2 nao eh mais 0 */
+    printf("X1: %.2lf\nX2: %.2lf\n", x1, x2);
+    printf("===============\n");
+    printf("Função sem raizes reais\n");
+    a = 1;
+    b = 3;
+    c = 3;
+    x1 = 0;
+    x2 = 0;
+    delta = baskara(a, b, c, &x1, &x2);
+    printf("Delta: %.2lf\n", delta);
+    /* Note que o valor de x1 e x2 ainda eh 0 */
+    printf("X1: %.2lf\nX2: %.2lf\n", x1, x2);
+}
+                                        </pre>
+
+                                    <a class="btn btn-purple" href="assets/codes/aula5/baskara.c" download="" target="_blank">Download Code</a>
+                                    <h3>Output</h3>
+                                    <p>Executando o código acima temos a seguinte saída abaixo. Note que não aletamos o valor de x1 e x2 na função <em>main</em> para a função com raízes reais. Esses valores foram alterados pela função <em>baskara</em>.</p>
+
+                                    <p><b>Obs:</b> Note que na linha de compilação foi usada a flag <b>-lm</b>. Ela é necessária para utilizar funções da biblioteca <em>math.h</em>. A função <em>sqrt</em> é desta biblioteca.</p>
+
+                                    <img class="img-responsive" src="assets/images/Funções II/baskara_output.png" alt="Saída do código acima">
+                                    </div>
+                                </section>
                             </div><!--//content-inner-->
                         </div><!--//doc-content-->
 
@@ -115,6 +181,9 @@
                                 <li><a class="scrollto" href="#intro">Introdução</a></li>
                                 <li><a class="scrollto" href="#value">Parâmetro por Valor</a></li>
                                 <li><a class="scrollto" href="#reference">Parâmetro por Referência</a></li>
+                                <ul class="nav doc-sub-menu">
+                                <li><a class="scrollto" href="#returns">Múltiplos Retornos</a></li>
+                                </ul>
 
                             </ul><!--//doc-menu-->
                         </nav>
