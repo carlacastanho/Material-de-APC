@@ -99,7 +99,28 @@
                                             <li>O parâmetro <b>b</b> é um parâmetro por valor do <b>tipo</b> float</li>
                                             <li>O parâmetro <b>c</b> é um parâmetro por valor do <b>tipo</b> char</li>
                                         </ul>
-                                        <p>O programa a seguir lê um número <b>n</b> e em seguida lê <b>n</b> números, informando se o mesmo é par e maior que 20, par e menor ou igual a 20 ou impar</p>
+                                <h3 class="block-title">Exemplo</h3>
+                                <p>Lembre-se de que os parâmetros por valor não alteram o valor da variável fora da função, observe.</p>
+
+                                <pre class="prettyprint linenums:1 lang-cpp">
+#include < stdio.h >
+
+void param_valor(int x){
+    x += 2;
+    printf("Dentro da funcao: %d\n", x);
+}
+
+int main(){
+    int x = 2;
+    printf("Antes da funcao: %d\n", x);
+    param_valor(x);
+    printf("Fora da funcao: %d\n", x);
+}
+                                </pre>
+                            
+                            <a class="btn btn-purple" href="http://www.pythontutor.com/c.html#code=%23include%20%3Cstdio.h%3E%0A%0Avoid%20param_valor%28int%20x%29%7B%0A%20%20%20%20x%20%2B%3D%202%3B%0A%20%20%20%20printf%28%22Dentro%20da%20funcao%3A%20%25d%5Cn%22,%20x%29%3B%0A%7D%0A%0Aint%20main%28%29%7B%0A%20%20%20%20int%20x%20%3D%202%3B%0A%20%20%20%20printf%28%22Antes%20da%20funcao%3A%20%25d%5Cn%22,%20x%29%3B%0A%20%20%20%20param_valor%28x%29%3B%0A%20%20%20%20printf%28%22Fora%20da%20funcao%3A%20%25d%5Cn%22,%20x%29%3B%0A%7D&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" target="_blank" rel="noopener noreferrer">Code Execution</a>
+                                    <h3 class="block-title">Exemplo</h3>
+                                        <p>O programa a seguir lê um número <b>n</b> e em seguida lê <b>n</b> números, informando se o mesmo é par e maior que 20, par e menor ou igual a 20 ou impar.</p>
                                         <pre class="prettyprint linenums:1 lang-cpp">
 #include < stdio.h >
 
@@ -129,6 +150,7 @@ int main(){
 
     return 0;
 }</pre> 
+<a class="btn btn-purple" href="assets/codes/aula5/param_valor.c" target="_blank" download="">Download Code</a>
                                     <p>Exemplo no Terminal</p>
                                     <pre class = "prettyprint linenums:1 lang-cpp">
 APC$ gcc -o valor -std=c11 valor.c
@@ -142,6 +164,7 @@ APC$ ./valor
 25 eh impar
 26
 26 eh par e maior que 20</pre>                                        
+
 
                                     </div>
                                 </section>
@@ -161,12 +184,37 @@ APC$ ./valor
                                             <li>O parâmetro <b>b</b> é um parâmetro por referência do <b>tipo</b> ponteiro para float</li>
                                             <li>O parâmetro <b>c</b> é um parâmetro por referência do <b>tipo</b> ponteiro para char</li>
                                         </ul>
+
+                                <h3 class="block-title">Exemplo</h3>
+                                <p>Lembre-se de que funções com parâmetros por referência alteram as variáveis externas à função. Observe.</p>
+                                <pre class="prettyprint linenums:1 lang-cpp">
+#include < stdio.h >
+
+/* Lembre-se que operacoes com ponteiros sao um pouco diferentes. */
+void param_ref(int* x){
+    *x += 2;
+    printf("Dentro da funcao: %d\n", *x);
+}
+
+int main(){
+    int x = 2;
+    printf("Antes da funcao: %d\n", x);
+    param_ref(&x);
+    printf("Fora da funcao: %d\n", x);
+}
+                                </pre>
+
+                                <a class="btn btn-purple"
+                                href="http://www.pythontutor.com/c.html#code=%23include%20%3Cstdio.h%3E%0A%0A/*%20Lembre-se%20que%20operacoes%20com%20ponteiros%20sao%20um%20pouco%20diferentes.*/%0Avoid%20param_ref%28int*%20x%29%7B%0A%20%20%20%20*x%20%2B%3D%202%3B%0A%20%20%20%20printf%28%22Dentro%20da%20funcao%3A%20%25d%5Cn%22,%20*x%29%3B%0A%7D%0A%0Aint%20main%28%29%7B%0A%20%20%20%20int%20x%20%3D%202%3B%0A%20%20%20%20printf%28%22Antes%20da%20funcao%3A%20%25d%5Cn%22,%20x%29%3B%0A%20%20%20%20param_ref%28%26x%29%3B%0A%20%20%20%20printf%28%22Fora%20da%20funcao%3A%20%25d%5Cn%22,%20x%29%3B%0A%7D&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" target="_blank" rel="noopener noreferrer">Code Execution</a>
+                                    <h3 class="block-title">Exemplo</h3>
                                         <p>O programa a seguir realiza o mesmo papel do programa anterior porém a diferença é que há uma passagam de valor por referência</p>
                                         <pre class="prettyprint linenums:1 lang-cpp">
 
 
 #include < stdio.h >
 
+/* Note que esta função é do tipo void, enquanto a mesma função com parâmetro de valor
+   precisava ser do tipo int */
 void check(int x, int *resp){
     if(x%2 == 0){
         if(x > 20)
@@ -194,7 +242,8 @@ int main(){
     }
 
     return 0;
-}</pre>                             
+}</pre>                              
+<a class="btn btn-purple" href="assets/codes/aula5/param_ref.c" target="_blank" download="">Download Code</a>
                                 <p>Exemplo no Terminal</p>
                                 <pre class = "prettyprint linenums:1 lang-cpp">
 APC$ gcc -o referencia -std=c11 referencia.c
@@ -207,7 +256,8 @@ APC$ ./referencia
 25
 25 eh impar
 26
-26 eh par e maior que 20</pre>                                      
+26 eh par e maior que 20</pre>                  
+
                                     </div>
 
                                 </section>
