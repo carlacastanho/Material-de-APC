@@ -39,6 +39,10 @@
             margin-right: auto;
             margin-top: 5%;
         }
+
+        .note-green{
+            background-color: #75c181;
+        }
     </style>
 
 </head> 
@@ -76,20 +80,86 @@
                                     <div class="section-block" id="what">
                                         <h3 class="block-title">O que é a memória?</h3>
 
+                                        <p>A memória RAM é o armazenamento primário do computador, onde ficam informações (dados e instruções) dos programas sendo atualmente executados pelo computador. Isso significa, entre outras coisas, que as variáveis dos nossos programas ficam <em>armazenadas</em> na memória durante a execução.</p>
+
+                                        <p>No nosso caso, podemos ver a memória como um grande <em>array</em> de <b>endereços</b>.Como a memória é <em>byte addressed</em>, cada endereço é referente a <b>1 byte</b> (8 bits).</p>
+
+                                        <img src="assets/images/Ponteiros/mem.png" alt="Representação da memória" class="img img-responsive">
+
+
+                                    <div class="callout-block note-green" style="margin-top:1em;">
+                                        <div class="icon-holder">
+                                            <i class="fa fa-info-circle"></i>
+                                        </div><!--//icon-holder-->
+                                        <div class="content">
+                                            <p>Cada posição da memória guarda exatamente 1 byte, e é referenciada por um <em>endereço</em>. O endereço é representado em base <em>hexadecimal</em>.</p>
+                                        </div><!--//content-->
+                                        </div><!--//callout-block-->
                                     </div>
                                     <div class="section-block" id="size">
                                         <h3 class="block-title">Qual o tamanho da memória?</h3>
 
+                                        <p>Calculamos o <b>tamanho</b> da memória a partir do <b>tamanho</b> dos endereços. No exemplo acima, um endereço era um número hexadecimal de 4 dígitos:</p>
+
+                                        <h1 style="padding-left: 30%;font-size: 5em;">0xFF00</h1>
+                                        
+                                        <ul>
+                                            <li>0x indica que o número está em base hexadecimal.</li>
+                                            <li>Cada dígito hexadecimal equivale a 4 dígitos binários (veja <a href="#table" class="scrollto">tabela de bases</a>).</li>
+                                            <li>Portanto, cada <b>endereço</b> do nosso exemplo possui 16 bits.</li>
+                                        </ul>
+
+                                        <p>Como cada byte da memória precisa de um endereço correspondente, calculamos o tamanho da memória vendo quantos endereços diferentes a memória é capaz de endereçar. No exemplo, cada endereço possui <b>16 bits</b>, que podem representar <b>2<sup>16</sup></b> endereços, ou seja, <b>esta</b> memória é de <b>64 KiB</b>.</p>
+
+                                        <p>O que <b>determina</b> o tamanho da memória é o <b>tipo de processador</b>:</p>
+
+                                        <ul>
+                                            <li>Processador x86 faz endereçamento com 32 bits. Portanto o tamanho máximo é 2<sup>32</sup> bytes = 4GiB</li>
+                                            <li>Processador x64 faz endereçamento com 48 bits. Portanto o tamanho máximo é 2<sup>48</sup> bytes = 256TiB</li>
+                                        </ul>
                                     </div>
                                     <div class="section-block" id="how">
                                         <h3 class="block-title">Como usamos a memória?</h3>
 
+                                        <p>Podemos utilizar a memória para:</p>
+                                        <ul>
+                                            <li>Utilizamos a memória toda vez que alocamos espaço para <b>variáveis</b> em nossos programas.</li>
+                                            <li>Ler valores de variáveis e escrever novos valores para elas. Os valores lidos e escritos são <b>sempre</b> bytes.</li>
+                                        </ul>
                                     </div>
                                 </section><!--//doc-section-->
 
                                 <section id="types" class="doc-section">
                                     <h2 class="section-title">Tipos de Variáveis</h2>
-                                    
+                                    <div class="section-block" id="in">
+                                        <h3 class="block-title">O que está na memória?</h3>
+                                        <p>Do ponto de vista da <b>máquina</b>, na memória estão armazenados apenas <b>bits</b>. Veja no exemplo, em que cada byte é representado em base hexadecimal.</p>
+
+                                        <img src="assets/images/Ponteiros/mem_bytes.png" alt="Representação da memória com bytes povoados." class="img img-responsive" style="margin-bottom:1em;">
+
+                                        <p>Já do ponto de vista do <b>programador</b>, o que está armazenado na memória <b>depende</b> do <b>tipo de variável</b> associado ao endereço que nos referimos.</p>
+
+                                        <ul>
+                                            <li>Se avaliarmos o byte do endereço 0xFF00 como um <b>char</b>, ele será avaliado como <b>'\n'</b></li>
+                                            <li>Se avaliarmos o byte no endereço 0xFF03 como um <b>char</b>, ele será avaliado como <b>'û'</b></li>
+                                            <li>Interpretando a sequência de 4 bytes a partir do endereço 0xFF01 como <b>int</b>, ela será avaliada como <b> 1047548</b></li>
+                                            <li>Interpretando a sequência de 4 bytes a partir do endereço 0xFF00 como um <b>float</b>, ela será avaliada como <b>6.16598e-33</b></li>
+                                        </ul>
+
+                                    <div class="callout-block note-green" style="margin-top:1em;">
+                                        <div class="icon-holder">
+                                            <i class="fa fa-info-circle"></i>
+                                        </div><!--//icon-holder-->
+                                        <div class="content">
+                                        <p>O <b>tipo da variável</b> define 3 coisas:
+                                            <ol>
+                                                <li>Quantos bytes a variável ocupa na memória</li>
+                                                <li>Como interpretar o padrão de bytes</li>
+                                                <li>Operações aritméticas (veremos adiante)</li>
+                                            </ol></p>
+                                        </div><!--//content-->
+                                        </div><!--//callout-block-->
+                                    </div>                                    
                                 </section>
 
                                 <section id="pointer" class="doc-section">
@@ -207,6 +277,9 @@
                                     <li><a class="scrollto" href="#how">Como usamos a Memória?</a></li>
                                 </ul>
                                 <li><a class="scrollto" href="#types">Tipos de Variáveis</a></li>
+                                <ul class="nav doc-sub-menu">
+                                    <li><a class="scrollto" href="#in">O que está na memória?</a></li>
+                                </ul>
                                 <li><a class="scrollto" href="#pointer">Tipo Ponteiro</a></li>
                                 <li><a class="scrollto" href="#extras">Materiais Extras</a></li>
                                 <ul class="nav doc-sub-menu">
