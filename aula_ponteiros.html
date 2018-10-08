@@ -164,7 +164,48 @@
 
                                 <section id="pointer" class="doc-section">
                                     <h2 class="section-title">Tipo Ponteiro</h2>
+                                    <p>Conhecemos variáveis do tipo <em>int, float, double, char, etc</em>. Todos esses tipos de variáveis armazenam <b>dados</b> do programa. Agora vamos conhecer o tipo <em>ponteiro</em>, que armazena <b>endereços de variáveis</b> do programa. Elas são do tipo ponteiro porque <b>apontam</b> para um espaço na memória.</p>
 
+                                    <p>Os tipos ponteiros são tipos <em>inteiros</em>, uma vez que existe um número inteiro de posições da memória. Para declarar um ponteiro para um tipo, acrescentamos um <b>asterisco</b> (*) na frente do nome do tipo.</p>
+
+                                    <pre class="prettyprint linenums:1 lang-cpp">
+int* ip;       /* ponteiro para inteiro */
+char* cp;      /* ponteiro para char */
+float* fp;     /* ponteiro para float */
+</pre>
+
+                                    <h3 class="block-title" id="exp">Exemplos</h3>
+
+                                    <img src="assets/images/Ponteiros/pointers.png" alt="Exemplo de ponteiros" class="img img-responsive">
+
+                                    <ul>
+                                        <li>Interpretando a sequência de 2 bytes a partir do endereço 0xFF03 como um <b>char*</b> ela será avaliada como <b>0xFBFC</b></li>
+                                        <li>Interpretando a sequência de 2 bytes a partir do endereço 0xFF04 como um <b>char*</b> ela será avaliada como <b>0xFCE0</b></li>
+                                        <li>Interpretando a sequência de 2 bytes a partir do endereço 0xFF04 como um <b>int*</b> ela será avaliada como <b>0xFCE0</b></li>
+                                        <li>Interpretando a sequência de 2 bytes a partir do endereço 0xFF03 como um <b>double*</b> ela será avaliada como <b>0xFBFC</b></li>
+                                        <li>Interpretando a sequência de 2 bytes a partir do endereço 0xFF03 como um <b style="color: red;">void*</b> ela será avaliada como <b>0xFBFC</b></li>
+                                        <li>Interpretando a sequência de 2 bytes a partir do endereço 0xFF04 como um <b style="color: red;">void*</b> ela será avaliada como <b>0xFCEO</b></li>
+                                    </ul>
+
+                                    <div class="section-block">
+                                        <h3 class="block-title" id="void">Tipo void*</h3>
+                                        <p><b>void</b> é um tipo especial. Não é possível criar variáveis do <b>tipo void</b>, porém, podemos criar variáveis do tipo <b>ponteiro para void</b>. A utilidade é armazenar endereços de variáveis de <b>qualquer tipo</b></p>
+
+                                        <p>Na prática, isso quer dizer que uma variável do tipo <b>void*</b> pode armazenar o endereço de uma variável do tipo int, ou char, ou double, ou qualquer outro tipo.</p>
+
+                                    <div class="callout-block note-green" style="margin-top:1em;">
+                                        <div class="icon-holder">
+                                            <i class="fa fa-info-circle"></i>
+                                        </div><!--//icon-holder-->
+                                        <div class="content">
+                                            <h4 class="callout-title">Conclusões sobre ponteiros</h4>
+                                            <ol>
+                                                <li>O espaço ocupado por um ponteiro de <b>qualquer tipo</b> é sempre o mesmo, e é o mesmo tamanho de um <b>endereço</b> definido pelo processador.</li>
+                                                <li>A interpretação de um ponteiro de <b>qualquer tipo</b> é smepre a mesma, um <b>endereço</b> da memória.</li>
+                                            </ol>
+                                        </div><!--//content-->
+                                        </div><!--//callout-block-->
+                                    </div>
                                 </section>
 
                                 <section id="extras" class="doc-section">
@@ -281,6 +322,9 @@
                                     <li><a class="scrollto" href="#in">O que está na memória?</a></li>
                                 </ul>
                                 <li><a class="scrollto" href="#pointer">Tipo Ponteiro</a></li>
+                                <ul class="nav doc-sub-menu">
+                                    <li><a class="scrollto" href="#void">Tipo void*</a></li>
+                                </ul>
                                 <li><a class="scrollto" href="#extras">Materiais Extras</a></li>
                                 <ul class="nav doc-sub-menu">
                                     <li><a class="scrollto" href="#table">Tabela de Bases</a></li>
