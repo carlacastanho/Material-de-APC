@@ -192,7 +192,15 @@ float* fp;     /* ponteiro para float */
                                         <p><b>void</b> é um tipo especial. Não é possível criar variáveis do <b>tipo void</b>, porém, podemos criar variáveis do tipo <b>ponteiro para void</b>. A utilidade é armazenar endereços de variáveis de <b>qualquer tipo</b></p>
 
                                         <p>Na prática, isso quer dizer que uma variável do tipo <b>void*</b> pode armazenar o endereço de uma variável do tipo int, ou char, ou double, ou qualquer outro tipo.</p>
+                                        
+                                         <p>Assim, podemos ter ponteiros para <b>qualquer</b> tipo, inclusive para <b>outros ponteiros</b>, isto é, podemos ter ponteiros para ponteiros. Eles são definidos da mesma forma que os ponteiros normais:</p>
 
+                                        <pre class="prettyprint lang-cpp linenums:1">
+int i = 50; /* inteiro */
+int* pi; /* ponteiro de inteiro */
+int** ppi; /* ponteiro de ponteiro de inteiro */
+void* ptr; /* ponteiro void */
+void** pptr; /* ponteiro de ponteiro void */</pre>
                                     <div class="callout-block note-green" style="margin-top:1em;">
                                         <div class="icon-holder">
                                             <i class="fa fa-info-circle"></i>
@@ -207,7 +215,85 @@ float* fp;     /* ponteiro para float */
                                         </div><!--//callout-block-->
                                     </div>
                                 </section>
+                                <section section id="aritmetica" class="doc-section">
+                                    <h2 class="section-title">Aritmética</h2>
+                                    <h3 class="block-title">Referenciação</h2>
+                                    <p>Aprendemos que é possível criar variáveis que armazenam o endereço de outras variáveis. Como vou saber qual é o endereço de uma variável, para que eu possa armazená-lo?</p>
+                                    <p>Com o operador <b>&</b>. A linguagem C nos dá este operador que retorna o endereço de uma variável</p>
 
+                                    <pre class="prettyprint lang-cpp linenums:1">
+int main() {
+  int a = 50;
+  int b = 10;
+  int* pi = &amp;a;
+  int c = 520;
+  int** ppi = &amp;pi;
+  return 0;
+}</pre>
+                                    <a class="btn btn-green" href="https://goo.gl/dihhsR" target="_blank" rel="noopener noreferrer">Code Execution</a>
+
+                                    <h3 class="block-title">Desreferenciação</h2>
+                                    <p>Agora que já sabemos como armazenar os endereços das minhas variáveis. O que eu faço com eles?</p>
+                                    
+                                    <p>Conhecendo o <b>endereço</b> de uma variável, é possível conhecer o seu <b>valor</b> sem usar seu nome diretamente!</p>
+                                    
+                                    <p>E quando precisarei conhecer o valor de uma variável sem usar seu nome diretamente?</p>
+                                    
+                                    <ul><li><p>Quando eu conhecer <b>ão o nome</b>, mas apenas o <b>endereço</b> de uma variável, ou seja, em <b>funções</b>!</p></li></ul>
+                                    
+                                    <p>Através do operador <b>*</b>, fazemos o que chamamos de <b>desreferenciação</b>.</p>
+
+                                    <p>A <b>peração de desreferenciar</b> é auto-explicativa.</p>
+
+                                    <p>Quando possuímos um ponteiro para uma variável, costumamos dizer que possuímos uma <b>referência</b> para esta variável.</p>
+
+                                    <p>Se <b>desreferenciamos</b> um ponteiro, tiramos a <b>referência</b> e passamos a lidar com a <b>variável</b> propriamente dita.</p>
+
+                                    <p>Quando mandamos imprimir o <b>valor</b> de um ponteiro, o que vemos é um número escrito na base <b>hexadecimal</b>.</p>
+
+                                    <pre class="prettyprint lang-cpp linenums:1">
+int main() {
+    int x = 50;
+    int y = 40;
+    int *ptr = &x;
+    printf("%x\n",ptr);
+    return 0;
+}</pre>        
+                                    <a class="btn btn-green" href="https://goo.gl/ZLbAey" target="_blank" rel="noopener noreferrer">Code Execution</a>
+
+                                    <p>Ou seja, quando imprimimos o <b>valor</b> de um ponteiro, imprimimos o que ele significa: um <b>endereço de memória</b>.</p>
+
+                                    <p>Quando mandamos imprimir o <b>valor</b> de um ponteiro <b>desreferenciado</b>, o que vemos é o <b>conteúdo</b> da variável para a qual ele aponta.</p>
+                                        
+                                    <pre class="prettyprint lang-cpp linenums:1">
+int main() {
+    int x = 50;
+    int y = 40;
+    int *ptr = &x;
+    printf("%x\n",ptr);
+    int valor = *ptr;
+    printf("%d\n",valor);
+    return 0;
+}</pre>        
+                                    <a class="btn btn-green" href="https://goo.gl/tb2KVP" target="_blank" rel="noopener noreferrer">Code Execution</a>
+        
+                                    <p>Ou seja, ao <b>desreferenciar</b> um ponteiro, podemos tanto ler o <b>valor</b> da variável apontada, quanto <b>escrever</b> no valor da variável apontada.</p>
+                        
+                                    <pre class="prettyprint lang-cpp linenums:1">
+int main() {
+    int x = 50;
+    int y = 40;
+    int *ptr = &x;
+    printf("%x\n",ptr);
+    *ptr = 30;
+    int valor = *ptr;
+    printf("%d\n",valor);
+    return 0;
+}</pre>        
+                                <a class="btn btn-green" href="https://goo.gl/NNv7UT" target="_blank" rel="noopener noreferrer">Code Execution</a>
+                                
+                                
+                                </section>
                                 <section id="extras" class="doc-section">
                                     <h2 class="section-title">Materiais Extras</h2>
                                     <div class="section-block" id="table">
