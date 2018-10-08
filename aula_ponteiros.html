@@ -193,6 +193,16 @@ float* fp;     /* ponteiro para float */
 
                                         <p>Na prática, isso quer dizer que uma variável do tipo <b>void*</b> pode armazenar o endereço de uma variável do tipo int, ou char, ou double, ou qualquer outro tipo.</p>
 
+                                        <p>Assim, podemos ter ponteiros para <b>qualquer</b> tipo, inclusive para <b>outros ponteiros</b>, isto é, podemos ter ponteiros para ponteiros. Eles são definidos da mesma forma que os ponteiros normais:</p>
+
+                                        <pre class="ptettyprint lang-cpp linenums:1">
+int i = 50; /* inteiro */
+int* pi; /* ponteiro de inteiro */
+int** ppi; /* ponteiro de ponteiro de inteiro */
+void* ptr; /* ponteiro void */
+void** pptr; /* ponteiro de ponteiro void */
+                                        </pre>
+
                                     <div class="callout-block note-green" style="margin-top:1em;">
                                         <div class="icon-holder">
                                             <i class="fa fa-info-circle"></i>
