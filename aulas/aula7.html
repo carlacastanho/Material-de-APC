@@ -10,21 +10,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Thiago Veras & Giovanni Guidini">    
-    <link rel="shortcut icon" href="assets/images/UnB-logo.png">  
+    <link rel="shortcut icon" href="../assets/images/UnB-logo.png">  
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">   
     <!-- Plugins CSS -->    
-    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
-    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+    <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="../assets/plugins/elegant_font/css/style.css">
     
     <!-- Theme CSS -->
-    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    <link id="theme-style" rel="stylesheet" href="../assets/css/styles.css">
 
     <!-- Syntax Prettyprint -->
-    <link rel="stylesheet"  href="assets/syntax/tomorrow_night.css">
-    <script src = "assets/syntax/prettify.js"></script>
+    <link rel="stylesheet"  href="../assets/syntax/tomorrow_night.css">
+    <script src = "../assets/syntax/prettify.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -98,20 +98,20 @@
                                     <ul class="list">
                                         <li><p>Vamos supor que temos 4 portas fechadas, e atrás de cada porta contém 1 número, qual estratégia poderíamos tomar para encontrar o número 3?</p></li>
                                         <li><p>O método trivial seria abrir qualquer porta aleatoriamente enquanto não encontrar o número 3.</p></li>
-                                        <div id = "random1"><img src="assets\images\Busca\Random\seq1.png" class = "img-responsive"></div>
-                                        <div id = "random2" style="display: none;"><img src="assets\images\Busca\Random\seq2.png" class = "img-responsive"></div>
-                                        <div id = "random3" style="display: none;"><img src="assets\images\Busca\Random\seq3.png" class = "img-responsive"></div>
-                                        <div id = "random4" style="display: none;"><img src="assets\images\Busca\Random\seq4.png" class = "img-responsive"></div>
-                                        <div id = "random5" style="display: none;"><img src="assets\images\Busca\Random\seq5.png" class = "img-responsive"></div>
+                                        <div id = "random1"><img src="../assets\images\Busca\Random\seq1.png" class = "img-responsive"></div>
+                                        <div id = "random2" style="display: none;"><img src="../assets\images\Busca\Random\seq2.png" class = "img-responsive"></div>
+                                        <div id = "random3" style="display: none;"><img src="../assets\images\Busca\Random\seq3.png" class = "img-responsive"></div>
+                                        <div id = "random4" style="display: none;"><img src="../assets\images\Busca\Random\seq4.png" class = "img-responsive"></div>
+                                        <div id = "random5" style="display: none;"><img src="../assets\images\Busca\Random\seq5.png" class = "img-responsive"></div>
                                         <a  class="btn btn-pink" onclick="animation_prev('random',5)">Prev</a>
                                         <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('random',5)">Next</a>
                                         <li><p>Obviamente este método não é nem de perto o mais eficiente.</p></li>
                                         <li><p>Outra estratégia seria começando na primeira porta e ir abrindo as próximas na sequência. Este método se chama <b>Busca Linear</b>.</p></li>
-                                        <div id = "linear1"><img src="assets\images\Busca\Linear\seq1.png" class = "img-responsive"></div>
-                                        <div id = "linear2" style="display: none;"><img src="assets\images\Busca\Linear\seq2.png" class = "img-responsive"></div>
-                                        <div id = "linear3" style="display: none;"><img src="assets\images\Busca\Linear\seq3.png" class = "img-responsive"></div>
-                                        <div id = "linear4" style="display: none;"><img src="assets\images\Busca\Linear\seq4.png" class = "img-responsive"></div>
-                                        <div id = "linear5" style="display: none;"><img src="assets\images\Busca\Linear\seq5.png" class = "img-responsive"></div>
+                                        <div id = "linear1"><img src="../assets\images\Busca\Linear\seq1.png" class = "img-responsive"></div>
+                                        <div id = "linear2" style="display: none;"><img src="../assets\images\Busca\Linear\seq2.png" class = "img-responsive"></div>
+                                        <div id = "linear3" style="display: none;"><img src="../assets\images\Busca\Linear\seq3.png" class = "img-responsive"></div>
+                                        <div id = "linear4" style="display: none;"><img src="../assets\images\Busca\Linear\seq4.png" class = "img-responsive"></div>
+                                        <div id = "linear5" style="display: none;"><img src="../assets\images\Busca\Linear\seq5.png" class = "img-responsive"></div>
                                         <a  class="btn btn-pink" onclick="animation_prev('linear',5)">Prev</a>
                                         <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('linear',5)">Next</a>
                                         <li><p>Verificamos sequencialmente (ou seja, um após o outro) cada elemento. Se encontramos o valor desejado, então a pesquisa foi bem sucedida. </p></li>
@@ -135,17 +135,17 @@ if (achou)
     printf("%d encontrado na posicao %d.\n", valor, i + 1);
 else
     printf("%d nao encontrado.\n", valor);</pre>
-                                    <a href="assets/codes/aula7/buscaLinear.c" class="btn btn-pink" download="">Download Code</a>
+                                    <a href="../assets/codes/aula7/buscaLinear.c" class="btn btn-pink" download="">Download Code</a>
                                     <a href="https://goo.gl/zkgLT5	" class="btn btn-pink" target="blank">Code Execution</a>
-                                    <div id = "lin1"><img src="assets\images\Busca\Linear\lin1.png" class = "img-responsive"></div>
-                                    <div id = "lin2" style="display: none;"><img src="assets\images\Busca\Linear\lin2.png" class = "img-responsive"></div>
-                                    <div id = "lin3" style="display: none;"><img src="assets\images\Busca\Linear\lin3.png" class = "img-responsive"></div>
-                                    <div id = "lin4" style="display: none;"><img src="assets\images\Busca\Linear\lin4.png" class = "img-responsive"></div>
-                                    <div id = "lin5" style="display: none;"><img src="assets\images\Busca\Linear\lin5.png" class = "img-responsive"></div>
-                                    <div id = "lin6" style="display: none;"><img src="assets\images\Busca\Linear\lin6.png" class = "img-responsive"></div>
-                                    <div id = "lin7" style="display: none;"><img src="assets\images\Busca\Linear\lin7.png" class = "img-responsive"></div>
-                                    <div id = "lin8" style="display: none;"><img src="assets\images\Busca\Linear\lin8.png" class = "img-responsive"></div>
-                                    <div id = "lin9" style="display: none;"><img src="assets\images\Busca\Linear\lin9.png" class = "img-responsive"></div>
+                                    <div id = "lin1"><img src="../assets\images\Busca\Linear\lin1.png" class = "img-responsive"></div>
+                                    <div id = "lin2" style="display: none;"><img src="../assets\images\Busca\Linear\lin2.png" class = "img-responsive"></div>
+                                    <div id = "lin3" style="display: none;"><img src="../assets\images\Busca\Linear\lin3.png" class = "img-responsive"></div>
+                                    <div id = "lin4" style="display: none;"><img src="../assets\images\Busca\Linear\lin4.png" class = "img-responsive"></div>
+                                    <div id = "lin5" style="display: none;"><img src="../assets\images\Busca\Linear\lin5.png" class = "img-responsive"></div>
+                                    <div id = "lin6" style="display: none;"><img src="../assets\images\Busca\Linear\lin6.png" class = "img-responsive"></div>
+                                    <div id = "lin7" style="display: none;"><img src="../assets\images\Busca\Linear\lin7.png" class = "img-responsive"></div>
+                                    <div id = "lin8" style="display: none;"><img src="../assets\images\Busca\Linear\lin8.png" class = "img-responsive"></div>
+                                    <div id = "lin9" style="display: none;"><img src="../assets\images\Busca\Linear\lin9.png" class = "img-responsive"></div>
                                     
                                     <a  class="btn btn-pink" onclick="animation_prev('lin',9)">Prev</a>
                                     <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('lin',9)">Next</a>
@@ -163,14 +163,14 @@ else
                                         <li><p>Caso contrário o valor procurado é igual ao elemento que está no meio do vetor.</p></li>
                                         <li>Esse procedimento é repetido até que o elemento seja encontrado ou não haja mais elementos a testar.</p></li>
                                         <li><p>Suponha que desejamos buscar o número 6 no mesmo vetor anterior, porém agora foi informado que o vetor está <b>ordenado</b> em ordem crescente, como aplicar a busca binária ?</p></li>
-                                        <div id = "bin1"><img src="assets\images\Busca\Binary\bin1.png" class = "img-responsive"></div>
-                                        <div id = "bin2" style="display: none;"><img src="assets\images\Busca\Binary\bin2.png" class = "img-responsive"></div>
-                                        <div id = "bin3" style="display: none;"><img src="assets\images\Busca\Binary\bin3.png" class = "img-responsive"></div>
-                                        <div id = "bin4" style="display: none;"><img src="assets\images\Busca\Binary\bin4.png" class = "img-responsive"></div>
-                                        <div id = "bin5" style="display: none;"><img src="assets\images\Busca\Binary\bin5.png" class = "img-responsive"></div>
-                                        <div id = "bin6" style="display: none;"><img src="assets\images\Busca\Binary\bin6.png" class = "img-responsive"></div>
-                                        <div id = "bin7" style="display: none;"><img src="assets\images\Busca\Binary\bin7.png" class = "img-responsive"></div>
-                                        <div id = "bin8" style="display: none;"><img src="assets\images\Busca\Binary\bin8.png" class = "img-responsive"></div>
+                                        <div id = "bin1"><img src="../assets\images\Busca\Binary\bin1.png" class = "img-responsive"></div>
+                                        <div id = "bin2" style="display: none;"><img src="../assets\images\Busca\Binary\bin2.png" class = "img-responsive"></div>
+                                        <div id = "bin3" style="display: none;"><img src="../assets\images\Busca\Binary\bin3.png" class = "img-responsive"></div>
+                                        <div id = "bin4" style="display: none;"><img src="../assets\images\Busca\Binary\bin4.png" class = "img-responsive"></div>
+                                        <div id = "bin5" style="display: none;"><img src="../assets\images\Busca\Binary\bin5.png" class = "img-responsive"></div>
+                                        <div id = "bin6" style="display: none;"><img src="../assets\images\Busca\Binary\bin6.png" class = "img-responsive"></div>
+                                        <div id = "bin7" style="display: none;"><img src="../assets\images\Busca\Binary\bin7.png" class = "img-responsive"></div>
+                                        <div id = "bin8" style="display: none;"><img src="../assets\images\Busca\Binary\bin8.png" class = "img-responsive"></div>
                                         
                                         <a  class="btn btn-pink" onclick="animation_prev('bin',8)">Prev</a>
                                         <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('bin',8)">Next</a>
@@ -199,11 +199,11 @@ if (achou)
     printf("%d encontrado na posicao %d.\n", valor, meio + 1);
 else
     printf("%d nao encontrado.\n", valor);</pre>
-                                        <a href="assets/codes/aula7/buscaBinaria.c" class="btn btn-pink" download="">Download Code</a>
+                                        <a href="../assets/codes/aula7/buscaBinaria.c" class="btn btn-pink" download="">Download Code</a>
                                         <a href="https://goo.gl/5dUWiU" class="btn btn-pink" target="blank">Code Execution</a>    
                                         <li><p>Resumindo, a eficiência da busca binária é muito superior a uma busca linear (no pior caso), pois a cada iteração metade do sub-vetor é descartada. Sua complexidade é de O(log(n)) enquanto a complexidade da busca linear é O(n) (Assunto sobre complexidade será tratado futuramente).</p></li>
                                         <li><p>Segue um exemplo da comparação entre as duas buscas.</p></li>
-                                        <img src="assets/images/Busca/binaryVSlinear.gif" alt="Binary Search VS Linear Search">
+                                        <img src="../assets/images/Busca/binaryVSlinear.gif" alt="Binary Search VS Linear Search">
                                     </ul>
                                 </div>
                             </section><!--// ORDENAÇÃO -->
@@ -223,24 +223,24 @@ else
                                        
                                     </ul>
 
-                                    <div id = "bub1"><img src="assets\images\Busca\Bubble\bub1.png" class = "img-responsive"></div>
-                                    <div id = "bub2" style="display: none;"><img src="assets\images\Busca\Bubble\bub2.png" class = "img-responsive"></div>
-                                    <div id = "bub3" style="display: none;"><img src="assets\images\Busca\Bubble\bub3.png" class = "img-responsive"></div>
-                                    <div id = "bub4" style="display: none;"><img src="assets\images\Busca\Bubble\bub4.png" class = "img-responsive"></div>
-                                    <div id = "bub5" style="display: none;"><img src="assets\images\Busca\Bubble\bub5.png" class = "img-responsive"></div>
-                                    <div id = "bub6" style="display: none;"><img src="assets\images\Busca\Bubble\bub6.png" class = "img-responsive"></div>
-                                    <div id = "bub7" style="display: none;"><img src="assets\images\Busca\Bubble\bub7.png" class = "img-responsive"></div>
-                                    <div id = "bub8" style="display: none;"><img src="assets\images\Busca\Bubble\bub8.png" class = "img-responsive"></div>
-                                    <div id = "bub9" style="display: none;"><img src="assets\images\Busca\Bubble\bub9.png" class = "img-responsive"></div>
-                                    <div id = "bub10" style="display: none;"><img src="assets\images\Busca\Bubble\bub10.png" class = "img-responsive"></div>
-                                    <div id = "bub11" style="display: none;"><img src="assets\images\Busca\Bubble\bub11.png" class = "img-responsive"></div>
-                                    <div id = "bub12" style="display: none;"><img src="assets\images\Busca\Bubble\bub12.png" class = "img-responsive"></div>
-                                    <div id = "bub13" style="display: none;"><img src="assets\images\Busca\Bubble\bub13.png" class = "img-responsive"></div>
-                                    <div id = "bub14" style="display: none;"><img src="assets\images\Busca\Bubble\bub14.png" class = "img-responsive"></div>
-                                    <div id = "bub15" style="display: none;"><img src="assets\images\Busca\Bubble\bub15.png" class = "img-responsive"></div>
-                                    <div id = "bub16" style="display: none;"><img src="assets\images\Busca\Bubble\bub16.png" class = "img-responsive"></div>
-                                    <div id = "bub17" style="display: none;"><img src="assets\images\Busca\Bubble\bub17.png" class = "img-responsive"></div>
-                                    <div id = "bub18" style="display: none;"><img src="assets\images\Busca\Bubble\bub18.png" class = "img-responsive"></div>
+                                    <div id = "bub1"><img src="../assets\images\Busca\Bubble\bub1.png" class = "img-responsive"></div>
+                                    <div id = "bub2" style="display: none;"><img src="../assets\images\Busca\Bubble\bub2.png" class = "img-responsive"></div>
+                                    <div id = "bub3" style="display: none;"><img src="../assets\images\Busca\Bubble\bub3.png" class = "img-responsive"></div>
+                                    <div id = "bub4" style="display: none;"><img src="../assets\images\Busca\Bubble\bub4.png" class = "img-responsive"></div>
+                                    <div id = "bub5" style="display: none;"><img src="../assets\images\Busca\Bubble\bub5.png" class = "img-responsive"></div>
+                                    <div id = "bub6" style="display: none;"><img src="../assets\images\Busca\Bubble\bub6.png" class = "img-responsive"></div>
+                                    <div id = "bub7" style="display: none;"><img src="../assets\images\Busca\Bubble\bub7.png" class = "img-responsive"></div>
+                                    <div id = "bub8" style="display: none;"><img src="../assets\images\Busca\Bubble\bub8.png" class = "img-responsive"></div>
+                                    <div id = "bub9" style="display: none;"><img src="../assets\images\Busca\Bubble\bub9.png" class = "img-responsive"></div>
+                                    <div id = "bub10" style="display: none;"><img src="../assets\images\Busca\Bubble\bub10.png" class = "img-responsive"></div>
+                                    <div id = "bub11" style="display: none;"><img src="../assets\images\Busca\Bubble\bub11.png" class = "img-responsive"></div>
+                                    <div id = "bub12" style="display: none;"><img src="../assets\images\Busca\Bubble\bub12.png" class = "img-responsive"></div>
+                                    <div id = "bub13" style="display: none;"><img src="../assets\images\Busca\Bubble\bub13.png" class = "img-responsive"></div>
+                                    <div id = "bub14" style="display: none;"><img src="../assets\images\Busca\Bubble\bub14.png" class = "img-responsive"></div>
+                                    <div id = "bub15" style="display: none;"><img src="../assets\images\Busca\Bubble\bub15.png" class = "img-responsive"></div>
+                                    <div id = "bub16" style="display: none;"><img src="../assets\images\Busca\Bubble\bub16.png" class = "img-responsive"></div>
+                                    <div id = "bub17" style="display: none;"><img src="../assets\images\Busca\Bubble\bub17.png" class = "img-responsive"></div>
+                                    <div id = "bub18" style="display: none;"><img src="../assets\images\Busca\Bubble\bub18.png" class = "img-responsive"></div>
                                     
                                     <a  class="btn btn-pink" onclick="animation_prev('bub',18)">Prev</a>
                                     <a  class="btn btn-pink" style = "margin-left: 50%;" onclick="animation_next('bub',18)">Next</a>
@@ -291,7 +291,7 @@ int main(){
     printf("\n");
 }
 </pre>
-                            <a href="assets/codes/aula7/bubble.c" class="btn btn-pink" download="">Download Code</a>
+                            <a href="../assets/codes/aula7/bubble.c" class="btn btn-pink" download="">Download Code</a>
                             <a href="https://goo.gl/6gTzxe"class="btn btn-pink" target="blank">Code Execution</a>
                         <p class="note-pink" style="background-color: rgb(234, 83, 149, 0.5);"><b>Pergunta:</b> Se quisessemos organizar o vetor em ordem decrescente, o que precisaria ser mudado?</p>    
                         </div>
@@ -355,7 +355,7 @@ int main(){
     printf("\n");
 }
                         </pre>
-                        <a href="assets/codes/aula7/betterBubble.c" class="btn btn-pink" download="">Download Code</a>
+                        <a href="../assets/codes/aula7/betterBubble.c" class="btn btn-pink" download="">Download Code</a>
                         <a href="https://goo.gl/okVHGh"class="btn btn-pink" target="blank">Code Execution</a>
                         
                         <p>A mudança pode parecer pequena, mas aumenta bastante a eficiência do algoritmo. Por exemplo, repare que o primeiro BubbleSort, no link de execução
@@ -438,7 +438,7 @@ int main(){
                                     <br>
                                     Algoritmos com limite assintótico melhor são mais eficientes, e preferíveis a outros com limites maiores.
                                     </p>
-                                    <img src="assets/images/Busca/BigOGraph.png" alt="Gráfico de comparação Big-O" style="max-width:100%;margin:10px;">
+                                    <img src="../assets/images/Busca/BigOGraph.png" alt="Gráfico de comparação Big-O" style="max-width:100%;margin:10px;">
                                 </div>
                                 
                                 <div class="section-block" id="AnaliseBubbleSort">
@@ -535,13 +535,13 @@ void bubbleSort(int v[], int n){
     
      
     <!-- Main Javascript -->          
-    <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
-    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
-    <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
-    <script type="text/javascript" src="assets/js/animation.js"></script>
+    <script type="text/javascript" src="../assets/plugins/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="../assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
+    <script type="text/javascript" src="../assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="../assets/js/main.js"></script>
+    <script type="text/javascript" src="../assets/js/animation.js"></script>
     
     <script>
       prettyPrint();

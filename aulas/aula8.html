@@ -10,21 +10,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Thiago Veras & Giovanni Guidini">    
-    <link rel="shortcut icon" href="assets/images/UnB-logo.png">  
+    <link rel="shortcut icon" href="../assets/images/UnB-logo.png">  
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">   
     <!-- Plugins CSS -->    
-    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
-    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+    <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="../assets/plugins/elegant_font/css/style.css">
     
     <!-- Theme CSS -->
-    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    <link id="theme-style" rel="stylesheet" href="../assets/css/styles.css">
 
     <!-- Syntax Prettyprint -->
-    <link rel="stylesheet"  href="assets/syntax/tomorrow_night.css">
-    <script src = "assets/syntax/prettify.js"></script>
+    <link rel="stylesheet"  href="../assets/syntax/tomorrow_night.css">
+    <script src = "../assets/syntax/prettify.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -93,7 +93,7 @@ double prova1[40], prova2[40], prova3[40];</pre>
                                     	<pre class="prettyprint linenums:1 lang-cpp">
 double prova1[40], prova2[40], prova3[40], ... , prova98[40], prova99[40], prova100[40];</pre> 	
                                     	<li><p>Se torna totalmente inviável criar 100 vetores para resolver este problema, sendo assim, o interessante é que cada aluno possa ser um vetor de notas. Precisamos de um vetor de vetores, mais conhecido como <b>vetor multidimensional</b>.</p></li>
-                                    	<img src="assets\images\Matrizes\notas.png" style = "width: 100%;">
+                                    	<img src="../assets\images\Matrizes\notas.png" style = "width: 100%;">
 										<li><p>Podemos também declarar vetores com várias dimensões, tantas quanto forem necessárias.</p></li>
                                     	<pre class="prettyprint linenums:1 lang-cpp">
 int exemplo1[10][20][30], exemplo2[130][200][150][50];</pre>
@@ -111,31 +111,31 @@ int array[1000][1000][1000] // Tamanho de 10³ x 10³ x 10³ = 10^9</pre>
                                 	<ul class="list">
                                 			<li><p>Matrizes são vetores bidimensionais, usadas com mais frequência.</p></li>
                                 			<li><p>Uma matriz é uma tabela com <b>n</b> linhas e <b>m</b> colunas:</p></li>
-                                    		<img src="assets\images\Matrizes\matriz.gif" class = "img-responsive" style = "margin: 5%;">
+                                    		<img src="../assets\images\Matrizes\matriz.gif" class = "img-responsive" style = "margin: 5%;">
                                     		<li><p>Como você já deve imaginar, trabalhar com matrizes em C é <b>muito parecido com vetores</b>.</p></li>
                                     		<li><p>Os índices continuam indo de <b>zero</b> até <b>tamanho-1</b>, e você só vai adicionar uma nova dimensão (<b>mais um par de colchetes</b>).</p></li>
-                                    		<div id = "mat1"><img src="assets\images\Matrizes\Inserir\mat1.png" class = "img-responsive"></div>
-                                    		<div id = "mat2" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat2.png" class = "img-responsive"></div>
-                                    		<div id = "mat3" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat3.png" class = "img-responsive"></div>
-                                    		<div id = "mat4" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat4.png" class = "img-responsive"></div>
-                                    		<div id = "mat5" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat5.png" class = "img-responsive"></div>
-                                    		<div id = "mat6" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat6.png" class = "img-responsive"></div>
-                                    		<div id = "mat7" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat7.png" class = "img-responsive"></div>
-                                    		<div id = "mat8" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat8.png" class = "img-responsive"></div>
-                                    		<div id = "mat9" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat9.png" class = "img-responsive"></div>
-                                    		<div id = "mat10" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat10.png" class = "img-responsive"></div>
-                                    		<div id = "mat11" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat11.png" class = "img-responsive"></div>
-                                    		<div id = "mat12" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat12.png" class = "img-responsive"></div>
-                                    		<div id = "mat13" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat13.png" class = "img-responsive"></div>
-                                    		<div id = "mat14" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat14.png" class = "img-responsive"></div>
-                                    		<div id = "mat15" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat15.png" class = "img-responsive"></div>
-                                    		<div id = "mat16" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat16.png" class = "img-responsive"></div>
-                                    		<div id = "mat17" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat17.png" class = "img-responsive"></div>
-                                    		<div id = "mat18" style="display: none;"><img src="assets\images\Matrizes\Inserir\mat18.png" class = "img-responsive"></div>
+                                    		<div id = "mat1"><img src="../assets\images\Matrizes\Inserir\mat1.png" class = "img-responsive"></div>
+                                    		<div id = "mat2" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat2.png" class = "img-responsive"></div>
+                                    		<div id = "mat3" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat3.png" class = "img-responsive"></div>
+                                    		<div id = "mat4" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat4.png" class = "img-responsive"></div>
+                                    		<div id = "mat5" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat5.png" class = "img-responsive"></div>
+                                    		<div id = "mat6" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat6.png" class = "img-responsive"></div>
+                                    		<div id = "mat7" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat7.png" class = "img-responsive"></div>
+                                    		<div id = "mat8" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat8.png" class = "img-responsive"></div>
+                                    		<div id = "mat9" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat9.png" class = "img-responsive"></div>
+                                    		<div id = "mat10" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat10.png" class = "img-responsive"></div>
+                                    		<div id = "mat11" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat11.png" class = "img-responsive"></div>
+                                    		<div id = "mat12" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat12.png" class = "img-responsive"></div>
+                                    		<div id = "mat13" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat13.png" class = "img-responsive"></div>
+                                    		<div id = "mat14" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat14.png" class = "img-responsive"></div>
+                                    		<div id = "mat15" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat15.png" class = "img-responsive"></div>
+                                    		<div id = "mat16" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat16.png" class = "img-responsive"></div>
+                                    		<div id = "mat17" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat17.png" class = "img-responsive"></div>
+                                    		<div id = "mat18" style="display: none;"><img src="../assets\images\Matrizes\Inserir\mat18.png" class = "img-responsive"></div>
                                     		<div class = "center">
                                     			<a  class="btn btn-blue" onclick="animation_prev('mat',18)">Prev</a>
 
-                                    			<a href="assets/codes/aula8/matriz.c" class="btn btn-blue" download="">Download Code</a>
+                                    			<a href="../assets/codes/aula8/matriz.c" class="btn btn-blue" download="">Download Code</a>
 
                                     			<a  class="btn btn-blue"  onclick="animation_next('mat',18)">Next</a>
                                     		</div>
@@ -196,7 +196,7 @@ int main(){
     printMat(matriz);
 }
                                     </pre>
-                                <a href="#" class="btn btn-blue" download="assets/codes/aula8/func.c">Download Code</a>
+                                <a href="#" class="btn btn-blue" download="../assets/codes/aula8/func.c">Download Code</a>
                                 <a href="https://goo.gl/3pNbcn" class="btn btn-blue">Code Execution</a>
                                 <p>Para mais exemplos visite este <a href="https://www.geeksforgeeks.org/pass-2d-array-parameter-c/">site</a>. Ele inclui também a opção 1, passar matrizes como ponteiros, mas ela é mais complicada (veja seção <a href="#materiais">Materiais Extras</a> para saber o porquê)</p>
                                 </div>
@@ -239,22 +239,22 @@ int main(){
 
                                 <p>Os elementos de um vetor estão salvos em posições <em>contíguas</em> na memória. Isto vale para array de qualquer dimensão. Assim, a seguinte matriz:</p>
 
-                                <img class="img-responsive" src="assets/images/Matrizes/matrizExemplo.jpg" alt="Exemplo de uma matriz">
+                                <img class="img-responsive" src="../assets/images/Matrizes/matrizExemplo.jpg" alt="Exemplo de uma matriz">
 
                                 <p style="margin:15px;">Na verdade, na memória do computador, fica organizada em uma única dimensão:</p>
                                 
-                                <img class="img-responsive" src="assets/images/Matrizes/matrizMem.jpg" alt="Matriz anterior na memória">
+                                <img class="img-responsive" src="../assets/images/Matrizes/matrizMem.jpg" alt="Matriz anterior na memória">
 
                                 <p>Como os elementos estão em posições contíguas, seus endereços também são contíguos. Logo, para saber o endereço de um elemento em qualquer array unidimensionais, o computador só precisa fazer o cálculo <code>addr = array + idx*sizeof(type)</code> onde addr é o endereço procurado, array é o primeiro endereço do vetor, idx é a posição desejada e type é o tipo do vetor. Por exemplo</p>
                                 
-                                <div id = "ptr1"><img src="assets/images/Matrizes/Pointer/ptr1.png" class = "img-responsive"></div>
-                                <div id = "ptr2" style="display: none;"><img src="assets/images/Matrizes/Pointer/ptr2.png" class = "img-responsive"></div>
-                                <div id = "ptr3" style="display: none;"><img src="assets/images/Matrizes/Pointer/ptr3.png" class = "img-responsive"></div>
-                                <div id = "ptr4" style="display: none;"><img src="assets/images/Matrizes/Pointer/ptr4.png" class = "img-responsive"></div>
+                                <div id = "ptr1"><img src="../assets/images/Matrizes/Pointer/ptr1.png" class = "img-responsive"></div>
+                                <div id = "ptr2" style="display: none;"><img src="../assets/images/Matrizes/Pointer/ptr2.png" class = "img-responsive"></div>
+                                <div id = "ptr3" style="display: none;"><img src="../assets/images/Matrizes/Pointer/ptr3.png" class = "img-responsive"></div>
+                                <div id = "ptr4" style="display: none;"><img src="../assets/images/Matrizes/Pointer/ptr4.png" class = "img-responsive"></div>
 
                                 <div class = "center">
                                 <a  class="btn btn-blue" onclick="animation_prev('ptr',4)">Prev</a>
-                                <a href="assets/codes/aula8/ptr.c" class="btn btn-blue" download="">Download Code</a>
+                                <a href="../assets/codes/aula8/ptr.c" class="btn btn-blue" download="">Download Code</a>
                                 <a  class="btn btn-blue"  onclick="animation_next('ptr',4)">Next</a>
                                 </div>
                                 <p style="margin: 15px">Isso é perfeitamente possível de ser feito porque o computador sabe <b>quantos bytes pular</b> para chegar em qualquer elemento, já que todos ocupam um espaço definido pelo <b>tipo</b> do vetor. No entanto, se queremos, por exemplo, pular uma linha inteira de uma matriz, como saber qual o tamanho da linha? Não é possível, a menos que saibamos de antemão. Como o tamanho de uma linha é igual <em>ao número de colunas * tamanho de cada elemento</em>, conclui-se que precisamos informar o tamanho das colunas, para que o computador possa fazer o cálculo dos endereços. Assim, se não especificamos este tamanho (por exemplo, se passarmos uma matriz para uma função como ponteiro) temos que fazer o cálculo nós mesmos.</p>
@@ -301,13 +301,13 @@ int main(){
     
      
     <!-- Main Javascript -->          
-    <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
-    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
-    <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
-    <script type="text/javascript" src="assets/js/animation.js"></script>
+    <script type="text/javascript" src="../assets/plugins/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="../assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
+    <script type="text/javascript" src="../assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="../assets/js/main.js"></script>
+    <script type="text/javascript" src="../assets/js/animation.js"></script>
     
     <script>
       prettyPrint();

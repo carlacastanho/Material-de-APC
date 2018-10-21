@@ -10,21 +10,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Thiago Veras & Giovanni Guidini">    
-    <link rel="shortcut icon" href="assets/images/UnB-logo.png">  
+    <link rel="shortcut icon" href="../assets/images/UnB-logo.png">  
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">   
     <!-- Plugins CSS -->    
-    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
-    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+    <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="../assets/plugins/elegant_font/css/style.css">
     
     <!-- Theme CSS -->
-    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    <link id="theme-style" rel="stylesheet" href="../assets/css/styles.css">
 
     <!-- Syntax Prettyprint -->
-    <link rel="stylesheet"  href="assets/syntax/tomorrow_night.css">
-    <script src = "assets/syntax/prettify.js"></script>
+    <link rel="stylesheet"  href="../assets/syntax/tomorrow_night.css">
+    <script src = "../assets/syntax/prettify.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -111,7 +111,7 @@
                                         <h3 class="block-title">Declarando registros</h3>
                                         <ul class = "list">
                                             <li><p>Vamos supor que vamos criar um registro para um determinado monstro, criando a tebela dos dados, será maios ou menos assim:</p></li>
-                                            <img src="assets\images\Structs\table.png" class = "center" style = "width: 30%;">
+                                            <img src="../assets\images\Structs\table.png" class = "center" style = "width: 30%;">
                                             <li><p>Podemos ver que a variável <i>Nome</i> é do tipo <em>vetor de char (string)</em>; que <i>Código</i>, <i>Level</i>, <i>Vida</i>, <i>Ataque</i> e <i>Defesa</i> são do tipo <em>int</em>; que <i>Taxa de Captura</i> é do tipo <em>float</em>; e que <i>Paralisado</i> é do tipo booleano.</p></li>
                                             <li><p>Todas essas variáveis são <b>relacionadas</b>, e estão agrupadas em um <b>novo domínio</b>.</p></li>
                                             <li><p>Dizemos então que, da mesma maneira que existem os tipos inteiro, real, literal, etc, agora existe um novo tipo, Dados do Monstro, e também <b>podemos criar variáveis desse novo tipo</b>.</p></li>
@@ -277,7 +277,7 @@ int main(){
     }
 }
                                     </pre>
-                                    <a href="assets/codes/aula10/funcionario.c" download="" class="btn btn-orange">Download Code</a>
+                                    <a href="../assets/codes/aula10/funcionario.c" download="" class="btn btn-orange">Download Code</a>
                                     </li>
                                     <li>Faça um simples programa para transformar um ponto polar em um ponto cartesiano.
 
@@ -322,7 +322,7 @@ int main(){
 // Ponto polar: (13.00, 22.60)
                                     </pre>
 
-                                    <a href="assets/codes/aula10/ponto.c" download="" class="btn btn-orange">Download Code</a>
+                                    <a href="../assets/codes/aula10/ponto.c" download="" class="btn btn-orange">Download Code</a>
                                     </li>
                                     <li>Veras é um aluno sempre preocupado com suas notas, e que busca subir seu IRA sempre. Sendo de computação, Veras criou um programa simples para ver em qual das matérias que está fazendo ele está com o melhor rendimento, e qual precisa se dedicar mais. Para isso ele usa registros para suas notas de cada matéria, ordenando-os de maneira crescente. Claro que o programa de verdade do Veras é bem mais complicado do que este, mas quando estava no primeiro semestre ele fez algo mais ou menos assim:
 
@@ -401,7 +401,7 @@ int main(){
                                     </pre>
                                     <a class="btn btn-orange" target="_blank" href="https://goo.gl/rArpuy">Code Execution</a>
 
-                                    <a href="assets/codes/aula10/veras.c" download="" class="btn btn-orange">Download Code</a>
+                                    <a href="../assets/codes/aula10/veras.c" download="" class="btn btn-orange">Download Code</a>
                                     </li>
                                     </ol>
                                 </div>
@@ -419,7 +419,7 @@ int main(){
                                         <li>Cada atributo ocupa a quantidade de bytes necessários para o seu tipo (e.g. int - 4 bytes, float - 4 bytes, char - 1 byte, etc)</li>
                                         <li>Os atributos começam em endereços <b>alinhados</b> (i.e. múltiplos de 4), por isso os endereços 105-107 não estão sendo utilizados na figura.</li>
                                     </ul>
-                                    <img class="img-responsive" src="assets/images/Structs/structInMemory.jpg" alt="Imagem representando um registro na memória">
+                                    <img class="img-responsive" src="../assets/images/Structs/structInMemory.jpg" alt="Imagem representando um registro na memória">
                                 </div>
                                 </section><!--//doc-section-->
                         </div><!--//content-inner-->
@@ -463,14 +463,14 @@ int main(){
     
      
     <!-- Main Javascript -->          
-    <script type="text/javascript" src="assets/plugins/jquery-1.12.3.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
-    <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
-    <script type="text/javascript" src="assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
-    <script type="text/javascript" src="assets/js/animation.js"></script>
-    <script type="text/javascript" src="assets/js/lastupdate.js"></script>
+    <script type="text/javascript" src="../assets/plugins/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="../assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
+    <script type="text/javascript" src="../assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="../assets/js/main.js"></script>
+    <script type="text/javascript" src="../assets/js/animation.js"></script>
+    <script type="text/javascript" src="../assets/js/lastupdate.js"></script>
 
     
     <script>
