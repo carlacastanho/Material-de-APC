@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>Debbuging Básico</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Thiago Veras & Giovanni Guidini">    
+    <link rel="shortcut icon" href="../assets/images/UnB-logo.png">  
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <!-- Plugins CSS -->    
+    <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="../assets/plugins/elegant_font/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="../assets/css/styles.css">
+
+    <!-- Syntax Prettyprint -->
+    <link rel="stylesheet"  href="../assets/syntax/tomorrow_night.css">
+    <script src = "../assets/syntax/prettify.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .img-responsive{
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+        }
+    </style>
+
+</head> 
+
+<body class="body-blue">
+        <div class="page-wrapper">
+            <!-- ******Header****** -->
+            <header id="header" class="header">
+                <div class="container">
+                    <div class="branding">
+                        <h1 class="logo">
+                            <a href="../index.html">
+                                <span aria-hidden="true" class="fa fa-question-circle-o" style="color: #58bbee;"></span>
+                                <span class="text-highlight">Debbuging Básico</span>
+                            </a>
+                        </h1>
+                    </div><!--//branding-->
+                    <ol class="breadcrumb">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../FAQs.html">Voltar</a></li>
+                    </ol>
+                </div><!--//container-->
+            </header><!--//header-->
+            <div class="doc-wrapper">
+                <div class="container">
+                    <div id="doc-header" class="doc-header text-center">
+                        <h1 class="doc-title"><span class="icon-holder"><i style="color: #58bbee; font-size: 1em;" class="material-icons">computer</i></span> Erros mais comuns em um Juiz Online</h1>
+                        <div class="meta"><i class="fa fa-clock-o"></i> Last updated: January 30th, 2019</div>
+                    </div><!--//doc-header-->
+                    <div class="doc-body">
+                        <div class="doc-content">
+                            <div class="content-inner">
+                                <section class="doc-section">
+                                    <h2 class="section-title">Introdução</h2>
+                                    <div class="section-block" id="intro">
+                                        
+                                        <p>Durante o curso de Algoritmos e Programação de Computadores você irá passar por alguns <b>problemas</b> na hora de enviar a sua questão para o OJ (Online Judge).</p>
+
+                                        <p>Essa seção será resposável por <b>aprensentar</b> e <b>exemplificar</b> os erros mais comuns que voce provavelmente irá passar. Como não será o professor ou monitor que irá corrirgir a submissão de cada código de cada aluno, o sistema foi programado para corrigir e julgar seu código de acordo com apenas <b>1 critério</b> : caso todos os inputs apresentados por ele retorne como resultado algo exatamente igual o seu gabarito (<b>output</b>), então o seu código está <b>correto</b>, caso contrário ele está <b>errado</b>. </p>
+                                        <p>Possivelmente os códigos que foram julgados como errados irão receber um dos seguintes erros que serão analisados no tópico seguinte</p>
+
+                                       
+                                    </div>
+                                </section><!--//doc-section-->
+                                <section class="doc-section">
+                                    <h2 class="section-title" id="errors">Erros</h2>
+                                    
+                                    <div class="section-block" id="wa">
+                                        <h3 class="block-title">Wrong Answer (WA)</h3>
+                                        <p>Sem a menor dúvida <b>WA</b> é o tipo de erro mais comum e <b>TODOS</b> ainda vão receber um durante o curso.</p>
+                                        <p>Este tipo de erro ocorre basicamente quando a resposta retornada não bate com o gabarito. Como por exemplo, caso o problema seja somar 2 números e para um input <code>5 5</code> seu programa retorna qualquer coisa diferente de <code>10</code> ele irá julgar seu programa com o veredito de <b>resposta errada (WA)</b>.</p>
+                                        
+                                        <p>Exemplo de programa que irá receber <b>WA</b> caso o proposto seja ler 2 números e imprimir ambos trocados</p>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+int x, y, aux;
+scanf("%d %d", &x, &y);
+aux = x;
+x = y;
+y = aux;
+printf("%d%d\n", x, y); </pre>
+                                        <p>Este tipo de programa irá retornar o veredito de <b>WA</b> pois caso o input seja <code>7 8</code>, ao invés do código retornar <code>8 7</code> ele irá retornar <code>87</code> que não é a resposta correta</p>
+                                    </div>
+                                    
+                                    <div class="section-block" id="pe">
+                                        <h3 class="block-title">Presentation error (PE)</h3>
+                                        <p>Este tipo de erro é bastante comum para o pessoal iniciante que está realizando submissões, principalmente, no site do URI.</p>
+                                        <p>O código recebe esse veredito quando sua resposta não está identada corretamente, ou seja, não apresenta a quebra de linha <code>(\n)</code> corretamente </p>
+                                        
+                                        <p>Exemplo de programa que irá receber <b>PE</b> caso o proposto seja ler 1 número e imprimir 2 linhas, no qual a primeira é o número lido ao quadrado e na segunda linha o número ao cubo</p>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+    int x;
+    scanf("%d", &x);
+    printf("%d %d\n", x*x, x*x*x); </pre>
+                                        <p>Este tipo de programa irá retornar o veredito de <b>PE</b> pois caso o input seja <code>2</code> a saida deveria ser 2 linhas contendo os números <code>4</code> e <code>8</code>, porém este código retorna apenas 1 linha1 com a resposta "<b>correta</b>", porém identada de forma incorreta.</p>
+                                    </div>
+
+                                    <div class="section-block" id="ce">
+                                        <h3 class="block-title">Compilation error (CE)</h3>
+                                        <p>Este tipo de erro é bastante comum para o pessoal iniciante, similar ao <b>PE</b> .</p>
+                                        <p>O código recebe esse veredito quando não consegue se <b>compilado</b> na hora do sistema realizar os testes.</p>
+                                        
+                                        <p>Exemplo de programa que irá receber <b>CE</b> caso o proposto seja ler 1 número e imprimir seu dobro</p>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+    int y;                                            
+    scanf("%d", &x);
+    printf("%d\n", x*2); </pre>
+                                        <p>Este tipo de programa irá retornar o veredito de <b>CE</b> o programa está salvando o valor lido na variável <b>x</b>, porém essa variável não foi declarada, logo irá ocorrer erro na hora da compilação.</p>
+                                    </div>
+
+                                    <div class="section-block" id="rte">
+                                        <h3 class="block-title">Runtime error (RTE)</h3>
+                                        <p>Este tipo de erro é bastante comum e acontece bastante quando o programador está aprendendo vetores.</p>
+                                        <p>O código recebe esse veredito, na maioria das vezes, quando o programa acessa um posição <b>inválida</b> de memória, geralmente ocorre quando temos um vetor e se tenta acessar um <b>index</b> que não existe. </p>
+                                        
+                                        <p>Exemplo de programa que irá receber <b>RTE</b> caso o proposto seja ler <code>n</code> números e imprimí-los de trás para frente.</p>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+    int n,i;
+    scanf("%d", &n);
+    int v[n];
+    for(i = 0; i <= n; i++){
+        scanf("%d", &v[i]);
+    }
+    for(i = n; i >= 0; i--){
+        printf("%d ", v[i]);
+    }                  
+    printf("\n");                         
+    </pre>
+                                        <p>Este tipo de programa irá retornar o veredito de <b>RE</b> pois como o código cria um vetor de tamanho <code>n</code>, então suas posições vão de <code>0 ~ n-1</code> e como no laço de repetição está de <code>0 ~ n</code>, na última iteração do primeiro for será acessado a posição <code>v[n]</code> que não existe, fazendo com que o programa não esteja correto.</p>
+                                    </div>
+
+                                    <div class="section-block" id="tle">
+                                        <h3 class="block-title">Time Limit Exceeded (TLE)</h3>
+                                        <p>Este também acontece, porém com uma menor frequência que os outros e está relacionado ao tempo de execução.</p>
+                                        <p>O código recebe esse veredito quando sua solução extrapola o tempo limite definido. Seu programa não terminou de executar no tempo pré-determinado, por isso foi interrompido. Este tipo de erro pode acontecer quando seu programa entra em um <b>loop infinito</b> ou a sua solução apenas demora muito para ser finalizada.</p>
+                                        
+                                        <p>Exemplo de programa que irá receber <b>TLE</b> caso o proposto seja ler um número <code>n</code> e imprimir todos os números de <code>n</code> até 1</p>
+                                        <pre class="prettyprint linenums:1 lang-cpp">
+    int n,i;
+    scanf("%d", &n);
+    for(i = n; i >= 1; i++){
+        scanf("%d ", i);
+    }               
+    printf("\n");  </pre>
+                                        <p>Este tipo de programa irá retornar o veredito de <b>TLE</b> pois o programador está fazendo um loop <b>decrescente</b> com a condição de parada com <code>i >= 1</code>, porém no último campo do laço de repetição ele <b>incrementa</b> a variável, fazendo com que o número sempre cresça e nunca fique menor do que 1, entrando em um <b>loop infinito</b>.</p>
+                                    </div>
+                                        
+
+                                   
+                                  
+                                </section>
+                                
+                            </div><!--//content-inner-->
+                        </div><!--//doc-content-->
+
+                    <div class="doc-sidebar hidden-xs">
+                        <nav id="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
+                                <li><a class="scrollto" href="#intro">Introdução</a></li>
+                                <li><a class="scrollto" href="#errors">Erros</a></li>
+                                <ul class="nav doc-sub-menu">
+                                    <li><a class="scrollto" href="#wa">Wrong Answer</a></li>
+                                    <li><a class="scrollto" href="#pe">Presentation Error</a></li>
+                                    <li><a class="scrollto" href="#ce">Compilation Error</a></li>
+                                    <li><a class="scrollto" href="#rte">Run Time Error</a></li>
+                                    <li><a class="scrollto" href="#tle">Time Limit Exceeded </a></li>
+
+                                </ul>
+                               
+
+                            </ul><!--//doc-menu-->
+                        </nav>
+                    </div><!--//doc-sidebar-->
+                </div><!--//doc-body-->              
+            </div><!--//container-->
+        </div><!--//doc-wrapper-->        
+    </div><!--//page-wrapper-->
+    
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+            <small class="copyright">Created by:<a class="link" href="https://github.com/VerasThiago" target="_blank"><span> Thiago Veras</span></a> &amp; <a class="link" href="https://github.com/Gguidini" target="_blank"><span> Giovanni M Guidini</span></a></small>
+             <br> <!-- break line-->
+             <small class="copyright">Theme PRETTYDOCS by <a href="http://themes.3rdwavemedia.com/" targe="_blank">Xiaoying Riley</a></small>
+ 
+        </div><!--//container-->
+    </footer><!--//footer-->
+    
+     
+    <!-- Main Javascript -->          
+    <script type="text/javascript" src="../assets/plugins/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/prism/prism.js"></script>    
+    <script type="text/javascript" src="../assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>                                                                
+    <script type="text/javascript" src="../assets/plugins/jquery-match-height/jquery.matchHeight-min.js"></script>
+    <script type="text/javascript" src="../assets/js/main.js"></script>
+    <script type="text/javascript" src="../assets/js/animation.js"></script>
+    
+    <script>
+      prettyPrint();
+    </script>
+    
+</body>
+</html> 
