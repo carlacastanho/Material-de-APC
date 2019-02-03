@@ -3,7 +3,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Plataforma de Desenvolvimento</title>
+    <title>Comandos Básicos</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,7 +44,7 @@
 
 </head> 
 
-<body class="body-blue">
+<body class="body-purple">
         <div class="page-wrapper">
             <!-- ******Header****** -->
             <header id="header" class="header">
@@ -52,8 +52,8 @@
                     <div class="branding">
                         <h1 class="logo">
                             <a href="../index.html">
-                                <span aria-hidden="true" class="fa fa-question-circle-o" style="color: #58bbee;"></span>
-                                <span class="text-highlight">Plataforma de Desenvolvimento</span>
+                                <span aria-hidden="true" class="fa fa-question-circle-o" style="color: #8a40a7;"></span>
+                                <span class="text-highlight">Comandos Básicos do Terminal</span>
                             </a>
                         </h1>
                     </div><!--//branding-->
@@ -66,8 +66,8 @@
             <div class="doc-wrapper">
                 <div class="container">
                     <div id="doc-header" class="doc-header text-center">
-                        <h1 class="doc-title"><span class="icon-holder"><i style="color: #58bbee; font-size: 1em;" class="material-icons">computer</i></span> Ferramentas necessárias para o curso</h1>
-                        <div class="meta"><i class="fa fa-clock-o"></i> Last updated: January 29th, 2019</div>
+                        <h1 class="doc-title"><span class="icon-holder"><i style="color: #8a40a7; font-size: 1em;" class="material-icons">computer</i></span> Quais são e como usar do terminal</h1>
+                        <div class="meta"><i class="fa fa-clock-o"></i> Last updated: February 2th, 2019</div>
                     </div><!--//doc-header-->
                     <div class="doc-body">
                         <div class="doc-content">
@@ -76,111 +76,111 @@
                                     <h2 class="section-title">Introdução</h2>
                                     <div class="section-block" id="intro">
                                         
-                                        <p>Durante o curso de Algoritmos e Programação de Computadores você estará criando programas na linguagem C. Esta é uma linguagem <b>compilada</b>.</p>
+                                        <p>O curso de programação de Algoritmos e Programação de Computadores <b>não</b> adota a utilização de <b>IDEs</b> durante as aulas práticas e sim o uso do terminal.</p>
 
-                                        <p>Para escrever e executar seus programas você precisará de 2 ferramentas essenciais:</p>
+                                        <p>O terminal é chamado frequentemente de linha de comando ou shell. Até pouco tempo, esta era a maneira que o usuário interagia com o computador; entretanto, os usuários de Linux viram que o uso do shell pode ser mais rápido do que um método gráfico e que ainda merece algum mérito hoje. Aqui você encontrar os comandos mais usados durante o curso.</p>
 
-                                        <ul>
-                                            <li>Editor de Texto;</li>
-                                            <li>Compilador C.</li>
-                                        </ul>
-
-                                        Veja abaixo opções para estas ferramentas e instruções de instalação.
+                                
                                     </div>
                                 </section><!--//doc-section-->
                                 <section class="doc-section">
-                                    <h2 class="section-title" id="text">Editor de Texto</h2>
+                                    <h2 class="section-title" id="commands">Comandos</h2>
 
-                                    <p>Um editor de texto é um programa que permite criar e editar arquivos de texto. Todo programa é um arquivo de texto, logo, é num editor de texto que você cria/altera programas. Bons editores de texto também oferecem certas funcionalidades que ajudam muito a vida do programador, como, por exemplo:</p>
+                                    <div class="section-block" id="ls">
+                                        <h3 class="block-title">List Command <b>(ls)</b></h3>
 
-                                    <ul>
-                                        <li>Sintax Highlight - destaca palavras reservadas do programa</li>
-                                        <li>Auto identação - continua a identação da linha de cima</li>
-                                        <li>Auto completion - completa altomaticamente certas palavras</li>
-                                    </ul>
+                                        <p>O comando ls é usado para mostrar todos os arquivos e pastas que se encontram no respectivo diretório diretório, basta digitar <code>ls</code> no terminal.</p>
 
-                                    <p>De maneira geral os editores de texto possuem funcionalidades semelhantes. Muitos oferecem plugins para extender essas funcionalidades, mas você não precisará se preocupar com estes. Assim, a escolha do melhor editor de texto vai do que for mais amigável e confortável para você. Veja nossas sugestões abaixo.</p>
-
-                                    <div class="section-block" id="sugestao_texto">
-                                        <h3 class="block-title">Nossas Sugestões</h3>
-
-                                        <ol>
-                                            <li>
-                                                <h4 class="block-title">Microsoft Visual Studio Code</h4>
-                                                
-                                                <p> O <a href="https://code.visualstudio.com/" target="_blank" >Microsoft Visual Studio Code</a> é um editor de texto da Microsoft que está disponível para <b>qualquer</b> sistema operacional.</p>
-
-                                                <p>De fácil instalação - talvez seja mais complicada se você estiver usando Linux - esse editor de texto é fácil de usar, possui muitas extensões úteis e fáceis de instalar, e é totalmente gratuito. Relativamente novo, mas cresceu rapidamente em popularidade.</p>
-                                            </li>
-                                            <li>
-                                                <h4 class="block-title">Sublime Text</h4>
-
-                                                <p>O <a href="https://www.sublimetext.com/" target="_blank" >Sublime Text</a> é um editor de texto muito utilizado que já está em sua terceira versão. Está disponível para <b>qualquer</b> sistema operacional.</p>
-
-                                                <p>Instalação também é fácil, e é um editor bastante popular e oferece muitas extensões também. Estritamente falando o Sublime requer uma licença paga, mas você pode testar gratuitamente por tempo indeterminado.</p>
-                                            </li>
-                                            <li>
-                                                <h4 class="block-title">Atom</h4>
-
-                                                <p>O <a href="https://atom.io/" target="_blank">Atom</a> é outro editor de texto bastante popular e semelhante aos dois anteriores. Está disponível para <b>qualquer</b> sistema operacional.</p>
-                                            </li>
-                                            <li>
-                                                <h4 class="block-title">Notepad++</h4>
-
-                                                <p>O <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a> é uma evolução do Notepad, do Windows. Ele é mais simples que os outros editores logo de cara, mas também oferece muitas extensões. É <b>somente para Windows</b>.</p>
-                                            </li>
-                                        </ol>
+                                        <p><b>FOTO USANDO LS</b></p>
 
                                     </div>
+
+                                    <div class="section-block" id="cd">
+                                        
+                                        <h3 class="block-title">Change Directory <b>(cd)</b></h3>
+                                        
+                                        <p>O comando cd é usado para trocar de um diretório para outro, ou seja, serve para voce conseguir entrar em uma pasta, basta digitar <code>cd NomeDaPasta</code> ou <code>cd Endereço da Pasta</code>. Vale reforçar que só é possível entrar em um diretório caso o comando digitado combinado com o atual diretório de <b>extamente</b> no diretório desejado. </p>
+                                        
+                                        <p>Ou seja, caso você tenha uma pasta <b>A</b> e dentro dela uma pasta <b>B</b> e dentro da <b>B</b> uma pasta <b>C</b>, se você está na pasta <b>A</b> e quer ir para a <b>C</b>, <b>não</b> irá funcionar o comando <code>cd C</code>, pois dentro da pasta <b>A</b> não existe nenhuma pasta <b>C</b></p>
+                                        
+                                        <p><b>FOTO MOSTRANDO JEITO ERRADO</b></p>
+
+                                        <p><b>FOTO MOSTRNADO JEITO CERTO</b></p>
+                                        
+                                        <p>Também é possivel <b>voltar</b> um diretório, para isso basta usar o comando <code>cd ..</code></p>
+
+                                        <p><b>FOTO VOLTANDO</b></p>
+
+                                    </div>
+
+                                    <div class="section-block" id="mv">
+
+                                        <h3 class="block-title">Move <b>(mv)</b></h3>
+                                        
+                                        <p>O comando mv é usado para se mover um arquivo para um novo diretório ou pasta, exatamente igual quando arrastamos um arquivo de um lugar para o outro com o cursos do mouse.</p>
+                                        
+                                        <p>Para se utilizar o comando mv basta digitar <code>mv NomeDoArquivo DiretórioParaOndeVai</code></p>
+
+
+
+                                    </div>
+
+                                    <div class="section-block" id="mkdir">
+                                        <h3 class="block-title">Make Directory <b>(mkdir)</b></h3>
+
+                                        <p>O comando mkdir permite que o usuário consiga criar um novo diretório, exatamente igual quando clicamos com o botão direito e depois em "nova pasta".</p>
+                                        
+                                        <p>Para utilizar o comando basta digitar <code>mkdir NomeDaPasta</code></p>
+
+                                        <p><b>FOTO COM MKDIR</b></p>
+
+                                    </div>
+
+                                    <div class="section-block" id="rmdir">
+                                        <h3 class="block-title">Remove Directory <b>(rmdir)</b></h3>
+                                        
+                                        <p>O comando rmdir é o contrário do comando mkdir, mesma forma de usar porém ao invés de criar uma pasta, ele a deleta</p>
+
+                                        <p>Para utilizar o comando basta digitar <code>rmdir NomeDaPasta</code></p>
+
+                                        <p><b>FOTO COM RMDIR</b></p>
+
+                                    </div>
+
+                                    <div class="section-block" id="touch">
+                                        <h3 class="block-title">Make file <b>(touch)</b></h3>
+                                        <p>O comando touch é utilizado para se criar um arquivo, exatamente do mesmo jeito que voce cria um .txt ou .doc usando a interface do seu SO</p>
+
+                                        <p>Para utilizar o comando basta digitar <code>touch NomeDoArquivo.Extensao </code></p>
+
+                                        <p><b>FOTO COM TOUCH</b></p>
+
+                                    </div>
+
+                                    <div class="section-block" id="rm">
+                                        <h3 class="block-title">Remove <b>(rm)</b></h3>
+                                        <p>O comando rm é o contrário do comando touch, mesma forma de usar porém ao invés de criar um arquivo, ele o deleta</p>
+
+                                        <p>Para utilizar o comando basta digitar <code>rmr NomeDoArquivo.Extensao </code></p>
+
+                                        <p><b>FOTO COM RM</b></p>
+                                    </div>
+
+                                    <div class="section-block" id="clear">
+                                        <h3 class="block-title">Clear Screen <b>(clear)</b></h3>
+
+                                        <p>O comando clear serve apenas para limpar a tela do terminal, pois as vezes o terminal fica com tantos comandos que a poluição visual acaba dificuldando, e com este comando ele limpa tudo.</p>
+                                        
+                                        <p>Para utilizar o comando basta digitar <code>clear </code></p>
+
+                                        <p><b>FOTO COM CLEAR</b></p>
+
+                                    </div>
+                                    
+
+                                    
                                 </section>
-                                <section class="doc-section">
-                                    <h2 class="section-title" id="compiladores">Compiladores</h2>
-
-                                    <p>Um compilador C é o que permite que seu computador crie programas que possam ser executados a partir do código que você escrever. <b>Você precisa de um compilador</b>.</p>
-
-                                    <p>Separamos essa seção baseado no sistema operacional que você utiliza.</p>
-
-                                    <div class="section-block">
-                                        <h3 class="block-title" id="win">Windows</h3>
-
-                                        <p>Sistema Operacional mais popular no mercado, o usuários de Windows tem algumas opções para instalar um compilador C que possam utilizar:</p>
-
-                                        <ul>
-                                            <li><h4>Bash for Windows (recomendado)</h4>
-
-                                                <p>A partir do Windows 10 é possível utilizar o Bash - terminal do GNU/Linux - nativamente no Windowns. A maior vantagem é que você pode utilizar comandos e soluções do Linux sem ter que ter ele rodando como sistema operacional principal da sua máquina (isso será útil para você se familiarizar com os comandos do terminal Linux, que serão utilizados nas aulas práticas do curso).</p>
-
-                                                <p>Além disso é uma solução fácil de ser instalada, e já vem com o compilador C incluso. Basta seguir <a href="https://velhobit.com.br/tutoriais/como-rodar-bash-ubuntu-windows-10.html" target="_blank" >este tutorial</a> para instalar, escolhendo a distribuição Ubuntu.</p>
-                                            </li>
-                                            <li><h4>Instalar o MingW</h4>
-                                            
-                                                <p>o MingW é um port, i.e., uma versão do GCC feita para rodar em ambiente Windows. Você pode instalá-lo e adicioná-lo à linha de comando do Windows para que possa executá-lo via prompt de comando, de maneira similar ao ambiente Linux. Instruções de instalação <a href="../assets/files/Install_MingW.pdf" target="_blank" >aqui</a>.</p>
-
-                                            </li>
-                                            <li><h4>Utilizar uma IDE com compilador incluso</h4>
-                                                <p>esta é a opção mais próxima do dia-a-dia de um usuário Windows. Nessa opção, você vai instalar uma IDE (Integrated Development Environment), i.e., uma ambiente de programação, que nada mais é que um programa voltado a desenvolvedores.  Sugerimos fortemente que você <b>não</b> utilize uma IDE nesta disciplina, mas apenas o editor de texto e a linha de comando, até que se torne mais experiente com a linguagem C. IDEs realizam várias tarefas por baixo dos panos e, enquanto você não entender perfeitamente tudo que a IDE está fazendo por você e como controlar esse processo, é melhor compilar na linha de comando.</p>
-
-                                                <p>Caso você queira insistir, sugerimos utilizar a IDE <a href="http://www.codeblocks.org/" target="_blank" >Code::Blocks</a>. É gratuita e já vem com uma versão do MingW embutida.</p>
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                    <div class="section-block" id="linux">
-                                        <h3 class="block-title">Linux</h3>
-
-                                        <p>Caso você esteja utilizando uma plataforma Linux, muito provavelmente ele já vem com um compilador C incluso. Para testar, abra um terminal e digite <code>gcc --version</code> e aperte ENTER. Se aparecer qualquer versão, parabéns, você já está pronto para a ação.</p>
-
-                                        <p>Sugerimos que você se familiarize com alguma distribuição Linux. No laboratório de informática você usará majoritariamente Linux, não somente neste curso mas em outros que virão.</p>
-
-                                        <p>Existem muitas distribuições Linux diferentes, dentre as quais as mais populares e simples de utilizar são, provavelmente, <a href="http://https://www.ubuntu.com/" target="_blank" >Ubuntu</a> e <a href="https://linuxmint.com/" target="_blank" >Mint</a>.</p>
-                                    </div>
-                                    <div class="section-block" id="mac">
-                                        <h3 class="block-title">MacOS</h3>
-
-                                        <p>O compilador padrão de C para o MacOS é chamado <b>clang</b>. Ele é diferente do gcc que você geralmente usaria se estivesse em outra plataforma, mas funciona de forma semelhante. Verifique que você possui este compilador abrindo uma janela do terminal, digitando <code>clang --version</code> e apertando ENTER.</p>
-
-                                    </div>
-                                </section>
+                               
                                 
                             </div><!--//content-inner-->
                         </div><!--//doc-content-->
@@ -189,15 +189,17 @@
                         <nav id="doc-nav">
                             <ul id="doc-menu" class="nav doc-menu" data-spy="affix">
                                 <li><a class="scrollto" href="#intro">Introdução</a></li>
-                                <li><a class="scrollto" href="#text">Editor de Texto</a></li>
+                                <li><a class="scrollto" href="#commands">Comandos</a></li>
                                 <ul class="nav doc-sub-menu">
-                                    <li><a class="scrollto" href="#sugestao_texto">Nossas Sugestões</a></li>
-                                </ul>
-                                <li><a class="scrollto" href="#compiladores">Compiladores</a></li>
-                                <ul class="nav doc-sub-menu">
-                                        <li><a class="scrollto" href="#win">Windows</a></li>
-                                        <li><a class="scrollto" href="#linux">Linux</a></li>
-                                        <li><a class="scrollto" href="#mac">MacOS</a></li>
+                                        <li><a class="scrollto" href="#ls">List Command</a></li>
+                                        <li><a class="scrollto" href="#cd">Change Directory</a></li>
+                                        <li><a class="scrollto" href="#mv">Move </a></li>
+                                        <li><a class="scrollto" href="#mkdir">Make Directory </a></li>
+                                        <li><a class="scrollto" href="#rmdir">Remove Directory</a></li>
+                                        <li><a class="scrollto" href="#touch">Make file</a></li>
+                                        <li><a class="scrollto" href="#rm">Remove </a></li>
+                                        <li><a class="scrollto" href="#clear">Clear Screen</a></li>
+
                                 </ul>
 
                             </ul><!--//doc-menu-->
