@@ -471,70 +471,75 @@ Fim</pre>
                                                 <thead>
                                                     <tr>
                                                     <th><strong>Tipo</strong></th>
-                                                    <th><strong>Tamanho (bytes)</strong></th>
-                                                    <th><strong>Faixa de Valores</strong></th>
+                                                    <th><strong>Tamanho Mínimo (bytes)</strong></th>
+                                                    <th><strong>Faixa Mínima de Valores</strong></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                     <td>char</td>
                                                     <td>1 byte</td>
-                                                    <td>-128 to 127 or 0 to 255</td>
+                                                    <td>-128 a 127 ou 0 a 255</td>
                                                     </tr>
                                                     <tr>
                                                     <td>unsigned char</td>
                                                     <td>1 byte</td>
-                                                    <td>0 to 255</td>
+                                                    <td>0 a 255</td>
                                                     </tr>
                                                     <tr>
                                                     <td>signed char</td>
                                                     <td>1 byte</td>
-                                                    <td>-128 to 127</td>
-                                                    </tr>
-                                                    <tr>
-                                                    <td>int</td>
-                                                    <td>4 bytes</td>
-                                                    <td>-2.147.483.648 to 2.147.483.647</td>
-                                                    </tr>
-                                                    <tr>
-                                                    <td>unsigned int</td>
-                                                    <td>4 bytes</td>
-                                                    <td>0 to 4.294.967.295</td>
+                                                    <td>-128 a 127</td>
                                                     </tr>
                                                     <tr>
                                                     <td>short</td>
                                                     <td>2 bytes</td>
-                                                    <td>-32,768 to 32,767</td>
+                                                    <td>-32&thinsp;768 a 32&thinsp;767</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>int</td>
+                                                    <td>2 bytes</td>
+                                                    <td>-32&thinsp;768 a 32&thinsp;767</td>
+                                                    </tr>
+                                                    <tr>
+                                                    <td>unsigned int</td>
+                                                    <td>2 bytes</td>
+                                                    <td>0 a 65&thinsp;535</td>
                                                     </tr>
                                                     <tr>
                                                     <td>long</td>
                                                     <td>4 bytes</td>
-                                                    <td>-2,147,483,648 to 2,147,483,647</td>
+                                                    <td>-2&thinsp;147&thinsp;483&thinsp;648 a 2&thinsp;147&thinsp;483&thinsp;647</td>
                                                     </tr>
                                                     <tr>
                                                     <td>unsigned long</td>
                                                     <td>4 bytes</td>
-                                                    <td>0 to 4,294,967,295</td>
+                                                    <td>0 a 4&thinsp;294&thinsp;967&thinsp;295</td>
                                                     </tr>
                                                     <tr>
                                                     <td>float</td>
                                                     <td>4 bytes</td>
-                                                    <td>1.2E-38 to 3.4E+38 (6 decimal places)</td>
+                                                    <td>1,2E-38 a 3,4E+38 (6 casas decimais)</td>
                                                     </tr>
                                                     <tr>
                                                     <td>double</td>
                                                     <td>8 bytes</td>
-                                                    <td>2.3E-308 to 1.7E+308 (15 decimal places)</td>
+                                                    <td>2,3E-308 a 1,7E+308 (15 casas decimais)</td>
                                                     </tr>
                                                     <tr>
                                                     <td>long double</td>
-                                                    <td>10 bytes</td>
-                                                    <td>3.4E-4932 to 1.1E+4932 (19 decimal places)</td>
+                                                    <td>8 bytes</td>
+                                                    <td>2,3E-308 a 1,7E+308 (15 casas decimais)</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
 
                                         </div>
+
+                                        <p>A tabela acima mostra apenas os tamanhos mínimos de cada tipo, o tamanho real depende do compilador e do 
+                                            computador utilizados. O tipo <code class="prettyprint">int</code>, por exemplo, geralmente tem 4 bytes. 
+                                            Para achar o tamanho de um tipo no seu computador, utilize o comando <code class="prettyprint">sizeof(tipo)</code>.
+                                            Exemplo: <code class="prettyprint">sizeof(int)</code></p>
                                     </section><!--//doc-section-->
 
                                     
