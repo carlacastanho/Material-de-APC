@@ -106,6 +106,12 @@ O objetivo desse software será para facilitar o seu acompanhamento de cada alun
 
 - Implementando geração de relatório automático
 
+### Semana 10~11 (21 outubro ~ 4 novembro)
+
+- Depoly do projeto
+
+- Testes Beta
+
 > Versão 100% funcional
 
 .
