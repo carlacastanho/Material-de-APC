@@ -64,29 +64,29 @@ O objetivo desse software será para facilitar o seu acompanhamento de cada alun
 
 - Integrar as APIs de online Judges externos
 
-### Semana 10 (3 ~ 10 junho)
+### Semana 10~11 (3 ~ 17 junho)
 
 - Processamento automático do resultado de provas do PJudge
 
 - Integrar no sistema
 
+- Possiblitar envio do trabalho final da disciplina
+
 > Neste ponto já temos um sistema funcional para os alunos
-
-### Semana 11 (10 ~ 17 junho)
-
-- Revisão da segurança do projeto
-
-- Teste Alpha
 
 ### Semana 12~13 (17 junho ~ 1 junho)
 
+- Revisão da segurança
+
 - Depoly do projeto
 
-- Testes Beta
+- Testes Alpha
 
 > Fim do primeiro semestre
 
 ### Semana 1~2 (19 agosto ~ 2 setembro)
+
+- Teste Beta (ao longo de todo o semestre)
 
 - Revisão do conteúdo / Questões (Pedido anteriormente)
 
