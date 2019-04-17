@@ -383,6 +383,8 @@ int main(){
     printf("a = %d\n", a);
     a += 10; /* variaveis globais podem ser alteradas em qualquer lugar do programa */
     print();
+    
+    return 0;
 }
                         </pre>
 
@@ -437,6 +439,8 @@ int main(){
     question();
     printf("A variavel na main foi alterada?\n");
     printf("a: %d\n", a);
+    
+    return 0;
 }
                         </pre>
 
@@ -462,6 +466,8 @@ int main(){
     printf("y = %d\n", y);
     printf("max(x,y) = %d\n", max(x,y));
     printf("y = %d\n", y);
+    
+    return 0;
 }
                     </pre>
                     <a href="http://www.pythontutor.com/c.html#code=%23include%20%3Cstdio.h%3E%3B%0Aint%20y%20%3D%2020%3B%0A%0Aint%20max%28int%20a,%20int%20b%29%7B%0A%20%20%20%20y%20%2B%3D%2015%3B%0A%20%20%20%20if%20%28a%20%3E%3D%20b%29%20return%20a%3B%0A%20%20%20%20else%20return%20b%3B%0A%7D%0A%0Aint%20main%28%29%7B%0A%20%20%20%20int%20x%20%3D%205%3B%0A%20%20%20%20y%20%3D%2010%3B%0A%20%20%20%20printf%28%22x%20%3D%20%25d%5Cn%22,%20x%29%3B%0A%20%20%20%20printf%28%22y%20%3D%20%25d%5Cn%22,%20y%29%3B%0A%20%20%20%20printf%28%22max%28x,y%29%20%3D%20%25d%5Cn%22,%20max%28x,y%29%29%3B%0A%20%20%20%20printf%28%22y%20%3D%20%25d%5Cn%22,%20y%29%3B%0A%7D%0A&curInstr=0&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D" target="_blank" class="btn btn-blue">Resposta</a>
