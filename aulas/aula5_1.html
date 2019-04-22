@@ -209,11 +209,18 @@ printf("%d\n", f(2)); /* Imprime 4*/
                                                     <pre class = "prettyprint    lang-cpp    linenums:1">
 /* Simples função para mostrar um menu. */
 
+
+#ifdef _WIN32
+#define CLEAR "cls"
+#else
+#define CLEAR "clear"
+#endif
+
 void options(){
     int i;
 
     /* clear screen*/
-    system("cls||clear");
+    system(CLEAR);
 
     /* Show options*/
     printf("Choose your option\n");
