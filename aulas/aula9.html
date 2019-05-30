@@ -156,7 +156,8 @@ char string[100]; // sequência de até 100 caracteres</pre>
                         <li>Verificar tamanho da string
                             <pre class="prettyprint linenums:1 lang-cpp">
 // (precisa terminar em '\0')
-char str[20] = "Uma string qualquer"; // ['U''m''a'' ''s''t''r''i''n''g'' ''q''u''a''l''q''u''e''r''\0']
+// ['U''m''a'' ''s''t''r''i''n''g'' ''q''u''a''l''q''u''e''r''\0']
+char str[20] = "Uma string qualquer";
 int size;
 size = strlen(str); // recebe 19
                             </pre>
@@ -189,6 +190,25 @@ printf("%s\n", hello);
 // $Hello World!
 // $
                             </pre>
+                        </li>
+                        <li>Ler string com espaço
+                            <pre class="prettyprint linenums:1 lang-cpp">
+// Declarando strings
+char name1[1000];
+char name2[1000];
+
+// Lê tudo do teclado até o enter (lê os espaços)
+scanf("%[^\n]s", name1);
+
+// Lê tudo até encontrar um espaço ou enter.
+scanf("%s", name2);
+
+// Imprime as palavras
+printf("Name 1 = %s\n", name1);
+printf("Name 2 = %s\n", name2);</pre>
+                            Ou seja, a diferença de um para o outro é que um <code>scanf("%s", variable)</code> lê todos os caracteres digitados enquanto não encontrou um <b>enter</b> ou um <b>espaço</b>, enquanto o <code>scanf("%[^\n]s",variable)</code> lê todos os carcteres digitados enquanto não encontrou somente um <b>enter.</b>
+                            
+                            <p class="note-pink" style = "background-color: #8C41A7;"><strong>Observação</strong> : <b>Caso ao utilizar o <code>scanf("%s", variable)</code> o usuário digitar mais de 1 palavra com espaço, da segunda palavra em diante não será salvo na variável e ficará no buffer do teclado, podendo usar outro scanf para ler o que ficou no buffer.</b></p>
                         </li>
 
                         <li>Para outros exemplos veja a documentação da <a href="http://www.cplusplus.com/reference/cstring/">biblioteca</a>. Basta clicar na função de interesse.</li>
