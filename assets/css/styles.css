@@ -33,6 +33,12 @@ body {
   font-size: 14px;
   height: 75px;
 }
+
+.navbar-blue {
+  background-color: #494d55;
+  border-top: 5px solid #40babd;
+  width: 100%;
+}
 .note-pink {
   border-color: rgb(234, 83, 149, 0.5);
   border-radius: 10px;

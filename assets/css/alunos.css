@@ -1,0 +1,54 @@
+.handle-text {
+    font-size: 10pt;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    margin-top: -10px;
+}
+
+.name-text {
+    font-size: 14pt;
+}
+
+.tiny-icon {
+    width: 10pt;
+    height: 10pt;
+    margin: 5px;
+}
+.panel-blue {
+    border-top: 2px solid #40babd;
+}
+
+.panel-header {
+    border-bottom: 1px solid #dddddd;
+}
+
+.btn-edit {
+    color: #40babd
+}
+.login-error {
+    background: #f2dede;
+    font-family: monospace;
+    font-size: 10pt;
+    color: crimson;
+    padding-left: 5%;
+}
+
+.list-item {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10pt;
+    padding: 5px;
+}
+
+.date-item {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 8pt;
+    text-align: right;
+    margin: -10px;
+}
+.alert-news-item {
+    background: #ffcb30;
+}
+
+.news-news-item {
+    background: #3eb1c4;
+}
