@@ -65,3 +65,14 @@ function validadeLogin(login) {
         return '0123456789'.includes(char) & isDigit;
     }, true);
 }
+
+function validateNewPwd() {
+    let pwd = document.getElementById('pwdUpdate').value;
+    let pwdRep = document.getElementById('pwdRep').value;
+    if (pwd == pwdRep){
+        document.getElementById('senha-rep-invalid-alert').classList.add('hide');
+    } else {
+        document.getElementById('senha-rep-invalid-alert').classList.remove('hide');
+    }
+    return pwd == pwdRep; 
+}

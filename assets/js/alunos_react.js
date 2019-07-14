@@ -48,7 +48,7 @@ class Profile extends React.Component {
                 </div>
                 <div>
                     <p>
-                    <button className="btn-edit btn">
+                    <button type="button" className="btn-edit btn" data-toggle="modal" data-target="#update-form-modal">
                         <span className="glyphicon glyphicon-edit"></span>
                     </button> Email: <span className="handle-text">{this.state.email}</span>
                     </p>
