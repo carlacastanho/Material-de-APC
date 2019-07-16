@@ -21,7 +21,7 @@ class Profile extends React.Component {
             <div className="container">
                 <div className="media-left">
                     {   this.state.photourl != '' ?
-                        <img src={"http://" + this.state.photourl} alt="Avatar" className="media-object"/> :
+                        <img src={"https://" + this.state.photourl} alt="Avatar" className="media-object"/> :
                         <span className="glyphicon glyphicon-user media-object"></span>
 
                     } 

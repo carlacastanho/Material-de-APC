@@ -2,6 +2,12 @@
 const modal = document.getElementById("auth-modal");
 modal.classList.toggle('show');
 
+// axios test request
+axios.get('http://localhost:8080/students').then( function (response) {
+    console.log("Axios GET try request. Response was:");
+    console.log(response);
+});
+
 function auth() {
     // Removes previous login error, if any
     document.getElementById('login-error-alert').classList.add('hide');
@@ -11,6 +17,14 @@ function auth() {
     let pwd = document.getElementById("pwd").value;
     if(validadeLogin(login)) {
         // TODO: Response must be an API call
+        axios.post( 'http://localhost:8080/student', {
+            matricula: login,
+            password: pwd,
+        }).then( function (response) {
+            console.log(response);
+        }).catch(function (error) {
+            console.log(error);
+        });
         let response = {
             userExists: true,
             userInfo: {
