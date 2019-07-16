@@ -8,8 +8,8 @@ class Profile extends React.Component {
             lastname: props.lastname,
             matricula: props.matricula,
             photourl: props.photourl,
-            handle_cf: props.handle_cf,
-            handle_uri: props.handle_uri,
+            handle_cf: props.handles[0],
+            handle_uri: props.handles[1],
             email: props.email,
         }
     }
@@ -21,7 +21,7 @@ class Profile extends React.Component {
             <div className="container">
                 <div className="media-left">
                     {   this.state.photourl != '' ?
-                        <img src={"https://" + this.state.photourl} alt="Avatar" className="media-object"/> :
+                        <img src={this.state.photourl} alt="Avatar" className="media-object"/> :
                         <span className="glyphicon glyphicon-user media-object"></span>
 
                     } 
@@ -149,11 +149,11 @@ class Activities extends React.Component {
 
 function loadDinamicContent(data){
     ReactDOM.render(
-        <Profile {...data.userInfo}/>,
+        <Profile {...data.student}/>,
         document.getElementById("student-root")
     );
     ReactDOM.render(
-        <Grades {...data.userInfo.grades}/>,
+        <Grades {...data.student.grades}/>,
         document.getElementById("grades-root")
     );
     ReactDOM.render(
