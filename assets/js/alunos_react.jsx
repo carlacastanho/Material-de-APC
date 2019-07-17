@@ -1,5 +1,8 @@
 'use strict';
 
+// Profile class renders the Profile card.
+// Receives information from the API through props.
+// Information is in json format.
 class Profile extends React.Component {
     constructor(props){
         super(props)
@@ -78,15 +81,19 @@ class Profile extends React.Component {
     }
 }
 
+// Grades component renders Grades list.
+// TODO: Link each grade to a submission page, so students can review their submission
 class Grades extends React.Component {
     constructor(props){
         super(props);
-        if(props == {}){
+        try{
             this.state = {
-                grades: props,
+                provas: props.exams,
+                trabs: props.projects,
+                listas: props.lists
             }
-        } else {
-            console.log("Error parsing grades:", props);
+        } catch (error) {
+            console.log("Error parsing grades:", error);
             this.state = {
                 parseerror: true
             }
@@ -95,21 +102,21 @@ class Grades extends React.Component {
 
     render() {
         if(this.state.parseerror !== true){
-            const prova_items = this.state.grades.prova.map((g, idx) => {
+            const prova_items = this.state.provas.map((g, idx) => {
                 return (
                     <li key={idx} className="list-group-item">
                     <span className="list-item">Prova {idx+1} </span>{g}
                     </li>
                 )
             });
-            const trab_items = this.state.grades.trab.map((g, idx) => {
+            const trab_items = this.state.trabs.map((g, idx) => {
                 return (
                     <li key={idx} className="list-group-item">
                 <span className="list-item">Trabalho (parte {idx+1}) </span>{g}
                     </li>
                 )
             });
-            const list_items = this.state.grades.lista.map((g, idx) => {
+            const list_items = this.state.listas.map((g, idx) => {
                 return (
                     <li key={idx} className="list-group-item">
                 <span className="list-item">Lista {idx+1}</span>{g}

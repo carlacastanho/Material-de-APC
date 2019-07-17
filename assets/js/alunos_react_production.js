@@ -1,4 +1,6 @@
-'use strict';
+'use strict'; // Profile class renders the Profile card.
+// Receives information from the API through props.
+// Information is in json format.
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -115,7 +117,9 @@ function (_React$Component) {
   }]);
 
   return Profile;
-}(React.Component);
+}(React.Component); // Grades component renders Grades list.
+// TODO: Link each grade to a submission page, so students can review their submission
+
 
 var Grades =
 /*#__PURE__*/
@@ -129,12 +133,14 @@ function (_React$Component2) {
 
     _this2 = _possibleConstructorReturn(this, _getPrototypeOf(Grades).call(this, props));
 
-    if(props){
+    try {
       _this2.state = {
-        grades: props
+        provas: props.exams,
+        trabs: props.projects,
+        listas: props.lists
       };
-    } else {
-      console.log("Error parsing grades:", props);
+    } catch (error) {
+      console.log("Error parsing grades:", error);
       _this2.state = {
         parseerror: true
       };
@@ -147,7 +153,7 @@ function (_React$Component2) {
     key: "render",
     value: function render() {
       if (this.state.parseerror !== true) {
-        var prova_items = this.state.grades.prova.map(function (g, idx) {
+        var prova_items = this.state.provas.map(function (g, idx) {
           return React.createElement("li", {
             key: idx,
             className: "list-group-item"
@@ -155,7 +161,7 @@ function (_React$Component2) {
             className: "list-item"
           }, "Prova ", idx + 1, " "), g);
         });
-        var trab_items = this.state.grades.trab.map(function (g, idx) {
+        var trab_items = this.state.trabs.map(function (g, idx) {
           return React.createElement("li", {
             key: idx,
             className: "list-group-item"
@@ -163,7 +169,7 @@ function (_React$Component2) {
             className: "list-item"
           }, "Trabalho (parte ", idx + 1, ") "), g);
         });
-        var list_items = this.state.grades.lista.map(function (g, idx) {
+        var list_items = this.state.listas.map(function (g, idx) {
           return React.createElement("li", {
             key: idx,
             className: "list-group-item"
