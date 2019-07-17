@@ -52,3 +52,12 @@
 .news-news-item {
     background: #3eb1c4;
 }
+
+.nav-btn {
+    color: #40babd;
+}
+
+.nav-btn:hover {
+    background: #40babd;
+    color: whitesmoke;
+}
