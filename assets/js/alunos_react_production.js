@@ -219,13 +219,13 @@ function (_React$Component3) {
       var newsArray = Object.values(this.props);
       var news_item = newsArray.map(function (g) {
         return React.createElement("li", {
-          key: g.id,
+          key: g.ID,
           className: "list-group-item"
         }, React.createElement("div", null, React.createElement("span", {
           className: "list-item"
-        }, g.type + ':'), React.createElement("p", null, g.content), React.createElement("p", {
+        }, g.title + ':'), React.createElement("p", null, g.description), React.createElement("p", {
           className: "date-item"
-        }, g.date)));
+        }, g.tags)));
       });
       return React.createElement("div", {
         className: "panel panel-default panel-blue"
@@ -285,7 +285,7 @@ function loadDinamicContent(data) {
   // Carrega Profile
   ReactDOM.render(React.createElement(Profile, data.student), document.getElementById("student-root")); // Carrega Notas
 
-  ReactDOM.render(React.createElement(Grades, data.student.grades), document.getElementById("grades-root")); // Carrega Notícias
+  // ReactDOM.render(React.createElement(Grades, data.student.grades), document.getElementById("grades-root")); // Carrega Notícias
 
   ReactDOM.render(React.createElement(News, data.news), document.getElementById("news-root")); // Carrega Atividades
 

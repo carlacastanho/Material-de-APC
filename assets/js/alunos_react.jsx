@@ -156,11 +156,14 @@ class News extends React.Component {
         const newsArray = Object.values(this.props);
         const news_item = newsArray.map((g) => {
             return (
-                <li key={g.id} className={"list-group-item"}>
+                // TODO: Mudar o estilo da apresentação para o título ser grande
+                // E a descrição menor
+                <li key={g.ID} className={"list-group-item"}>
                 <div>
-                    <span className="list-item">{g.type + ':'}</span> 
-                    <p>{g.content}</p>
-                    <p className="date-item">{g.date}</p>
+                    <span className="list-item">{g.title + ':'}</span> 
+                    <p>{g.description}</p>
+                    // TODO: Separar as tags por vírgula
+                    <p className="date-item">{g.tag}</p>
                 </div>
                 </li>
             )
