@@ -1,7 +1,7 @@
 // Modal inicial que aparece quando a página carrega
 // Caso não haja nenhuma sessão acontecendo
-if (localStorage.connInfo){
-    loadDinamicContent(JSON.parse(localStorage.connInfo));
+if (sessionStorage.connInfo){
+    loadDinamicContent(JSON.parse(sessionStorage.connInfo));
 } else {
     document.getElementById("auth-modal").classList.toggle('show');
 }
@@ -23,7 +23,7 @@ function auth() {
                 dismissModal(document.getElementById("auth-modal"));
                 student_id = response.data.student.ID;
                 // Saves data to session
-                localStorage.setItem("connInfo", JSON.stringify(response.data));
+                sessionStorage.setItem("connInfo", JSON.stringify(response.data));
                 loadDinamicContent(response.data);
             } else {
                 document.getElementById('login-error-alert').classList.remove('hide');
@@ -52,6 +52,6 @@ function validadeLogin(login) {
 }
 
 function logout() {
-    localStorage.removeItem("connInfo");
+    sessionStorage.removeItem("connInfo");
     window.location.reload();
 }
