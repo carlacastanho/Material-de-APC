@@ -151,12 +151,14 @@ function (_React$Component) {
             "id": "email-field",
             "label": "Email",
             "title": "Email usado para notícias e avisos",
-            "type": "email"
+            "type": "email",
+            "placeholder": "aluno@email.com"
           }, {
             "id": "password-field",
             "label": "Password",
             "title": "Sua senha",
-            "type": "password"
+            "type": "password",
+            "placeholder": "senha"
           }]
         };
         var pwdForm = {
@@ -164,15 +166,17 @@ function (_React$Component) {
           student_id: this.props.ID,
           title: "Altere sua Senha",
           fields: [{
-            "id": "new-password-field",
-            "label": "Nova Senha",
-            "title": "Nova senha",
-            "type": "password"
-          }, {
             "id": "pass-field",
             "label": "Senha Atual",
             "title": "Sua senha",
-            "type": "password"
+            "type": "password",
+            "placeholder": "senha atual"
+          }, {
+            "id": "new-password-field",
+            "label": "Nova Senha",
+            "title": "Nova senha",
+            "type": "password",
+            "placeholder": "nova senha"
           }]
         };
         return React.createElement("div", null, React.createElement(UpdateForm, _extends({}, emailForm, {
@@ -181,7 +185,7 @@ function (_React$Component) {
           }
         })), React.createElement(UpdateForm, _extends({}, pwdForm, {
           onClick: function onClick() {
-            return _this2.updatePassword(pwdForm.fields[0].id, pwdForm.fields[1].id, pwdForm.element_id);
+            return _this2.updatePassword(pwdForm.fields[1].id, pwdForm.fields[0].id, pwdForm.element_id);
           }
         })), React.createElement("div", {
           className: "panel panel-default panel-blue"
@@ -224,7 +228,7 @@ function (_React$Component) {
           className: "handle-text"
         }, this.state.email)), React.createElement("p", null, React.createElement("button", {
           type: "button",
-          className: "btn-edit panel panel-default",
+          className: "btn btn-info",
           "data-toggle": "modal",
           "data-target": '#' + pwdForm.element_id
         }, React.createElement("span", {
@@ -462,7 +466,7 @@ function UpdateForm(props) {
       type: f.type,
       className: "form-control",
       id: f.id,
-      placeholder: "Email",
+      placeholder: f.placeholder,
       title: f.title
     })));
   });

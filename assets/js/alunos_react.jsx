@@ -117,13 +117,15 @@ class Profile extends React.Component {
                         "id": "email-field",
                         "label": "Email",
                         "title": "Email usado para notícias e avisos",
-                        "type": "email"
+                        "type": "email",
+                        "placeholder": "aluno@email.com"
                     },
                     {
                         "id": "password-field",
                         "label": "Password",
                         "title": "Sua senha",
-                        "type": "password"
+                        "type": "password",
+                        "placeholder": "senha"
                     }
                 ]
             }
@@ -133,17 +135,19 @@ class Profile extends React.Component {
                 title: "Altere sua Senha",
                 fields: [
                     {
-                        "id": "new-password-field",
-                        "label": "Nova Senha",
-                        "title": "Nova senha",
-                        "type": "password"
-                    },
-                    {
                         "id": "pass-field",
                         "label": "Senha Atual",
                         "title": "Sua senha",
-                        "type": "password"
-                    }
+                        "type": "password",
+                        "placeholder": "senha atual"
+                    },
+                    {
+                        "id": "new-password-field",
+                        "label": "Nova Senha",
+                        "title": "Nova senha",
+                        "type": "password",
+                        "placeholder": "nova senha"
+                    },
                 ]
             }
             return (
@@ -152,7 +156,7 @@ class Profile extends React.Component {
                  onClick={() => this.updateEmail(emailForm.fields[0].id, emailForm.fields[1].id, emailForm.element_id)}
                 />
                 <UpdateForm {...pwdForm}
-                onClick={() => this.updatePassword(pwdForm.fields[0].id, pwdForm.fields[1].id, pwdForm.element_id)}
+                onClick={() => this.updatePassword(pwdForm.fields[1].id, pwdForm.fields[0].id, pwdForm.element_id)}
                 />
                 <div className="panel panel-default panel-blue">
                     <h4 className="panel-header">Perfil</h4>
@@ -191,9 +195,9 @@ class Profile extends React.Component {
                         </button> Email: <span className="handle-text">{this.state.email}</span>
                         </p>
                         <p>
-                        <button type="button" className="btn-edit panel panel-default" data-toggle="modal" data-target={'#' + pwdForm.element_id}>
+                        <button type="button" className="btn btn-info" data-toggle="modal" data-target={'#' + pwdForm.element_id}>
                             <span className="glyphicon glyphicon-edit"> </span>
-                            Alterar Senha
+                              Alterar Senha
                         </button>
                         </p>
                     </div>
@@ -365,7 +369,7 @@ function UpdateForm(props) {
         <div className="form-group" key={idx}>
             <label className="control-label col-sm-4" htmlFor={f.id}>{f.label}</label>
             <div className="col-sm-6">
-            <input type={f.type} className="form-control" id={f.id} placeholder="Email" title={f.title}/>
+            <input type={f.type} className="form-control" id={f.id} placeholder={f.placeholder} title={f.title}/>
             </div>
         </div>
         );
