@@ -350,58 +350,41 @@ function (_React$Component2) {
   return Grades;
 }(React.Component);
 
-var News =
-/*#__PURE__*/
-function (_React$Component3) {
-  _inherits(News, _React$Component3);
-
-  function News() {
-    _classCallCheck(this, News);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(News).apply(this, arguments));
-  }
-
-  _createClass(News, [{
-    key: "render",
-    value: function render() {
-      var newsArray = Object.values(this.props);
-      var news_item = newsArray.map(function (g) {
-        return (// E a descrição menor
-          React.createElement("li", {
-            key: g.ID,
-            className: "list-group-item"
-          }, React.createElement("div", null, React.createElement("span", null, g.title), React.createElement("p", {
-            className: "list-item"
-          }, g.description), React.createElement("p", {
-            className: "date-item"
-          }, g.tags.join())))
-        );
-      });
-      return React.createElement("div", {
-        className: "panel-group"
-      }, React.createElement("div", {
-        className: "panel panel-default panel-blue"
-      }, React.createElement("a", {
-        "data-toggle": "collapse",
-        href: "#news-list"
-      }, React.createElement("h4", {
-        className: "panel-header"
-      }, "Not\xEDcias e Avisos")), React.createElement("div", {
-        id: "news-list",
-        className: "panel-collapse collapse in"
-      }, React.createElement("ul", {
-        className: "list-group"
-      }, news_item))));
-    }
-  }]);
-
-  return News;
-}(React.Component);
+function News(props) {
+  var newsArray = Object.values(props);
+  var news_item = newsArray.map(function (g) {
+    return (// E a descrição menor
+      React.createElement("li", {
+        key: g.ID,
+        className: "list-group-item"
+      }, React.createElement("div", null, React.createElement("span", null, g.title), React.createElement("p", {
+        className: "list-item"
+      }, g.description), React.createElement("p", {
+        className: "date-item"
+      }, g.tags.join())))
+    );
+  });
+  return React.createElement("div", {
+    className: "panel-group"
+  }, React.createElement("div", {
+    className: "panel panel-default panel-blue"
+  }, React.createElement("a", {
+    "data-toggle": "collapse",
+    href: "#news-list"
+  }, React.createElement("h4", {
+    className: "panel-header"
+  }, "Not\xEDcias e Avisos")), React.createElement("div", {
+    id: "news-list",
+    className: "panel-collapse collapse in"
+  }, React.createElement("ul", {
+    className: "list-group"
+  }, news_item))));
+}
 
 var Activities =
 /*#__PURE__*/
-function (_React$Component4) {
-  _inherits(Activities, _React$Component4);
+function (_React$Component3) {
+  _inherits(Activities, _React$Component3);
 
   function Activities() {
     var _getPrototypeOf2;
@@ -506,9 +489,35 @@ function UpdateForm(props) {
   }, "Close")))));
 }
 
+function ClassInfo(props) {
+  return React.createElement("div", {
+    className: "panel panel-default panel-blue"
+  }, React.createElement("h4", {
+    className: "panel-header"
+  }, "Turma\xA0", props.classname), React.createElement("div", {
+    className: "container"
+  }, React.createElement("div", {
+    className: "media-left"
+  }, React.createElement("span", {
+    class: "glyphicon glyphicon-apple media-object"
+  })), React.createElement("div", {
+    className: "media-body"
+  }, React.createElement("p", {
+    className: "media-heading name-text"
+  }, props.professorfirstname, "\xA0", props.professorlastname), React.createElement("p", {
+    className: "handle-text"
+  }, props.year + '/' + props.season)), React.createElement("p", null, React.createElement("span", {
+    className: "handle-text"
+  }, "Local:"), "\xA0", props.address)));
+}
+
 function loadDinamicContent(data) {
   // Carrega Profile
-  ReactDOM.render(React.createElement(Profile, data.student), document.getElementById("student-root")); // Carrega Notas
+  ReactDOM.render(React.createElement(Profile, _extends({}, data.student, {
+    classInfo: data.class
+  })), document.getElementById("student-root")); // Carrega Turma
+
+  ReactDOM.render(React.createElement(ClassInfo, data.class), document.getElementById("class-root")); // Carrega Notas
 
   ReactDOM.render(React.createElement(Grades, data.student.grades), document.getElementById("grades-root")); // Carrega Notícias
 

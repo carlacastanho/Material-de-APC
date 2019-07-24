@@ -299,40 +299,39 @@ class Grades extends React.Component {
     }
 }
 
-class News extends React.Component {
-    render() {
-        const newsArray = Object.values(this.props);
-        const news_item = newsArray.map((g) => {
-            return (
-                // E a descrição menor
-                <li key={g.ID} className={"list-group-item"}>
-                <div>
-                    <span>{g.title}</span> 
-                    <p className="list-item">{g.description}</p>
-                    <p className="date-item">{g.tags.join()}</p>
-                </div>
-                </li>
-            )
-        });
-
+function News(props) {
+    const newsArray = Object.values(props);
+    const news_item = newsArray.map((g) => {
         return (
-            <div className="panel-group">
-            <div className="panel panel-default panel-blue">
-                <a data-toggle="collapse" href="#news-list">
-                    <h4 className="panel-header">
-                        Notícias e Avisos
-                    </h4>
-                </a>
-              <div id="news-list" className="panel-collapse collapse in">
-                    <ul className="list-group">
-                        {news_item}
-                    </ul>
-              </div>
+            // E a descrição menor
+            <li key={g.ID} className={"list-group-item"}>
+            <div>
+                <span>{g.title}</span> 
+                <p className="list-item">{g.description}</p>
+                <p className="date-item">{g.tags.join()}</p>
             </div>
-          </div> 
+            </li>
         )
-    }
+    });
+
+    return (
+        <div className="panel-group">
+        <div className="panel panel-default panel-blue">
+            <a data-toggle="collapse" href="#news-list">
+                <h4 className="panel-header">
+                    Notícias e Avisos
+                </h4>
+            </a>
+            <div id="news-list" className="panel-collapse collapse in">
+                <ul className="list-group">
+                    {news_item}
+                </ul>
+            </div>
+        </div>
+        </div> 
+    )
 }
+
 
 class Activities extends React.Component {
     state = {};
@@ -407,13 +406,44 @@ function UpdateForm(props) {
     );
 }
 
+function ClassInfo(props) {
+
+    return (
+        <div className="panel panel-default panel-blue">
+            <h4 className="panel-header">Turma&nbsp;{props.classname}</h4>
+            <div className="container">
+                <div className="media-left">
+                    <span class="glyphicon glyphicon-apple media-object"></span>
+                </div>
+                <div className="media-body">
+                    <p className="media-heading name-text">
+                        {props.professorfirstname}&nbsp;{props.professorlastname}
+                    </p>
+                    <p className="handle-text">
+                        {props.year + '/' + props.season}
+                    </p>
+                </div>
+                <p>
+                    <span className="handle-text">Local:</span>
+                        &nbsp;{props.address}
+                </p>
+            </div>
+        </div>
+    )
+}
 
 function loadDinamicContent(data){
     // Carrega Profile
     ReactDOM.render(
-        <Profile {...data.student}/>,
+        <Profile {...data.student} classInfo={data.class}/>,
         document.getElementById("student-root")
     );
+    // Carrega Turma
+    ReactDOM.render(
+        <ClassInfo {...data.class}/>,
+        document.getElementById("class-root")
+    );
+
     // Carrega Notas
     ReactDOM.render(
         <Grades {...data.student.grades}/>,
