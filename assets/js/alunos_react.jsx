@@ -192,12 +192,12 @@ class Profile extends React.Component {
                         <p>
                         <button type="button" className="btn-edit btn" data-toggle="modal" data-target={'#' + emailForm.element_id}>
                             <span className="glyphicon glyphicon-edit"></span>
-                        </button> Email: <span className="handle-text">{this.state.email}</span>
+                        </button>&nbsp;Email: <span className="handle-text">{this.state.email}</span>
                         </p>
                         <p>
                         <button type="button" className="btn btn-info" data-toggle="modal" data-target={'#' + pwdForm.element_id}>
-                            <span className="glyphicon glyphicon-edit"> </span>
-                              Alterar Senha
+                            <span className="glyphicon glyphicon-edit"></span>
+                            &nbsp;Alterar Senha
                         </button>
                         </p>
                     </div>

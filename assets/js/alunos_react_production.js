@@ -224,7 +224,7 @@ function (_React$Component) {
           "data-target": '#' + emailForm.element_id
         }, React.createElement("span", {
           className: "glyphicon glyphicon-edit"
-        })), " Email: ", React.createElement("span", {
+        })), "\xA0Email: ", React.createElement("span", {
           className: "handle-text"
         }, this.state.email)), React.createElement("p", null, React.createElement("button", {
           type: "button",
@@ -233,7 +233,7 @@ function (_React$Component) {
           "data-target": '#' + pwdForm.element_id
         }, React.createElement("span", {
           className: "glyphicon glyphicon-edit"
-        }, " "), "Alterar Senha"))))));
+        }), "\xA0Alterar Senha"))))));
       } else {
         // Cria um card que indica que algo de errado aconteceu
         React.createElement("div", {
