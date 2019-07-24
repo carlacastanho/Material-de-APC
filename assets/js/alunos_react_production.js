@@ -499,7 +499,7 @@ function ClassInfo(props) {
   }, React.createElement("div", {
     className: "media-left"
   }, React.createElement("span", {
-    class: "glyphicon glyphicon-apple media-object"
+    className: "glyphicon glyphicon-apple media-object"
   })), React.createElement("div", {
     className: "media-body"
   }, React.createElement("p", {

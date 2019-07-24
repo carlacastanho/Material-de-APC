@@ -413,7 +413,7 @@ function ClassInfo(props) {
             <h4 className="panel-header">Turma&nbsp;{props.classname}</h4>
             <div className="container">
                 <div className="media-left">
-                    <span class="glyphicon glyphicon-apple media-object"></span>
+                    <span className="glyphicon glyphicon-apple media-object"></span>
                 </div>
                 <div className="media-body">
                     <p className="media-heading name-text">
