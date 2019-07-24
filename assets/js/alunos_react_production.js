@@ -209,13 +209,13 @@ function (_React$Component) {
           className: "handle-text"
         }, React.createElement("img", {
           className: "tiny-icon",
-          src: "assets/images/codeforces_icon.png",
+          src: "../assets/images/codeforces_icon.png",
           alt: "@"
         }), this.state.handle_cf) : '', this.state.handle_uri !== '' ? React.createElement("p", {
           className: "handle-text"
         }, React.createElement("img", {
           className: "tiny-icon",
-          src: "assets/images/uri_icon.png",
+          src: "../assets/images/uri_icon.png",
           alt: "@"
         }), this.state.handle_uri) : ''), React.createElement("div", null, React.createElement("p", null, React.createElement("button", {
           type: "button",

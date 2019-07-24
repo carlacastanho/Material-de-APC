@@ -174,7 +174,7 @@ class Profile extends React.Component {
                         </p>
                         { this.state.handle_cf !== '' ?
                             <p className="handle-text">
-                                <img className="tiny-icon" src="assets/images/codeforces_icon.png" alt="@"></img>
+                                <img className="tiny-icon" src="../assets/images/codeforces_icon.png" alt="@"></img>
                                 {this.state.handle_cf}
                             </p> :
                             ''
@@ -182,7 +182,7 @@ class Profile extends React.Component {
                         {
                             this.state.handle_uri !== '' ?
                             <p className="handle-text">
-                                <img className="tiny-icon" src="assets/images/uri_icon.png" alt="@"></img>
+                                <img className="tiny-icon" src="../assets/images/uri_icon.png" alt="@"></img>
                                 {this.state.handle_uri}
                             </p> :
                             ''
