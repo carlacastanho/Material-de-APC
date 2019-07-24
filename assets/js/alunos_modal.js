@@ -1,6 +1,6 @@
 // Modal inicial que aparece quando a página carrega
-const modal = document.getElementById("auth-modal");
-modal.classList.toggle('show');
+document.getElementById("auth-modal").classList.toggle('show');
+var student_id;
 
 function auth() {
     // Removes previous login error, if any
@@ -15,9 +15,9 @@ function auth() {
             "matricula": login,
             "password": pwd,
         }).then( function (response) {
-            console.log(response.data);
             if (response.data.userexist == true) {
-                dismissModal();
+                dismissModal(document.getElementById("auth-modal"));
+                student_id = response.data.student.ID;
                 loadDinamicContent(response.data);
             } else {
                 document.getElementById('login-error-alert').classList.remove('hide');
@@ -33,8 +33,9 @@ function auth() {
     return ;
 }
 
-function dismissModal() {
+function dismissModal(modal) {
     modal.classList.remove('show');
+    modal.classList.remove('in');
     modal.classList.add('fade');
 }
 
@@ -42,15 +43,4 @@ function validadeLogin(login) {
     return String(login).split('').reduce((isDigit, char) => {
         return '0123456789'.includes(char) & isDigit;
     }, true);
-}
-
-function validateNewPwd() {
-    let pwd = document.getElementById('pwdUpdate').value;
-    let pwdRep = document.getElementById('pwdRep').value;
-    if (pwd == pwdRep){
-        document.getElementById('senha-rep-invalid-alert').classList.add('hide');
-    } else {
-        document.getElementById('senha-rep-invalid-alert').classList.remove('hide');
-    }
-    return pwd == pwdRep; 
 }

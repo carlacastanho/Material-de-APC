@@ -20,6 +20,7 @@
 
 .panel-header {
     border-bottom: 1px solid #dddddd;
+    padding-left: 10px;
 }
 
 .btn-edit {
@@ -60,4 +61,25 @@
 .nav-btn:hover {
     background: #40babd;
     color: whitesmoke;
+}
+
+.info-box {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: "monospace";
+    opacity: 0.8;
+    font-weight: bold;
+}
+.info-box-success {
+    background-color: #dff0d8;
+    color: #427b43;
+
+}
+
+.info-box-fail {
+    background-color: #f2dede;
+    color: #a94442;
 }

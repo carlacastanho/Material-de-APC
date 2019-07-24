@@ -4,9 +4,11 @@
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _instanceof(left, right) { if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) { return right[Symbol.hasInstance](left); } else { return left instanceof right; } }
+function _instanceof(left, right) { if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) { return !!right[Symbol.hasInstance](left); } else { return left instanceof right; } }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _classCallCheck(instance, Constructor) { if (!_instanceof(instance, Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -57,11 +59,131 @@ function (_React$Component) {
   }
 
   _createClass(Profile, [{
+    key: "updateEmail",
+    value: function updateEmail(email_id, pwd_id, root) {
+      dismissModal(document.getElementById(root));
+      var new_email = document.getElementById(email_id).value;
+      var pwd = document.getElementById(pwd_id).value;
+      var profile = this;
+      axios.put('http://localhost:8080/students', {
+        'id': this.props.ID,
+        'email': new_email,
+        'password': pwd
+      }).then(function (response) {
+        profile.setState({
+          email: response.data.email
+        }); // TODO: Transformar isso em React.
+        // Não descobri como faz para adicionar o elemento no body sem remover todo o resto
+
+        var info_box = document.createElement('div');
+        info_box.innerText = "Email atualizado com sucesso!";
+        info_box.classList.add("info-box-success", "info-box");
+        info_box.id = 'email-update-success';
+        document.getElementsByTagName('body')[0].appendChild(info_box);
+        setTimeout(function () {
+          var box = document.getElementById('email-update-success');
+          box.parentNode.removeChild(box);
+        }, 2000);
+      }).catch(function (error) {
+        console.log(error); // TODO: Transformar isso em React.
+        // Não descobri como faz para adicionar o elemento no body sem remover todo o resto
+
+        var info_box = document.createElement('div');
+        info_box.innerText = "Ocorreu um erro. Tente novamente.";
+        info_box.classList.add("info-box-fail", "info-box");
+        info_box.id = 'email-update-fail';
+        document.getElementsByTagName('body')[0].appendChild(info_box);
+        setTimeout(function () {
+          var box = document.getElementById('email-update-fail');
+          box.parentNode.removeChild(box);
+        }, 2000);
+      });
+    }
+  }, {
+    key: "updatePassword",
+    value: function updatePassword(newpwd_id, pwd_id, root) {
+      dismissModal(document.getElementById(root));
+      var new_pwd = document.getElementById(newpwd_id).value;
+      var pwd = document.getElementById(pwd_id).value;
+      axios.put('http://localhost:8080/students', {
+        'id': this.props.ID,
+        'newpassword': new_pwd,
+        'password': pwd
+      }).then(function (response) {
+        // TODO: Transformar isso em React.
+        // Não descobri como faz para adicionar o elemento no body sem remover todo o resto
+        var info_box = document.createElement('div');
+        info_box.innerText = "Senha atualizada com sucesso!";
+        info_box.classList.add("info-box-success", "info-box");
+        info_box.id = 'email-update-success';
+        document.getElementsByTagName('body')[0].appendChild(info_box);
+        setTimeout(function () {
+          var box = document.getElementById('email-update-success');
+          box.parentNode.removeChild(box);
+        }, 2000);
+      }).catch(function (error) {
+        console.log(error); // TODO: Transformar isso em React.
+        // Não descobri como faz para adicionar o elemento no body sem remover todo o resto
+
+        var info_box = document.createElement('div');
+        info_box.innerText = "Ocorreu um erro. Tente novamente.";
+        info_box.classList.add("info-box-fail", "info-box");
+        info_box.id = 'email-update-fail';
+        document.getElementsByTagName('body')[0].appendChild(info_box);
+        setTimeout(function () {
+          var box = document.getElementById('email-update-fail');
+          box.parentNode.removeChild(box);
+        }, 2000);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       if (this.state.parseerror !== true) {
         // Cria o card de perfil corretamente
-        return React.createElement("div", {
+        var emailForm = {
+          element_id: "email-form-update",
+          student_id: this.props.ID,
+          title: "Atualize seu E-mail",
+          fields: [{
+            "id": "email-field",
+            "label": "Email",
+            "title": "Email usado para notícias e avisos",
+            "type": "email"
+          }, {
+            "id": "password-field",
+            "label": "Password",
+            "title": "Sua senha",
+            "type": "password"
+          }]
+        };
+        var pwdForm = {
+          element_id: "password-form-update",
+          student_id: this.props.ID,
+          title: "Altere sua Senha",
+          fields: [{
+            "id": "new-password-field",
+            "label": "Nova Senha",
+            "title": "Nova senha",
+            "type": "password"
+          }, {
+            "id": "pass-field",
+            "label": "Senha Atual",
+            "title": "Sua senha",
+            "type": "password"
+          }]
+        };
+        return React.createElement("div", null, React.createElement(UpdateForm, _extends({}, emailForm, {
+          onClick: function onClick() {
+            return _this2.updateEmail(emailForm.fields[0].id, emailForm.fields[1].id, emailForm.element_id);
+          }
+        })), React.createElement(UpdateForm, _extends({}, pwdForm, {
+          onClick: function onClick() {
+            return _this2.updatePassword(pwdForm.fields[0].id, pwdForm.fields[1].id, pwdForm.element_id);
+          }
+        })), React.createElement("div", {
           className: "panel panel-default panel-blue"
         }, React.createElement("h4", {
           className: "panel-header"
@@ -95,12 +217,19 @@ function (_React$Component) {
           type: "button",
           className: "btn-edit btn",
           "data-toggle": "modal",
-          "data-target": "#update-form-modal"
+          "data-target": '#' + emailForm.element_id
         }, React.createElement("span", {
           className: "glyphicon glyphicon-edit"
         })), " Email: ", React.createElement("span", {
           className: "handle-text"
-        }, this.state.email)))));
+        }, this.state.email)), React.createElement("p", null, React.createElement("button", {
+          type: "button",
+          className: "btn-edit panel panel-default",
+          "data-toggle": "modal",
+          "data-target": '#' + pwdForm.element_id
+        }, React.createElement("span", {
+          className: "glyphicon glyphicon-edit"
+        }, " "), "Alterar Senha"))))));
       } else {
         // Cria um card que indica que algo de errado aconteceu
         React.createElement("div", {
@@ -127,62 +256,77 @@ function (_React$Component2) {
   _inherits(Grades, _React$Component2);
 
   function Grades(props) {
-    var _this2;
+    var _this3;
 
     _classCallCheck(this, Grades);
 
-    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(Grades).call(this, props));
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(Grades).call(this, props));
 
     try {
-      _this2.state = {
+      _this3.state = {
         provas: props.exams,
         trabs: props.projects,
         listas: props.lists
       };
     } catch (error) {
       console.log("Error parsing grades:", error);
-      _this2.state = {
+      _this3.state = {
         parseerror: true
       };
     }
 
-    return _this2;
+    return _this3;
   }
 
   _createClass(Grades, [{
     key: "render",
     value: function render() {
       if (this.state.parseerror !== true) {
-        var prova_items = this.state.provas.map(function (g, idx) {
-          return React.createElement("li", {
-            key: idx,
-            className: "list-group-item"
-          }, React.createElement("span", {
-            className: "list-item"
-          }, "Prova ", idx + 1, " "), g);
-        });
-        var trab_items = this.state.trabs.map(function (g, idx) {
-          return React.createElement("li", {
-            key: idx,
-            className: "list-group-item"
-          }, React.createElement("span", {
-            className: "list-item"
-          }, "Trabalho (parte ", idx + 1, ") "), g);
-        });
-        var list_items = this.state.listas.map(function (g, idx) {
-          return React.createElement("li", {
-            key: idx,
-            className: "list-group-item"
-          }, React.createElement("span", {
-            className: "list-item"
-          }, "Lista ", idx + 1), g);
-        });
+        var prova_items = null;
+        var trab_items = null;
+        var list_items = null;
+
+        if (this.state.provas) {
+          prova_items = this.state.provas.map(function (g, idx) {
+            return React.createElement("li", {
+              key: idx,
+              className: "list-group-item"
+            }, React.createElement("span", {
+              className: "list-item"
+            }, "Prova ", idx + 1, " "), g);
+          });
+        }
+
+        if (this.state.trabs) {
+          trab_items = this.state.trabs.map(function (g, idx) {
+            return React.createElement("li", {
+              key: idx,
+              className: "list-group-item"
+            }, React.createElement("span", {
+              className: "list-item"
+            }, "Trabalho (parte ", idx + 1, ") "), g);
+          });
+        }
+
+        if (this.state.listas) {
+          list_items = this.state.listas.map(function (g, idx) {
+            return React.createElement("li", {
+              key: idx,
+              className: "list-group-item"
+            }, React.createElement("span", {
+              className: "list-item"
+            }, "Lista ", idx + 1), g);
+          });
+        }
+
         return (// Cria card com as informações corretas
           React.createElement("div", {
             className: "panel panel-default panel-blue"
-          }, React.createElement("h4", null, "Notas"), prova_items.length + trab_items.length + list_items.length > 0 ? React.createElement("ul", {
+          }, React.createElement("h4", {
+            className: "panel-header"
+          }, "Notas"), prova_items || trab_items || list_items ? React.createElement("ul", {
             className: "list-group"
-          }, prova_items, list_items, trab_items) : React.createElement("p", null, "Nenhuma nota ainda..."))
+          }, prova_items ? prova_items : '', list_items ? list_items : '', trab_items ? trab_items : '') : React.createElement("p", null, "Nenhuma nota ainda..."))
         );
       } else {
         // Cria um card que indica que algo de errado aconteceu
@@ -218,20 +362,32 @@ function (_React$Component3) {
     value: function render() {
       var newsArray = Object.values(this.props);
       var news_item = newsArray.map(function (g) {
-        return React.createElement("li", {
-          key: g.ID,
-          className: "list-group-item"
-        }, React.createElement("div", null, React.createElement("span", {
-          className: "list-item"
-        }, g.title + ':'), React.createElement("p", null, g.description), React.createElement("p", {
-          className: "date-item"
-        }, g.tags)));
+        return (// E a descrição menor
+          React.createElement("li", {
+            key: g.ID,
+            className: "list-group-item"
+          }, React.createElement("div", null, React.createElement("span", null, g.title), React.createElement("p", {
+            className: "list-item"
+          }, g.description), React.createElement("p", {
+            className: "date-item"
+          }, g.tags.join())))
+        );
       });
       return React.createElement("div", {
+        className: "panel-group"
+      }, React.createElement("div", {
         className: "panel panel-default panel-blue"
-      }, React.createElement("h4", null, "Not\xEDcias e Avisos"), React.createElement("ul", {
+      }, React.createElement("a", {
+        "data-toggle": "collapse",
+        href: "#news-list"
+      }, React.createElement("h4", {
+        className: "panel-header"
+      }, "Not\xEDcias e Avisos")), React.createElement("div", {
+        id: "news-list",
+        className: "panel-collapse collapse in"
+      }, React.createElement("ul", {
         className: "list-group"
-      }, news_item));
+      }, news_item))));
     }
   }]);
 
@@ -246,7 +402,7 @@ function (_React$Component4) {
   function Activities() {
     var _getPrototypeOf2;
 
-    var _this3;
+    var _this4;
 
     _classCallCheck(this, Activities);
 
@@ -254,11 +410,11 @@ function (_React$Component4) {
       args[_key] = arguments[_key];
     }
 
-    _this3 = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Activities)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this4 = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Activities)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this3), "state", {});
+    _defineProperty(_assertThisInitialized(_this4), "state", {});
 
-    return _this3;
+    return _this4;
   }
 
   _createClass(Activities, [{
@@ -269,23 +425,88 @@ function (_React$Component4) {
     key: "render",
     value: function render() {
       return React.createElement("div", {
+        className: "panel-group"
+      }, React.createElement("div", {
         className: "panel panel-default panel-blue"
-      }, React.createElement("h4", null, "Atividades"), React.createElement("ul", {
+      }, React.createElement("a", {
+        "data-toggle": "collapse",
+        href: "#activity-list"
+      }, React.createElement("h4", {
+        className: "panel-header"
+      }, "Atividades")), React.createElement("div", {
+        id: "activity-list",
+        className: "panel-collapse collapse in"
+      }, React.createElement("ul", {
         className: "list-group"
       }, React.createElement("li", {
         className: "list-group-item"
-      }, "N\xE3o sei pegar as listas ainda")));
+      }, "N\xE3o sei pegar as listas ainda")))));
     }
   }]);
 
   return Activities;
 }(React.Component);
 
+function UpdateForm(props) {
+  var fieldValues = Object.values(props.fields);
+  var fields = fieldValues.map(function (f, idx) {
+    return React.createElement("div", {
+      className: "form-group",
+      key: idx
+    }, React.createElement("label", {
+      className: "control-label col-sm-4",
+      htmlFor: f.id
+    }, f.label), React.createElement("div", {
+      className: "col-sm-6"
+    }, React.createElement("input", {
+      type: f.type,
+      className: "form-control",
+      id: f.id,
+      placeholder: "Email",
+      title: f.title
+    })));
+  });
+  return React.createElement("div", {
+    id: props.element_id,
+    className: "modal fade",
+    role: "dialog"
+  }, React.createElement("div", {
+    className: "modal-dialog"
+  }, React.createElement("div", {
+    className: "modal-content"
+  }, React.createElement("div", {
+    className: "modal-header"
+  }, React.createElement("button", {
+    type: "button",
+    className: "close",
+    "data-dismiss": "modal"
+  }, "\xD7"), React.createElement("h4", {
+    className: "modal-title"
+  }, props.title)), React.createElement("div", {
+    className: "modal-body"
+  }, React.createElement("div", {
+    className: "form-horizontal"
+  }, fields, React.createElement("div", {
+    className: "form-group"
+  }, React.createElement("div", {
+    className: "col-sm-offset-2 col-sm-10"
+  }, React.createElement("button", {
+    className: "btn btn-default btn-blue",
+    onClick: props.onClick
+  }, "Submit"))))), React.createElement("div", {
+    className: "modal-footer"
+  }, React.createElement("button", {
+    type: "button",
+    className: "btn btn-default btn-blue",
+    "data-dismiss": "modal"
+  }, "Close")))));
+}
+
 function loadDinamicContent(data) {
   // Carrega Profile
   ReactDOM.render(React.createElement(Profile, data.student), document.getElementById("student-root")); // Carrega Notas
 
-  // ReactDOM.render(React.createElement(Grades, data.student.grades), document.getElementById("grades-root")); // Carrega Notícias
+  ReactDOM.render(React.createElement(Grades, data.student.grades), document.getElementById("grades-root")); // Carrega Notícias
 
   ReactDOM.render(React.createElement(News, data.news), document.getElementById("news-root")); // Carrega Atividades
 
