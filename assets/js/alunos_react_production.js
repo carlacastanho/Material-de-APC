@@ -44,8 +44,8 @@ function (_React$Component) {
         lastname: props.lastname,
         matricula: props.matricula,
         photourl: props.photourl,
-        handle_cf: props.handles[0],
-        handle_uri: props.handles[1],
+        handle_cf: props.handles.codeforces,
+        handle_uri: props.handles.uri,
         email: props.email
       };
     } catch (error) {
