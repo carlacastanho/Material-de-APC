@@ -14,6 +14,7 @@ function auth() {
     // Collects field values
     let login = document.getElementById("email").value;
     let pwd = document.getElementById("pwd").value;
+    sessionStorage.__pwd = pwd;
     if(validadeLogin(login)) {
         axios.post( 'http://localhost:8080/student', {
             "matricula": login,

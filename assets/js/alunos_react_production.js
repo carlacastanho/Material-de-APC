@@ -137,6 +137,53 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "updateHandle",
+    value: function updateHandle(handle_el) {
+      var handle = document.getElementById(handle_el).value;
+      var profile = this;
+      var data;
+
+      if (handle_el == "handle-cf") {
+        data = {
+          "id": this.props.ID,
+          "password": this.props._pwd,
+          "handles": {
+            "codeforces": handle
+          }
+        };
+        this.setState({
+          handle_cf: handle
+        });
+      } else {
+        data = {
+          "id": this.props.ID,
+          "password": this.props._pwd,
+          "handles": {
+            "uri": handle
+          }
+        };
+        this.setState({
+          handle_uri: handle
+        });
+      }
+
+      axios.put("http://localhost:8080/students", data).then(function (response) {
+        console.log("Request ok");
+      }).catch(function (error) {
+        console.log("Erro:", error);
+
+        if (handle_el == "handle-cf") {
+          profile.setState({
+            handle_cf: ''
+          });
+        } else {
+          profile.setState({
+            handle_uri: ''
+          });
+        }
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -211,13 +258,55 @@ function (_React$Component) {
           className: "tiny-icon",
           src: "../assets/images/codeforces_icon.png",
           alt: "@"
-        }), this.state.handle_cf) : '', this.state.handle_uri !== '' ? React.createElement("p", {
+        }), this.state.handle_cf) : React.createElement("div", {
+          className: "input-group col-sm-3"
+        }, React.createElement("span", {
+          className: "input-group-addon"
+        }, React.createElement("img", {
+          className: "tiny-icon",
+          src: "../assets/images/codeforces_icon.png",
+          alt: "@"
+        })), React.createElement("input", {
+          id: "handle-cf",
+          type: "text",
+          className: "form-control",
+          name: "password",
+          placeholder: "Handle"
+        }), React.createElement("span", {
+          className: "input-group-addon btn-edit",
+          onClick: function onClick() {
+            return _this2.updateHandle('handle-cf');
+          }
+        }, React.createElement("i", {
+          class: "glyphicon glyphicon-send"
+        }))), this.state.handle_uri !== '' ? React.createElement("p", {
           className: "handle-text"
         }, React.createElement("img", {
           className: "tiny-icon",
           src: "../assets/images/uri_icon.png",
           alt: "@"
-        }), this.state.handle_uri) : ''), React.createElement("div", null, React.createElement("p", null, React.createElement("button", {
+        }), this.state.handle_uri) : React.createElement("div", {
+          className: "input-group col-sm-3"
+        }, React.createElement("span", {
+          className: "input-group-addon"
+        }, React.createElement("img", {
+          className: "tiny-icon",
+          src: "../assets/images/uri_icon.png",
+          alt: "@"
+        })), React.createElement("input", {
+          id: "handle-uri",
+          type: "text",
+          className: "form-control",
+          name: "password",
+          placeholder: "Handle"
+        }), React.createElement("span", {
+          className: "input-group-addon btn-edit",
+          onClick: function onClick() {
+            return _this2.updateHandle('handle-uri');
+          }
+        }, React.createElement("i", {
+          class: "glyphicon glyphicon-send"
+        })))), React.createElement("div", null, React.createElement("p", null, React.createElement("button", {
           type: "button",
           className: "btn-edit btn",
           "data-toggle": "modal",
@@ -514,7 +603,8 @@ function ClassInfo(props) {
 function loadDinamicContent(data) {
   // Carrega Profile
   ReactDOM.render(React.createElement(Profile, _extends({}, data.student, {
-    classInfo: data.class
+    classInfo: data.class,
+    _pwd: sessionStorage.__pwd
   })), document.getElementById("student-root")); // Carrega Turma
 
   ReactDOM.render(React.createElement(ClassInfo, data.class), document.getElementById("class-root")); // Carrega Notas

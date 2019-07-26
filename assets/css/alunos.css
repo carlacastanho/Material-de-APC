@@ -14,6 +14,11 @@
     height: 10pt;
     margin: 5px;
 }
+
+.tiny-input {
+    height: 10pt;
+    font-size: 10pt;
+}
 .panel-blue {
     border-top: 2px solid #40babd;
 }

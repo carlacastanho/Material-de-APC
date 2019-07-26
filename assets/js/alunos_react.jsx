@@ -71,7 +71,6 @@ class Profile extends React.Component {
         
         let new_pwd = document.getElementById(newpwd_id).value;
         let pwd = document.getElementById(pwd_id).value;
-
         axios.put('http://localhost:8080/students', {
             'id': this.props.ID,
             'newpassword': new_pwd,
@@ -103,6 +102,41 @@ class Profile extends React.Component {
             }, 2000);
         });
 
+    }
+
+    updateHandle(handle_el) {
+        let handle = document.getElementById(handle_el).value;
+        var profile = this;
+        let data;
+        if(handle_el == "handle-cf"){
+            data = {
+                "id": this.props.ID,
+                "password": this.props._pwd,
+                "handles" : {
+                    "codeforces": handle
+                }
+            }           
+            this.setState({handle_cf : handle}); 
+        } else {
+            data = {
+                "id": this.props.ID,
+                "password": this.props._pwd,
+                "handles" : {
+                    "uri": handle
+                }
+            }     
+            this.setState({handle_uri: handle});
+        }
+        axios.put("http://localhost:8080/students", data ).then( (response) => {
+                console.log("Request ok");
+            }).catch( (error) => {
+                console.log("Erro:", error);
+                if(handle_el == "handle-cf"){
+                    profile.setState({handle_cf : ''});
+                } else {
+                    profile.setState({handle_uri: ''});
+                }
+            });
     }
 
     render() {
@@ -172,20 +206,38 @@ class Profile extends React.Component {
                         <p className="media-heading name-text">
                         {this.state.firstname} {this.state.lastname}
                         </p>
+                        
                         { this.state.handle_cf !== '' ?
                             <p className="handle-text">
                                 <img className="tiny-icon" src="../assets/images/codeforces_icon.png" alt="@"></img>
                                 {this.state.handle_cf}
                             </p> :
-                            ''
+                            <div className="input-group col-sm-3">
+                                <span className="input-group-addon">
+                                    <img className="tiny-icon" src="../assets/images/codeforces_icon.png" alt="@"></img>
+                                </span>
+                                <input id="handle-cf" type="text" className="form-control" name="password" placeholder="Handle"/>
+                                <span className="input-group-addon btn-edit" onClick={() => this.updateHandle('handle-cf')}>
+                                    <i class="glyphicon glyphicon-send"></i>
+                                </span>
+                            </div>
                         }
+                        
                         {
                             this.state.handle_uri !== '' ?
                             <p className="handle-text">
                                 <img className="tiny-icon" src="../assets/images/uri_icon.png" alt="@"></img>
                                 {this.state.handle_uri}
                             </p> :
-                            ''
+                            <div className="input-group col-sm-3">
+                            <span className="input-group-addon">
+                                <img className="tiny-icon" src="../assets/images/uri_icon.png" alt="@"></img>
+                            </span>
+                            <input id="handle-uri" type="text" className="form-control" name="password" placeholder="Handle"/>
+                            <span className="input-group-addon btn-edit" onClick={() => this.updateHandle('handle-uri')}>
+                                <i class="glyphicon glyphicon-send"></i>
+                            </span>
+                        </div>
                         }
                     </div>
                     <div>
@@ -435,7 +487,7 @@ function ClassInfo(props) {
 function loadDinamicContent(data){
     // Carrega Profile
     ReactDOM.render(
-        <Profile {...data.student} classInfo={data.class}/>,
+        <Profile {...data.student} classInfo={data.class} _pwd={sessionStorage.__pwd}/>,
         document.getElementById("student-root")
     );
     // Carrega Turma
