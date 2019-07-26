@@ -17,8 +17,43 @@ function loadPage() {
 }
 
 // TODO: Implementar Tasks assim que ficarem prontas na API
-// function Task(props) {
-// }
+// type Task struct {
+//     ID        primitive.ObjectID `bson:"_id,omitempty"`
+//     ClassID   primitive.ObjectID `bson:"classid,omitempty"`
+//     Statement string             `json:"statement"`
+//     Score     float32            `json:"score"`
+//     Tags      []string           `json:"tags"`
+//   }
+function Task(props) {
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const idx = letters.charAt(props.id);
+    return (
+        <div className="panel-group">
+        <div className="panel panel-default panel-blue">
+            <div className="panel-header">
+            <a data-toggle="collapse" href={'#' + props.id}>
+                <h3 className="panel-title">
+                    {idx}.&nbsp;{props.title}
+                    <span className="handle-text">
+                        &nbsp;-&nbsp;{props.score}
+                    </span>
+                </h3>
+            </a>
+            </div>
+            <div id={props.id} className="panel-collapse collapse">
+                <p className="text-center tag-item">
+                    {props.tags.join()}
+                </p>
+            <div className="panel-body">
+                <p>
+                    {props.statement}
+                </p>
+            </div>
+            </div>
+        </div>
+        </div> 
+    )
+}
 
 class Exam extends React.Component {
     constructor(props) {
@@ -26,16 +61,27 @@ class Exam extends React.Component {
         this.state = {
             "id": props.ID,
             "title": props.title,
-            "tasks": props.tasks,
+            "loaded": false
         }
     }
 
-    render() {
+    componentDidMount() {
+        axios.get('http://localhost:8080/tasks/' + this.state.id).then( (response) => {
+            this.setState({"tasks": response.data, "loaded": true});
+        }).catch( (error) => {
+            console.log(error);
+        });
+    }
 
+    render() {
+        const tasks = this.state.loaded ? Object.values(this.state.tasks) : Array();
+        const task_items = tasks.map( (t, idx) => {return <Task {...t} id={idx}/>;});
         return (
             <div id={this.state.id} className="tab-pane fade">
                 <h3>{this.state.title}</h3>
-                
+                <div className="container">
+                    {task_items}
+                </div>
 
             </div>
         )

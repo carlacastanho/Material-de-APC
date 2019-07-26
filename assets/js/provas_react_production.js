@@ -4,6 +4,8 @@ function _instanceof(left, right) { if (right != null && typeof Symbol !== "unde
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!_instanceof(instance, Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -34,9 +36,40 @@ function loadPage() {
   ReactDOM.render(React.createElement(ExamMenu, null), document.getElementById('page-root'));
   return true;
 } // TODO: Implementar Tasks assim que ficarem prontas na API
-// function Task(props) {
-// }
+// type Task struct {
+//     ID        primitive.ObjectID `bson:"_id,omitempty"`
+//     ClassID   primitive.ObjectID `bson:"classid,omitempty"`
+//     Statement string             `json:"statement"`
+//     Score     float32            `json:"score"`
+//     Tags      []string           `json:"tags"`
+//   }
 
+
+function Task(props) {
+  var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var idx = letters.charAt(props.id);
+  return React.createElement("div", {
+    className: "panel-group"
+  }, React.createElement("div", {
+    className: "panel panel-default panel-blue"
+  }, React.createElement("div", {
+    className: "panel-header"
+  }, React.createElement("a", {
+    "data-toggle": "collapse",
+    href: '#' + props.id
+  }, React.createElement("h3", {
+    className: "panel-title"
+  }, idx, ".\xA0", props.title, React.createElement("span", {
+    className: "handle-text"
+  }, "\xA0-\xA0", props.score)))), React.createElement("div", {
+    id: props.id,
+    className: "panel-collapse collapse"
+  }, React.createElement("p", {
+    className: "text-center tag-item"
+  }, props.tags.join()), React.createElement("div", {
+    className: "panel-body"
+  }, React.createElement("p", null, props.statement)))));
+}
 
 var Exam =
 /*#__PURE__*/
@@ -52,18 +85,40 @@ function (_React$Component) {
     _this.state = {
       "id": props.ID,
       "title": props.title,
-      "tasks": props.tasks
+      "loaded": false
     };
     return _this;
   }
 
   _createClass(Exam, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios.get('http://localhost:8080/tasks/' + this.state.id).then(function (response) {
+        _this2.setState({
+          "tasks": response.data,
+          "loaded": true
+        });
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var tasks = this.state.loaded ? Object.values(this.state.tasks) : Array();
+      var task_items = tasks.map(function (t, idx) {
+        return React.createElement(Task, _extends({}, t, {
+          id: idx
+        }));
+      });
       return React.createElement("div", {
         id: this.state.id,
         className: "tab-pane fade"
-      }, React.createElement("h3", null, this.state.title));
+      }, React.createElement("h3", null, this.state.title), React.createElement("div", {
+        className: "container"
+      }, task_items));
     }
   }]);
 
@@ -71,7 +126,6 @@ function (_React$Component) {
 }(React.Component);
 
 function ExamTab(props) {
-    console.log("Tab:", props);
   return React.createElement("li", {
     key: props.ID
   }, React.createElement("a", {
@@ -86,25 +140,25 @@ function (_React$Component2) {
   _inherits(ExamMenu, _React$Component2);
 
   function ExamMenu(props) {
-    var _this2;
+    var _this3;
 
     _classCallCheck(this, ExamMenu);
 
-    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(ExamMenu).call(this, props));
-    _this2.state = {
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(ExamMenu).call(this, props));
+    _this3.state = {
       "ready": false
     };
-    return _this2;
+    return _this3;
   }
 
   _createClass(ExamMenu, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this3 = this;
+      var _this4 = this;
 
       var connInfo = JSON.parse(sessionStorage.connInfo);
       axios.get('http://localhost:8080/exams/' + connInfo.class.ID).then(function (response) {
-        _this3.setState({
+        _this4.setState({
           "data": response.data,
           "ready": true
         });
