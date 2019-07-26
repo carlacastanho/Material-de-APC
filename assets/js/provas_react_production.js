@@ -37,8 +37,7 @@ function loadPage() {
   return true;
 } // TODO: Implementar Tasks assim que ficarem prontas na API
 // type Task struct {
-//     ID        primitive.ObjectID `bson:"_id,omitempty"`
-//     ClassID   primitive.ObjectID `bson:"classid,omitempty"`
+//     ExamId   primitive.ObjectID `bson:"classid,omitempty"`
 //     Statement string             `json:"statement"`
 //     Score     float32            `json:"score"`
 //     Tags      []string           `json:"tags"`
@@ -47,7 +46,9 @@ function loadPage() {
 
 function Task(props) {
   var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var idx = letters.charAt(props.id);
+  var idx = letters.charAt(props._idx);
+  var entry = props.statement.indexOf("Entrada:");
+  var exit = props.statement.indexOf("Saída:");
   return React.createElement("div", {
     className: "panel-group"
   }, React.createElement("div", {
@@ -56,19 +57,23 @@ function Task(props) {
     className: "panel-header"
   }, React.createElement("a", {
     "data-toggle": "collapse",
-    href: '#' + props.id
+    href: '#' + props.ID
   }, React.createElement("h3", {
     className: "panel-title"
   }, idx, ".\xA0", props.title, React.createElement("span", {
     className: "handle-text"
   }, "\xA0-\xA0", props.score)))), React.createElement("div", {
-    id: props.id,
+    id: props.ID,
     className: "panel-collapse collapse"
-  }, React.createElement("p", {
+  }, React.createElement("h4", {
+    className: "text-center"
+  }, props.title), React.createElement("p", {
     className: "text-center tag-item"
   }, props.tags.join()), React.createElement("div", {
     className: "panel-body"
-  }, React.createElement("p", null, props.statement)))));
+  }, React.createElement("div", null, props.statement.slice(0, entry).split("\n").map(function (str) {
+    return React.createElement("p", null, str);
+  })), React.createElement("p", null, props.statement.slice(entry, exit)), React.createElement("p", null, props.statement.slice(exit))))));
 }
 
 var Exam =
@@ -110,7 +115,7 @@ function (_React$Component) {
       var tasks = this.state.loaded ? Object.values(this.state.tasks) : Array();
       var task_items = tasks.map(function (t, idx) {
         return React.createElement(Task, _extends({}, t, {
-          id: idx
+          _idx: idx
         }));
       });
       return React.createElement("div", {

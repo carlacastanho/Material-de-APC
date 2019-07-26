@@ -18,20 +18,22 @@ function loadPage() {
 
 // TODO: Implementar Tasks assim que ficarem prontas na API
 // type Task struct {
-//     ID        primitive.ObjectID `bson:"_id,omitempty"`
-//     ClassID   primitive.ObjectID `bson:"classid,omitempty"`
+//     ExamId   primitive.ObjectID `bson:"classid,omitempty"`
 //     Statement string             `json:"statement"`
 //     Score     float32            `json:"score"`
 //     Tags      []string           `json:"tags"`
 //   }
 function Task(props) {
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const idx = letters.charAt(props.id);
+    const idx = letters.charAt(props._idx);
+
+    const entry = props.statement.indexOf("Entrada:");
+    const exit = props.statement.indexOf("Saída:");
     return (
         <div className="panel-group">
         <div className="panel panel-default panel-blue">
             <div className="panel-header">
-            <a data-toggle="collapse" href={'#' + props.id}>
+            <a data-toggle="collapse" href={'#' + props.ID}>
                 <h3 className="panel-title">
                     {idx}.&nbsp;{props.title}
                     <span className="handle-text">
@@ -40,13 +42,22 @@ function Task(props) {
                 </h3>
             </a>
             </div>
-            <div id={props.id} className="panel-collapse collapse">
+            <div id={props.ID} className="panel-collapse collapse">
+                <h4 className="text-center">{props.title}</h4>
                 <p className="text-center tag-item">
                     {props.tags.join()}
                 </p>
             <div className="panel-body">
+                <div>
+                    {props.statement.slice(0, entry).split("\n").map( (str, i) => {
+                        return (<p key={i}>{str}</p>)
+                    })}
+                </div>
                 <p>
-                    {props.statement}
+                    {props.statement.slice(entry, exit)}
+                </p>
+                <p>
+                    {props.statement.slice(exit)}
                 </p>
             </div>
             </div>
@@ -75,7 +86,7 @@ class Exam extends React.Component {
 
     render() {
         const tasks = this.state.loaded ? Object.values(this.state.tasks) : Array();
-        const task_items = tasks.map( (t, idx) => {return <Task {...t} id={idx}/>;});
+        const task_items = tasks.map( (t, idx) => {return <Task {...t} _idx={idx}/>;});
         return (
             <div id={this.state.id} className="tab-pane fade">
                 <h3>{this.state.title}</h3>
