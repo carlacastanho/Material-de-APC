@@ -47,8 +47,6 @@ function loadPage() {
 function Task(props) {
   var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var idx = letters.charAt(props._idx);
-  var entry = props.statement.indexOf("Entrada:");
-  var exit = props.statement.indexOf("Saída:");
   return React.createElement("div", {
     className: "panel-group"
   }, React.createElement("div", {
@@ -71,9 +69,11 @@ function Task(props) {
     className: "text-center tag-item"
   }, props.tags.join()), React.createElement("div", {
     className: "panel-body"
-  }, React.createElement("div", null, props.statement.slice(0, entry).split("\n").map(function (str) {
-    return React.createElement("p", null, str);
-  })), React.createElement("p", null, props.statement.slice(entry, exit)), React.createElement("p", null, props.statement.slice(exit))))));
+  }, React.createElement("div", null, props.statement.split("\n").map(function (str, i) {
+    return React.createElement("p", {
+      key: i
+    }, str);
+  }))))));
 }
 
 var Exam =

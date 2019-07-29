@@ -27,8 +27,6 @@ function Task(props) {
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const idx = letters.charAt(props._idx);
 
-    const entry = props.statement.indexOf("Entrada:");
-    const exit = props.statement.indexOf("Saída:");
     return (
         <div className="panel-group">
         <div className="panel panel-default panel-blue">
@@ -49,16 +47,10 @@ function Task(props) {
                 </p>
             <div className="panel-body">
                 <div>
-                    {props.statement.slice(0, entry).split("\n").map( (str, i) => {
+                    {props.statement.split("\n").map( (str, i) => {
                         return (<p key={i}>{str}</p>)
                     })}
                 </div>
-                <p>
-                    {props.statement.slice(entry, exit)}
-                </p>
-                <p>
-                    {props.statement.slice(exit)}
-                </p>
             </div>
             </div>
         </div>
