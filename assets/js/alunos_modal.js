@@ -1,3 +1,5 @@
+
+
 // Modal inicial que aparece quando a página carrega
 // Caso não haja nenhuma sessão acontecendo
 if (sessionStorage.connInfo){
@@ -16,7 +18,7 @@ function auth() {
     let pwd = document.getElementById("pwd").value;
     sessionStorage.__pwd = pwd;
     if(validadeLogin(login)) {
-        axios.post( 'http://localhost:8080/student', {
+        axios.post( 'http://' + config.apihost + '/student', {
             "matricula": login,
             "password": pwd,
         }).then( function (response) {

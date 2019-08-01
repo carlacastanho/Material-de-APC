@@ -65,7 +65,7 @@ function (_React$Component) {
       var new_email = document.getElementById(email_id).value;
       var pwd = document.getElementById(pwd_id).value;
       var profile = this;
-      axios.put('http://localhost:8080/students', {
+      axios.put('http://' + config.apihost + '/students', {
         'id': this.props.ID,
         'email': new_email,
         'password': pwd
@@ -105,7 +105,7 @@ function (_React$Component) {
       dismissModal(document.getElementById(root));
       var new_pwd = document.getElementById(newpwd_id).value;
       var pwd = document.getElementById(pwd_id).value;
-      axios.put('http://localhost:8080/students', {
+      axios.put('http://' + config.apihost + '/students', {
         'id': this.props.ID,
         'newpassword': new_pwd,
         'password': pwd
@@ -167,7 +167,7 @@ function (_React$Component) {
         });
       }
 
-      axios.put("http://localhost:8080/students", data).then(function (response) {
+      axios.put("http://" + config.apihost + "/students", data).then(function (response) {
         console.log("Request ok");
       }).catch(function (error) {
         console.log("Erro:", error);

@@ -69,7 +69,7 @@ class Exam extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/tasks/' + this.state.id).then( (response) => {
+        axios.get('http://' + config.apihost + '/tasks/' + this.state.id).then( (response) => {
             this.setState({"tasks": response.data, "loaded": true});
         }).catch( (error) => {
             console.log(error);
@@ -105,7 +105,7 @@ class ExamMenu extends React.Component {
     }
     componentDidMount() {
         let connInfo = JSON.parse(sessionStorage.connInfo);
-        axios.get('http://localhost:8080/exams/' + connInfo.class.ID)
+        axios.get('http://' + config.apihost + '/exams/' + connInfo.class.ID)
         .then( (response) => {
             this.setState({"data" : response.data, "ready": true});
         })

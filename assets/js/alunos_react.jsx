@@ -31,7 +31,7 @@ class Profile extends React.Component {
         let new_email = document.getElementById(email_id).value;
         let pwd = document.getElementById(pwd_id).value;
         var profile = this;
-        axios.put('http://localhost:8080/students', {
+        axios.put('http://' + config.apihost + '/students', {
             'id': this.props.ID,
             'email': new_email,
             'password': pwd
@@ -71,7 +71,7 @@ class Profile extends React.Component {
         
         let new_pwd = document.getElementById(newpwd_id).value;
         let pwd = document.getElementById(pwd_id).value;
-        axios.put('http://localhost:8080/students', {
+        axios.put('http://' + config.apihost + '/students', {
             'id': this.props.ID,
             'newpassword': new_pwd,
             'password': pwd
@@ -127,7 +127,7 @@ class Profile extends React.Component {
             }     
             this.setState({handle_uri: handle});
         }
-        axios.put("http://localhost:8080/students", data ).then( (response) => {
+        axios.put("http://" + config.apihost + "/students", data ).then( (response) => {
                 console.log("Request ok");
             }).catch( (error) => {
                 console.log("Erro:", error);

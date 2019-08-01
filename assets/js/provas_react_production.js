@@ -100,7 +100,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios.get('http://localhost:8080/tasks/' + this.state.id).then(function (response) {
+      axios.get('http://' + config.apihost + '/tasks/' + this.state.id).then(function (response) {
         _this2.setState({
           "tasks": response.data,
           "loaded": true
@@ -162,7 +162,7 @@ function (_React$Component2) {
       var _this4 = this;
 
       var connInfo = JSON.parse(sessionStorage.connInfo);
-      axios.get('http://localhost:8080/exams/' + connInfo.class.ID).then(function (response) {
+      axios.get('http://' + config.apihost + '/exams/' + connInfo.class.ID).then(function (response) {
         _this4.setState({
           "data": response.data,
           "ready": true
